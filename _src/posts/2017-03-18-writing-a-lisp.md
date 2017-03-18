@@ -106,6 +106,7 @@ Haskell's type system was an especially big help in implementing the language.
 - (env)
 - rlwrap
 - Haskeline
+- Pretty printing lambda's
 
 
 
