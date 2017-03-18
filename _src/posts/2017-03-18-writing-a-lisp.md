@@ -2,10 +2,111 @@
     Date: 2017-03-18T18:22:23
     Tags: DRAFT
 
-I've been working on my first general purpose programming language this week. This has been a goal of mine for a long time, but it somehow always looked intimidating.
-I was glad to find out that interpreters can actually be astonishingly simple, and would like to share what I learned along the way.
+I've been working on my first general purpose programming language last week. This has been a goal of mine for a long time, but it somehow always looked intimidating.
+I was glad to find out that interpreters can actually be astonishingly simple, and would like to share what I learned along the way. If you want to see the code in context, you can follow along [here](https://github.com/reinvdwoerd/lisp).
 
 <!-- more -->
+## Macro's 
+Since macro's are just functions of `code -> code`,
+adding a simple macro system to my Lisp was trivially easy. 
+First, I added an additional field to my function record to identify macro's.
+
+``` haskell
+data LispVal =  ...  
+                | Func { isMacro :: Bool, -- new
+                         params  :: [String],
+                         body    :: [LispVal],
+                         closure :: Env }
+```
+
+Next, I wrote a new evaluation rule for macro definitions.
+
+```haskell
+makeFn isMacro params body env =
+  --
+
+makeMacro = makeFn True
+
+eval env (List (Symbol "define-syntax" : List (Symbol var : params) : body)) =
+  makeMacro params body env >>= defineVar env var
+```
+
+Finally, I changed the way macro invocations are evaluated,
+by passing arguments to the macro unevaluated, and evaluating the result  instead.
+
+```haskell
+eval env (List (func : args)) = do
+  evaluatedFunc <- eval env func -- required to determine evaluation order
+  case evaluatedFunc of
+    Func {isMacro = True} ->
+      apply evaluatedFunc args >>= eval env -- evaluate results
+
+    _ ->
+      evalMany env args >>= apply evaluatedFunc -- evaluate arguments
+```
+
+To make macro's more easy to use, I added syntax and evaluation rules for quote/unquote.
+
+```haskell
+quote = do
+  char '\''
+  form <- expr
+  return $ List [Symbol "quote", form]
+
+unquote = do
+  char '~'
+  form <- expr
+  return $ List [Symbol "unquote", form]
+
+expr :: Parser LispVal
+expr = ... <|> quote <|> unquote
+```
+
+Quoted expressions are walked, and any unquoted expression within is replaced by it's evaluated result. 
+
+```haskell
+eval env (List [Symbol "quote", form]) = do 
+  evalUnquotes form
+  where evalUnquotes form =
+          case form of
+            List [Symbol "unquote", form] ->
+              eval env form
+            List items -> do
+              results <- traverse evalUnquotes items
+              return $ List results
+            _ ->
+              return form
+```
+
+After this, you should have a fully functional macro system, and additional syntax like the following can be defined from within the language: 
+
+```lisp
+(define-syntax (unless test then)
+  '(if (not ~test)
+     ~then
+      nil))
+```
+
+
+## Variable arguments
+
+
+## Types 
+Types are an especially big help in implementing languages.
+
+
+## Language boundaries
+- Interop with host language: conversion layer
+- Abstract accessors
+- AST: decouple syntax from evaluation
+
+
+## Repl
+- (env)
+- rlwrap
+- Haskeline
+
+
 
 ## Getting Started
 - Clojure
@@ -15,7 +116,6 @@ I was glad to find out that interpreters can actually be astonishingly simple, a
 - Representing it as a stack
 - Difficulities drawing the line between interpreted/host language
 - Bad Repl experience
-- Interop with host language: conversion layer
 - Require
 
 
@@ -32,16 +132,12 @@ I was glad to find out that interpreters can actually be astonishingly simple, a
 ## SICP: Metacircular Evaluator
 - Internal definitions
 - Macro's evaluate return value, not arguments
-- Abstract accessors
 - Internal definitions
-- Enviroment inspection
-- AST: decouple syntax from evaluation
 
 ## Finishing up
 - Smaller core
 - Varargs + macro's: less syntax needed
 - Stack, run-stack
-- Haskeline
 - License
 
 ## What's next
