@@ -2,13 +2,14 @@
     Date: 2017-03-18T18:22:23
     Tags: DRAFT
 
-I've been working on my first general purpose programming language last week. This has been a goal of mine for a long time, but it somehow always looked intimidating.
-I was glad to find out that interpreters can actually be astonishingly simple, and would like to share what I learned along the way. If you want to see the code in context, you can follow along [here](https://github.com/reinvdwoerd/lisp).
+I've been working on my first general purpose programming language last week, guided by the books Structure and Interpretation of Computer Programs and Write Yourself a Scheme in 48 Hours.
+ This has been a goal of mine for a long time, but it somehow always looked intimidating.
+I was glad to find out that interpreters can actually be astonishingly simple, and would like to share what I learned along the way. If you'd like to see the code in context, you can follow along [here](https://github.com/reinvdwoerd/lisp).
 
 <!-- more -->
 ## Macro's 
 Since macro's are just functions of `code -> code`,
-adding a simple macro system to my Lisp was trivially easy. 
+adding a simple macro system to my Lisp was fairly easy. 
 First, I added an additional field to my function record to identify macro's.
 
 ``` haskell
@@ -89,13 +90,13 @@ After this, you should have a fully functional macro system, and additional synt
 
 
 ## Variable arguments
+Variable arguments, combined with macro's, allowed me to define some additional special forms within the language.
 
-
-## Types 
-Types are an especially big help in implementing languages.
 
 
 ## Language boundaries
+Haskell's type system was an especially big help in implementing the language. 
+
 - Interop with host language: conversion layer
 - Abstract accessors
 - AST: decouple syntax from evaluation
