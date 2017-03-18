@@ -81,7 +81,7 @@ eval env (List [Symbol "quote", form]) = do
 
 After this, you should have a fully functional macro system, and additional syntax like the following can be defined from within the language: 
 
-```lisp
+```scheme
 (define-syntax (unless test then)
   '(if (not ~test)
      ~then
