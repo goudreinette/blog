@@ -93,6 +93,8 @@ After this, you should have a fully functional macro system, and additional synt
 The combination of macro's and varargs allowed me to define some additional special forms from within the language.
 
 #### let
+Let can be derived from lambda, binding arguments to parameters and creating a new local enviroment.
+
 ```scheme
 (define (binding-vars bindings)
   (map first (pairs bindings)))
