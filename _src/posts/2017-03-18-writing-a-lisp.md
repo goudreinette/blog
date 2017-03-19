@@ -7,7 +7,7 @@ I've been working on my first general purpose programming language last week, gu
 I was glad to find out that interpreters can actually be astonishingly simple, and would like to share what I learned along the way. This code is based on Write Yourself a Scheme. If you'd like to see the code in context, you can follow along [here](https://github.com/reinvdwoerd/lisp).
 
 <!-- more -->
-## Macro's 
+## Implementing Macro's 
 Since macro's are just functions of `code -> code`,
 adding a simple macro system to my Lisp was fairly easy. 
 First, I added an additional field to my function record to identify macro's.
@@ -89,16 +89,46 @@ After this, you should have a fully functional macro system, and additional synt
 ```
 
 
-## Variable arguments
-Variable arguments, combined with macro's, allowed me to define some additional special forms within the language.
+## Varargs and Special Forms
+The combination of macro's and varargs allowed me to define some additional special forms from within the language.
 
 #### let
+```scheme
+(define (binding-vars bindings)
+  (map first (pairs bindings)))
 
+(define (binding-vals bindings)
+  (map second (pairs bindings)))
+
+(define-syntax (let bindings . body)
+  (list* (list* 'lambda  (binding-vars bindings) body) 
+         (binding-vals bindings))))
+
+```
 
 #### cond
+What's interesting about this special form is that both it and 'if' can be defined in terms of each other.
+Since Write Yourself a Scheme decided to make 'if' the primitive form, I wrote cond to expand to nested if's.
+```scheme
+(cond
+  (symbol? x) "symbol"
+  (number? x) "number"
+  (list? x)   "list"
+  (string? x) "string"
+  'else       "unknown")
+```
 
+#### do/begin
+Evaluates it's arguments left to right, and returns the last result.
+Since this is already the default evaluation order, all I needed to do was the last result.
+```scheme
+(define (do . forms)
+  (last forms))
 
-#### do
+(do 
+  (+ 1 1)
+  (empty? '(1))) ; => false
+```
 
 
 ## Language boundaries
