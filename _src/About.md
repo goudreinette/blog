@@ -1,3 +1,3 @@
-# About page
+# About
 
-Your about page, here.
+
