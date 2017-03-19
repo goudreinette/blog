@@ -1,0 +1,106 @@
+/* Global */
+body {
+    font-family: 'Source Sans Pro' !important;
+}
+
+a {
+    color: #880000 !important;
+}
+
+/* Nav */
+.navbar {
+    background: none;
+    height: 70px;
+}
+
+.navbar .container {
+    height: 70px;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    background: none;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.9) !important;
+}
+
+.nav li a {
+    padding: 0px;
+    margin: 0 15px;
+    transition: all .3s;
+    border-bottom: 2px solid transparent;
+    color: #444 !important;
+}
+
+.nav .active a, .nav > li a:hover {
+    background: none !important;
+    border-bottom: 2px solid black;
+    color: black !important;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Source Sans Pro' !important;
+}
+
+h2 {
+    margin: 30px 0 5px 0;
+}
+
+h2 a {
+    color: rgba(0, 0, 0, 0.9) !important;
+}
+
+h4 {
+    font-weight: 600;
+}
+
+p {
+    font-size: 16px;
+    margin-bottom: 50px;
+}
+
+/* Code */
+.linenos {
+    display: none;
+}
+
+code {
+    color: black;
+}
+
+.sourcetable {
+    width: 100%;
+}
+
+pre {
+    white-space: pre;
+    width: inherit;
+    font-family: Fira Code;
+    margin: 0;
+    border: 1px solid #eee;
+    background-color: #f7f7f7;
+    border-radius: 3px;
+    font-size: 14px;    
+}
+
+
+article img {
+  /* Make sure that images within blog articles never take more width
+     than the article width; `height: auto` ensures the height is also
+     resized proportionally.
+
+     This is useful given that Markdown itself gives you little
+     control over image resizing, and in particular no way to achieve
+     this "best fit" behavior.
+ */
+  max-width: 100%;
+  height: auto;
+}
+
+article footer {
+    margin-top: 15px;
+}

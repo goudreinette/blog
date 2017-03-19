@@ -5,7 +5,8 @@ tags/
 js/
 img/
 
-css/
+css/bootstrap*
+css/scribble*
 !css/custom.css
 !css/pygments.css
 
