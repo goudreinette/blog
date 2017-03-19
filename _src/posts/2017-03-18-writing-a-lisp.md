@@ -154,6 +154,34 @@ eval env (List [Symbol "require", Symbol filepath]) -> do
       return $ List result
 ```
 
+## Enviroment Inspection
+Get the current lexical enviroment with `(env)`.
+A useful feauture to have when debugging.
+
+
+```haskell
+-- Env.hs
+getVars :: Env -> IOThrowsError [(String, LispVal)]
+getVars envRef = do
+  env <- liftIO $ readIORef envRef
+  let vars = map fst env
+  vals <- traverse (getVar envRef) vars
+  return $ zip vars vals
+
+
+-- Eval.hs
+eval env (List [Symbol "env"]) = do
+  vars <- getVars env
+  return $ List $ map toPair vars
+  where toPair (var, val) = List [Symbol var, val])
+```
+
+```
+lisp=> (env)
+((+ <primitive function>) (a 10) ...)
+```
+
+
 
 ## Repl
 During development I used the convenient `rlwrap` to improve repl usability.
@@ -186,3 +214,8 @@ printError err = do
   print err
   setSGR [Reset]
 ```
+
+
+## Conclusion
+I hope you found this writeup useful.
+Any suggestions for improvements are very much appreciated!
