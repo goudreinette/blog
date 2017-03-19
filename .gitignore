@@ -1,0 +1,15 @@
+.frog/
+
+feeds/
+tags/
+js/
+img/
+
+css/
+!css/custom.css
+!css/pygments.css
+
+*.html
+!_src/*.html
+
+sitemap.txt

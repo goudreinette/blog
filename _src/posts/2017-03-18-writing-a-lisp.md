@@ -1,6 +1,6 @@
     Title: Writing a Lisp
     Date: 2017-03-18T18:22:23
-    Tags: DRAFT
+    Tags: Lisp
 
 I've been working on my first general purpose programming language last week, guided by the books SICP and Write Yourself a Scheme in 48 Hours.
  This has been a goal of mine for a long time, but it somehow always looked intimidating.
@@ -111,6 +111,7 @@ Let can be derived from lambda, binding arguments to parameters and creating a n
 #### cond
 What's interesting about this special form is that both it and 'if' can be defined in terms of each other.
 Since Write Yourself a Scheme decided to make 'if' the primitive form, I wrote cond to expand to nested if's.
+
 ```scheme
 (define (wrap-if acc clause)
   '(if ~(first clause)
@@ -132,6 +133,7 @@ Since Write Yourself a Scheme decided to make 'if' the primitive form, I wrote c
 #### do/begin
 Evaluates it's arguments left to right, and returns the last result.
 Since this is already the default evaluation order, all I needed to do was to return the last result.
+
 ```scheme
 (define (do . forms)
   (last forms))
