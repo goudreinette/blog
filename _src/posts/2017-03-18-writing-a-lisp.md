@@ -140,18 +140,49 @@ Since this is already the default evaluation order, all I needed to do was to re
 ```
 
 
-## Language boundaries
-Haskell's type system was an especially big help in implementing the language. 
-
-- Interop with host language: conversion layer
-- Abstract accessors
-- AST: decouple syntax from evaluation
-
 
 ## Require
+Require is implemented at the language level.
+The results of evaluating the file are collected and returned as a list.
+I found this behaviour useful to discover imported identifiers.
+
+```haskell
+eval env (List [Symbol "require", Symbol filepath]) -> do
+      contents <- liftIO $ readFile (filepath ++ ".lisp")
+      forms <- parseFile contents
+      results <- traverse (eval env) forms
+      return $ List result
+```
+
 
 ## Repl
-- (env)
-- rlwrap
-- Haskeline
-- Pretty printing lambda's
+During development I used the convenient `rlwrap` to improve repl usability.
+I later replaced it with Haskeline.
+Any thrown errors are printed red.
+
+```haskell
+import           System.Console.ANSI
+import           System.Console.Haskeline
+
+repl = do
+  globalEnv <- newEnv
+  runInputT defaultSettings $ loop globalEnv
+
+loop env = do
+  line <- getInputLine "lisp=> "
+  case line of
+    Nothing -> return ()
+    Just expr -> do
+      evaled <- liftIO $ evalString env expr
+      liftIO $ either printError print evaled
+      loop env
+
+evalString :: Env -> String -> IO (Either LispError LispVal)
+evalString env expr =
+  runExceptT (parseLine expr >>= eval env)
+
+printError err = do
+  setSGR [SetColor Foreground Vivid Red]
+  print err
+  setSGR [Reset]
+```
