@@ -110,24 +110,33 @@ The combination of macro's and varargs allowed me to define some additional spec
 What's interesting about this special form is that both it and 'if' can be defined in terms of each other.
 Since Write Yourself a Scheme decided to make 'if' the primitive form, I wrote cond to expand to nested if's.
 ```scheme
+(define (wrap-if acc clause)
+  '(if ~(first clause)
+     ~(second clause)
+     ~acc))
+
+(define-syntax (cond . clauses)
+  (reduce wrap-if 'nil (reverse (pairs clauses))))
+
+
+(define x 5)
+
 (cond
   (symbol? x) "symbol"
   (number? x) "number"
-  (list? x)   "list"
-  (string? x) "string"
-  'else       "unknown")
+  'else       "something else") ;=> "number"
 ```
 
 #### do/begin
 Evaluates it's arguments left to right, and returns the last result.
-Since this is already the default evaluation order, all I needed to do was the last result.
+Since this is already the default evaluation order, all I needed to do was to return the last result.
 ```scheme
 (define (do . forms)
   (last forms))
 
 (do 
   (+ 1 1)
-  (empty? '(1))) ; => false
+  (empty? '(1))) ;=> false
 ```
 
 
@@ -146,40 +155,3 @@ Haskell's type system was an especially big help in implementing the language.
 - rlwrap
 - Haskeline
 - Pretty printing lambda's
-
-
-
-## Getting Started
-- Clojure
-- Instaparse
-- Tests
-- Trouble with mutable enviroments
-- Representing it as a stack
-- Difficulities drawing the line between interpreted/host language
-- Bad Repl experience
-- Require
-
-
-## Haskell
-- Type system was a big help
-- Write yourself a Scheme
-- rlwrap
-- Ordered SICP (on Sunday) to support decision making
-- Parser Combinators
-- ErrorT
-- Enviroments: double mutable, copy references
-- Lambda shorthand
-
-## SICP: Metacircular Evaluator
-- Internal definitions
-- Macro's evaluate return value, not arguments
-- Internal definitions
-
-## Finishing up
-- Smaller core
-- Varargs + macro's: less syntax needed
-- Stack, run-stack
-- License
-
-## What's next
-- Racket
