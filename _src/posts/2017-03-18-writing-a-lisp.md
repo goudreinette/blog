@@ -106,6 +106,9 @@ Let can be derived from lambda, binding arguments to parameters and creating a n
   (list* (list* 'lambda  (binding-vars bindings) body) 
          (binding-vals bindings))))
 
+(let (x 10
+      y 3)
+  (* x y)) ;=> 30
 ```
 
 #### cond
@@ -146,9 +149,11 @@ Since this is already the default evaluation order, all I needed to do was to re
 
 
 ## Require
-Require is implemented at the language level.
-The results of evaluating the file are collected and returned as a list.
-I found this behaviour useful to discover imported identifiers.
+Require is still implemented at the language level.
+I might switch to a macro later.
+
+It works by evaluating all expressions in the file, collecting the results and returning them as a list.
+I found this behaviour useful in the Repl to discover imported identifiers.
 
 ```haskell
 eval env (List [Symbol "require", Symbol filepath]) -> do
@@ -157,6 +162,12 @@ eval env (List [Symbol "require", Symbol filepath]) -> do
       results <- traverse (eval env) forms
       return $ List result
 ```
+
+```
+lisp=> (require lisp/core)
+(a inc compose flip second last list pair ...)
+```
+
 
 ## Enviroment Inspection
 Get the current lexical enviroment with `(env)`.
