@@ -1,6 +1,22 @@
+/* Fonts */
+@font-face {
+    font-family: Mark Pro;
+    src: url('/fonts/MarkWebPro.woff');
+}
+
+@font-face {
+    font-family: Fira Code;
+    src: url('/fonts/FiraCode-Regular.woff');
+}
+
+@font-face {
+    font-family: Source Sans Pro;
+    src: url('/fonts/SourceSansPro.ttf');
+}
+
 /* Global */
 body {
-    font-family: 'Source Sans Pro' !important;
+    font-family: 'Mark Pro' !important;
 }
 
 a {
@@ -23,8 +39,10 @@ a {
 .navbar-brand {
     font-weight: bold;
     background: none;
+    letter-spacing: 0.04em;
     font-weight: 600;
     color: rgba(0, 0, 0, 0.9) !important;
+    font-family: 'Source Sans Pro' !important;
 }
 
 .nav li a {
@@ -43,7 +61,7 @@ a {
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Source Sans Pro' !important;
+        font-family: 'Mark Pro' !important;
 }
 
 h2 {
@@ -76,10 +94,13 @@ code {
     width: 100%;
 }
 
+code, pre {
+    font-family: Fira Code;
+}
+
 pre {
     white-space: pre;
     width: inherit;
-    font-family: Fira Code;
     margin: 0;
     border: 1px solid #eee;
     background-color: #f7f7f7;
