@@ -6,9 +6,10 @@ I've been working on my first general purpose programming language last week, gu
  This has been a goal of mine for a long time, but it somehow always looked intimidating.
 I was glad to find out that interpreters can actually be astonishingly simple, and would like to share what I learned along the way.
 
+<!-- more -->
+
 This code is based on Write Yourself a Scheme. If you'd like to see the code in context, you can follow along [here](https://github.com/reinvdwoerd/lisp).
 
-<!-- more -->
 ## Implementing Macro's 
 Since macro's are just functions of `code -> code`,
 adding a simple macro system to my Lisp was fairly easy. 
