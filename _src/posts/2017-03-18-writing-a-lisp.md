@@ -4,7 +4,9 @@
 
 I've been working on my first general purpose programming language last week, guided by the books SICP and Write Yourself a Scheme in 48 Hours.
  This has been a goal of mine for a long time, but it somehow always looked intimidating.
-I was glad to find out that interpreters can actually be astonishingly simple, and would like to share what I learned along the way. This code is based on Write Yourself a Scheme. If you'd like to see the code in context, you can follow along [here](https://github.com/reinvdwoerd/lisp).
+I was glad to find out that interpreters can actually be astonishingly simple, and would like to share what I learned along the way.
+
+This code is based on Write Yourself a Scheme. If you'd like to see the code in context, you can follow along [here](https://github.com/reinvdwoerd/lisp).
 
 <!-- more -->
 ## Implementing Macro's 
