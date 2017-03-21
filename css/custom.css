@@ -128,3 +128,8 @@ article img {
 article footer {
     margin-top: 15px;
 }
+
+
+.container {
+    max-width: 800px;
+}
