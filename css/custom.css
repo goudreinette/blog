@@ -19,8 +19,25 @@ body {
     font-family: 'Mark Pro' !important;
 }
 
+.container {
+    max-width: 900px;
+}
+
+/* Links */
+h2 a:hover {
+    background-color: rgba(238, 238, 238, 0.72);
+    text-decoration: none;
+}
+
 a {
     color: #880000 !important;
+    padding: 2px;
+    margin: -2px;
+}
+
+footer > a:hover, .tags a:hover, p a:hover {
+    background-color: rgba(136, 0, 0, 0.09) !important;
+    text-decoration: none;
 }
 
 /* Nav */
@@ -70,6 +87,9 @@ h2 {
 
 h2 a {
     color: rgba(0, 0, 0, 0.9) !important;
+    padding: 5px;
+    position: relative;
+    left: -5px;
 }
 
 h4 {
@@ -77,7 +97,7 @@ h4 {
 }
 
 p {
-    font-size: 16px;
+    font-size: 18px;
     margin-bottom: 15px;
 }
 
@@ -106,8 +126,8 @@ pre {
     border: 1px solid #eee;
     background-color: #f7f7f7;
     border-radius: 3px;
-    font-size: 14px;    
-    margin: 15px 0;
+    font-size: 16px;    
+    margin: 20px 0;
     overflow: auto;
 }
 
@@ -127,9 +147,4 @@ article img {
 
 article footer {
     margin-top: 15px;
-}
-
-
-.container {
-    max-width: 800px;
 }
