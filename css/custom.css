@@ -55,6 +55,17 @@ footer > a:hover, .tags a:hover, p a:hover {
     flex-direction: row;
 }
 
+@media (max-width: 768px) {
+    .navbar-brand {
+        line-height: 24px;
+    }
+
+    .navbar-toggle {
+        position: absolute;
+        right: 0;
+    }
+}
+
 .navbar-brand {
     font-weight: bold;
     background: none;
@@ -163,3 +174,13 @@ article footer.post-footer {
     margin-top: 75px;
 }
 
+
+
+button.navbar-toggle {
+    border: none;
+    opacity: 0.4;
+}
+
+span.icon-bar {
+    background-color: #191919 !important;
+}
