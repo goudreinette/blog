@@ -184,3 +184,9 @@ button.navbar-toggle {
 span.icon-bar {
     background-color: #191919 !important;
 }
+
+.navbar-collapse {
+    margin-left: auto !important;
+}
+
+div#content {}
