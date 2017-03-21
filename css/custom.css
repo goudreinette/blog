@@ -21,6 +21,8 @@ body {
 
 .container {
     max-width: 900px;
+    left: 105px;
+    /* position: relative; */
 }
 
 /* Links */
@@ -81,8 +83,13 @@ h1, h2, h3, h4, h5, h6 {
         font-family: 'Mark Pro' !important;
 }
 
+
 h2 {
-    margin: 60px 0 5px 0;
+    margin: 30px 0 5px 0;
+}
+
+h2:not(.index) {
+    margin-top: 60px;
     font-weight: bold;
     font-size: 24px;
 }
@@ -155,3 +162,4 @@ article footer {
 article footer.post-footer {
     margin-top: 75px;
 }
+
