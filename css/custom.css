@@ -82,7 +82,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h2 {
-    margin: 30px 0 5px 0;
+    margin: 60px 0 5px 0;
 }
 
 h2 a {
@@ -94,6 +94,7 @@ h2 a {
 
 h4 {
     font-weight: 600;
+    margin-bottom: -10px;
 }
 
 p {
@@ -147,4 +148,8 @@ article img {
 
 article footer {
     margin-top: 15px;
+}
+
+article footer.post-footer {
+    margin-top: 75px;
 }

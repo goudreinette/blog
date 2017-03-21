@@ -10,7 +10,7 @@ I was glad to find out that interpreters can actually be astonishingly simple, a
 
 This code is based on Write Yourself a Scheme. If you'd like to see the code in context, you can follow along [here](https://github.com/reinvdwoerd/lisp).
 
-## Implementing Macro's 
+## Implementing macro's 
 Since macro's are just functions of `code -> code`,
 adding a simple macro system to my Lisp was fairly easy. 
 First, I added an additional field to my function record to identify macro's.
@@ -92,7 +92,7 @@ After this, you should have a fully functional macro system, and additional synt
 ```
 
 
-## Varargs and Special Forms
+## Varargs and special forms
 The combination of macro's and varargs allowed me to define some additional special forms from within the language.
 
 #### let
@@ -172,8 +172,8 @@ lisp=> (require lisp/core)
 ```
 
 
-## Enviroment Inspection
-Get the current lexical enviroment with `(env)`.
+## Enviroment inspection
+I made the current lexical enviroment accessible using `(env)`.
 A useful feauture to have when debugging.
 
 
