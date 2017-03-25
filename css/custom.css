@@ -153,6 +153,7 @@ pre {
 }
 
 
+
 article img {
   /* Make sure that images within blog articles never take more width
      than the article width; `height: auto` ensures the height is also
@@ -166,13 +167,7 @@ article img {
   height: auto;
 }
 
-article footer {
-    margin-top: 15px;
-}
 
-article footer.post-footer {
-    margin-top: 75px;
-}
 
 
 
@@ -191,7 +186,16 @@ span.icon-bar {
 
 div#content {}
 
+/* Footer */
 .container > footer > p {
     font-size: 14px !important;
     margin-top: 0;
+}
+
+article footer {
+    margin-top: 15px;
+}
+
+article footer.post-footer {
+    margin-top: 75px;
 }
