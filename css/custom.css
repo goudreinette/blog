@@ -1,4 +1,5 @@
 /* Fonts */
+
 @font-face {
     font-family: Mark Pro;
     src: url('/fonts/MarkWebPro.woff');
@@ -16,12 +17,11 @@
 
 /* Global */
 body {
-    font-family: 'Mark Pro' !important;
+    font-family: 'TisaPro';
 }
 
 .container {
-    max-width: 900px;
-    left: 105px;
+    max-width: 700px;
     /* position: relative; */
 }
 
@@ -46,6 +46,7 @@ footer > a:hover, .tags a:hover, p a:hover {
 .navbar {
     background: none;
     height: 70px;
+    border-bottom: none;
 }
 
 .navbar .container {
@@ -81,6 +82,7 @@ footer > a:hover, .tags a:hover, p a:hover {
     transition: all .3s;
     border-bottom: 2px solid transparent;
     color: #444 !important;
+    font-family: 'Source Sans Pro' !important;
 }
 
 .nav .active a, .nav > li a:hover {
@@ -91,7 +93,7 @@ footer > a:hover, .tags a:hover, p a:hover {
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
-        font-family: 'Mark Pro' !important;
+        font-family: 'TisaPro' !important;
 }
 
 
@@ -190,6 +192,7 @@ div#content {}
 .container > footer > p {
     font-size: 14px !important;
     margin-top: 0;
+    font-family: Source Sans Pro;
 }
 
 article footer {
