@@ -190,3 +190,8 @@ span.icon-bar {
 }
 
 div#content {}
+
+.container > footer > p {
+    font-size: 14px !important;
+    margin-top: 0;
+}
