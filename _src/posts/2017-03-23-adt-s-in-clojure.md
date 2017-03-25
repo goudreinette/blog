@@ -47,7 +47,9 @@ Here is the full code:
   (:use clojure.data)
   (:require [clojure.core.match :refer [match]]
             [clojure.string :refer [join]]
-            [sandbox.control-flow :refer [unless ensure-with-descriptor when-message]]))
+            [sandbox.control-flow :refer [unless 
+                                          ensure-with-descriptor 
+                                          when-message]]))
 
 
 (defn- tag-name [tag]
