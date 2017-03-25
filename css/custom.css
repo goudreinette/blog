@@ -155,7 +155,9 @@ pre {
     overflow: auto;
 }
 
-
+article {
+    margin-bottom: 75px;
+}
 
 article img {
   /* Make sure that images within blog articles never take more width
