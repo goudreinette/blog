@@ -9,6 +9,7 @@ img/
 
 css/bootstrap*
 css/scribble*
+css/fonts.css
 !css/custom.css
 !css/pygments.css
 

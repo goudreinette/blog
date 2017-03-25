@@ -40,7 +40,7 @@ To improve syntax, I also made parens around tags without slots optional.
 During the process, I came up with two useful macro's.
 `when-message` takes pairs of conditions and messages, and produces a concatenation of the messages whose conditions are true. `ensure-with-descriptor` calls it's predicate and descriptor with the given values, and when the predicate fails, throws an error, using the descriptor's output as the error message.
 
-
+This is the full code:
 
 ```clojure
 (ns sandbox.adt
