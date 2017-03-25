@@ -1,5 +1,5 @@
 # Required: Should NOT end in trailing slash.
-scheme/host = http://www.example.com
+scheme/host = http://www.reinvanderwoerd.nl
 
 # A path prepended to URIs, including those specified here in .frogrc
 # such as `permalink` and `posts-index-uri`. Defaults to `/`. This is
@@ -11,7 +11,7 @@ title = Rein van der Woerd
 
 # The author. Used when generating feeds, and provided to
 # `page-template.html` as the template variable `@author`.
-author = The Unknown Author
+author = Rein van der Woerd
 
 # What editor to launch with --edit. $EDITOR means to use $EDITOR from
 # the environment

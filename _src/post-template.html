@@ -1,7 +1,8 @@
 <article>
+  @local-require["widgets.rkt"]
   <header>
     <h1>@|title|</h1>
-    <p class='date-and-tags'>@|date|, in @|tags|</p>
+    @date-and-tags[@date @tags ]
   </header>
   @|content|
   <footer class="post-footer">

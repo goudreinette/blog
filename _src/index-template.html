@@ -1,7 +1,8 @@
+@local-require["widgets.rkt"]
 <article>
   <header>
     <h2 class="index"><a href='@|uri-path|'>@|title|</a></h2>
-    <p class='date-and-tags'>@|date| :: @|tags|</p>
+    @date-and-tags[@date @tags ]
   </header>
   @|content-only|
   @(when more?
