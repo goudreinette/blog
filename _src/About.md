@@ -2,4 +2,4 @@
 
 Hi, my name is Rein van der Woerd.
 I'm a programming language enthusiast and functional programmer,
-and occasionally develop apps too.
+and occasionally develop applications too.
