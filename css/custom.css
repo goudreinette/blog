@@ -6,7 +6,7 @@
 
 /* Global */
 body {
-    font-family: 'concourse-t3';
+    font-family: 'Concourse';
 }
 
 .container {
@@ -80,7 +80,7 @@ footer > a:hover, .tags a:hover, p a:hover {
     letter-spacing: 0.04em;
     font-weight: 600;
     color: rgba(0, 0, 0, 0.9) !important;
-    font-family: 'concourse-t3' !important;
+    font-family: 'Concourse' !important;
 }
 
 .nav {
@@ -93,7 +93,7 @@ footer > a:hover, .tags a:hover, p a:hover {
     transition: all .3s;
     border-bottom: 2px solid transparent;
     color: #444 !important;
-    font-family: 'concourse-t3' !important;
+    font-family: 'Concourse' !important;
 }
 
 .nav .active a, .nav > li a:hover {
@@ -105,7 +105,7 @@ footer > a:hover, .tags a:hover, p a:hover {
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
-    font-family: 'concourse-t3' !important;
+    font-family: 'Concourse' !important;
 }
 
 h1 {
@@ -220,7 +220,7 @@ span.icon-bar {
 .container > footer > p {
     font-size: 14px !important;
     margin-top: 0;
-    font-family: concourse-t3;
+    font-family: Concourse;
 }
 
 article footer {
