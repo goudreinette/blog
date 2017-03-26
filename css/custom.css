@@ -1,20 +1,12 @@
-@import url("./fonts.css");
-
 /* Fonts */
-@font-face {
-    font-family: Mark Pro;
-    src: url('/fonts/MarkWebPro.woff');
-}
+@import url("./fonts.css");
 
 @font-face {
     font-family: Fira Code;
     src: url('/fonts/FiraCode-Regular.woff');
 }
 
-@font-face {
-    font-family: concourse-t3;
-    src: url('/fonts/SourceSansPro.ttf');
-}
+
 
 /* Global */
 body {
