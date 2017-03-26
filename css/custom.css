@@ -1,5 +1,6 @@
-/* Fonts */
+@import url("./fonts.css");
 
+/* Fonts */
 @font-face {
     font-family: Mark Pro;
     src: url('/fonts/MarkWebPro.woff');
@@ -11,13 +12,13 @@
 }
 
 @font-face {
-    font-family: Source Sans Pro;
+    font-family: concourse-t3;
     src: url('/fonts/SourceSansPro.ttf');
 }
 
 /* Global */
 body {
-    font-family: 'TisaPro';
+    font-family: 'concourse-t3';
 }
 
 .container {
@@ -43,10 +44,16 @@ footer > a:hover, .tags a:hover, p a:hover {
 }
 
 /* Nav */
+.nav {
+    padding-top: 15px;
+}
+
 .navbar {
     background: none;
     height: 70px;
     border-bottom: none;
+    padding-right: 5px;
+    margin-left: auto;
 }
 
 .navbar .container {
@@ -65,6 +72,18 @@ footer > a:hover, .tags a:hover, p a:hover {
         position: absolute;
         right: 0;
     }
+
+    p {
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 28px !important;
+    }
+
+    .nav {
+        padding-top: 0;
+    }
 }
 
 .navbar-brand {
@@ -73,16 +92,20 @@ footer > a:hover, .tags a:hover, p a:hover {
     letter-spacing: 0.04em;
     font-weight: 600;
     color: rgba(0, 0, 0, 0.9) !important;
-    font-family: 'Source Sans Pro' !important;
+    font-family: 'concourse-t3' !important;
+}
+
+.nav {
+    /* padding-top: 15px; */
 }
 
 .nav li a {
     padding: 0px;
-    margin: 0 15px;
+    margin: 0 10px;
     transition: all .3s;
     border-bottom: 2px solid transparent;
     color: #444 !important;
-    font-family: 'Source Sans Pro' !important;
+    font-family: 'concourse-t3' !important;
 }
 
 .nav .active a, .nav > li a:hover {
@@ -93,9 +116,21 @@ footer > a:hover, .tags a:hover, p a:hover {
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'TisaPro' !important;
+    font-weight: 600;
+    font-family: 'concourse-t3' !important;
 }
 
+h1 {
+    border-top: 2px solid black;
+    display: inline-block;
+    font-size: 32px;
+    padding-top: 5px;
+    margin-bottom: 10px;
+}
+
+.date-and-tags {
+    font-style: italic;
+}
 
 h2 {
     margin: 30px 0 5px 0;
@@ -105,11 +140,13 @@ h2:not(.index) {
     margin-top: 60px;
     font-weight: bold;
     font-size: 20px;
+    /* font-weight: normal; */
+    /* font-variant: small-caps; */
 }
 
 h2 a {
     color: rgba(0, 0, 0, 0.9) !important;
-    padding: 5px;
+    padding: 2px 7px;
     position: relative;
     left: -5px;
 }
@@ -120,9 +157,9 @@ h4 {
 }
 
 p {
-    font-size: 18px;
+    font-size: 20px;
     margin-bottom: 15px;
-    margin-top: 0;
+    margin-top: 0;  
 }
 
 /* Code */
@@ -132,7 +169,6 @@ p {
 
 code {
     color: black;
-    background: #f7f7f7;
 }
 
 .sourcetable {
@@ -147,13 +183,16 @@ pre {
     white-space: pre;
     width: inherit;
     margin: 0;
-    border: 1px solid #eee;
+    border-width: 1px 0px;
     background-color: #f7f7f7;
     border-radius: 3px;
-    font-size: 16px;    
+    font-size: 16px;
+    padding: 15px;
     margin: 20px 0;
-    overflow: auto;
+    background: none;
+    /* padding-left: 20px; */
 }
+
 
 article {
     margin-bottom: 75px;
@@ -189,13 +228,12 @@ span.icon-bar {
     margin-left: auto !important;
 }
 
-div#content {}
 
 /* Footer */
 .container > footer > p {
     font-size: 14px !important;
     margin-top: 0;
-    font-family: Source Sans Pro;
+    font-family: concourse-t3;
 }
 
 article footer {
@@ -203,5 +241,22 @@ article footer {
 }
 
 article footer.post-footer {
-    margin-top: 75px;
+    margin-top: 100px;
+}
+
+
+ul.nav.navbar-nav {
+    margin-left: auto;
+}
+
+.nav>li {
+    /* width: 50%; */
+    display: inline-block;
+}
+
+ul.nav.navbar-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }
