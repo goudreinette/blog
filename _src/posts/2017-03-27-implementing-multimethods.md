@@ -37,7 +37,8 @@ When the multimethod is called, it first determines the dispatch value by callin
           method-impl  (get-in @multimethods [name dispatch-val])]
      (if method-impl
        (apply method-impl args)
-       (throw (Error. (str "No implementation of " name " for " dispatch-val)))))))
+       (throw (Error. (str "No implementation of " 
+                            name " for " dispatch-val)))))))
 ```
 
 `defmethod` simply adds an implementation to the methods map under the given name and dispatch value.
