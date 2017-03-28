@@ -2,21 +2,19 @@
     Date: 2017-03-27T14:37:58
     Tags: Clojure
 
-
+[Multimethods](https://clojure.org/reference/multimethods) are one of Clojure's primary polymorphism mechanisms. They allow dispatch on an arbitrary number of arguments, by combine a dispatching function with one or more methods. Here's a way to implement them.
 
 <!-- more -->
 
-First, we will need a way to store the method implementations.
-The method registry is state, which we can store in an atom.
-By using a private definition, we encapsulate this state inside the namespace.
+First, we will need a way to keep track of method implementations. This method registry is state, which we can store in an atom. By using a private definition, we encapsulate the state inside the namespace.
 
 ```clojure
-(ns sandbox.multi-impl
+(ns multimethods
  (:refer-clojure :exclude [defmethod defmulti methods]))
 
 (declare multi-fn)
 
-(def-methods (atom {}))
+(def ^:private methods (atom {}))
 ```
 
 Next up is multimethod defition.
