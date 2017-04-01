@@ -9,7 +9,7 @@ Here's what I took away from it.
 
 Due to travel time I came in at 11:00 AM, and therefore didn't get to see the first two talks. I was especially interested in Generatively Testing User Interfaces, but thankfully Andreas Geffen Lundahl was very helpful by pointing me in the right direction after the talks.
 
-I only included the main talks for now, because they had the biggest lasting impact on me.
+The other main talks will be added during the week.
 
 ## [Building Hermetic Systems (without Docker)](https://www.slideshare.net/WilliamFarrell7/building-hermetic-systems-without-docker)
 _By Will Farrell_
@@ -28,7 +28,7 @@ Hermeticity must be balanced with complexity and speed of development.
 Electricity and the JVM were given as examples.
 
 
-
+<!--
 ## Our Road Trip to Component
 _By Marketa Adamova_ 
 
@@ -52,9 +52,9 @@ _By Martin Clausen_
 - live prototyping can be impressive
 - can you still charge as much?
     - "I know how much money this tool will save you"
-    - Right/wrong, deal/no deal
+    - Right/wrong, deal/no deal-->
 
 
 ## Conclusion
 
-I certainly learned a lot over the course of the day, and look forward to next year. 
+I certainly learned a lot over the course of the day, and I look forward to going again next year. 
