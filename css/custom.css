@@ -246,3 +246,7 @@ ul.nav.navbar-nav {
     justify-content: center;
     height: 100%;
 }
+
+ul:not(.nav) {
+    font-size: 20px;
+}

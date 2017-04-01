@@ -8,6 +8,7 @@
 
 First, we will need a way to keep track of method implementations. This method registry is state, which we can store in an atom. By using a private definition, we encapsulate the state inside the namespace.
 
+
 ```clojure
 (ns multimethods
  (:refer-clojure :exclude [defmethod defmulti methods]))
