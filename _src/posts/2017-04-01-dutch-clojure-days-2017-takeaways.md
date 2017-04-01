@@ -32,7 +32,7 @@ Electricity and the JVM were given as examples.
 ## Our Road Trip to Component
 _By Marketa Adamova_
 
-Marketa Adamova talked about using [Component]() to provide structure and manage state in her company's customer support application.
+Marketa Adamova talked about using [Component](https://github.com/stuartsierra/component) to provide structure and manage state in her company's customer support application.
 The application was previously implemented in Rails.
 She and her team decided to move to Clojure because of the JVM (big data and NLP libraries), and stayed for everything else.
 A complete rewrite was unnesecary, because Rails handled the user front-end just fine.
@@ -41,29 +41,29 @@ Rails has conventions for how to structure applications, but Clojure does not.
 Clojure does provide the necessary tools to do so though, using Protocols, which she explained in detail.
 
 Her team still struggled with managing state, however.
-Component was their solution to this. It made it easy to discover dependencies using the system map,
-provided great REPL integration and made testing simpler.
+Component was their solution to this. It made it easy to discover dependencies using the system map, provided great REPL integration and made testing simpler.
 She warned against the initial complexity bump of describing a system map.
-For smaller apps, [Mount]() may be a better fit,  she suggested.
+For smaller apps, [Mount](https://github.com/tolitius/mount) may be a better fit.
 
-
+<!--
 ## Using Onyx in anger
 _By Simon Belak_
 
 - Data is code/code is data
     - Hammock
-- Fast feedback and gradual learning curve by supporting local running
+- Fast feedback and gradual learning curve by supporting local running -->
 
 ## From 0 to prototype using ClojureScript, re-frame and friends.
 _By Martin Clausen_
 
-- live prototyping can be impressive
-- can you still charge as much?
-    - "I know how much money this tool will save you"
-    - Right/wrong, deal/no deal
+Martin Clausen, a former lawyer, demo'ed a prototype contract drafting application. Contract drafting is a tedious task, he explained, and his application aims to provide some relief. It highlights and validates important facts in the contract, and provides both parties with full revision history.
+
+The ability to make changes quickly is a very impressive selling point.
+He went as far as making changes on the fly in front of his customers.
+Someone in the audience asked: "If your customers see you making changes this quickly, are you still able to charge as much?".
+Martin answered that his usual reply is to tell his customers he knows how much money the tool will save them.
 
 
 ## Conclusion
 
-I certainly learned a lot over the course of the day, and I look forward to going again next year.
-For additions or corrections, please leave a comment below.
+I certainly learned a lot over the course of the day, and I look forward to going again next year. For additions or corrections, please leave a comment below.

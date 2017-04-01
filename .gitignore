@@ -1,5 +1,4 @@
 .frog/
-.vscode/
 
 feeds/
 fonts/
@@ -17,3 +16,4 @@ css/fonts.css
 !_src/*.html
 
 sitemap.txt
+.remote-sync.json
