@@ -11,7 +11,7 @@ Due to travel time I came in at 11:00 AM, and therefore didn't get to see the fi
 
 I only included the main talks for now, because they had the biggest lasting impact on me.
 
-## Building Hermetic Systems (without Docker)
+## [Building Hermetic Systems (without Docker)](https://www.slideshare.net/WilliamFarrell7/building-hermetic-systems-without-docker)
 _By Will Farrell_
 
 Will Farrell defined hermetic systems as _airtight_ and _pure_.
