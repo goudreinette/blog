@@ -17,7 +17,7 @@ _By Will Farrell_
 Will Farrell defined hermetic systems as _airtight_ and _pure_.
 He pointed out that hermetic systems are an example of functional design thinking, with the usual benefits of ease of reasoning and testing, and the added benefit of consistency between machines and enviroments.
 
-He went on to define two hermeticity leaks which were mostly new to me: the system clock and entropy.
+He went on to highlight two hermeticity leaks which were mostly new to me: the system clock and entropy.
 As a potential solution he suggested creating separate random- and time services, injecting them as dependencies.
 
 Another leak potentially worth fixing are external services and libraries. He gave an embedded elasticsearch server as an example.

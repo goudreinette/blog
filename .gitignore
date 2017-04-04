@@ -16,4 +16,4 @@ css/fonts.css
 !_src/*.html
 
 sitemap.txt
-.remote-sync.json
+.vscode/
