@@ -55,13 +55,13 @@ Rich Hickey's [The Value Of Values](https://www.infoq.com/presentations/Value-Va
     * can be moved
     * ported
     * enqueued
-* Places
+* _Places_
     * application, language and flow coupled
 
 ## Values aggregate
 * Values aggregate to values
     * so all benefits accrue to compositions
-* Places
+* _Places_
     * combinations of places, what properties?
     * need new operational interface for aggregate
 
