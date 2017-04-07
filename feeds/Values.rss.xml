@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<rss version="2.0">
+ <channel>
+  <title>Rein van der Woerd: Posts tagged 'Values'</title>
+  <description>Rein van der Woerd: Posts tagged 'Values'</description>
+  <link>http://www.reinvanderwoerd.nl/tags/Values.html</link>
+  <lastBuildDate>Tue, 04 Apr 2017 18:20:47 UT</lastBuildDate>
+  <pubDate>Tue, 04 Apr 2017 18:20:47 UT</pubDate>
+  <ttl>1800</ttl>
+  <item>
+   <title>The Value of Values - Summarized</title>
+   <link>http://www.reinvanderwoerd.nl/blog/2017/04/04/the-value-of-values-summarized/?utm_source=Values&amp;utm_medium=RSS</link>
+   <guid isPermaLink="false">urn:http-www-reinvanderwoerd-nl:-blog-2017-04-04-the-value-of-values-summarized</guid>
+   <pubDate>Tue, 04 Apr 2017 18:20:47 UT</pubDate>
+   <description>
+&lt;p&gt;Rich Hickey&amp;rsquo;s &lt;a href="https://www.infoq.com/presentations/Value-Values"&gt;The Value Of Values&lt;/a&gt; is one of my favorite talks of all time. I highly recommend it, and it took me quite a while to understand all of it. Because I couldn&amp;rsquo;t find a nice summary on the web, I decided to make my own.&lt;/p&gt;
+&lt;!-- more--&gt;
+
+&lt;h2 id="values-can-be-shared"&gt;Values can be shared&lt;/h2&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;Share freely
+  &lt;ul&gt;
+   &lt;li&gt;aliases are free&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+ &lt;li&gt;No one can mess you up
+  &lt;ul&gt;
+   &lt;li&gt;nor you them&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;em&gt;Places&lt;/em&gt;
+  &lt;ul&gt;
+   &lt;li&gt;defensive copy, clone, locks&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;
+
+&lt;h2 id="reproducible-results"&gt;Reproducible results&lt;/h2&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;Operations on values are stable&lt;/li&gt;
+ &lt;li&gt;Reproduce failures without replicating state
+  &lt;ul&gt;
+   &lt;li&gt;testing&lt;/li&gt;
+   &lt;li&gt;debugging&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;em&gt;Places&lt;/em&gt;
+  &lt;ul&gt;
+   &lt;li&gt;must establish matching ‘state’ first&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;
+
+&lt;h2 id="easy-to-fabricate"&gt;Easy to fabricate&lt;/h2&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;Anything can create compliant values
+  &lt;ul&gt;
+   &lt;li&gt;for testing, simulation&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;em&gt;Places&lt;/em&gt;
+  &lt;ul&gt;
+   &lt;li&gt;must emulate operational interface&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;
+
+&lt;h2 id="thwart-imperativeness"&gt;Thwart imperativeness&lt;/h2&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;Values refuse to help you program imperatively
+  &lt;ul&gt;
+   &lt;li&gt;that’s a feature&lt;/li&gt;
+   &lt;li&gt;imperative code is inherently complex&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;em&gt;Places&lt;/em&gt;
+  &lt;ul&gt;
+   &lt;li&gt;encourage and require imperativeness&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;
+
+&lt;h2 id="language-independence"&gt;Language independence&lt;/h2&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;Pure values are language independent
+  &lt;ul&gt;
+   &lt;li&gt;&lt;em&gt;the&lt;/em&gt; polyglot tool&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;em&gt;Places&lt;/em&gt; are defined by language constructs (methods)
+  &lt;ul&gt;
+   &lt;li&gt;can be proxied, remoted, with much effort&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;
+
+&lt;h2 id="values-are-generic"&gt;Values are generic&lt;/h2&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;Representations in any language&lt;/li&gt;
+ &lt;li&gt;Few fundamental abstractions
+  &lt;ul&gt;
+   &lt;li&gt;for aggregation (lists, maps, sets)&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;em&gt;Places&lt;/em&gt;
+  &lt;ul&gt;
+   &lt;li&gt;operational interface is specific&lt;/li&gt;
+   &lt;li&gt;more code&lt;/li&gt;
+   &lt;li&gt;poor reuse&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;
+
+&lt;h2 id="values-are-the-best-interface"&gt;Values are the best interface&lt;/h2&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;For subsystems
+  &lt;ul&gt;
+   &lt;li&gt;can be moved&lt;/li&gt;
+   &lt;li&gt;ported&lt;/li&gt;
+   &lt;li&gt;enqueued&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;em&gt;Places&lt;/em&gt;
+  &lt;ul&gt;
+   &lt;li&gt;application, language and flow coupled&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;
+
+&lt;h2 id="values-aggregate"&gt;Values aggregate&lt;/h2&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;Values aggregate to values
+  &lt;ul&gt;
+   &lt;li&gt;so all benefits accrue to compositions&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;em&gt;Places&lt;/em&gt;
+  &lt;ul&gt;
+   &lt;li&gt;combinations of places, what properties?&lt;/li&gt;
+   &lt;li&gt;need new operational interface for aggregate&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;
+&lt;!--
+## Conveyance
+
+## Perception
+
+## Reduced coordination
+
+## Information systems
+
+
+## Facts
+
+## Decision making--&gt;</description></item></channel></rss>

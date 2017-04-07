@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>ADT's in Clojure</title>
+    <meta name="description" content="After reading Alexis King's post about ADT's in Typed Racket, I felt inspired to try the same thing in Clojure....">
+    <meta name="author"      content="Rein van der Woerd">
+    <meta name="keywords"    content="Clojure">
+    <meta name="viewport"    content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon.png">
+    <link rel="canonical" href="http://www.reinvanderwoerd.nl/blog/2017/03/23/adt-s-in-clojure/">
+    <link rel="next" href="/blog/2017/03/18/writing-a-lisp/">
+    <link rel="prev" href="/blog/2017/03/27/implementing-multimethods/">
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/pygments.css">
+    <link rel="stylesheet" type="text/css" href="/css/scribble.css">
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <!-- Feeds -->
+    <link rel="alternate" type="application/atom+xml"
+          href="/feeds/all.atom.xml" title="Atom Feed">
+    <link rel="alternate" type="application/rss+xml"
+          href="/feeds/all.rss.xml" title="RSS Feed">
+    <!-- JS -->
+    <script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-94082535-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </head>
+  <body>
+    <!-- A standard Twitter Bootstrap nav bar -->
+    <header class="navbar navbar-default"
+            role="banner">
+      <div class="container">
+        <div class="navbar-header">
+          <!--<button type="button"
+                  class="navbar-toggle"
+                  data-toggle="collapse"
+                  data-target=".our-nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>-->
+          <a href="/index.html" class="navbar-brand">REIN VAN DER WOERD</a>
+        </div>
+        <div class="navbar"
+             role="navigation">
+          <ul class="nav navbar-nav">
+
+            <!--<li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Tags <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="/index.html">All Posts</a></li>
+
+<li><a href="/tags/Clojure.html">Clojure</a></li>
+
+<li><a href="/tags/Lisp.html">Lisp</a></li>
+              </ul>
+            </li>-->
+            <li>
+              <a href="/index.html">Blog</a>
+            </li> 
+            <li>
+              <a href="/About.html">About</a>
+            </li> 
+          </ul>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <div class="row">
+        <!-- Main column -->
+        <div id="content" class="col-md-12">
+
+          <article>
+  <header>
+    <h1>ADT&rsquo;s in Clojure</h1>
+    <p class='date-and-tags'>
+    <time datetime="2017-03-23" pubdate="true">2017-03-23</time>, in <span class="tags"><a href="/tags/Clojure.html">Clojure</a></span></p>
+  </header>
+
+<p>After reading <a href="https://lexi-lambda.github.io/blog/2015/12/21/adts-in-typed-racket-with-macros/">Alexis King&rsquo;s post</a> about ADT&rsquo;s in Typed Racket, I felt inspired to try the same thing in Clojure.</p>
+<!-- more-->
+
+<p>I conceived the following syntax, made slightly more Clojure-esque by starting with &lsquo;def&rsquo;.</p>
+
+<div class="brush: clojure">
+ <div class="source">
+  <pre><span></span><span class="p">(</span><span class="nf">defdata</span> <span class="nv">UserId</span>
+  <span class="nv">Anonymous</span>
+  <span class="p">(</span><span class="nf">Registered</span> <span class="nv">id</span><span class="p">))</span>
+
+<span class="p">(</span><span class="nf">case-of</span> <span class="p">(</span><span class="nf">Registered</span> <span class="mi">1</span><span class="p">)</span>
+  <span class="nv">Anonymous</span> <span class="s">"anon"</span>
+  <span class="p">(</span><span class="nf">Registered</span> <span class="nv">id</span><span class="p">)</span> <span class="nv">id</span><span class="p">))</span>
+</pre></div>
+
+</div>
+
+<p>Missing a case produces an compile-time error:</p>
+
+<div class="brush: clojure">
+ <div class="source">
+  <pre><span></span><span class="p">(</span><span class="nf">case-of</span> <span class="p">(</span><span class="nf">Registered</span> <span class="mi">1</span><span class="p">)</span>
+  <span class="nv">Anonymous</span> <span class="s">"anon"</span><span class="p">))</span>
+  <span class="c1">;(Registered id) id))</span>
+</pre></div>
+
+</div>
+
+<pre><code>  java.lang.Error: Missing: Registered</code></pre>
+
+<p>Since I&rsquo;m unfamiliar with Typed Clojure, I chose not to typecheck the values inside the tags. This limit&rsquo;s their usefulness, but still allows me to check for missing or undefined patterns at compile time.</p>
+
+<p>The first task was to find a way to create the data constructors, and figure out where to store the type information. Since data declarations are non-extensible, I figured keeping a global registry was unnecessary. Instead, I embedded type information, including slots and other tags, into the values themselves.</p>
+
+<p>I wanted to keep the syntax of declaration, construction and pattern matching constistent. Therefore, I wrapped core.match, and gave contructors the same name as their tags.  To improve syntax, I also made parens around tags without slots optional.</p>
+
+<p>During the process, I came up with two useful macro&rsquo;s. <code>when-message</code> takes pairs of conditions and messages, and produces a concatenation of the messages whose conditions are true. <code>ensure-with-descriptor</code> calls it&rsquo;s predicate and descriptor with the given values, and when the predicate fails, throws an error, using the descriptor&rsquo;s output as the error message.</p>
+
+<p>Here is the full code:</p>
+
+<div class="brush: clojure">
+ <div class="source">
+  <pre><span></span><span class="p">(</span><span class="kd">ns </span><span class="nv">sandbox.adt</span>
+  <span class="p">(</span><span class="ss">:use</span> <span class="nv">clojure.data</span><span class="p">)</span>
+  <span class="p">(</span><span class="ss">:require</span> <span class="p">[</span><span class="nv">clojure.core.match</span> <span class="ss">:refer</span> <span class="p">[</span><span class="nv">match</span><span class="p">]]</span>
+            <span class="p">[</span><span class="nv">clojure.string</span> <span class="ss">:refer</span> <span class="p">[</span><span class="nv">join</span><span class="p">]]</span>
+            <span class="p">[</span><span class="nv">sandbox.control-flow</span> <span class="ss">:refer</span> <span class="p">[</span><span class="nv">unless</span> 
+                                          <span class="nv">ensure-with-descriptor</span> 
+                                          <span class="nv">when-message</span><span class="p">]]))</span>
+
+
+<span class="p">(</span><span class="kd">defn- </span><span class="nv">tag-name</span> <span class="p">[</span><span class="nv">tag</span><span class="p">]</span>
+  <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nf">list?</span> <span class="nv">tag</span><span class="p">)</span> <span class="p">(</span><span class="nb">first </span><span class="nv">tag</span><span class="p">)</span> <span class="nv">tag</span><span class="p">))</span>
+
+<span class="p">(</span><span class="kd">defn- </span><span class="nv">tag-slots</span> <span class="p">[</span><span class="nv">tag</span><span class="p">]</span>
+  <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nf">list?</span> <span class="nv">tag</span><span class="p">)</span> <span class="p">(</span><span class="nb">rest </span><span class="nv">tag</span><span class="p">)</span> <span class="p">[]))</span> 
+
+<span class="p">(</span><span class="kd">defn- </span><span class="nv">make-adt</span> <span class="p">[</span><span class="nb">name </span><span class="nv">tags</span><span class="p">]</span>
+  <span class="p">{</span><span class="ss">:name</span> <span class="p">(</span><span class="nb">str </span><span class="nv">name</span><span class="p">)</span> 
+   <span class="ss">:tag-names</span> <span class="p">(</span><span class="nf">vec</span> <span class="p">(</span><span class="nb">map </span><span class="p">(</span><span class="nb">comp str </span><span class="nv">tag-name</span><span class="p">)</span> <span class="nv">tags</span><span class="p">))})</span>
+
+
+<span class="p">(</span><span class="kd">defn- </span><span class="nv">describe-slots-count</span> <span class="p">[</span><span class="nv">expected</span> <span class="nv">got</span><span class="p">]</span>
+  <span class="p">(</span><span class="nb">str </span><span class="s">"Wrong number of args: "</span> <span class="nv">expected</span> <span class="s">" slots, "</span> <span class="nv">got</span> <span class="s">" args "</span><span class="p">))</span> 
+
+
+<span class="p">(</span><span class="kd">defn- </span><span class="nv">make-tag-constructor</span> <span class="p">[</span><span class="nv">adt</span> <span class="nb">name </span><span class="nv">slots</span><span class="p">]</span>
+  <span class="p">(</span><span class="k">fn </span><span class="p">[</span><span class="o">&amp;</span> <span class="nv">vals</span><span class="p">]</span>
+    <span class="p">(</span><span class="nf">ensure-with-descriptor</span> <span class="nb">= </span><span class="nv">describe-slots-count</span> <span class="p">(</span><span class="nb">count </span><span class="nv">slots</span><span class="p">)</span> <span class="p">(</span><span class="nb">count </span><span class="nv">vals</span><span class="p">))</span>
+    <span class="p">{</span><span class="ss">:slots</span> <span class="p">(</span><span class="nb">zipmap </span><span class="p">(</span><span class="nf">vec</span> <span class="p">(</span><span class="nb">map keyword </span><span class="nv">slots</span><span class="p">))</span> <span class="nv">vals</span><span class="p">)</span> 
+     <span class="ss">:adt</span> <span class="nv">adt</span>
+     <span class="ss">:tag</span> <span class="p">(</span><span class="nb">str </span><span class="nv">name</span><span class="p">)}))</span>
+
+
+<span class="p">(</span><span class="kd">defn- </span><span class="nv">define-tag-constructor</span> <span class="p">[</span><span class="nv">adt</span> <span class="nb">name </span><span class="nv">slots</span><span class="p">]</span>
+ <span class="o">`</span><span class="p">(</span><span class="k">def </span><span class="o">~</span><span class="p">(</span><span class="nb">symbol </span><span class="nv">name</span><span class="p">)</span> 
+       <span class="o">~</span><span class="p">(</span><span class="nf">make-tag-constructor</span> <span class="nv">adt</span> <span class="nb">name </span><span class="nv">slots</span><span class="p">)))</span>
+
+
+<span class="p">(</span><span class="kd">defn- </span><span class="nv">transform-clauses</span> <span class="p">[</span><span class="nv">clauses</span><span class="p">]</span>
+  <span class="p">(</span><span class="nb">apply </span><span class="nv">concat</span>
+    <span class="p">(</span><span class="nb">for </span><span class="p">[[</span><span class="nv">tag</span> <span class="nv">then</span><span class="p">]</span> <span class="p">(</span><span class="nf">partition</span> <span class="mi">2</span> <span class="nv">clauses</span><span class="p">)</span>
+          <span class="ss">:let</span> <span class="p">[</span><span class="nb">name </span> <span class="p">(</span><span class="nf">tag-name</span> <span class="nv">tag</span><span class="p">)</span>  
+                <span class="nv">slots</span> <span class="p">(</span><span class="nf">tag-slots</span> <span class="nv">tag</span><span class="p">)]]</span> 
+      <span class="p">[[(</span><span class="nb">str </span><span class="nv">name</span><span class="p">)</span> <span class="p">(</span><span class="nf">vec</span> <span class="nv">slots</span><span class="p">)]</span> <span class="nv">then</span><span class="p">])))</span>
+
+
+<span class="p">(</span><span class="kd">defn- </span><span class="nv">tags-in-clauses</span> <span class="p">[</span><span class="nv">clauses</span><span class="p">]</span>
+  <span class="p">(</span><span class="nb">for </span><span class="p">[[[</span><span class="nv">tag</span> <span class="o">&amp;</span> <span class="nv">_</span><span class="p">]]</span> <span class="p">(</span><span class="nf">partition</span> <span class="mi">2</span> <span class="nv">clauses</span><span class="p">)]</span>
+    <span class="nv">tag</span><span class="p">))</span>
+
+
+<span class="p">(</span><span class="kd">defn- </span><span class="nv">describe-difference</span> <span class="p">[</span><span class="nv">declared</span> <span class="nv">in-clauses</span><span class="p">]</span>
+  <span class="p">(</span><span class="k">let </span><span class="p">[[</span><span class="nv">missing</span> <span class="nv">undefined</span> <span class="nv">_</span><span class="p">]</span> <span class="p">(</span><span class="nf">diff</span> <span class="p">(</span><span class="nb">set </span><span class="nv">declared</span><span class="p">)</span> <span class="p">(</span><span class="nb">set </span><span class="nv">in-clauses</span><span class="p">))]</span> 
+   <span class="p">(</span><span class="nf">when-message</span> 
+      <span class="p">(</span><span class="nf">not-empty</span> <span class="nv">missing</span><span class="p">)</span> 
+      <span class="p">(</span><span class="nb">str </span><span class="s">"Missing: "</span> <span class="p">(</span><span class="nb">join </span><span class="s">", "</span> <span class="nv">missing</span><span class="p">))</span>
+
+      <span class="p">(</span><span class="nf">not-empty</span> <span class="nv">undefined</span><span class="p">)</span> 
+      <span class="p">(</span><span class="nb">str </span><span class="s">"Undefined: "</span> <span class="p">(</span><span class="nb">join </span><span class="s">", "</span> <span class="nv">undefined</span><span class="p">)))))</span>
+
+
+<span class="p">(</span><span class="kd">defmacro </span><span class="nv">defdata</span> 
+ <span class="s">"Define a new ADT"</span>
+ <span class="p">[</span><span class="nb">name </span><span class="o">&amp;</span> <span class="nv">tags</span><span class="p">]</span>
+ <span class="o">`</span><span class="p">(</span><span class="k">do </span>
+    <span class="o">~@</span><span class="p">(</span><span class="nb">for </span><span class="p">[</span><span class="nv">tag</span> <span class="nv">tags</span><span class="p">]</span>
+        <span class="p">(</span><span class="nf">define-tag-constructor</span> 
+          <span class="p">(</span><span class="nf">make-adt</span> <span class="nb">name </span><span class="nv">tags</span><span class="p">)</span> 
+          <span class="p">(</span><span class="nf">tag-name</span> <span class="nv">tag</span><span class="p">)</span> 
+          <span class="p">(</span><span class="nf">tag-slots</span> <span class="nv">tag</span><span class="p">)))))</span> 
+
+<span class="p">(</span><span class="kd">defmacro </span><span class="nv">case-of</span> <span class="p">[</span><span class="nv">quoted-val</span> <span class="o">&amp;</span> <span class="nv">clauses</span><span class="p">]</span>
+  <span class="s">"Pattern-match on a ADT value"</span>
+  <span class="p">(</span><span class="k">let </span><span class="p">[{</span><span class="ss">:keys</span> <span class="p">[</span><span class="nv">tag</span> <span class="nv">slots</span><span class="p">]</span> <span class="p">{</span><span class="ss">:keys</span> <span class="p">[</span><span class="nv">tag-names</span><span class="p">]}</span> <span class="ss">:adt</span><span class="p">}</span> <span class="p">(</span><span class="nb">eval </span><span class="nv">quoted-val</span><span class="p">)</span>
+         <span class="nv">clauses</span>    <span class="p">(</span><span class="nf">transform-clauses</span> <span class="nv">clauses</span><span class="p">)</span>
+         <span class="nv">in-clauses</span> <span class="p">(</span><span class="nf">tags-in-clauses</span> <span class="nv">clauses</span><span class="p">)</span>
+         <span class="nv">matchform</span>  <span class="p">[</span><span class="nv">tag</span> <span class="p">(</span><span class="nf">vec</span> <span class="p">(</span><span class="nb">vals </span><span class="nv">slots</span><span class="p">))]]</span>  
+    <span class="p">(</span><span class="nf">ensure-with-descriptor</span> <span class="nb">= </span><span class="nv">describe-difference</span> <span class="nv">tag-names</span> <span class="nv">in-clauses</span><span class="p">)</span>
+    <span class="o">`</span><span class="p">(</span><span class="nf">match</span> <span class="o">~</span><span class="nv">matchform</span>
+        <span class="o">~@</span><span class="nv">clauses</span><span class="p">)))</span>
+</pre></div>
+
+</div>
+
+<p>None of this is idiomatic Clojure though, so if you&rsquo;re interested in a similar clojure.spec based solution, I recommend you check out <a href="https://lambdaisland.com/blog/25-09-2016-union-types">Lambda Island&rsquo;s post</a>.</p>
+  <footer class="post-footer">
+    <script type="text/javascript">
+      !function(d,s,id){
+          var js,fjs=d.getElementsByTagName(s)[0];
+          if(!d.getElementById(id)){
+              js=d.createElement(s);
+              js.id=id;
+              js.src="//platform.twitter.com/widgets.js";
+              fjs.parentNode.insertBefore(js,fjs);
+          }
+      }(document,"script","twitter-wjs");
+    </script>
+    <a href="https://twitter.com/share"
+       class="twitter-share-button"
+       data-url="http://www.reinvanderwoerd.nl/blog/2017/03/23/adt-s-in-clojure/"
+       data-dnt="true">
+      "Tweet"</a>
+    <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+    <g:plusone size="medium" href="http://www.reinvanderwoerd.nl/blog/2017/03/23/adt-s-in-clojure/"></g:plusone>
+    <script type="text/javascript">
+      var disqus_shortname = 'shortname';
+      (function() {
+          var dsq = document.createElement('script');
+          dsq.type = 'text/javascript';
+          dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <div id="disqus_thread"></div>
+    <ul class="pager">
+    <li class="previous">
+      <a href="/blog/2017/03/27/implementing-multimethods/">&larr; <em>Implementing Multimethods</em></a>
+    </li>
+    <li class="next">
+      <a href="/blog/2017/03/18/writing-a-lisp/"><em>Writing a Lisp</em> &rarr;</a>
+    </li>
+    </ul>
+  </footer>
+</article>
+        </div>
+      </div>
+      <footer>
+        <hr />
+        <!--<p>Site generated
+        by <a href="https://github.com/greghendershott/frog">Frog</a>,
+        the <strong>fr</strong>ozen bl<strong>og</strong> tool.</p>-->
+        <p style="float: right">
+          <a href="/feeds/all.atom.xml">Atom</a> -
+          <a href="/feeds/all.rss.xml">RSS</a>
+        </p>
+      </footer>
+    </div>
+    <!-- </body> JS -->
+    <script type="text/javascript" src="//code.jquery.com/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  </body>
+</html>

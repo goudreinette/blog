@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<rss version="2.0">
+ <channel>
+  <title>Rein van der Woerd: Posts tagged 'Clojure'</title>
+  <description>Rein van der Woerd: Posts tagged 'Clojure'</description>
+  <link>http://www.reinvanderwoerd.nl/tags/Clojure.html</link>
+  <lastBuildDate>Sat, 01 Apr 2017 08:59:06 UT</lastBuildDate>
+  <pubDate>Sat, 01 Apr 2017 08:59:06 UT</pubDate>
+  <ttl>1800</ttl>
+  <item>
+   <title>Dutch Clojure Days 2017</title>
+   <link>http://www.reinvanderwoerd.nl/blog/2017/04/01/dutch-clojure-days-2017/?utm_source=Clojure&amp;utm_medium=RSS</link>
+   <guid isPermaLink="false">urn:http-www-reinvanderwoerd-nl:-blog-2017-04-01-dutch-clojure-days-2017</guid>
+   <pubDate>Sat, 01 Apr 2017 08:59:06 UT</pubDate>
+   <description>
+&lt;p&gt;Last saturday I attended DCD &amp;rsquo;17. Here&amp;rsquo;s what I took away from it.&lt;/p&gt;
+&lt;!-- more--&gt;
+
+&lt;p&gt;Due to travel time I came in at 11:00 AM, and didn&amp;rsquo;t get to see the first two talks. I was especially interested in Generatively Testing User Interfaces, but thankfully Andreas Geffen Lundahl helped me out by pointing me in the right direction after the talks.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ll add the other main talks during the coming week.&lt;/p&gt;
+
+&lt;h2 id="httpswwwslidesharenetwilliamfarrell7building-hermetic-systems-without-dockerbuilding-hermetic-systems-without-docker"&gt;&lt;a href="https://www.slideshare.net/WilliamFarrell7/building-hermetic-systems-without-docker"&gt;Building Hermetic Systems (without Docker)&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;By Will Farrell&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Will Farrell defined hermetic systems as &lt;em&gt;airtight&lt;/em&gt; and &lt;em&gt;pure&lt;/em&gt;. He pointed out that hermetic systems are an example of functional design thinking, with the usual benefits of ease of reasoning and testing, and the added benefit of consistency between machines and enviroments.&lt;/p&gt;
+
+&lt;p&gt;He went on to highlight two hermeticity leaks which were mostly new to me: the system clock and entropy. As a potential solution he suggested creating separate random- and time services, injecting them as dependencies.&lt;/p&gt;
+
+&lt;p&gt;Another leak potentially worth fixing are external services and libraries. He gave an embedded elasticsearch server as an example. Leiningen&amp;rsquo;s Uberjar can also be used to bundle dependencies with your app.&lt;/p&gt;
+
+&lt;p&gt;Not all hermeticity leaks may be worth fixing though. Hermeticity must be balanced with complexity and speed of development. Electricity and the JVM were given as examples.&lt;/p&gt;
+
+&lt;h2 id="our-road-trip-to-component"&gt;Our Road Trip to Component&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;By Marketa Adamova&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Marketa Adamova talked about using &lt;a href="https://github.com/stuartsierra/component"&gt;Component&lt;/a&gt; to provide structure and manage state in her company&amp;rsquo;s customer support application. The application was previously implemented in Rails. She and her team decided to move to Clojure because of the JVM (big data and NLP libraries), and stayed for everything else. A complete rewrite was unnesecary, because Rails handled the user front-end just fine.&lt;/p&gt;
+
+&lt;p&gt;Rails has conventions for how to structure applications, but Clojure does not. Clojure does provide the necessary tools to do so though, using Protocols, which she explained in detail.&lt;/p&gt;
+
+&lt;p&gt;Her team still struggled with managing state, however. Component was their solution to this. It made it easy to discover dependencies using the system map, provided great REPL integration and made testing simpler. She warned against the initial complexity bump of describing a system map. For smaller apps, &lt;a href="https://github.com/tolitius/mount"&gt;Mount&lt;/a&gt; may be a better fit.&lt;/p&gt;
+&lt;!--
+## Using Onyx in anger
+_By Simon Belak_
+
+- Data is code/code is data
+    - Hammock
+- Fast feedback and gradual learning curve by supporting local running--&gt;
+
+&lt;h2 id="from-0-to-prototype-using-clojurescript-re-frame-and-friends"&gt;From 0 to prototype using ClojureScript, re-frame and friends.&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;By Martin Clausen&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Martin Clausen, a former lawyer, demo&amp;rsquo;ed a prototype contract drafting application. Contract drafting is a tedious task, he explained, and his application aims to provide some relief. It highlights and validates important facts in the contract, and provides both parties with full revision history.&lt;/p&gt;
+
+&lt;p&gt;The ability to make changes quickly is a very impressive selling point. He went as far as making changes on the fly in front of his customers. Someone in the audience asked: &amp;ldquo;If your customers see you making changes this quickly, are you still able to charge as much?&amp;rdquo;. Martin answered that his usual reply is to tell his customers he knows how much money the tool will save them.&lt;/p&gt;
+
+&lt;h2 id="conclusion"&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;I certainly learned a lot over the course of the day, and I look forward to going again next year. For additions or corrections, please leave a comment below.&lt;/p&gt;</description></item>
+  <item>
+   <title>Implementing Multimethods</title>
+   <link>http://www.reinvanderwoerd.nl/blog/2017/03/27/implementing-multimethods/?utm_source=Clojure&amp;utm_medium=RSS</link>
+   <guid isPermaLink="false">urn:http-www-reinvanderwoerd-nl:-blog-2017-03-27-implementing-multimethods</guid>
+   <pubDate>Mon, 27 Mar 2017 12:37:58 UT</pubDate>
+   <description>
+&lt;p&gt;&lt;a href="https://clojure.org/reference/multimethods"&gt;Multimethods&lt;/a&gt; are one of Clojure&amp;rsquo;s primary polymorphism mechanisms. They allow dispatch on an arbitrary number of arguments, by combining a dispatching function with one or more methods. Here&amp;rsquo;s a way to implement them.&lt;/p&gt;
+&lt;!-- more--&gt;
+
+&lt;p&gt;First, we will need a way to keep track of method implementations. This method registry is state, which we can store in an atom. By using a private definition, we encapsulate the state inside the namespace.&lt;/p&gt;
+
+&lt;div class="brush: clojure"&gt;
+ &lt;div class="source"&gt;
+  &lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;ns &lt;/span&gt;&lt;span class="nv"&gt;multimethods&lt;/span&gt;
+ &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;:refer-clojure&lt;/span&gt; &lt;span class="ss"&gt;:exclude&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="kd"&gt;defmethod defmulti &lt;/span&gt;&lt;span class="nv"&gt;methods&lt;/span&gt;&lt;span class="p"&gt;]))&lt;/span&gt;
+
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;declare &lt;/span&gt;&lt;span class="nv"&gt;multi-fn&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;def &lt;/span&gt;&lt;span class="o"&gt;^&lt;/span&gt;&lt;span class="ss"&gt;:private&lt;/span&gt; &lt;span class="nv"&gt;methods&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;atom&lt;/span&gt; &lt;span class="p"&gt;{}))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;Next up is multimethod defition. &lt;code&gt;defmulti&lt;/code&gt; creates a new entry in the methods map, and defines the actual multimethod.&lt;/p&gt;
+
+&lt;div class="brush: clojure"&gt;
+ &lt;div class="source"&gt;
+  &lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;defmacro defmulti &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;name &lt;/span&gt;&lt;span class="nv"&gt;dispatch-fn&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;swap!&lt;/span&gt; &lt;span class="nv"&gt;multimethods&lt;/span&gt; &lt;span class="nb"&gt;assoc name &lt;/span&gt;&lt;span class="p"&gt;{})&lt;/span&gt;
+ &lt;span class="o"&gt;`&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;def &lt;/span&gt;&lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="nb"&gt;name &lt;/span&gt;&lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;multi-fn&lt;/span&gt; &lt;span class="nb"&gt;name &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;eval &lt;/span&gt;&lt;span class="nv"&gt;dispatch-fn&lt;/span&gt;&lt;span class="p"&gt;))))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;When the multimethod is called, it first determines the dispatch value by calling it&amp;rsquo;s dispatch function. It then looks up the method implementation for the dispatch value in the methods map. When a matching implementation is found, the multimethod applies it to it&amp;rsquo;s arguments. Otherwise, it throws an error.&lt;/p&gt;
+
+&lt;div class="brush: clojure"&gt;
+ &lt;div class="source"&gt;
+  &lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;defn &lt;/span&gt;&lt;span class="nv"&gt;multi-fn&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;name &lt;/span&gt;&lt;span class="nv"&gt;dispatch-fn&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;fn &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt; &lt;span class="nv"&gt;args&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+    &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;let &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nv"&gt;dispatch-val&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;apply &lt;/span&gt;&lt;span class="nv"&gt;dispatch-fn&lt;/span&gt; &lt;span class="nv"&gt;args&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+          &lt;span class="nv"&gt;method-impl&lt;/span&gt;  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;get-in&lt;/span&gt; &lt;span class="o"&gt;@&lt;/span&gt;&lt;span class="nv"&gt;multimethods&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;name &lt;/span&gt;&lt;span class="nv"&gt;dispatch-val&lt;/span&gt;&lt;span class="p"&gt;])]&lt;/span&gt;
+     &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;if &lt;/span&gt;&lt;span class="nv"&gt;method-impl&lt;/span&gt;
+       &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;apply &lt;/span&gt;&lt;span class="nv"&gt;method-impl&lt;/span&gt; &lt;span class="nv"&gt;args&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+       &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;throw&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;Error.&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;str &lt;/span&gt;&lt;span class="s"&gt;"No implementation of "&lt;/span&gt; 
+                            &lt;span class="nb"&gt;name &lt;/span&gt;&lt;span class="s"&gt;" for "&lt;/span&gt; &lt;span class="nv"&gt;dispatch-val&lt;/span&gt;&lt;span class="p"&gt;)))))))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;&lt;code&gt;defmethod&lt;/code&gt; simply adds an implementation to the methods map under the given name and dispatch value.&lt;/p&gt;
+
+&lt;div class="brush: clojure"&gt;
+ &lt;div class="source"&gt;
+  &lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;defmacro defmethod &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;name &lt;/span&gt;&lt;span class="nv"&gt;dispatch-val&lt;/span&gt; &lt;span class="nv"&gt;params&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&lt;/span&gt; &lt;span class="nv"&gt;body&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;swap!&lt;/span&gt; &lt;span class="nv"&gt;multimethods&lt;/span&gt; &lt;span class="nv"&gt;assoc-in&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;name &lt;/span&gt;&lt;span class="nv"&gt;dispatch-val&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+    &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;eval &lt;/span&gt;&lt;span class="o"&gt;`&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;fn &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;~@&lt;/span&gt;&lt;span class="nv"&gt;params&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+             &lt;span class="o"&gt;~@&lt;/span&gt;&lt;span class="nv"&gt;body&lt;/span&gt;&lt;span class="p"&gt;))))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;An example:&lt;/p&gt;
+
+&lt;div class="brush: clojure"&gt;
+ &lt;div class="source"&gt;
+  &lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;; Define a multimethod, add entry to methods map&lt;/span&gt;
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;defmulti &lt;/span&gt;&lt;span class="nv"&gt;print-even?&lt;/span&gt; &lt;span class="nv"&gt;even?&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;; Add two implementations to the methods map&lt;/span&gt;
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;defmethod &lt;/span&gt;&lt;span class="nv"&gt;print-even?&lt;/span&gt; &lt;span class="nv"&gt;true&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nv"&gt;n&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;println &lt;/span&gt;&lt;span class="nv"&gt;n&lt;/span&gt; &lt;span class="s"&gt;"is even"&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;defmethod &lt;/span&gt;&lt;span class="nv"&gt;print-even?&lt;/span&gt; &lt;span class="nv"&gt;false&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nv"&gt;n&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;println &lt;/span&gt;&lt;span class="nv"&gt;n&lt;/span&gt; &lt;span class="s"&gt;"is odd"&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+
+&lt;span class="c1"&gt;; Look up the implementation by dispatch value, &lt;/span&gt;
+&lt;span class="c1"&gt;; and apply it to the given arguments.&lt;/span&gt;
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;print-even?&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
+&lt;span class="c1"&gt;; "0 is even"&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;</description></item>
+  <item>
+   <title>ADT's in Clojure</title>
+   <link>http://www.reinvanderwoerd.nl/blog/2017/03/23/adt-s-in-clojure/?utm_source=Clojure&amp;utm_medium=RSS</link>
+   <guid isPermaLink="false">urn:http-www-reinvanderwoerd-nl:-blog-2017-03-23-adt-s-in-clojure</guid>
+   <pubDate>Thu, 23 Mar 2017 13:34:39 UT</pubDate>
+   <description>
+&lt;p&gt;After reading &lt;a href="https://lexi-lambda.github.io/blog/2015/12/21/adts-in-typed-racket-with-macros/"&gt;Alexis King&amp;rsquo;s post&lt;/a&gt; about ADT&amp;rsquo;s in Typed Racket, I felt inspired to try the same thing in Clojure.&lt;/p&gt;
+&lt;!-- more--&gt;
+
+&lt;p&gt;I conceived the following syntax, made slightly more Clojure-esque by starting with &amp;lsquo;def&amp;rsquo;.&lt;/p&gt;
+
+&lt;div class="brush: clojure"&gt;
+ &lt;div class="source"&gt;
+  &lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;defdata&lt;/span&gt; &lt;span class="nv"&gt;UserId&lt;/span&gt;
+  &lt;span class="nv"&gt;Anonymous&lt;/span&gt;
+  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;Registered&lt;/span&gt; &lt;span class="nv"&gt;id&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;case-of&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;Registered&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="nv"&gt;Anonymous&lt;/span&gt; &lt;span class="s"&gt;"anon"&lt;/span&gt;
+  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;Registered&lt;/span&gt; &lt;span class="nv"&gt;id&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;id&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;Missing a case produces an compile-time error:&lt;/p&gt;
+
+&lt;div class="brush: clojure"&gt;
+ &lt;div class="source"&gt;
+  &lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;case-of&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;Registered&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="nv"&gt;Anonymous&lt;/span&gt; &lt;span class="s"&gt;"anon"&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+  &lt;span class="c1"&gt;;(Registered id) id))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;pre&gt;&lt;code&gt;  java.lang.Error: Missing: Registered&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Since I&amp;rsquo;m unfamiliar with Typed Clojure, I chose not to typecheck the values inside the tags. This limit&amp;rsquo;s their usefulness, but still allows me to check for missing or undefined patterns at compile time.&lt;/p&gt;
+
+&lt;p&gt;The first task was to find a way to create the data constructors, and figure out where to store the type information. Since data declarations are non-extensible, I figured keeping a global registry was unnecessary. Instead, I embedded type information, including slots and other tags, into the values themselves.&lt;/p&gt;
+
+&lt;p&gt;I wanted to keep the syntax of declaration, construction and pattern matching constistent. Therefore, I wrapped core.match, and gave contructors the same name as their tags.  To improve syntax, I also made parens around tags without slots optional.&lt;/p&gt;
+
+&lt;p&gt;During the process, I came up with two useful macro&amp;rsquo;s. &lt;code&gt;when-message&lt;/code&gt; takes pairs of conditions and messages, and produces a concatenation of the messages whose conditions are true. &lt;code&gt;ensure-with-descriptor&lt;/code&gt; calls it&amp;rsquo;s predicate and descriptor with the given values, and when the predicate fails, throws an error, using the descriptor&amp;rsquo;s output as the error message.&lt;/p&gt;
+
+&lt;p&gt;Here is the full code:&lt;/p&gt;
+
+&lt;div class="brush: clojure"&gt;
+ &lt;div class="source"&gt;
+  &lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;ns &lt;/span&gt;&lt;span class="nv"&gt;sandbox.adt&lt;/span&gt;
+  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;:use&lt;/span&gt; &lt;span class="nv"&gt;clojure.data&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;:require&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nv"&gt;clojure.core.match&lt;/span&gt; &lt;span class="ss"&gt;:refer&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nv"&gt;match&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt;
+            &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nv"&gt;clojure.string&lt;/span&gt; &lt;span class="ss"&gt;:refer&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nv"&gt;join&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt;
+            &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nv"&gt;sandbox.control-flow&lt;/span&gt; &lt;span class="ss"&gt;:refer&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nv"&gt;unless&lt;/span&gt; 
+                                          &lt;span class="nv"&gt;ensure-with-descriptor&lt;/span&gt; 
+                                          &lt;span class="nv"&gt;when-message&lt;/span&gt;&lt;span class="p"&gt;]]))&lt;/span&gt;
+
+
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;defn- &lt;/span&gt;&lt;span class="nv"&gt;tag-name&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nv"&gt;tag&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;if &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;list?&lt;/span&gt; &lt;span class="nv"&gt;tag&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;first &lt;/span&gt;&lt;span class="nv"&gt;tag&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;tag&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;defn- &lt;/span&gt;&lt;span class="nv"&gt;tag-slots&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nv"&gt;tag&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;if &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;list?&lt;/span&gt; &lt;span class="nv"&gt;tag&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;rest &lt;/span&gt;&lt;span class="nv"&gt;tag&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;[]))&lt;/span&gt; 
+
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;defn- &lt;/span&gt;&lt;span class="nv"&gt;make-adt&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;name &lt;/span&gt;&lt;span class="nv"&gt;tags&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+  &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="ss"&gt;:name&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;str &lt;/span&gt;&lt;span class="nv"&gt;name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
+   &lt;span class="ss"&gt;:tag-names&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;vec&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;map &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;comp str &lt;/span&gt;&lt;span class="nv"&gt;tag-name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;tags&lt;/span&gt;&lt;span class="p"&gt;))})&lt;/span&gt;
+
+
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;defn- &lt;/span&gt;&lt;span class="nv"&gt;describe-slots-count&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nv"&gt;expected&lt;/span&gt; &lt;span class="nv"&gt;got&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;str &lt;/span&gt;&lt;span class="s"&gt;"Wrong number of args: "&lt;/span&gt; &lt;span class="nv"&gt;expected&lt;/span&gt; &lt;span class="s"&gt;" slots, "&lt;/span&gt; &lt;span class="nv"&gt;got&lt;/span&gt; &lt;span class="s"&gt;" args "&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; 
+
+
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;defn- &lt;/span&gt;&lt;span class="nv"&gt;make-tag-constructor&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nv"&gt;adt&lt;/span&gt; &lt;span class="nb"&gt;name &lt;/span&gt;&lt;span class="nv"&gt;slots&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;fn &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt; &lt;span class="nv"&gt;vals&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+    &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;ensure-with-descriptor&lt;/span&gt; &lt;span class="nb"&gt;= &lt;/span&gt;&lt;span class="nv"&gt;describe-slots-count&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;count &lt;/span&gt;&lt;span class="nv"&gt;slots&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;count &lt;/span&gt;&lt;span class="nv"&gt;vals&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+    &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="ss"&gt;:slots&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;zipmap &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;vec&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;map keyword &lt;/span&gt;&lt;span class="nv"&gt;slots&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="nv"&gt;vals&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
+     &lt;span class="ss"&gt;:adt&lt;/span&gt; &lt;span class="nv"&gt;adt&lt;/span&gt;
+     &lt;span class="ss"&gt;:tag&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;str &lt;/span&gt;&lt;span class="nv"&gt;name&lt;/span&gt;&lt;span class="p"&gt;)}))&lt;/span&gt;
+
+
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;defn- &lt;/span&gt;&lt;span class="nv"&gt;define-tag-constructor&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nv"&gt;adt&lt;/span&gt; &lt;span class="nb"&gt;name &lt;/span&gt;&lt;span class="nv"&gt;slots&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+ &lt;span class="o"&gt;`&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;def &lt;/span&gt;&lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;symbol &lt;/span&gt;&lt;span class="nv"&gt;name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
+       &lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;make-tag-constructor&lt;/span&gt; &lt;span class="nv"&gt;adt&lt;/span&gt; &lt;span class="nb"&gt;name &lt;/span&gt;&lt;span class="nv"&gt;slots&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
+       
+
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;defn- &lt;/span&gt;&lt;span class="nv"&gt;transform-clauses&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nv"&gt;clauses&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;apply &lt;/span&gt;&lt;span class="nv"&gt;concat&lt;/span&gt;
+    &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;for &lt;/span&gt;&lt;span class="p"&gt;[[&lt;/span&gt;&lt;span class="nv"&gt;tag&lt;/span&gt; &lt;span class="nv"&gt;then&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;partition&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="nv"&gt;clauses&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+          &lt;span class="ss"&gt;:let&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;name &lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;tag-name&lt;/span&gt; &lt;span class="nv"&gt;tag&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  
+                &lt;span class="nv"&gt;slots&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;tag-slots&lt;/span&gt; &lt;span class="nv"&gt;tag&lt;/span&gt;&lt;span class="p"&gt;)]]&lt;/span&gt; 
+      &lt;span class="p"&gt;[[(&lt;/span&gt;&lt;span class="nb"&gt;str &lt;/span&gt;&lt;span class="nv"&gt;name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;vec&lt;/span&gt; &lt;span class="nv"&gt;slots&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt; &lt;span class="nv"&gt;then&lt;/span&gt;&lt;span class="p"&gt;])))&lt;/span&gt;
+
+
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;defn- &lt;/span&gt;&lt;span class="nv"&gt;tags-in-clauses&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nv"&gt;clauses&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;for &lt;/span&gt;&lt;span class="p"&gt;[[[&lt;/span&gt;&lt;span class="nv"&gt;tag&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&lt;/span&gt; &lt;span class="nv"&gt;_&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;partition&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="nv"&gt;clauses&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
+    &lt;span class="nv"&gt;tag&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+
+
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;defn- &lt;/span&gt;&lt;span class="nv"&gt;describe-difference&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nv"&gt;declared&lt;/span&gt; &lt;span class="nv"&gt;in-clauses&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;let &lt;/span&gt;&lt;span class="p"&gt;[[&lt;/span&gt;&lt;span class="nv"&gt;missing&lt;/span&gt; &lt;span class="nv"&gt;undefined&lt;/span&gt; &lt;span class="nv"&gt;_&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;diff&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;set &lt;/span&gt;&lt;span class="nv"&gt;declared&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;set &lt;/span&gt;&lt;span class="nv"&gt;in-clauses&lt;/span&gt;&lt;span class="p"&gt;))]&lt;/span&gt; 
+   &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;when-message&lt;/span&gt; 
+      &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;not-empty&lt;/span&gt; &lt;span class="nv"&gt;missing&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
+      &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;str &lt;/span&gt;&lt;span class="s"&gt;"Missing: "&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;join &lt;/span&gt;&lt;span class="s"&gt;", "&lt;/span&gt; &lt;span class="nv"&gt;missing&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+
+      &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;not-empty&lt;/span&gt; &lt;span class="nv"&gt;undefined&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
+      &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;str &lt;/span&gt;&lt;span class="s"&gt;"Undefined: "&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;join &lt;/span&gt;&lt;span class="s"&gt;", "&lt;/span&gt; &lt;span class="nv"&gt;undefined&lt;/span&gt;&lt;span class="p"&gt;)))))&lt;/span&gt;
+
+
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;defmacro &lt;/span&gt;&lt;span class="nv"&gt;defdata&lt;/span&gt; 
+ &lt;span class="s"&gt;"Define a new ADT"&lt;/span&gt;
+ &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;name &lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt; &lt;span class="nv"&gt;tags&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+ &lt;span class="o"&gt;`&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;do &lt;/span&gt;
+    &lt;span class="o"&gt;~@&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;for &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nv"&gt;tag&lt;/span&gt; &lt;span class="nv"&gt;tags&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+        &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;define-tag-constructor&lt;/span&gt; 
+          &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;make-adt&lt;/span&gt; &lt;span class="nb"&gt;name &lt;/span&gt;&lt;span class="nv"&gt;tags&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
+          &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;tag-name&lt;/span&gt; &lt;span class="nv"&gt;tag&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
+          &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;tag-slots&lt;/span&gt; &lt;span class="nv"&gt;tag&lt;/span&gt;&lt;span class="p"&gt;)))))&lt;/span&gt; 
+
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;defmacro &lt;/span&gt;&lt;span class="nv"&gt;case-of&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nv"&gt;quoted-val&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&lt;/span&gt; &lt;span class="nv"&gt;clauses&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+  &lt;span class="s"&gt;"Pattern-match on a ADT value"&lt;/span&gt;
+  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;let &lt;/span&gt;&lt;span class="p"&gt;[{&lt;/span&gt;&lt;span class="ss"&gt;:keys&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nv"&gt;tag&lt;/span&gt; &lt;span class="nv"&gt;slots&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="ss"&gt;:keys&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nv"&gt;tag-names&lt;/span&gt;&lt;span class="p"&gt;]}&lt;/span&gt; &lt;span class="ss"&gt;:adt&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;eval &lt;/span&gt;&lt;span class="nv"&gt;quoted-val&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+         &lt;span class="nv"&gt;clauses&lt;/span&gt;    &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;transform-clauses&lt;/span&gt; &lt;span class="nv"&gt;clauses&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+         &lt;span class="nv"&gt;in-clauses&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;tags-in-clauses&lt;/span&gt; &lt;span class="nv"&gt;clauses&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+         &lt;span class="nv"&gt;matchform&lt;/span&gt;  &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nv"&gt;tag&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;vec&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;vals &lt;/span&gt;&lt;span class="nv"&gt;slots&lt;/span&gt;&lt;span class="p"&gt;))]]&lt;/span&gt;  
+    &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;ensure-with-descriptor&lt;/span&gt; &lt;span class="nb"&gt;= &lt;/span&gt;&lt;span class="nv"&gt;describe-difference&lt;/span&gt; &lt;span class="nv"&gt;tag-names&lt;/span&gt; &lt;span class="nv"&gt;in-clauses&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="o"&gt;`&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;match&lt;/span&gt; &lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="nv"&gt;matchform&lt;/span&gt;
+        &lt;span class="o"&gt;~@&lt;/span&gt;&lt;span class="nv"&gt;clauses&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;None of this is idiomatic Clojure though, so if you&amp;rsquo;re interested in a similar clojure.spec based solution, I recommend you check out &lt;a href="https://lambdaisland.com/blog/25-09-2016-union-types"&gt;Lambda Island&amp;rsquo;s post&lt;/a&gt;.&lt;/p&gt;</description></item></channel></rss>

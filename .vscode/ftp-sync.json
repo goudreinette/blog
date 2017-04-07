@@ -1,0 +1,19 @@
+{
+    "remotePath": "./domains/reinvanderwoerd.nl/public_html",
+    "host": "ftp.reinvanderwoerd.nl",
+    "username": "woerdhvd",
+    "password": "woerd171161Geheim123",
+    "port": 21,
+    "secure": false,
+    "protocol": "ftp",
+    "uploadOnSave": false,
+    "passive": false,
+    "debug": false,
+    "privateKeyPath": null,
+    "passphrase": null,
+    "ignore": [
+        "\\.vscode",
+        "\\.git",
+        "\\.DS_Store"
+    ]
+}
