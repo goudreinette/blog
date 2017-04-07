@@ -25,6 +25,7 @@ raco frog -b
 cp -r css out/css
 cp -r js out/js
 cp -r img out/img
+cp -r fonts out/fonts
 
 
 
