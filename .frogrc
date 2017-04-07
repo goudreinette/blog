@@ -4,7 +4,7 @@ scheme/host = http://www.reinvanderwoerd.nl
 # A path prepended to URIs, including those specified here in .frogrc
 # such as `permalink` and `posts-index-uri`. Defaults to `/`. This is
 # useful when you want to embed your blog in another web site.
-uri-prefix = /
+uri-prefix = /out
 
 # The title of the blog. Used when generating feeds.
 title = Rein van der Woerd
