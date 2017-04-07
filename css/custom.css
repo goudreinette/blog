@@ -7,6 +7,7 @@
 /* Global */
 body {
     font-family: 'Concourse';
+    padding-top: 20px;
 }
 
 .container {
@@ -41,6 +42,7 @@ footer > a:hover, .tags a:hover, p a:hover {
     border-bottom: none;
     padding-right: 5px;
     margin-left: auto;
+    border: none;
 }
 
 .navbar .container {
@@ -82,9 +84,7 @@ footer > a:hover, .tags a:hover, p a:hover {
     font-family: 'Concourse' !important;
 }
 
-.nav {
-    /* padding-top: 15px; */
-}
+
 
 .nav li a {
     padding: 0px;
@@ -128,8 +128,7 @@ h2:not(.index) {
     margin-top: 60px;
     font-weight: bold;
     font-size: 20px;
-    /* font-weight: normal; */
-    /* font-variant: small-caps; */
+
 }
 
 h2 a {
@@ -182,6 +181,10 @@ pre {
 
 article {
     margin-bottom: 75px;
+}
+
+.post-title {
+    padding-bottom: 15px;
 }
 
 article img {
@@ -249,4 +252,24 @@ ul.nav.navbar-nav {
 
 ul:not(.nav) {
     font-size: 20px;
+}
+
+p.date-and-tags {
+    display: none;
+}
+
+article header {
+    /* padding-bottom: 30px; */
+}
+
+div#placement-bottom .post-list {
+    display: none;
+}
+
+.post-list {
+    visibility: hidden !important;
+}
+
+div#discovery-main-c60 {
+    /* visibility: hidden !important; */
 }

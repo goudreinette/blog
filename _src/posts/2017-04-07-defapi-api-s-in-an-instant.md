@@ -18,10 +18,11 @@ Inspired by the ideas of Datascript and GraphQL, and frustrated by the boilerpla
 - Schema is source of truth
 - Backend models, migrations, procedural code in controllers, client-side js
 - Excess filling in the cake
+- Repetitive routes
 - Users need access to their data with as little ceremony as possible
 
 ## Data DSL's
-The goal is to let the client describe exactly the data it needs, and have the server figure out how to resolve it. Json itself was inadequate for this task, because I wanted to support named arguments, and disliked the resulting look.
+The goal was to let the client describe exactly the data it needs, and have the server figure out how to resolve it. Json itself was inadequate for this task, because I wanted to support named arguments, and disliked the resulting look.
 
 Like GraphQL, I created a curly-braced dsl syntax for this implementation. I like the symmetry between the query and json response.
 
@@ -44,7 +45,7 @@ The problem with this approach is that you lose all facilities of the client lan
 
 Clojure's EDN supports arbitrary values in map keys, 
 and the result still looked reasonably close. Credits to ... for this idea.
-Unfortunately, It's much less ubiquitous than json.
+Unfortunately, It's much also less ubiquitous than json.
 
 ```clojure
 { 
@@ -64,12 +65,17 @@ Unfortunately, It's much less ubiquitous than json.
 
 
 ## Multiple data sources
-- SQL, NoSQL
-- External API's
-- Memory
-- Extensible
-- Unified API
-- Implementation
+The API can provide unified access to multiple independent data sources, using _resolvers_. I included a SQL resolver. Other I possibilities can think of are other databases, external API's, state in memory, or an aggregate of these. 
+
+I decided against multimethods in this case because I wanted to keep the relationship between query names and resolvers explicit.
+
+```clojure
+(defapi mixed-api db-resolver
+  :user user-resolver
+  :hits hitcount-resolver)
+```
+
+
 
 ## Nesting and hydration
 - Ommitted
@@ -77,9 +83,9 @@ Unfortunately, It's much less ubiquitous than json.
 - Match on path
 
 
-## Other solutions
+## Resources
 - GraphQL (except more duplication?)
-- Datascript with Datomic
+- [Decomposing web app development](http://tonsky.me/blog/decomposing-web-app-development/)
 - (PostgREST)
 - Andere blogpost
 
