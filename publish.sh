@@ -14,8 +14,8 @@ mkdir out
 git worktree prune
 rm -rf .git/worktrees/out/
 
-echo "Checking out gh-pages branch into out"
-git worktree add -B gh-pages out origin/gh-pages
+echo "Checking out master branch into out"
+git worktree add -B master out origin/master
 
 echo "Removing existing files"
 rm -rf out/*
