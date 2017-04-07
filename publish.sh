@@ -22,6 +22,11 @@ rm -rf out/*
 
 echo "Generating site"
 raco frog -b
+cp css out/css
+cp js out/js
+cp img out/img
+
+
 
 echo "Updating gh-pages branch"
 cd out && git add --all && git commit -m "Publishing to gh-pages (publish.sh)"
