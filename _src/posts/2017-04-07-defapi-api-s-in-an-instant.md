@@ -1,6 +1,6 @@
     Title: defapi: API's in an instant
     Date: 2017-04-07T09:34:12
-    Tags: Clojure, Web
+    Tags: DRAFT
 
 Inspired by the ideas of Datascript and GraphQL, and frustrated by the boilerplate common in implementing API's, I set out to explore a possible solution.  
 

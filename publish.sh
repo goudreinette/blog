@@ -2,11 +2,6 @@
 
 DIR=$(dirname "$0")
 
-if [[ $(git status -s) ]]
-then
-    echo "The working directory is dirty. Please commit any pending changes."
-    exit 1;
-fi
 
 echo "Deleting old publication"
 rm -rf out
@@ -29,5 +24,5 @@ cp -r fonts out/fonts
 
 
 
-echo "Updating gh-pages branch"
-cd out && git add --all && git commit -m "Publishing to gh-pages (publish.sh)" && git push
+echo "Updating master branch"
+cd out && git add --all && git commit -m "Publishing to master (publish.sh)" && git push
