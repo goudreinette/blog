@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+ <title type="text">Rein van der Woerd: Posts tagged 'Lisp'</title>
+ <link rel="self" href="http://www.reinvanderwoerd.nl/feeds/Lisp.atom.xml" />
+ <link href="http://www.reinvanderwoerd.nl/tags/Lisp.html" />
+ <id>urn:http-www-reinvanderwoerd-nl:-tags-Lisp-html</id>
+ <updated>2017-03-18T17:22:23Z</updated>
+ <entry>
+  <title type="text">Writing a Lisp</title>
+  <link rel="alternate" href="http://www.reinvanderwoerd.nl/blog/2017/03/18/writing-a-lisp/?utm_source=Lisp&amp;utm_medium=Atom" />
+  <id>urn:http-www-reinvanderwoerd-nl:-blog-2017-03-18-writing-a-lisp</id>
+  <published>2017-03-18T17:22:23Z</published>
+  <updated>2017-03-18T17:22:23Z</updated>
+  <author>
+   <name>Rein van der Woerd</name></author>
+  <content type="html">
+&lt;p&gt;I&amp;rsquo;ve been working on my first general purpose programming language last week, guided by the books SICP and Write Yourself a Scheme in 48 Hours.  This has been a goal of mine for a long time, but it somehow always looked intimidating. I was glad to find out that interpreters can actually be astonishingly simple, and would like to share what I learned along the way.&lt;/p&gt;
+&lt;!-- more--&gt;
+
+&lt;p&gt;This code is based on Write Yourself a Scheme. If you&amp;rsquo;d like to see the code in context, you can follow along &lt;a href="https://github.com/reinvdwoerd/lisp"&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id="implementing-macros"&gt;Implementing macro&amp;rsquo;s&lt;/h2&gt;
+
+&lt;p&gt;Since macro&amp;rsquo;s are just functions of &lt;code&gt;code -&amp;gt; code&lt;/code&gt;, adding a simple macro system to my Lisp was fairly easy.  First, I added an additional field to my function record to identify macro&amp;rsquo;s.&lt;/p&gt;
+
+&lt;div class="brush: haskell"&gt;
+ &lt;div class="source"&gt;
+  &lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kr"&gt;data&lt;/span&gt; &lt;span class="kt"&gt;LispVal&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt;  &lt;span class="o"&gt;...&lt;/span&gt;  
+                &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="kt"&gt;Func&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;isMacro&lt;/span&gt; &lt;span class="ow"&gt;::&lt;/span&gt; &lt;span class="kt"&gt;Bool&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="c1"&gt;-- new&lt;/span&gt;
+                         &lt;span class="n"&gt;params&lt;/span&gt;  &lt;span class="ow"&gt;::&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="kt"&gt;String&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+                         &lt;span class="n"&gt;body&lt;/span&gt;    &lt;span class="ow"&gt;::&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="kt"&gt;LispVal&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+                         &lt;span class="n"&gt;closure&lt;/span&gt; &lt;span class="ow"&gt;::&lt;/span&gt; &lt;span class="kt"&gt;Env&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;Next, I wrote a new evaluation rule for macro definitions.&lt;/p&gt;
+
+&lt;div class="brush: haskell"&gt;
+ &lt;div class="source"&gt;
+  &lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nf"&gt;makeFn&lt;/span&gt; &lt;span class="n"&gt;isMacro&lt;/span&gt; &lt;span class="n"&gt;params&lt;/span&gt; &lt;span class="n"&gt;body&lt;/span&gt; &lt;span class="n"&gt;env&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt;
+  &lt;span class="c1"&gt;--&lt;/span&gt;
+
+&lt;span class="nf"&gt;makeMacro&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt; &lt;span class="n"&gt;makeFn&lt;/span&gt; &lt;span class="kt"&gt;True&lt;/span&gt;
+
+&lt;span class="nf"&gt;eval&lt;/span&gt; &lt;span class="n"&gt;env&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;List&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;Symbol&lt;/span&gt; &lt;span class="s"&gt;"define-syntax"&lt;/span&gt; &lt;span class="kt"&gt;:&lt;/span&gt; &lt;span class="kt"&gt;List&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;Symbol&lt;/span&gt; &lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="kt"&gt;:&lt;/span&gt; &lt;span class="n"&gt;params&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="kt"&gt;:&lt;/span&gt; &lt;span class="n"&gt;body&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt;
+  &lt;span class="n"&gt;makeMacro&lt;/span&gt; &lt;span class="n"&gt;params&lt;/span&gt; &lt;span class="n"&gt;body&lt;/span&gt; &lt;span class="n"&gt;env&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&amp;gt;=&lt;/span&gt; &lt;span class="n"&gt;defineVar&lt;/span&gt; &lt;span class="n"&gt;env&lt;/span&gt; &lt;span class="n"&gt;var&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;Finally, I changed the way macro invocations are evaluated, by passing arguments to the macro unevaluated, and evaluating the result instead.&lt;/p&gt;
+
+&lt;div class="brush: haskell"&gt;
+ &lt;div class="source"&gt;
+  &lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nf"&gt;eval&lt;/span&gt; &lt;span class="n"&gt;env&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;List&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;func&lt;/span&gt; &lt;span class="kt"&gt;:&lt;/span&gt; &lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt; &lt;span class="kr"&gt;do&lt;/span&gt;
+  &lt;span class="n"&gt;evaluatedFunc&lt;/span&gt; &lt;span class="ow"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="n"&gt;eval&lt;/span&gt; &lt;span class="n"&gt;env&lt;/span&gt; &lt;span class="n"&gt;func&lt;/span&gt; &lt;span class="c1"&gt;-- required to determine evaluation order&lt;/span&gt;
+  &lt;span class="kr"&gt;case&lt;/span&gt; &lt;span class="n"&gt;evaluatedFunc&lt;/span&gt; &lt;span class="kr"&gt;of&lt;/span&gt;
+    &lt;span class="kt"&gt;Func&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;isMacro&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt; &lt;span class="kt"&gt;True&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="ow"&gt;-&amp;gt;&lt;/span&gt;
+      &lt;span class="n"&gt;apply&lt;/span&gt; &lt;span class="n"&gt;evaluatedFunc&lt;/span&gt; &lt;span class="n"&gt;args&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&amp;gt;=&lt;/span&gt; &lt;span class="n"&gt;eval&lt;/span&gt; &lt;span class="n"&gt;env&lt;/span&gt; &lt;span class="c1"&gt;-- evaluate results&lt;/span&gt;
+
+    &lt;span class="kr"&gt;_&lt;/span&gt; &lt;span class="ow"&gt;-&amp;gt;&lt;/span&gt;
+      &lt;span class="n"&gt;evalMany&lt;/span&gt; &lt;span class="n"&gt;env&lt;/span&gt; &lt;span class="n"&gt;args&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&amp;gt;=&lt;/span&gt; &lt;span class="n"&gt;apply&lt;/span&gt; &lt;span class="n"&gt;evaluatedFunc&lt;/span&gt; &lt;span class="c1"&gt;-- evaluate arguments&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;To make macro&amp;rsquo;s more easy to use, I added syntax and evaluation rules for quote/unquote.&lt;/p&gt;
+
+&lt;div class="brush: haskell"&gt;
+ &lt;div class="source"&gt;
+  &lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nf"&gt;quote&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt; &lt;span class="kr"&gt;do&lt;/span&gt;
+  &lt;span class="n"&gt;char&lt;/span&gt; &lt;span class="sc"&gt;&amp;#39;&lt;/span&gt;&lt;span class="se"&gt;\&amp;#39;&lt;/span&gt;&lt;span class="sc"&gt;&amp;#39;&lt;/span&gt;
+  &lt;span class="n"&gt;form&lt;/span&gt; &lt;span class="ow"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="n"&gt;expr&lt;/span&gt;
+  &lt;span class="n"&gt;return&lt;/span&gt; &lt;span class="o"&gt;$&lt;/span&gt; &lt;span class="kt"&gt;List&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="kt"&gt;Symbol&lt;/span&gt; &lt;span class="s"&gt;"quote"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;form&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+&lt;span class="nf"&gt;unquote&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt; &lt;span class="kr"&gt;do&lt;/span&gt;
+  &lt;span class="n"&gt;char&lt;/span&gt; &lt;span class="sc"&gt;&amp;#39;~&amp;#39;&lt;/span&gt;
+  &lt;span class="n"&gt;form&lt;/span&gt; &lt;span class="ow"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="n"&gt;expr&lt;/span&gt;
+  &lt;span class="n"&gt;return&lt;/span&gt; &lt;span class="o"&gt;$&lt;/span&gt; &lt;span class="kt"&gt;List&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="kt"&gt;Symbol&lt;/span&gt; &lt;span class="s"&gt;"unquote"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;form&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+&lt;span class="nf"&gt;expr&lt;/span&gt; &lt;span class="ow"&gt;::&lt;/span&gt; &lt;span class="kt"&gt;Parser&lt;/span&gt; &lt;span class="kt"&gt;LispVal&lt;/span&gt;
+&lt;span class="nf"&gt;expr&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt; &lt;span class="o"&gt;...&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;|&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;quote&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;|&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;unquote&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;Quoted expressions are walked, and any unquoted expression within is replaced by it&amp;rsquo;s evaluated result.&lt;/p&gt;
+
+&lt;div class="brush: haskell"&gt;
+ &lt;div class="source"&gt;
+  &lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nf"&gt;eval&lt;/span&gt; &lt;span class="n"&gt;env&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;List&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="kt"&gt;Symbol&lt;/span&gt; &lt;span class="s"&gt;"quote"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;form&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt; &lt;span class="kr"&gt;do&lt;/span&gt; 
+  &lt;span class="n"&gt;evalUnquotes&lt;/span&gt; &lt;span class="n"&gt;form&lt;/span&gt;
+  &lt;span class="kr"&gt;where&lt;/span&gt; &lt;span class="n"&gt;evalUnquotes&lt;/span&gt; &lt;span class="n"&gt;form&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt;
+          &lt;span class="kr"&gt;case&lt;/span&gt; &lt;span class="n"&gt;form&lt;/span&gt; &lt;span class="kr"&gt;of&lt;/span&gt;
+            &lt;span class="kt"&gt;List&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="kt"&gt;Symbol&lt;/span&gt; &lt;span class="s"&gt;"unquote"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;form&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="ow"&gt;-&amp;gt;&lt;/span&gt;
+              &lt;span class="n"&gt;eval&lt;/span&gt; &lt;span class="n"&gt;env&lt;/span&gt; &lt;span class="n"&gt;form&lt;/span&gt;
+            &lt;span class="kt"&gt;List&lt;/span&gt; &lt;span class="n"&gt;items&lt;/span&gt; &lt;span class="ow"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="kr"&gt;do&lt;/span&gt;
+              &lt;span class="n"&gt;results&lt;/span&gt; &lt;span class="ow"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="n"&gt;traverse&lt;/span&gt; &lt;span class="n"&gt;evalUnquotes&lt;/span&gt; &lt;span class="n"&gt;items&lt;/span&gt;
+              &lt;span class="n"&gt;return&lt;/span&gt; &lt;span class="o"&gt;$&lt;/span&gt; &lt;span class="kt"&gt;List&lt;/span&gt; &lt;span class="n"&gt;results&lt;/span&gt;
+            &lt;span class="kr"&gt;_&lt;/span&gt; &lt;span class="ow"&gt;-&amp;gt;&lt;/span&gt;
+              &lt;span class="n"&gt;return&lt;/span&gt; &lt;span class="n"&gt;form&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;After this, you should have a fully functional macro system, and additional syntax like the following can be defined from within the language:&lt;/p&gt;
+
+&lt;div class="brush: scheme"&gt;
+ &lt;div class="source"&gt;
+  &lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;define-syntax &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;unless&lt;/span&gt; &lt;span class="nv"&gt;test&lt;/span&gt; &lt;span class="nv"&gt;then&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;if &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;not &lt;/span&gt;&lt;span class="nv"&gt;~test&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+     &lt;span class="nv"&gt;~then&lt;/span&gt;
+      &lt;span class="nv"&gt;nil&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;h2 id="varargs-and-special-forms"&gt;Varargs and special forms&lt;/h2&gt;
+
+&lt;p&gt;The combination of macro&amp;rsquo;s and varargs allowed me to define some additional special forms from within the language.&lt;/p&gt;
+
+&lt;h4 id="let"&gt;let&lt;/h4&gt;
+
+&lt;p&gt;Let can be derived from lambda, binding arguments to parameters and creating a new local enviroment.&lt;/p&gt;
+
+&lt;div class="brush: scheme"&gt;
+ &lt;div class="source"&gt;
+  &lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;define &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;binding-vars&lt;/span&gt; &lt;span class="nv"&gt;bindings&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;map &lt;/span&gt;&lt;span class="nv"&gt;first&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;pairs&lt;/span&gt; &lt;span class="nv"&gt;bindings&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
+
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;define &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;binding-vals&lt;/span&gt; &lt;span class="nv"&gt;bindings&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;map &lt;/span&gt;&lt;span class="nv"&gt;second&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;pairs&lt;/span&gt; &lt;span class="nv"&gt;bindings&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
+
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;define-syntax &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;let &lt;/span&gt;&lt;span class="nv"&gt;bindings&lt;/span&gt; &lt;span class="o"&gt;.&lt;/span&gt; &lt;span class="nv"&gt;body&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;list*&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;list*&lt;/span&gt; &lt;span class="ss"&gt;&amp;#39;lambda&lt;/span&gt;  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;binding-vars&lt;/span&gt; &lt;span class="nv"&gt;bindings&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;body&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
+         &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;binding-vals&lt;/span&gt; &lt;span class="nv"&gt;bindings&lt;/span&gt;&lt;span class="p"&gt;))))&lt;/span&gt;
+
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;let &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;x&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;
+      &lt;span class="nv"&gt;y&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;* &lt;/span&gt;&lt;span class="nv"&gt;x&lt;/span&gt; &lt;span class="nv"&gt;y&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="c1"&gt;;=&amp;gt; 30&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;h4 id="cond"&gt;cond&lt;/h4&gt;
+
+&lt;p&gt;What&amp;rsquo;s interesting about this special form is that both it and &amp;lsquo;if&amp;rsquo; can be defined in terms of each other. Since Write Yourself a Scheme decided to make &amp;lsquo;if&amp;rsquo; the primitive form, I wrote cond to expand to nested if&amp;rsquo;s.&lt;/p&gt;
+
+&lt;div class="brush: scheme"&gt;
+ &lt;div class="source"&gt;
+  &lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;define &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;wrap-if&lt;/span&gt; &lt;span class="nv"&gt;acc&lt;/span&gt; &lt;span class="nv"&gt;clause&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;if &lt;/span&gt;&lt;span class="nv"&gt;~&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;first&lt;/span&gt; &lt;span class="nv"&gt;clause&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+     &lt;span class="nv"&gt;~&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;second&lt;/span&gt; &lt;span class="nv"&gt;clause&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+     &lt;span class="nv"&gt;~acc&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;define-syntax &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;cond &lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt; &lt;span class="nv"&gt;clauses&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;reduce&lt;/span&gt; &lt;span class="nv"&gt;wrap-if&lt;/span&gt; &lt;span class="ss"&gt;&amp;#39;nil&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;reverse &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;pairs&lt;/span&gt; &lt;span class="nv"&gt;clauses&lt;/span&gt;&lt;span class="p"&gt;))))&lt;/span&gt;
+
+
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;define &lt;/span&gt;&lt;span class="nv"&gt;x&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;cond&lt;/span&gt;
+  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;symbol? &lt;/span&gt;&lt;span class="nv"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="s"&gt;"symbol"&lt;/span&gt;
+  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;number? &lt;/span&gt;&lt;span class="nv"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="s"&gt;"number"&lt;/span&gt;
+  &lt;span class="ss"&gt;&amp;#39;else&lt;/span&gt;       &lt;span class="s"&gt;"something else"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;;=&amp;gt; "number"&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;h4 id="dobegin"&gt;do/begin&lt;/h4&gt;
+
+&lt;p&gt;Evaluates it&amp;rsquo;s arguments left to right, and returns the last result. Since this is already the default evaluation order, all I needed to do was to return the last result.&lt;/p&gt;
+
+&lt;div class="brush: scheme"&gt;
+ &lt;div class="source"&gt;
+  &lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;define &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;do &lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt; &lt;span class="nv"&gt;forms&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;last&lt;/span&gt; &lt;span class="nv"&gt;forms&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;do &lt;/span&gt;
+  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;+ &lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;empty?&lt;/span&gt; &lt;span class="o"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt; &lt;span class="c1"&gt;;=&amp;gt; false&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;h2 id="require"&gt;Require&lt;/h2&gt;
+
+&lt;p&gt;Require is still implemented at the language level. I might switch to a macro later.&lt;/p&gt;
+
+&lt;p&gt;It works by evaluating all expressions in the file, collecting the results and returning them as a list. I found this behaviour useful in the Repl to discover imported identifiers.&lt;/p&gt;
+
+&lt;div class="brush: haskell"&gt;
+ &lt;div class="source"&gt;
+  &lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nf"&gt;eval&lt;/span&gt; &lt;span class="n"&gt;env&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;List&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="kt"&gt;Symbol&lt;/span&gt; &lt;span class="s"&gt;"require"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;Symbol&lt;/span&gt; &lt;span class="n"&gt;filepath&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt; &lt;span class="ow"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="kr"&gt;do&lt;/span&gt;
+      &lt;span class="n"&gt;contents&lt;/span&gt; &lt;span class="ow"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="n"&gt;liftIO&lt;/span&gt; &lt;span class="o"&gt;$&lt;/span&gt; &lt;span class="n"&gt;readFile&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filepath&lt;/span&gt; &lt;span class="o"&gt;++&lt;/span&gt; &lt;span class="s"&gt;".lisp"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+      &lt;span class="n"&gt;forms&lt;/span&gt; &lt;span class="ow"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="n"&gt;parseFile&lt;/span&gt; &lt;span class="n"&gt;contents&lt;/span&gt;
+      &lt;span class="n"&gt;results&lt;/span&gt; &lt;span class="ow"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="n"&gt;traverse&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;eval&lt;/span&gt; &lt;span class="n"&gt;env&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;forms&lt;/span&gt;
+      &lt;span class="n"&gt;return&lt;/span&gt; &lt;span class="o"&gt;$&lt;/span&gt; &lt;span class="kt"&gt;List&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;pre&gt;&lt;code&gt;lisp=&amp;gt; (require lisp/core)
+(a inc compose flip second last list pair ...)&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id="enviroment-inspection"&gt;Enviroment inspection&lt;/h2&gt;
+
+&lt;p&gt;I made the current lexical enviroment accessible using &lt;code&gt;(env)&lt;/code&gt;. A useful feauture to have when debugging.&lt;/p&gt;
+
+&lt;div class="brush: haskell"&gt;
+ &lt;div class="source"&gt;
+  &lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;-- Env.hs&lt;/span&gt;
+&lt;span class="nf"&gt;getVars&lt;/span&gt; &lt;span class="ow"&gt;::&lt;/span&gt; &lt;span class="kt"&gt;Env&lt;/span&gt; &lt;span class="ow"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="kt"&gt;IOThrowsError&lt;/span&gt; &lt;span class="p"&gt;[(&lt;/span&gt;&lt;span class="kt"&gt;String&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;LispVal&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
+&lt;span class="nf"&gt;getVars&lt;/span&gt; &lt;span class="n"&gt;envRef&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt; &lt;span class="kr"&gt;do&lt;/span&gt;
+  &lt;span class="n"&gt;env&lt;/span&gt; &lt;span class="ow"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="n"&gt;liftIO&lt;/span&gt; &lt;span class="o"&gt;$&lt;/span&gt; &lt;span class="n"&gt;readIORef&lt;/span&gt; &lt;span class="n"&gt;envRef&lt;/span&gt;
+  &lt;span class="kr"&gt;let&lt;/span&gt; &lt;span class="n"&gt;vars&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt; &lt;span class="n"&gt;map&lt;/span&gt; &lt;span class="n"&gt;fst&lt;/span&gt; &lt;span class="n"&gt;env&lt;/span&gt;
+  &lt;span class="n"&gt;vals&lt;/span&gt; &lt;span class="ow"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="n"&gt;traverse&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;getVar&lt;/span&gt; &lt;span class="n"&gt;envRef&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;vars&lt;/span&gt;
+  &lt;span class="n"&gt;return&lt;/span&gt; &lt;span class="o"&gt;$&lt;/span&gt; &lt;span class="n"&gt;zip&lt;/span&gt; &lt;span class="n"&gt;vars&lt;/span&gt; &lt;span class="n"&gt;vals&lt;/span&gt;
+
+
+&lt;span class="c1"&gt;-- Eval.hs&lt;/span&gt;
+&lt;span class="nf"&gt;eval&lt;/span&gt; &lt;span class="n"&gt;env&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;List&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="kt"&gt;Symbol&lt;/span&gt; &lt;span class="s"&gt;"env"&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt; &lt;span class="kr"&gt;do&lt;/span&gt;
+  &lt;span class="n"&gt;vars&lt;/span&gt; &lt;span class="ow"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="n"&gt;getVars&lt;/span&gt; &lt;span class="n"&gt;env&lt;/span&gt;
+  &lt;span class="n"&gt;return&lt;/span&gt; &lt;span class="o"&gt;$&lt;/span&gt; &lt;span class="kt"&gt;List&lt;/span&gt; &lt;span class="o"&gt;$&lt;/span&gt; &lt;span class="n"&gt;map&lt;/span&gt; &lt;span class="n"&gt;toPair&lt;/span&gt; &lt;span class="n"&gt;vars&lt;/span&gt;
+  &lt;span class="kr"&gt;where&lt;/span&gt; &lt;span class="n"&gt;toPair&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;var&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;val&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt; &lt;span class="kt"&gt;List&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="kt"&gt;Symbol&lt;/span&gt; &lt;span class="n"&gt;var&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;val&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;pre&gt;&lt;code&gt;lisp=&amp;gt; (env)
+((+ &amp;lt;primitive function&amp;gt;) (a 10) ...)&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id="repl"&gt;Repl&lt;/h2&gt;
+
+&lt;p&gt;During development I used the convenient &lt;code&gt;rlwrap&lt;/code&gt; to improve repl usability. I later replaced it with Haskeline. Any thrown errors are printed red.&lt;/p&gt;
+
+&lt;div class="brush: haskell"&gt;
+ &lt;div class="source"&gt;
+  &lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kr"&gt;import&lt;/span&gt;           &lt;span class="nn"&gt;System.Console.ANSI&lt;/span&gt;
+&lt;span class="kr"&gt;import&lt;/span&gt;           &lt;span class="nn"&gt;System.Console.Haskeline&lt;/span&gt;
+
+&lt;span class="nf"&gt;repl&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt; &lt;span class="kr"&gt;do&lt;/span&gt;
+  &lt;span class="n"&gt;globalEnv&lt;/span&gt; &lt;span class="ow"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="n"&gt;newEnv&lt;/span&gt;
+  &lt;span class="n"&gt;runInputT&lt;/span&gt; &lt;span class="n"&gt;defaultSettings&lt;/span&gt; &lt;span class="o"&gt;$&lt;/span&gt; &lt;span class="n"&gt;loop&lt;/span&gt; &lt;span class="n"&gt;globalEnv&lt;/span&gt;
+
+&lt;span class="nf"&gt;loop&lt;/span&gt; &lt;span class="n"&gt;env&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt; &lt;span class="kr"&gt;do&lt;/span&gt;
+  &lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="ow"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="n"&gt;getInputLine&lt;/span&gt; &lt;span class="s"&gt;"lisp=&amp;gt; "&lt;/span&gt;
+  &lt;span class="kr"&gt;case&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="kr"&gt;of&lt;/span&gt;
+    &lt;span class="kt"&gt;Nothing&lt;/span&gt; &lt;span class="ow"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;return&lt;/span&gt; &lt;span class="nb"&gt;()&lt;/span&gt;
+    &lt;span class="kt"&gt;Just&lt;/span&gt; &lt;span class="n"&gt;expr&lt;/span&gt; &lt;span class="ow"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="kr"&gt;do&lt;/span&gt;
+      &lt;span class="n"&gt;evaled&lt;/span&gt; &lt;span class="ow"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="n"&gt;liftIO&lt;/span&gt; &lt;span class="o"&gt;$&lt;/span&gt; &lt;span class="n"&gt;evalString&lt;/span&gt; &lt;span class="n"&gt;env&lt;/span&gt; &lt;span class="n"&gt;expr&lt;/span&gt;
+      &lt;span class="n"&gt;liftIO&lt;/span&gt; &lt;span class="o"&gt;$&lt;/span&gt; &lt;span class="n"&gt;either&lt;/span&gt; &lt;span class="n"&gt;printError&lt;/span&gt; &lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="n"&gt;evaled&lt;/span&gt;
+      &lt;span class="n"&gt;loop&lt;/span&gt; &lt;span class="n"&gt;env&lt;/span&gt;
+
+&lt;span class="nf"&gt;evalString&lt;/span&gt; &lt;span class="ow"&gt;::&lt;/span&gt; &lt;span class="kt"&gt;Env&lt;/span&gt; &lt;span class="ow"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="kt"&gt;String&lt;/span&gt; &lt;span class="ow"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="kt"&gt;IO&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;Either&lt;/span&gt; &lt;span class="kt"&gt;LispError&lt;/span&gt; &lt;span class="kt"&gt;LispVal&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="nf"&gt;evalString&lt;/span&gt; &lt;span class="n"&gt;env&lt;/span&gt; &lt;span class="n"&gt;expr&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt;
+  &lt;span class="n"&gt;runExceptT&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;parseLine&lt;/span&gt; &lt;span class="n"&gt;expr&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&amp;gt;=&lt;/span&gt; &lt;span class="n"&gt;eval&lt;/span&gt; &lt;span class="n"&gt;env&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="nf"&gt;printError&lt;/span&gt; &lt;span class="n"&gt;err&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt; &lt;span class="kr"&gt;do&lt;/span&gt;
+  &lt;span class="n"&gt;setSGR&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="kt"&gt;SetColor&lt;/span&gt; &lt;span class="kt"&gt;Foreground&lt;/span&gt; &lt;span class="kt"&gt;Vivid&lt;/span&gt; &lt;span class="kt"&gt;Red&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+  &lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="n"&gt;err&lt;/span&gt;
+  &lt;span class="n"&gt;setSGR&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="kt"&gt;Reset&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;h2 id="conclusion"&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;I hope you found this writeup useful. Any suggestions for improvements are very much appreciated!&lt;/p&gt;</content></entry></feed>
