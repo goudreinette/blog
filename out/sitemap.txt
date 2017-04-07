@@ -1,6 +1,0 @@
-http://www.reinvanderwoerd.nl/blog/2017/04/01/dutch-clojure-days-2017/
-http://www.reinvanderwoerd.nl/blog/2017/03/18/writing-a-lisp/
-http://www.reinvanderwoerd.nl/blog/2017/03/27/implementing-multimethods/
-http://www.reinvanderwoerd.nl/blog/2017/04/04/the-value-of-values-summarized/
-http://www.reinvanderwoerd.nl/blog/2017/03/23/adt-s-in-clojure/
-http://www.reinvanderwoerd.nl/About.html
