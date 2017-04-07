@@ -29,4 +29,4 @@ cp -r img out/img
 
 
 echo "Updating gh-pages branch"
-cd out && git add --all && git commit -m "Publishing to gh-pages (publish.sh)"
+cd out && git add --all && git commit -m "Publishing to gh-pages (publish.sh)" && git push
