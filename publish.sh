@@ -22,9 +22,9 @@ rm -rf out/*
 
 echo "Generating site"
 raco frog -b
-cp css out/css
-cp js out/js
-cp img out/img
+cp -r css out/css
+cp -r js out/js
+cp -r img out/img
 
 
 
