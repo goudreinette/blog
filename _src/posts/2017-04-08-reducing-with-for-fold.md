@@ -19,7 +19,7 @@ It works exactly like reduce:
 1. The accumulator `sum` is initialized to the value `0`,
 and `n` is initialized to the first element of `(range 1 10)`, which is `1`.
 
-2. The body `(+ sum n)` is evaluated. In this case, it evaluates to `(+ 0 1)`, which is `1`.
+2. The body `(+ sum n)` is evaluated. In this case, it evaluates to `(+ 0 1)`, <br/> which is `1`.
 
 3. `sum` is bound to the result of evaluating the body. `n` is bound to the next element in `(range 1 10)`. The body is evaluated again with these new bindings. 
 
