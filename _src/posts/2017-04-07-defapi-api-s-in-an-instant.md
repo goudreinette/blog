@@ -80,7 +80,7 @@ I decided against multimethods in this case because I wanted to keep the relatio
 
 ```js
 // Request
-{  hits }
+{ hits }
 
 // Response
 { "hits": 1 }
