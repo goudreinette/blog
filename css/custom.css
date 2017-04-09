@@ -23,11 +23,11 @@ a {
     text-decoration: none !important;
 }
 
-a:not(.navbar-brand):not(h2 a):hover, .pager li:hover {
+a:not(.navbar-brand):hover, .pager li:hover {
     background-color: rgba(136, 0, 0, 0.09) !important;
 }
 
-h2 a:hover {
+h2.index a:hover {
     background-color: rgba(238, 238, 238, 0.72) !important;
 }
 
