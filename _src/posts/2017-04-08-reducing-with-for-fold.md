@@ -3,7 +3,7 @@
     Tags: Clojure
 
 Complicated _reduce_ algorithms are still tricky for me sometimes.
-Clojure's _for_ makes _map_ more visual, which makes it easier for me to [engage my imagination](http://www.lispcast.com/interactive-baking). Racket extends this idea to reduce with _for/fold_, which also supports reducing multiple collections. Let's port it over to Clojure.
+Clojure's _for_ makes _map_ more visual, which makes it easier for me to [engage my imagination](http://www.lispcast.com/interactive-baking). Racket extends this idea to reduce with _for/fold_, and also supports reducing multiple collections. Let's port it over to Clojure.
 
 <!-- more -->
 
