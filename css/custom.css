@@ -55,6 +55,14 @@ h2.index a:hover {
 }
 
 @media (max-width: 768px) {
+    body {
+        padding-top: 0px;
+    }
+
+    .navbar {
+        padding: 0 5px 0 3px;
+    }
+
     .navbar-brand {
         line-height: 24px;
     }
@@ -297,4 +305,9 @@ p.date-and-tags {
 
 .pager li a em {
     font-style: normal;
+}
+
+
+article footer:not(.post-footer) {
+    display: none;
 }
