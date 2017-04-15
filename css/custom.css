@@ -276,10 +276,9 @@ ul.nav.navbar-nav {
 }
 
 /* Lists */
-ul:not(.nav) {
+ul:not(.nav), ol {
     font-size: 20px;
 }
-
 
 ol {
     font-size: 20px;

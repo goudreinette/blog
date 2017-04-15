@@ -181,3 +181,14 @@
  color: #4d4d4d;
   background-color: transparent;
 }
+
+
+.php .cp {
+    /* margin-bottom: -10px; */
+    display: none;
+}
+
+.php pre {
+    padding-top: 0px;
+    margin-top: -5px;
+}
