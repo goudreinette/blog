@@ -85,7 +85,7 @@ h2.index a:hover {
     }
 
     pre {
-        overflow-x: auto;
+        overflow: auto !important;
     }
 }
 
