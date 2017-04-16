@@ -5,9 +5,9 @@
 Today I'm starting my series on categories in OO.
 My goal is to explain these concepts to programmers who are already familiar with object-oriented programming, but new to functional programming.
 
-I chose PHP for these examples because it's many students' first language in my country the Netherlands. I assume basic familiarity with concepts like first-class functions.
-
 <!-- more -->
+
+I chose PHP for these examples because it's many students' first language in my country the Netherlands. I assume basic familiarity with concepts like first-class functions.
 
 Let's start with Functors.
 

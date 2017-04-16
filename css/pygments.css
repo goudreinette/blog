@@ -190,5 +190,6 @@
 
 .php pre {
     padding-top: 0px;
-    margin-top: -5px;
+    /* padding-bottom: 0px; */
+    margin-top: -6px;
 }
