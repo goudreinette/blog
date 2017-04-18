@@ -22,7 +22,21 @@ The fundamental operations are `search`, `commit` and `bind`.
 `commit` adds new records to a database.
 `bind` does the same, but updates it's earlier records when executed again (think React). 
 
+```coffeescript
+search @evernote
+  [#note title
+         tag: 'Recipes' 
+         notebook: 'Web Clipper']
 
+bind @trello
+  [#card title
+         list: 'Recipes'
+         board: 'Inspiration']
+
+commit @debug
+  [#log 
+         value: 'Found a new recipe: {{title}}']
+```
 
 ## Implications
 In Eve, side effects are described as data. 
