@@ -1,3 +1,4 @@
+http://www.reinvanderwoerd.nl/blog/2017/04/17/eve-everything-is-a-record/
 http://www.reinvanderwoerd.nl/blog/2017/04/08/reducing-with-for-fold/
 http://www.reinvanderwoerd.nl/blog/2017/04/15/categories-in-oo-functors/
 http://www.reinvanderwoerd.nl/blog/2017/04/01/dutch-clojure-days-2017/

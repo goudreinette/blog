@@ -76,7 +76,7 @@ h2.index a:hover {
         font-size: 18px !important;
     }
 
-    h1, h2 {
+    h1, h2.index {
         font-size: 26px !important;
     }
 
