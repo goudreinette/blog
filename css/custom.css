@@ -124,7 +124,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    border-top: 2px solid black;
+    /* border-top: 2px solid black; */
     border-bottom: none;
     display: inline-block;
     font-size: 32px;
@@ -183,20 +183,22 @@ pre {
     white-space: pre;
     width: inherit;
     margin: 0;
-    background-color: rgba(249, 249, 250, 0.62);
+    background-color: rgba(139, 121, 121, 0.05);
     border-radius: 0;
     font-size: 16px;
     margin: 20px 0;
     /* background: none; */
-    border-width: 1px 0;
-    border-color: #eee;
+    border-width: 0 0 0 2px;
+    /* border-color: #eee; */
     padding: 15px;
     padding-left: 40px;
+    border-left: 2px solid rgba(139, 121, 121, 0.15);
 }
 
 
 article {
     margin-bottom: 75px;
+    /* margin-top: 25px; */
 }
 
 .post-title {
