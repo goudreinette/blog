@@ -40,13 +40,16 @@ by passing arguments to the macro unevaluated, and evaluating the result  instea
 
 ```haskell
 eval env (List (func : args)) = do
-  evaluatedFunc <- eval env func -- required to determine evaluation order
+  -- required to determine evaluation order
+  evaluatedFunc <- eval env func
   case evaluatedFunc of
     Func {isMacro = True} ->
-      apply evaluatedFunc args >>= eval env -- evaluate results
+      -- evaluate macro results
+      apply evaluatedFunc args >>= eval env
 
     _ ->
-      evalMany env args >>= apply evaluatedFunc -- evaluate arguments
+      -- evaluate function arguments
+      evalMany env args >>= apply evaluatedFunc
 ```
 
 To make macro's more easy to use, I added syntax and evaluation rules for quote/unquote.

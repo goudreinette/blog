@@ -19,7 +19,7 @@ $safeDivideBy = function ($n) {
 Maybe::of(20)->fmap(safeDivideBy(2)); //=> Maybe(Maybe(10))
 ```
 ...You end up with two layers of context.
-Monads solve this problem with a method called `join`.
+Monads solves this problem with a method called `join`.
 `join` collapses two layers of context into one.
 
 ```php 
