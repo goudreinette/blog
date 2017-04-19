@@ -33,7 +33,7 @@ abstract class Functor {
     }
 
     static function of ($val) {
-        return new self($val);
+        return new static($val);
     }
 
     abstract function fmap(Closure $f);
@@ -51,7 +51,7 @@ Let's try using it:
 
 ```php
 <?php
-$box = (Box::of("apple"))->fmap(function ($value) {
+$box = Box::of("apple")->fmap(function ($value) {
     return ucfirst($value);
 });
 

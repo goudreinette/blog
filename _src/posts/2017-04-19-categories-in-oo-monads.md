@@ -16,7 +16,7 @@ $safeDivideBy = function ($n) {
     };
 };
 
-(Maybe::of(20))->fmap(safeDivideBy(2)); //=> Maybe(Maybe(10))
+Maybe::of(20)->fmap(safeDivideBy(2)); //=> Maybe(Maybe(10))
 ```
 ...You end up with two layers of context.
 Monads solve this problem with a method called `join`.
@@ -24,7 +24,7 @@ Monads solve this problem with a method called `join`.
 
 ```php 
 <?php
-(Maybe::of(20))->fmap(safeDivideBy(2))->join(); //=> Maybe(10)
+Maybe::of(20)->fmap(safeDivideBy(2))->join(); //=> Maybe(10)
 ```
 
 Because this pattern is very common in functional programming,
@@ -32,7 +32,7 @@ Monads also have a `chain` method that combines `fmap` and `join`.
 
 ```php 
 <?php
-(Maybe::of(20))
+Maybe::of(20)
     ->chain(safeDivideBy(2)) // Maybe(10)
     ->chain(safeDivideBy(0)); //=> Maybe(null)
 ```
@@ -64,22 +64,32 @@ Haskell uses the IO monad to perform side effects in purely functional way. It u
 
 ```php
 <?php
-(IO::of(function () {
+$getUsername = (new IO(function () {
     return httpGet('https://api.github.com/users/octocat');
 }))->chain(function ($user) {
     return $user['username'];
 });
+
+$getUsername->runIO(); //=> "Octocat"
 ```
+
+IO can be implemented as follows:
 
 ```php
 <?php
 class IO extends Monad {
+    static function of ($x) {
+        return new IO(function () use ($x) {
+            return $x;
+        });
+    }
+
     function __construct (Closure $f) {
         $this->runIO = $f;
     }
 
     function fmap (Closure $f) {
-        // Function composition
+        // Just function composition
         return IO::of(function ($x) use ($f) {
             return $f($this->runIO($x));
         });
@@ -98,4 +108,4 @@ class IO extends Monad {
 
 ```
 
-Either?
+<!--Stay tuned for the next post in this series: Applicative Functors.-->
