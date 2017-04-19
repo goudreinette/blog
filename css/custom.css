@@ -183,12 +183,13 @@ pre {
     white-space: pre;
     width: inherit;
     margin: 0;
-    background-color: #f7f7f7;
-    border-radius: 3px;
+    background-color: rgba(249, 249, 250, 0.62);
+    border-radius: 0;
     font-size: 16px;
     margin: 20px 0;
-    background: none;
-    border-width: 0;
+    /* background: none; */
+    border-width: 1px 0;
+    border-color: #eee;
     padding: 15px;
     padding-left: 40px;
 }

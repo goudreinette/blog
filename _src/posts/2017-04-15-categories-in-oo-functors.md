@@ -23,21 +23,26 @@ Functors are contexts. They can contain any other value. Think of them like boxe
 
 Functors allow you to apply a function to their value with the `fmap` method.
 `fmap` takes a function, and applies it to the value inside the box.
+Functors may also have an `of` method for construction. Functors with an `of` method are called 'pointed functors'.
 
 ```php 
 <?php
-interface Functor {
-    function fmap(Closure $f);
-}
-
-
-class Box implements Functor {
+abstract class Functor {
     function __construct ($value) {
         $this->value = $value;
     }
 
+    static function of ($val) {
+        return new self($val);
+    }
+
+    abstract function fmap(Closure $f);
+}
+
+
+class Box extends Functor {
     function fmap(Closure $f) {
-        return new Box($f($this->value));
+        return Box::of($f($this->value));
     }
 }
 ```
@@ -46,7 +51,7 @@ Let's try using it:
 
 ```php
 <?php
-$box = (new Box("apple"))->fmap(function ($value) {
+$box = (Box::of("apple"))->fmap(function ($value) {
     return ucfirst($value);
 });
 
@@ -55,30 +60,19 @@ $box->value; //=> "Apple"
 
 Our `Box` isn't very useful yet, but serves as the foundation for what's to come. In this case, `fmap` simply applies the function to the value, but it can really execute any code "behind the scenes". By centralizing code within `fmap`, we can reduce duplication in client code.
 
-A more realistic example is the `Maybe` type, commonly used to encapsulate an optional value.
-It has two contexts: `Just` and `Nothing`. It's power lies in the ability to treat presence and absence of a value equally, relieving client code of the burden of checking for nulls all the time.
-
-In object-oriented languages, we can use subtype polymorphism to model the two contexts.
+A more realistic example is the `Maybe` type, commonly used to encapsulate an optional value. It's power lies in the ability to treat presence and absence of a value equally, relieving client code of the burden of checking for nulls all the time.
 
 ```php
 <?php
-abstract class Maybe implements Functor {
-    abstract function fmap(Closure $f);
-}
-
-class Just extends Maybe {
-    function __construct ($value) {
-        $this->value = $value;
+class Maybe extends Functor {
+    function fmap(Closure $f) {
+        return $this->isNothing()
+        ? Maybe::of(null)
+        : Maybe::of($f($this->value));
     }
 
-    function fmap(Closure $f) {
-        return new Just($f($this->value));
-    }
-}
-
-class Nothing extends Maybe {
-    function fmap(Closure $f) {
-        return new Nothing;
+    function isNothing () {
+        return $this->value === null;
     }
 }
 ```
@@ -93,16 +87,16 @@ function add3 (Maybe $maybe) {
     });
 }
 
-// Different contexts, treated equally.
-add3(new Nothing);
-add3(new Just(5));
+// Null checking encapsulated:
+add3(Maybe::of(null)); //=> Maybe(null)
+add3(Maybe::of(5)); //=> Maybe(8)
 
 
-$maybe = new Just("text");
+$maybe = Maybe::of("text");
 
 
 // To get the value back out again:
-if (is_a($maybe, 'Just')) {
+if (!$maybe->isNothing()) {
     doSomethingWith($just->value); 
 }
 ```
