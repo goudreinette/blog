@@ -3,7 +3,7 @@
     Tags: Lisp, Haskell
 
 String interpolation is one of my favorite language features.
-Compared to manual concatenation, it makes it much easier to visualize the resulting string. It's also fairly trivial to implement. I thought it would be a nice addition to [my Lisp](http://reinvanderwoerd.nl/blog/2017/03/18/writing-a-lisp/).
+The resulting string is much easier to visualize than with manual concatenation. It's also straightforward to implement. I thought it would be a nice addition to [my Lisp](http://reinvanderwoerd.nl/blog/2017/03/18/writing-a-lisp/).
 
 <!-- more -->
 
