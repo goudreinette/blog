@@ -2,8 +2,58 @@
     Date: 2017-04-20T11:03:12
     Tags: Lisp, Haskell
 
-_Replace this with your post text. Add one or more comma-separated
-Tags above. The special tag `DRAFT` will prevent the post from being
-published._
+String interpolation is one of my favorite language features.
+Compared to manual concatenation, it makes it much easier to visualize the resulting string. It's also fairly trivial to implement. Thus, I thought it would be a nice experiment to add to [my Lisp](http://reinvanderwoerd.nl/blog/2017/03/18/writing-a-lisp/).
 
 <!-- more -->
+
+```scheme
+(define day "Sunday")
+
+"It's a lovely ~day morning" ;=> "It's a lovely Sunday morning"
+"(+ 1 1) is ~(+ 1 1)" ;=> "(+ 1 1) is 2"
+```
+
+Both symbols and lists are supported.
+It would be possible to support the other types of expressions as well, but since they are already printed literally, it wouldn't make much of a difference.
+
+
+## Native
+To append strings, a new primitive function was necessary.
+`stringAppend` turns all it's arguments into strings, and concatenates them.
+`unpackString` differs slightly from show: it doesn't surround strings with quotes.
+
+```haskell
+primitives :: [(String, [LispVal] -> LispVal)]
+primitives = [ -- ...
+              ("string-append", stringAppend)]
+
+stringAppend =
+  String . concatMap unpackString
+
+unpackString (String s) = s
+unpackString v = show v
+```
+
+## Parsing
+Strings are parsed into their parts, where a part is either an interpolated expression or a string literal. The resulting list is wrapped in a call to `string-append`. To keep complexity manageable, I decided against string escaping.
+
+```haskell
+interpolation = do
+  char '~'
+  list <|> symbol
+
+literalString =
+  String <$> many1 (noneOf "\"~")
+
+string = do
+  char '"'
+  xs <- many (literalString <|> interpolation)
+  char '"'
+  return $ List (Symbol "string-append" : xs)
+```
+
+
+## Evaluation
+Because string interpolation expands into an ordinary function call,
+no new evaluation rules were required. Translating syntax into regular Lisp forms at the parsing stage really helps contain the scope of this complexity.
