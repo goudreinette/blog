@@ -84,9 +84,12 @@ h2.index a:hover {
         padding-top: 0;
     }
 
+    pre, code {
+        font-size: 14px !important;
+    }
+
     pre {
         overflow: auto !important;
-        font-size: 14px !important;
         padding-left: 20px !important;
     }
 }

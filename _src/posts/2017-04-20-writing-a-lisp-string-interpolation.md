@@ -3,7 +3,7 @@
     Tags: Lisp, Haskell
 
 String interpolation is one of my favorite language features.
-Compared to manual concatenation, it makes it much easier to visualize the resulting string. It's also fairly trivial to implement. Thus, I thought it would be a nice experiment to add to [my Lisp](http://reinvanderwoerd.nl/blog/2017/03/18/writing-a-lisp/).
+Compared to manual concatenation, it makes it much easier to visualize the resulting string. It's also fairly trivial to implement. I thought it would be a nice addition to [my Lisp](http://reinvanderwoerd.nl/blog/2017/03/18/writing-a-lisp/).
 
 <!-- more -->
 
@@ -15,11 +15,10 @@ Compared to manual concatenation, it makes it much easier to visualize the resul
 ```
 
 Both symbols and lists are supported.
-It would be possible to support the other types of expressions as well, but since they are already printed literally, it wouldn't make much of a difference.
-
+It would be possible to support the other types of expressions as well, but they are already evaluated and printed literally.
 
 ## Native
-To append strings, a new primitive function was necessary.
+To append strings, a new primitive function is required.
 `stringAppend` turns all it's arguments into strings, and concatenates them.
 `unpackString` differs slightly from show: it doesn't surround strings with quotes.
 
