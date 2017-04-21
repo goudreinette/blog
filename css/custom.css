@@ -89,7 +89,6 @@ h2.index a:hover {
     }
 
     pre {
-        overflow: auto !important;
         padding-left: 20px !important;
     }
 }
@@ -196,6 +195,9 @@ pre {
     padding: 20px;
     padding-left: 40px;
     border-left: 2px solid rgba(139, 121, 121, 0.15);
+    overflow: auto;
+    word-wrap: normal;
+    display: block;
 }
 
 
