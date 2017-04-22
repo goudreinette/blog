@@ -2,7 +2,7 @@
     Date: 2017-04-22T15:29:56
     Tags: Haskell
 
-Adapted from FPComplete's [article](https://www.schoolofhaskell.com/school/to-infinity-and-beyond/pick-of-the-week/coroutines-for-streaming/part-1-pause-and-resume) on coroutines and streaming.
+Adapted from FPComplete's [article](https://www.schoolofhaskell.com/school/to-infinity-and-beyond/pick-of-the-week/coroutines-for-streaming/part-1-pause-and-resume) on coroutines for streaming.
 
 <!-- more -->
 ## Example
