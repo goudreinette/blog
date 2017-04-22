@@ -5,14 +5,8 @@
 Adapted from FPComplete's [article](https://www.schoolofhaskell.com/school/to-infinity-and-beyond/pick-of-the-week/coroutines-for-streaming/part-1-pause-and-resume) on coroutines and streaming.
 
 <!-- more -->
-
+## Example
 ```haskell
-module Pause where
-
-import Control.Monad.Free
-
-type Pause = Free IO
-
 main :: Pause String
 main = do
   putF "Step 1"        -- Free (IO ())
@@ -24,7 +18,6 @@ main = do
     putStrLn "Done!"
     return "All done." -- IO String
 
-
 runN 2 main
 -- Step 1
 -- Step 2
@@ -34,7 +27,16 @@ fullRun main
 -- Step 2
 -- Step 3
 -- Done!
+```
 
+
+## Implementation
+```haskell
+module Pause where
+
+import Control.Monad.Free
+
+type Pause = Free IO
 
 pause, putF :: Pause ()
 pause = Pure ()
