@@ -148,9 +148,10 @@ h2:not(.index) {
 
 h2 a {
     color: rgba(0, 0, 0, 0.9) !important;
-    padding: 2px 7px;
+    /* padding: 2px 7px; */
+    /* display: inline-block; */
     position: relative;
-    left: -5px;
+    /* left: -5px; */
 }
 
 h4 {
@@ -318,4 +319,8 @@ p.date-and-tags {
 
 article footer:not(.post-footer) {
     display: none;
+}
+
+h2.index {
+    /* padding: 2px 7px; */
 }
