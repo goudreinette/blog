@@ -29,4 +29,4 @@ The issues so far:
 Thanks! <br/>
 Rein.
 
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScAsOmvjgrFM32MKVuADyz0SkqyBMQSjFizIHKcrTwoV34FlA/viewform?embedded=true" width="760" height="1510" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScAsOmvjgrFM32MKVuADyz0SkqyBMQSjFizIHKcrTwoV34FlA/viewform?embedded=true" width="670" height="1510" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
