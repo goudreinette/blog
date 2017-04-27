@@ -193,4 +193,4 @@ expr readtable =
 ## Conclusion
 While still limited, these reader macro facilities simplify the language and enable easy extensibility.
 I may add more advanced non-prefix reader macro's in the future.
-If you enjoyed this post, or not, please give me some feedback in the [survey](http://reinvanderwoerd.nl/blog/2017/04/24/writing-a-lisp-help-me-decide-what-to-tackle-next/) so I can help you better. 
+If you enjoyed this post, or not, please give me some feedback in the [survey](http://reinvanderwoerd.nl/blog/2017/04/24/writing-a-lisp-help-me-decide-what-to-tackle-next/) so I can help you better. Have a nice day. 

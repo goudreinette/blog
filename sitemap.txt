@@ -1,3 +1,4 @@
+http://www.reinvanderwoerd.nl/blog/2017/04/27/abstracting-the-clojure-def-macro-pattern/
 http://www.reinvanderwoerd.nl/blog/2017/04/08/reducing-with-for-fold/
 http://www.reinvanderwoerd.nl/blog/2017/04/20/writing-a-lisp-string-interpolation/
 http://www.reinvanderwoerd.nl/blog/2017/04/26/writing-a-lisp-reader-macro-s/
