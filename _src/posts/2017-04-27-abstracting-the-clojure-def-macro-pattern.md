@@ -3,29 +3,22 @@
     Tags: Clojure
 
 Wrapping a function in a 'def-macro' is a common Clojure pattern.
-This practice serves two purposes: providing a nicer syntax for definitions, and controlling evaluation order. Although simple to understand, this pattern is highly repetitive. Introducing: a higher-order macro that relieves this pain. 
+This practice serves two purposes: providing a nicer syntax for definitions, and controlling evaluation order. Although simple to understand, this pattern is somewhat repetitive. Introducing: a higher-order macro that relieves this pain. 
 
 <!-- more -->
 
+```clojure
+(defmacro defserver [name & args]
+ `(def ~name ~(apply run-server args)))
+```
+
+The example above uses httpkit's `run-server` function to define a `defserver` macro. With `defmacro<-`, it can be written as follows. 
 
 ```clojure
 (defmacro<- defserver run-server)
 
-(defserver routes {:port 8080})
-```
-
-The example above uses httpkit's `run-server` function to define a `defserver` macro, while the example below defines wrapper macro's for function composition and partial application.
-
-```clojure
-(defmacro<- partial)
-(defmacro<- defcompose comp)
-
-(defpartial plus3 + 3)
-(defcompose plus6 plus3 plus3)
-
-(facts "about defmacro<-"
-  (plus3 1) => 4
-  (plus6 3) => 9)
+; Usage
+(defserver server routes {:port 8080}) 
 ```
 
 Implementation was a little tricky, because I had to keep track of two different compile-time execution contexts: defining a macro, and using that macro to define something.
