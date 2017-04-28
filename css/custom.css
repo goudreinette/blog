@@ -90,6 +90,8 @@ h2.index a:hover {
 
     pre {
         padding-left: 20px !important;
+        overflow-x: scroll;
+        -webkit-overflow-scrolling: touch;        
     }
 }
 
