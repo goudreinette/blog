@@ -13,7 +13,7 @@ main = do
   pause                -- Pure ()
   putF "Step 2"
   pause
-  Free $ do            -- Free (IO String)
+  liftF $ do           -- Free (IO String)
     putStrLn "Step 3"  -- IO ()
     putStrLn "Done!"
     return "All done." -- IO String
@@ -38,9 +38,11 @@ import Control.Monad.Free
 
 type Pause = Free IO
 
-pause, putF :: Pause ()
+pause :: Pause ()
 pause = Pure ()
-putF = Free . putStrLn
+
+putF :: String -> Pause ()
+putF = Free . fmap Pure . putStrLn
 
 runN :: Int -> Pause a -> IO (Pause a)
 runN 0 p        = return p

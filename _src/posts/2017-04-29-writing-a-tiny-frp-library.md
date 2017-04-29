@@ -1,4 +1,4 @@
-    Title: Writing a Naïve FRP Library
+    Title: Writing a Tiny FRP Library
     Date: 2017-04-29T14:16:52
     Tags: Clojure, FRP
 
