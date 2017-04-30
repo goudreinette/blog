@@ -113,6 +113,8 @@ Evernote is also useful for web clips and scans of sketches I don't want to lose
 
 - Waking mind
 - Analytical goggles
+- Verify idea behind computer/other creative tool
+    - With confidence
 - Few ideas will be good in the end
 - When non-critical, procrastinate on execution
 
@@ -120,3 +122,7 @@ Evernote is also useful for web clips and scans of sketches I don't want to lose
 ## Cut the knot
 
 - Deadlines: a double edged sword?
+- Efficiency vs breadth
+- Perfectionism can be a trap
+- Sometimes learn-as-you-go better solution (MVP, etc.)
+- When costly to adjust, spend more time planning upfront
