@@ -20,12 +20,24 @@ I try to get a wide variety of intellectual input, such as programming, writing 
 
 
 ## Optimize for flow
-- Flow state
-- Distraction reference
 
-It's probably no surprise that avoiding interruptions is essential while you're in active problem solving mode. 
+Much has been written about the Flow state.
+Avoiding distractions is essential.
+Steve Pavlina: 
+> If you can’t keep yourself from being disturbed by urgent phone calls, emails, or drop-in visitors, you won’t consistently achieve and maintain the flow state. You must do whatever it takes to prevent unnecessary interruptions during your creative periods. Make arrangements to ensure you won’t be disturbed except in an absolute emergency.
 
-Block email notifications, phone on night mode, tell people you will be gone.
+Block email and slack notifications, phone on night mode, tell people you will be gone. Ignore or deal with distraction. Noise blocking headphones are useful for to have for emergency situations.
+
+The right level of [stimulation](https://www.stevepavlina.com/blog/2014/12/stimulation/) is also important.
+I work better with music, but many people don't. I suggest experimenting with different types of music to see what effect it has on your ability to reach and maintain the flow state.
+
+To awaken your full creative potential, the difficulty of your creative endeavor must fall within a certain challenge spectrum. If you consider a task too hard or too complicated, your beliefs will get in the way of your creativity, and you’ll end up with a self-fulfilling prophecy of failure.  Tackling something that’s too easy is mind-numbingly boring and won’t produce results. Being properly challenged is more fun, helps you grow, and yields a meaningful sense of accomplishment.
+
+Make sure you have sufficient time on your hands, ideally 6+ hours.
+When you're in the flow state, you'll barely notice the passing of time.
+High level creative work is usually a top priority, and it’s a real downer to finally hit the flow state and have to stop after 30 minutes because you must attend to another commitment. 
+
+
 
 - notepad ready, master your tools
 - purpose, challenge, sufficient time
@@ -126,3 +138,11 @@ Evernote is also useful for web clips and scans of sketches I don't want to lose
 - Perfectionism can be a trap
 - Sometimes learn-as-you-go better solution (MVP, etc.)
 - When costly to adjust, spend more time planning upfront
+- 
+
+
+## References
+- Steve Pavlina
+    - [7 Rules for Maximizing Your Creative Output](https://www.stevepavlina.com/blog/2007/01/7-rules-for-maximizing-your-creative-output/)
+- Rich Hickey
+    - [Hammock Driven Development](https://github.com/matthiasn/talk-transcripts/blob/master/Hickey_Rich/HammockDrivenDev.md)
