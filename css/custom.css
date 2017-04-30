@@ -323,11 +323,10 @@ article footer:not(.post-footer) {
     display: none;
 }
 
-h2.index {
-    /* padding: 2px 7px; */
-}
 
 blockquote {
     color: #707070;
-    border-left: 0px solid #eee;
+    /*border-left: 0px solid #eee;*/
+    border: none !important;
+    background: none !important;
 }

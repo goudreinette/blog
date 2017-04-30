@@ -23,6 +23,9 @@ I try to get a wide variety of intellectual input, such as programming, writing 
 
 Much has been written about the Flow state.
 Avoiding distractions is essential.
+
+Open offices are a nightmare for me, gossiping behind my back wears me out quickly.
+
 Steve Pavlina: 
 > If you can’t keep yourself from being disturbed by urgent phone calls, emails, or drop-in visitors, you won’t consistently achieve and maintain the flow state. You must do whatever it takes to prevent unnecessary interruptions during your creative periods. Make arrangements to ensure you won’t be disturbed except in an absolute emergency.
 
@@ -31,26 +34,30 @@ Block email and slack notifications, phone on night mode, tell people you will b
 The right level of [stimulation](https://www.stevepavlina.com/blog/2014/12/stimulation/) is also important.
 I work better with music, but many people don't. I suggest experimenting with different types of music to see what effect it has on your ability to reach and maintain the flow state.
 
+Purpose
+
+
 To awaken your full creative potential, the difficulty of your creative endeavor must fall within a certain challenge spectrum. If you consider a task too hard or too complicated, your beliefs will get in the way of your creativity, and you’ll end up with a self-fulfilling prophecy of failure.  Tackling something that’s too easy is mind-numbingly boring and won’t produce results. Being properly challenged is more fun, helps you grow, and yields a meaningful sense of accomplishment.
 
 Make sure you have sufficient time on your hands, ideally 6+ hours.
 When you're in the flow state, you'll barely notice the passing of time.
 High level creative work is usually a top priority, and it’s a real downer to finally hit the flow state and have to stop after 30 minutes because you must attend to another commitment. 
 
+You should also know your tools well enough to consistently enter the flow state.
+Learn your editor's keybindings, and follow a touch typing course if you can't do that yet.
+A good pen and notepad are also a must-have, and a very cost effective upgrade.
 
-
-- notepad ready, master your tools
-- purpose, challenge, sufficient time
-- enviroment: music yes/no, stimulation, 
-- Ideas can be generated at will if you wish by brainstorming.
+If you lack ideas, know that they can be generated at will by brainstorming.
+I usually do this on paper to avoid distractions, because brainstorming can be tough.
 
 
 ## Take regular breaks
-Many people get their best ideas in the shower.
-Away from email and ...
-Taking a break also helps you lose the fixation on a particular solution, different solutions, bigger picture, sometimes not necessary at all.
-Switch around when stuck.
+When you get stuck or start to get tired, hungry, etc, take a break.
+I recommend remaining disconnected from email, social media, and other distractions if possible. When you give your mind a true break, the solution will often pop up within 15 minutes.
 
+Taking a break also helps you lose the fixation on a particular solution, see the bigger picture, and image other solutions. Sometimes the problem doesn't need to be solved at all.
+
+When you're still feeling stuck after a break, I recommend switching to a different task or calling it a day. Trying to push forward when an approach clearly isn't working can be very frustrating and demotivating. Know when to cut your losses.
 
 
 ## State the problem
