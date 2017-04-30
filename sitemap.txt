@@ -3,6 +3,7 @@ http://www.reinvanderwoerd.nl/blog/2017/04/08/reducing-with-for-fold/
 http://www.reinvanderwoerd.nl/blog/2017/04/29/writing-a-tiny-frp-library/
 http://www.reinvanderwoerd.nl/blog/2017/04/20/writing-a-lisp-string-interpolation/
 http://www.reinvanderwoerd.nl/blog/2017/04/26/writing-a-lisp-reader-macro-s/
+http://www.reinvanderwoerd.nl/blog/2017/04/29/stimulating-creativity/
 http://www.reinvanderwoerd.nl/blog/2017/04/21/writing-a-lisp-debugger/
 http://www.reinvanderwoerd.nl/blog/2017/04/24/writing-a-lisp-help-me-decide-what-to-tackle-next/
 http://www.reinvanderwoerd.nl/blog/2017/04/19/categories-in-oo-monads/
