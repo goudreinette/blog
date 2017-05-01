@@ -11,7 +11,7 @@ body {
 }
 
 .container {
-    max-width: 700px;
+    max-width: 600px;
 }
 
 /* Links */
@@ -90,8 +90,9 @@ h2.index a:hover {
 
     pre {
         padding-left: 20px !important;
+        width: inherit !important;
         overflow-x: scroll;
-        -webkit-overflow-scrolling: touch;        
+        -webkit-overflow-scrolling: touch;
     }
 }
 
@@ -185,7 +186,8 @@ code, pre {
 
 pre {
     white-space: pre;
-    width: inherit;
+    -
+    webkitsc: inherit;
     margin: 0;
     background-color: rgba(139, 121, 121, 0.05);
     border-radius: 0;
@@ -201,6 +203,7 @@ pre {
     background: none;
     word-wrap: normal;
     display: block;
+    width: 700px;
 }
 
 
