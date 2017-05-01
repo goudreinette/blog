@@ -22,7 +22,7 @@ Steve Pavlina [describes](https://www.stevepavlina.com/blog/2007/01/7-rules-for-
 
 Open offices are not an option for me, because trying to focus while people are chatting around me wears me out quickly.
 
-Block email and slack notifications, phone on night mode, tell people you will be gone. Ignore or deal with distraction. Noise blocking headphones are useful for to have for emergency situations.
+Block email and slack notifications, put your phone on night mode, and tell people you will be gone. Ignore or deal with distractions. Buy noise blocking headphones for emergency situations.
 
 The right level of [stimulation](https://www.stevepavlina.com/blog/2014/12/stimulation/) is also important.
 I work better with music, but many people don't. I suggest experimenting with different types of music to see what effect it has on your ability to reach and maintain the flow state.
@@ -67,7 +67,7 @@ Enumerate the different possible solutions, and write down the attributes and de
 Most problems have already been solved in some way by someone else.
 Take advantage of that, so you get up to speed quicker.
 
-When you have difficulty with coming up good ideas, split up brainstorming and analyzing into separate sessions. This way you spread out the mental load.
+When you have difficulty coming up with good ideas, spread the mental load by splitting up brainstorming and analyzing into separate sessions.
 
 Keep in mind that your working memory is limited.
 Work around this limitation by alternating your focus between different aspects of the problem.
@@ -109,7 +109,7 @@ Always validate your ideas, and when non-critical, procratinate on extended impl
 Deadlines can be a double edged sword.
 They may improve efficiency by helping you break trough analysis paralysis, but can also sacrifice creative depth.
 
-When the cost of adjustment is cheap (as in most web apps), I recommend a learn-as-you-go solution.
+When the cost of adjustment is cheap (as in most web apps), I recommend a learn-as-you-go approach.
 Real world feedback helps streamline your ideas.
 
 When it's costly to adjust (as in physical buildings) or risky to make mistakes (things that involve money or privacy), spend more time thinking upfront.
@@ -117,7 +117,7 @@ When it's costly to adjust (as in physical buildings) or risky to make mistakes 
 
 ## Conclusion
 Your creativity is your most important asset as a knowledge worker, which makes it a good investment of your time and effort.
-As you can see, there are many practical ways to improve it.
+As you can see, there are many practical ways to improve on it.
 I hope you got something out of this article. Send me an email if you have a great method I missed. I'll be happy to include it.
 
 
