@@ -52,7 +52,7 @@ article.index h2 a:hover {
 .navbar .container {
     height: 70px;
     align-items: center;
-    display: flex;
+    display: flex;  
     flex-direction: row;
     max-width: 700px;
 }
@@ -245,6 +245,9 @@ article img {
   height: auto;
 }
 
+.caption {
+    display: none;
+}
 
 
 

@@ -66,7 +66,7 @@
           @|contents|
         </div>
       </div>
-      <footer class='@(when (equal? uri-path "/index.html") "index")'>
+      <footer class='@(when (or (equal? uri-path "/index.html") (equal? uri-path "/About.html")) "index")'>
         <hr />
         <p style="float: left">
           Contact me by 
