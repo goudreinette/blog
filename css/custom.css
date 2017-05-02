@@ -11,7 +11,9 @@ body {
 }
 
 .container {
+    position: relative;
     max-width: 600px;
+    /* left: 100px; */
 }
 
 /* Links */
@@ -27,7 +29,7 @@ a:not(.navbar-brand):hover, .pager li:hover {
     background-color: rgba(136, 0, 0, 0.09) !important;
 }
 
-h2.index a:hover {
+article.index h2 a:hover {
     background-color: rgba(238, 238, 238, 0.72) !important;
 }
 
@@ -52,6 +54,7 @@ h2.index a:hover {
     align-items: center;
     display: flex;
     flex-direction: row;
+    max-width: 800px;
 }
 
 @media (max-width: 768px) {
@@ -76,7 +79,7 @@ h2.index a:hover {
         font-size: 18px !important;
     }
 
-    h1, h2.index {
+    h1, .index h2 {
         font-size: 26px !important;
     }
 
@@ -103,6 +106,21 @@ h2.index a:hover {
     font-weight: 600;
     color: rgba(0, 0, 0, 0.9) !important;
     font-family: 'Concourse' !important;
+}
+
+ul.nav.navbar-nav {
+    margin-left: auto;
+}
+
+.nav>li {
+    display: inline-block;
+}
+
+ul.nav.navbar-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }
 
 
@@ -186,8 +204,6 @@ code, pre {
 
 pre {
     white-space: pre;
-    -
-    webkitsc: inherit;
     margin: 0;
     background-color: rgba(139, 121, 121, 0.05);
     border-radius: 0;
@@ -260,6 +276,7 @@ article footer {
 
 article footer.post-footer {
     margin-top: 100px;
+    border-top: 1px solid #eee;
 }
 
 article footer.post-footer > div {
@@ -274,20 +291,23 @@ article footer.post-footer > div .comments {
     margin-right: 20px;
 }
 
-
-ul.nav.navbar-nav {
-    margin-left: auto;
+footer {
+    margin-top: -30px;
 }
 
-.nav>li {
-    display: inline-block;
+
+@media(min-width: 768px) {
+    footer {
+        width: 800px;
+        left: -100px;
+        position: relative;
+    }
 }
 
-ul.nav.navbar-nav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
+
+
+footer hr {
+    display: none;
 }
 
 /* Lists */

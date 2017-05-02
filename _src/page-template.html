@@ -30,14 +30,6 @@
             role="banner">
       <div class="container">
         <div class="navbar-header">
-          <!--<button type="button"
-                  class="navbar-toggle"
-                  data-toggle="collapse"
-                  data-target=".our-nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>-->
           <a href="@|uri-prefix|/index.html" class="navbar-brand">REIN VAN DER WOERD</a>
         </div>
         <div class="navbar"
@@ -56,10 +48,10 @@
                 Tags <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><a href="@|uri-prefix|/index.html">All Posts</a></li>
-                @|tags-list-items|
               </ul>
             </li>-->
             @ni[(string-append uri-prefix "/index.html") "Blog"]
+            <!--@ni[(string-append uri-prefix "/Topics.html") "Topics"]-->
             @ni[(string-append uri-prefix "/About.html") "About"]
           </ul>
         </div>
