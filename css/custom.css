@@ -25,7 +25,7 @@ a {
     text-decoration: none !important;
 }
 
-a:not(.navbar-brand):hover, .pager li:hover {
+a:not(.navbar-brand):hover, .pager li:hover a {
     background-color: rgba(136, 0, 0, 0.09) !important;
 }
 
@@ -337,6 +337,7 @@ p.date-and-tags {
 .pager li a {
     border: none;
     border-radius: 0;
+    display: inline;
     padding: 2px;
 }
 
