@@ -2,9 +2,12 @@
     Date: 2017-05-03T13:02:48
     Tags: Lisp
 
-To make my Lisp a more useful language, and to pave the road for a module system and package manager, I added the capability of performing IO. I like the names `spit` and `slurp` for this functionality, and I think using slurp as a unified interface for network and file IO is an elegant idea. Let's see them in action:
+To make my Lisp a more useful language, and to pave the road for a module system and package manager, I added the capability of performing IO.
 
 <!-- more -->
+
+ I like the names `spit` and `slurp` for this functionality, and I think using slurp as a unified interface for network and file IO is an elegant idea. Let's see them in action:
+
 
 ```scheme
 (spit "todo.txt" "Remember the milk") ;=> nil
