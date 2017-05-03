@@ -7,6 +7,7 @@ http://www.reinvanderwoerd.nl/blog/2017/04/29/stimulate-your-creativity/
 http://www.reinvanderwoerd.nl/blog/2017/04/21/writing-a-lisp-debugger/
 http://www.reinvanderwoerd.nl/blog/2017/04/24/writing-a-lisp-help-me-decide-what-to-tackle-next/
 http://www.reinvanderwoerd.nl/blog/2017/04/19/categories-in-oo-monads/
+http://www.reinvanderwoerd.nl/blog/2017/05/03/writing-a-lisp-spit-and-slurp/
 http://www.reinvanderwoerd.nl/blog/2017/05/02/grokking-the-reader-monad-a-visual-explanation/
 http://www.reinvanderwoerd.nl/blog/2017/04/15/categories-in-oo-functors/
 http://www.reinvanderwoerd.nl/blog/2017/04/01/dutch-clojure-days-2017/

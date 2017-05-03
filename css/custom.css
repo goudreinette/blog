@@ -52,9 +52,9 @@ article.index h2 a:hover {
 .navbar .container {
     height: 70px;
     align-items: center;
-    display: flex;  
+    display: flex;
     flex-direction: row;
-    max-width: 700px;
+    /* max-width: 700px; */
 }
 
 @media (max-width: 768px) {
@@ -297,8 +297,8 @@ article footer.post-footer > div .comments {
 
 @media(min-width: 768px) {
     footer {
-        width: 700px;
-        left: -50px;
+        /* width: 700px; */
+        /* left: -50px; */
         position: relative;
     }
 }
@@ -356,4 +356,21 @@ blockquote {
     /*border-left: 0px solid #eee;*/
     border: none !important;
     background: none !important;
+}
+
+
+ul.pager {
+    display: flex;
+}
+
+ul.pager li {
+    width: 50%;
+}
+
+ul.pager li.next {
+    margin-left: auto;
+}
+
+.pager a {
+    /* display: inline !important; */
 }
