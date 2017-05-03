@@ -1,6 +1,6 @@
     Title: Writing a Lisp: spit and slurp
     Date: 2017-05-03T13:02:48
-    Tags: Lisp
+    Tags: Lisp, Haskell
 
 To make my Lisp a more useful language, and to pave the road for a module system and package manager, I added the capability of performing IO.
 
