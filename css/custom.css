@@ -8,6 +8,7 @@
 body {
     font-family: Concourse;
     color: #333;
+    font-size: 20px;    
 }
 
 .container {
@@ -61,6 +62,7 @@ article.index h2 a:hover {
 @media (max-width: 768px) {
     body {
         padding-top: 0px;
+        font-size: 18px ;
     }
 
     .navbar {
@@ -77,24 +79,9 @@ article.index h2 a:hover {
         right: 0;
     }
 
-    p {
-        font-size: 16px !important;
-    }
-
-    h1, .index h2 {
-        font-size: 26px !important;
-    }
-    
-    h2:not(.index) {
-        font-size: 17px !important;
-    }
 
     .nav {
         padding-top: 5px !important;
-    }
-
-    pre, code {
-        font-size: 12px !important;
     }
 
     pre {
@@ -116,6 +103,7 @@ article.index h2 a:hover {
 
 ul.nav.navbar-nav {
     margin-left: auto;
+    font-size: 75%;
 }
 
 .nav>li {
@@ -157,7 +145,7 @@ h1 {
     /* border-top: 2px solid black; */
     border-bottom: none;
     display: inline-block;
-    font-size: 30px;
+    font-size: 150%;
     padding-top: 5px;
     margin-bottom: 10px;
 }
@@ -168,13 +156,13 @@ h2 {
 }
 
 h2.index {
-    font-size: 26px; 
+    font-size: 140%; 
 }
 
 h2:not(.index) {
     margin-top: 60px;
     font-weight: bold;
-    font-size: 21px;
+    font-size: 100%;
 }
 
 h2 a {
@@ -190,7 +178,6 @@ h4 {
 }
 
 p {
-    font-size: 20px;
     margin-bottom: 15px;
     margin-top: 0;
 }
@@ -210,7 +197,7 @@ code {
 
 code, pre {
     font-family: Fira Code;
-    font-size: 16px;
+    font-size: 75%;
 }
 
 pre {
@@ -218,14 +205,10 @@ pre {
     margin: 0;
     background-color: rgba(139, 121, 121, 0.05);
     border-radius: 0;
-    font-size: 15px;
     margin: 20px 0;
-    /* background: none; */
     border-width: 0;
-    /* border-color: #eee; */
     padding: 20px;
     padding-left: 50px;
-    /* border-left: 2px solid rgba(139, 121, 121, 0.15); */
     overflow: auto;
     background: none;
     word-wrap: normal;
@@ -278,8 +261,11 @@ span.icon-bar {
 
 
 /* Footer */
+.container > footer {
+    font-size: 75% !important;
+}
+
 .container > footer > p {
-    font-size: 14px !important;
     margin-top: 0;
     font-family: Concourse;
 }
@@ -300,10 +286,6 @@ article footer.post-footer > div {
 }
 
 
-article footer.post-footer > div .comments {
-    font-size: 20px;
-    margin-right: 20px;
-}
 
 
 @media(min-width: 768px) {
@@ -324,13 +306,7 @@ footer:not(.index) {
 
 
 /* Lists */
-ul:not(.nav), ol {
-    font-size: 20px;
-}
 
-ol {
-    font-size: 20px;
-}
 
 /* Date and Tags */
 p.date-and-tags {
