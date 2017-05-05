@@ -7,6 +7,7 @@
 /* Global */
 body {
     font-family: Concourse;
+    color: #333;
 }
 
 .container {
@@ -172,7 +173,7 @@ h2:not(.index) {
 }
 
 h2 a {
-    color: rgba(0, 0, 0, 0.9) !important;
+    color: #333 !important;
     /* padding: 2px 7px; */
     /* display: inline-block; */
     position: relative;
