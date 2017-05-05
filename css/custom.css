@@ -6,14 +6,12 @@
 
 /* Global */
 body {
-    font-family: 'Concourse';
-    padding-top: 20px;
+    font-family: Concourse;
 }
 
 .container {
     position: relative;
     max-width: 600px;
-    /* left: 100px; */
 }
 
 /* Links */
@@ -47,6 +45,7 @@ article.index h2 a:hover {
     padding-right: 5px;
     margin-left: auto;
     border: none;
+    margin-top: 20px;
 }
 
 .navbar .container {
@@ -64,6 +63,7 @@ article.index h2 a:hover {
 
     .navbar {
         padding: 0 5px 0 3px;
+        margin-top: 0 !important;
     }
 
     .navbar-brand {
@@ -76,19 +76,23 @@ article.index h2 a:hover {
     }
 
     p {
-        font-size: 18px !important;
+        font-size: 16px !important;
     }
 
     h1, .index h2 {
         font-size: 26px !important;
     }
+    
+    h2:not(.index) {
+        font-size: 17px !important;
+    }
 
     .nav {
-        padding-top: 0;
+        padding-top: 5px !important;
     }
 
     pre, code {
-        font-size: 14px !important;
+        font-size: 12px !important;
     }
 
     pre {
@@ -118,6 +122,7 @@ ul.nav.navbar-nav {
 
 ul.nav.navbar-nav {
     display: flex;
+    padding-top: 0px;
     align-items: center;
     justify-content: center;
     height: 100%;
@@ -163,7 +168,7 @@ h2 {
 h2:not(.index) {
     margin-top: 60px;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 21px;
 }
 
 h2 a {
@@ -181,7 +186,7 @@ h4 {
 p {
     font-size: 20px;
     margin-bottom: 15px;
-    margin-top: 0;  
+    margin-top: 0;
 }
 
 /* Code */
@@ -297,8 +302,6 @@ article footer.post-footer > div .comments {
 
 @media(min-width: 768px) {
     footer {
-        /* width: 700px; */
-        /* left: -50px; */
         position: relative;
     }
 }
