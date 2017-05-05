@@ -13,6 +13,7 @@ body {
 .container {
     position: relative;
     max-width: 600px;
+    padding: 0 30px;
 }
 
 /* Links */
