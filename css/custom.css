@@ -92,10 +92,11 @@ article.index h2 a:hover {
     }
 }
 
-.navbar-brand {
+a.navbar-brand {
     font-weight: bold;
     background: none;
     letter-spacing: 0.04em;
+    /* font-family: Fira Code !important; */
     font-weight: 600;
     color: rgba(0, 0, 0, 0.9) !important;
     font-family: 'Concourse' !important;
