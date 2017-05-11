@@ -14,6 +14,7 @@ http://www.reinvanderwoerd.nl/blog/2017/04/01/dutch-clojure-days-2017/
 http://www.reinvanderwoerd.nl/blog/2017/04/04/the-value-of-values-summarized/
 http://www.reinvanderwoerd.nl/blog/2017/04/17/eve-everything-is-a-record/
 http://www.reinvanderwoerd.nl/blog/2017/04/22/implementing-pause-with-a-free-monad/
+http://www.reinvanderwoerd.nl/blog/2017/05/11/writing-a-lisp-explicit-stack-and-stacktraces/
 http://www.reinvanderwoerd.nl/blog/2017/03/18/writing-a-lisp/
 http://www.reinvanderwoerd.nl/blog/2017/03/27/implementing-multimethods/
 http://www.reinvanderwoerd.nl/blog/2017/04/07/defapi-api-s-in-an-instant/
