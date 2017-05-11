@@ -33,7 +33,9 @@ evalString =
   evalWithCatch action
   where action env string = do
           readtable <- getReadtable env
-          readOne readtable string >>= eval env >>= liftIO . print
+          readOne readtable string 
+          >>= eval env 
+          >>= liftIO . print
 
 evalWithCatch f env x = do
   let action = evalStateT (f env x) []
@@ -98,9 +100,11 @@ To print a stack trace, the error is displayed as before, while the callframes a
 ```haskell
 instance Show LispError where
   show (LispError errType stack) =
-    show errType ++ "\n" ++ unlines (map show (reverse stack))
+    show errType ++ "\n" 
+    ++ unlines (map show (reverse stack))
 
 instance Show Callframe where
   show (Callframe FnRecord {name = name} args) =
-    "(" ++ showName name ++ " " ++ showListContents args ++ ")"
+    "(" ++ showName name ++ " " 
+        ++ showListContents args ++ ")"
 ```
