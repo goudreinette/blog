@@ -2,9 +2,9 @@
     Date: 2017-05-11T13:10:52
     Tags: Haskell, Lisp
 
-I worked on a new feature for my Lisp last week: an explicit stack and stacktraces.
+I worked on a new feature for my Lisp this week: an explicit stack and stacktraces.
 Stacktraces make debugging easier by improving error messages.
-The explicit stack is also necessary for continuations later.
+An explicit stack makes them possible, and is necessary to implement continuations later.
 
 
 <!-- more -->
@@ -17,8 +17,8 @@ The explicit stack is also necessary for continuations later.
 ; (inc 1 1)
 ```
     
-The stack is threaded through the interpreter with a State monad transformer.
-I chose to put the entire function in a callframe because it's needed for continuations.
+The stack is threaded through the interpreter with a StateT monad transformer.
+I chose to put entire functions inside callframes instead of just their identifiers, because this makes implementing continuations easier.
 
 ```haskell
 data Callframe = Callframe Fn Arguments
@@ -26,7 +26,8 @@ type Callstack = [Callframe]
 type CallstackIO a = StateT Callstack IO a
 ```
 
-To evaluate something, we unwrap the action from the StateT transformer, and wrap it inside a catch.
+Before evaluating code, an empty stack is created.
+Afterwards, the action is extracted from the StateT transformer to be executed. 
 
 ```haskell
 evalString =
@@ -42,8 +43,8 @@ evalWithCatch f env x = do
   catch action (printError :: LispError -> IO ())
 ```
 
-Before evaluating a functon call, the function is pushed onto the stack along with it's arguments.
-Afterwards, it's popped off the stack and it's result is returned.
+When a function is invoked, it is pushed onto the stack along with it's arguments.
+Afterwards, it's popped off the stack, and it's result is returned.
 
 ```haskell
 eval :: Env -> LispVal -> CallstackIO LispVal
@@ -53,11 +54,10 @@ eval env val =
     List (fsym : args) -> do
       (Fn f) <- eval env fsym
       push f args
-      result <- case f of
-                  FnRecord {isMacro = True, fnType = fnType} ->
-                    apply env fnType args >>= eval env
-                  FnRecord {isMacro = False, fnType = fnType} ->
-                    evalMany env args >>= apply env fnType
+      result <- if isMacro f then
+                  apply env (fnType f) args >>= eval env
+                else
+                  evalMany env args >>= apply env (fnType f)
       pop
       return result
     --
@@ -79,14 +79,14 @@ pop =
           xs
 ```
 
-Errors now have a stack field.
+Errors needed to be able to carry a call stack.
 
 ```haskell
 data LispError = LispError ErrorType Callstack
   deriving (Typeable)
 ```
 
-To throw an error along with it's stack I needed a new function.
+I also needed a new `throw` function to use with the `CallstackIO` monad, capturing the stack. 
 
 ```haskell
 throwWithStack :: ErrorType -> CallstackIO a
@@ -95,7 +95,7 @@ throwWithStack e = do
   liftIO $ throw $ LispError e stack
 ```
 
-To print a stack trace, the error is displayed as before, while the callframes are printed line by line.
+When printing an error, the message is displayed as before, while the callframes are printed line by line below it.
 
 ```haskell
 instance Show LispError where
