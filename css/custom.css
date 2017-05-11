@@ -374,8 +374,9 @@ ul.pager li.next {
 }
 
 .pagination>li.active a {
-    font-weight: bold;
+    /* font-weight: bold; */
     background: none !important;
+    opacity: 0.2;
 }
 
 .pagination>li.disabled a {
