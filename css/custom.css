@@ -362,3 +362,22 @@ ul.pager li.next {
 .pager a {
     /* display: inline !important; */
 }
+
+.pagination>li a {
+    background: none;
+    border: none;
+    border-radius: 0 !important;
+}
+
+.pagination>li {
+    border-radius: 0;
+}
+
+.pagination>li.active a {
+    font-weight: bold;
+    background: none !important;
+}
+
+.pagination>li.disabled a {
+    display: none;
+}
