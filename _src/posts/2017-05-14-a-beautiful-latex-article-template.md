@@ -5,7 +5,7 @@
 I like messing with typography from time to time.
 As a programmer, I quickly fell in love with TeX.
 This is my personal article template, developed during the last few months.
-Have fun :)
+Have fun with it :)
 
 <!-- more -->
 
