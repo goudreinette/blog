@@ -9,7 +9,7 @@ Monday's [survey](http://reinvanderwoerd.nl/blog/2017/04/24/writing-a-lisp-help-
 ```scheme
 (define-syntax (trace form)
   '(let (result ~form)
-      (print "~form => ~result")
+      (print "'~form => ~'result")
       result))
 
 (define readtable (cons '(^ trace) readtable))

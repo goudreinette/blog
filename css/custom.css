@@ -238,6 +238,8 @@ article img {
  */
   max-width: 100%;
   height: auto;
+  margin-top: 20px;
+  border: 1px solid #ddd;
 }
 
 .caption {
@@ -380,5 +382,9 @@ ul.pager li.next {
 }
 
 .pagination>li.disabled a {
+    display: none;
+}
+
+pre::-webkit-scrollbar {
     display: none;
 }

@@ -11,10 +11,10 @@ An explicit stack makes them possible, and is necessary to implement continuatio
 ```scheme
 (define (inc x) (+ x 1))
 
-(inc 1 2)
+(* 2 (inc 1 1))
 ; Wrong number of arguments: expected 1, got 2
-; (* 2 (inc 1 1))
 ; (inc 1 1)
+; (* 2 (inc 1 1))
 ```
     
 The stack is threaded through the interpreter with a StateT monad transformer.
@@ -71,12 +71,7 @@ push f args =
 
 
 pop :: CallstackIO ()
-pop =
-  modify popFrame
-  where popFrame (_:xs) =
-          xs
-        popFrame xs =
-          xs
+pop = modify tailSafe
 ```
 
 Errors needed to be able to carry a call stack.
@@ -101,7 +96,7 @@ When printing an error, the message is displayed as before, while the callframes
 instance Show LispError where
   show (LispError errType stack) =
     show errType ++ "\n" 
-    ++ unlines (map show (reverse stack))
+    ++ unlines (map show stack)
 
 instance Show Callframe where
   show (Callframe FnRecord {name = name} args) =
