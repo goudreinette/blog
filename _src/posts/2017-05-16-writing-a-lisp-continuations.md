@@ -2,14 +2,9 @@
     Date: 2017-05-16T14:07:54
     Tags: Lisp, Haskell
 
-This week I worked on adding continuations to my Lisp.
-I think they are really interesting, and the [survey]() revealed that many of you think the same.
-It may have been the most challenging feature so far, both to implement and explain, but the result has been worth it.
-
-Benefit to reader: understand more of computing fundamentals, lisp implementation.
-
-Resources: Beautiful Racket, Wikipedia: call/cc, continuations
-
+This week added continuations to my Lisp.
+They're a fascinating feature, and a popular demand in the [survey](http://reinvanderwoerd.nl/blog/2017/04/24/writing-a-lisp-help-me-decide-what-to-tackle-next/). 
+It has been the most challenging feature so far, both in implementation and explanation, but the result has been worth it.
 
 <!-- more -->
 
@@ -17,13 +12,13 @@ First, what are continuations?
 
 > A con­tin­u­a­tion is a spe­cial kind of func­tion that’s like a book­mark to the loca­tion of an expres­sion. Con­tin­u­a­tions let you jump back to an ear­lier point in the pro­gram, thereby cir­cum­vent­ing the con­trol flow of the usual eval­u­a­tion model. <cite>[Beautiful Racket](http://beautifulracket.com/explainer/continuations.html)</cite>
 
-Continuations can also be used to implement other control mechanisms like exceptions, the `return` statement, generators, coroutines, and so on.
+Continuations can be used to implement other control mechanisms like exceptions, `return`, generators, coroutines, and so on.
 
-The following examples are taken from Beautiful Racket.
+The examples are adapted Beautiful Racket.
 
-`let/cc` binds the current continuation to `here`.
-It evaluates the let block, which binds the continuation to `cont`.
-The last expression is returned normally, and the evaluation continues.
+In this example, `let/cc` binds the current continuation to `here`.
+It evaluates the let block, which assigns the continuation to `cont`.
+The last expression is returned as usual, and the evaluation continues.
 
 ```scheme
 (define cont nil)
@@ -34,15 +29,14 @@ The last expression is returned normally, and the evaluation continues.
 ```
 
 ## Ordinary functions
-In my lisp, continuations are just ordinary functions.
-The primitive is the `short-circuit` form.
-It short circuits evaluation, immediately transfering control over to the continuation.
+In my lisp, continuations are just ordinary functions, containing a `short-circuit` form.
+This transparency makes debugging easier, and the implementation smaller.
 
 ```scheme
 (lambda (x) (<primitive> (+ 1 (+ 2 (+ 3 (+ x 5))))))
 ```
 
-Invoking it skips the surrounding expression.
+When invoked, `short-circuit` immediately transfers control to the continuation, skipping the surrounding expression.
 
 ```scheme
 (* 10 (cont 10)) ; 21, not 210
@@ -50,6 +44,7 @@ Invoking it skips the surrounding expression.
 
 
 Another example: the return statement.
+In this case control immediately jumps back to the top of the function scope, returning the given value.
 
 ```scheme
 (define (return-test)
@@ -60,10 +55,10 @@ Another example: the return statement.
 ```
 
 
-## Macro
+## Let as a macro
 
 The let form is really just syntactic sugar.
-It's expanded into a call to `call/cc`, short for [call-with-currurent-continuation](https://en.wikipedia.org/wiki/Call-with-current-continuation).
+It's expanded into a call to `call/cc`, short for [call-with-current-continuation](https://en.wikipedia.org/wiki/Call-with-current-continuation).
 
 ```scheme
 (define-syntax (let/cc sym . body)
@@ -71,7 +66,7 @@ It's expanded into a call to `call/cc`, short for [call-with-currurent-continuat
 ```
 
 
-## Implementation
+## Early exit with either
 
 To account for the possibility of early exit, I added EitherT to the monad stack, where
 Left represents an early exit, and Right the usual order of evaluation.
@@ -102,22 +97,20 @@ shortCircuit :: LispVal -> LispM ()
 shortCircuit = LispM . left
 ```
 
-## Primitives
-```haskell
+## Capturing the context
 
+`call/cc` and `shortCircuit` are also reified special forms.
+`call/cc` is predefined in the enviroment.
+When it is invoked, it captures the surrounding computation, wraps it inside of a function, 
+and passes it to it's argument.
+
+When the continuation is invoked, it calls `shortCircuit'` on it's body, and the evaluation continues from there.
+
+```haskell
 impurePrimitiveMacros =
   wrapPrimitives True Impure
     [--
      ("call/cc", callCC)]
-
-
-shortCircuit' = 
-  wrapPrimitive False Impure sc
-  where sc env [val] = do
-          r <- eval env val
-          shortCircuit r
-          return r
-
 
 callCC env [l] = do
   lambda <- eval env l
@@ -130,7 +123,19 @@ callCC env [l] = do
                      [List [shortCircuit', contFnBody]]
                      env
 
+shortCircuit' = 
+  wrapPrimitive False Impure sc
+  where sc env [val] = do
+          r <- eval env val
+          shortCircuit r
+          return r
 
+```
+
+The outermost expression that lexically contains the `call/cc` form is used as the continuation.
+This avoids infinite loops when used inside of named functions, where the continuation and named function would keep calling each other indefinitely.
+
+```haskell
 topFrame =
   State.get
   <&> reverse
@@ -151,8 +156,11 @@ containsCallCCForm val =
       any containsCallCCForm xs
     _                          ->
       False
+```
 
+Finally, the `call/cc` form itself is replaced by the parameter 'x'.
 
+```haskell
 replaceContForm val =
   return $ case val of
     List [Symbol "call/cc", _] ->
@@ -161,7 +169,11 @@ replaceContForm val =
       val
 ```
 
-## Eval
+## Evaluation and error handling
+
+After evaluating code, the result is unwrapped from the LispM monad and printed.
+Because both Left and Right must contain a LispVal at this point, they are treated equally.
+
 ```haskell
 evalString :: Env -> String -> IO ()
 evalString =
