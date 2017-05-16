@@ -402,3 +402,10 @@ cite a {
 cite a:not(:hover) {
     color: inherit !important;
 }
+
+blockquote p {
+    blockquote p {     font-size: 90% !important; }
+    blockquote p {     font-size: 90% !important; }
+    font-size:;
+    font-size: 90%;
+}
