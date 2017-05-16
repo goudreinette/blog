@@ -388,3 +388,17 @@ ul.pager li.next {
 pre::-webkit-scrollbar {
     display: none;
 }
+
+cite {
+    font-style: italic;
+    display: block;
+    margin-top: 5px;
+    font-size: 80%;
+}
+
+cite a {
+}
+
+cite a:not(:hover) {
+    color: inherit !important;
+}
