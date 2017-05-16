@@ -4,7 +4,7 @@
 
 This week added continuations to my Lisp.
 They're a fascinating feature, and a popular demand in the [survey](http://reinvanderwoerd.nl/blog/2017/04/24/writing-a-lisp-help-me-decide-what-to-tackle-next/). 
-It has been the most challenging feature so far, both in implementation and explanation, but the result has been worth it.
+It has been the most challenging feature so far, both to implement and explain, but the result has been worth it.
 
 <!-- more -->
 
@@ -13,8 +13,6 @@ First, what are continuations?
 > A con­tin­u­a­tion is a spe­cial kind of func­tion that’s like a book­mark to the loca­tion of an expres­sion. Con­tin­u­a­tions let you jump back to an ear­lier point in the pro­gram, thereby cir­cum­vent­ing the con­trol flow of the usual eval­u­a­tion model. <cite>[Beautiful Racket](http://beautifulracket.com/explainer/continuations.html)</cite>
 
 Continuations can be used to implement other control mechanisms like exceptions, `return`, generators, coroutines, and so on.
-
-The examples are adapted Beautiful Racket.
 
 In this example, `let/cc` binds the current continuation to `here`.
 It evaluates the let block, which assigns the continuation to `cont`.
@@ -189,3 +187,7 @@ runWithCatch f env x = do
   let action = fromRight' <$> run (f env x)
   catch action (printError :: LispError -> IO ())
 ```
+
+## Further reading
+Beautiful Racket has a great [chapter](http://beautifulracket.com/explainer/continuations.html) on continuations. <br/>
+The Wikipedia [page](https://en.wikipedia.org/wiki/Continuation) also gives a decent overview of the topic.
