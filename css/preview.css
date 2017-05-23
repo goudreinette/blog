@@ -2,10 +2,16 @@
 
 body {
     margin: auto;
-    font-size: 24px;
     max-width: 700px;
+    /*background: #363B40;*/
+    color: white;
+    font-size: 22px;
+}
+
+body, h1, h2 {
+    /*font-family: Caecilia Lt Std !important;*/
 }
 
 pre, code {
-    font-size: 80% !important;
+    font-size: 90% !important;
 }

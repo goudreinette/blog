@@ -45,7 +45,7 @@ index-full? = false
 feed-full? = true
 
 # How many posts per page for index pages?
-posts-per-page = 20
+posts-per-page = 100
 
 # How many items to include in feeds?
 # Older items in excess of this will not appear in the feed at all.

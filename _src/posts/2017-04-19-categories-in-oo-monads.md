@@ -1,6 +1,6 @@
     Title: Categories in OO: Monads
     Date: 2017-04-19T09:19:29
-    Tags: PHP, Categories
+    Tags: PHP, Category Theory
 
 Last time we used Maybe to encapsulate an optional value, performing operations on it while remaining ignorant of the actual presence of that value. Now we turn to the famous Monad, starting with an example that illustrates it's purpose.
 

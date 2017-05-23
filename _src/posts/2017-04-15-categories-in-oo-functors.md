@@ -1,6 +1,6 @@
     Title: Categories in OO: Functors
     Date: 2017-04-15T11:11:21
-    Tags: PHP, Categories
+    Tags: PHP, Category Theory
 
 Today I'm starting my series on categories in OO.
 My goal is to explain these concepts to programmers who are already familiar with object-oriented programming, but new to functional programming.

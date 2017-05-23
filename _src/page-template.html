@@ -1,3 +1,5 @@
+@local-require{helpers.rkt}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -46,15 +48,15 @@
                 <li@(when (string-ci=? uri uri-path) " class=\"active\"")>
                   <a href="@|uri|"@|a-attribs|>@|label|</a>
                 </li> })
-            <!--<li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Tags <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="@|uri-prefix|/index.html">All Posts</a></li>
-              </ul>
-            </li>-->
             @ni[(string-append uri-prefix "/index.html") "Blog"]
             <!--@ni[(string-append uri-prefix "/Topics.html") "Topics"]-->
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Subject <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                @tags-list-items
+              </ul>
+            </li>
             @ni[(string-append uri-prefix "/About.html") "About"]
           </ul>
         </div>
@@ -65,7 +67,7 @@
         <!-- Main column -->
         <div id="content" class="col-md-12">
           @(when tag
-            @list{<h1><em>#@|tag|</em></h1>})
+            @list{<h1>#@|tag|</h1>})
           @|contents|
         </div>
       </div>

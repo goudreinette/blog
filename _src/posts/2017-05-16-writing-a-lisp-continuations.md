@@ -2,7 +2,7 @@
     Date: 2017-05-16T14:07:54
     Tags: Lisp, Haskell
 
-This week added continuations to my Lisp.
+This week I added continuations to my Lisp.
 They're a fascinating feature, and a popular demand in the [survey](http://reinvanderwoerd.nl/blog/2017/04/24/writing-a-lisp-help-me-decide-what-to-tackle-next/). 
 It has been the most challenging feature so far, both to implement and explain, but the result has been worth it.
 
