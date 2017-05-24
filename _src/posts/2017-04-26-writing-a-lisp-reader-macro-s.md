@@ -1,6 +1,6 @@
     Title: Writing a Lisp: Reader Macro's
     Date: 2017-04-26T15:07:02
-    Tags: Lisp, Haskell
+    Tags: Writing a Lisp, Haskell
 
 Monday's [survey](http://reinvanderwoerd.nl/blog/2017/04/24/writing-a-lisp-help-me-decide-what-to-tackle-next/) revealed that Reader Macro's are your most requested feature. They replace built-in syntax, and enable users to extend the syntax from within the language. Implementing them right is difficult, however. Let's try.
 

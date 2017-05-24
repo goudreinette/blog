@@ -1,6 +1,6 @@
     Title: Writing a Lisp: help me decide what to tackle next
     Date: 2017-04-24T18:33:33
-    Tags: Lisp, Survey
+    Tags: Writing a Lisp, Survey
 
 Hi!
 My name is Rein van der Woerd. <br/>

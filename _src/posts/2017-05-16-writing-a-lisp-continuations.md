@@ -1,6 +1,6 @@
     Title: Writing a Lisp: Continuations
     Date: 2017-05-16T14:07:54
-    Tags: Lisp, Haskell
+    Tags: Writing a Lisp, Haskell
 
 This week I added continuations to my Lisp.
 They're a fascinating feature, and a popular demand in the [survey](http://reinvanderwoerd.nl/blog/2017/04/24/writing-a-lisp-help-me-decide-what-to-tackle-next/). 

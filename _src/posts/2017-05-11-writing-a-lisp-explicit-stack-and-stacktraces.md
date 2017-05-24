@@ -1,6 +1,6 @@
     Title: Writing a Lisp: Explicit Stack and Stacktraces
     Date: 2017-05-11T13:10:52
-    Tags: Haskell, Lisp
+    Tags: Writing a Lisp, Haskell
 
 I worked on a new feature for my Lisp this week: an explicit stack and stacktraces.
 Stacktraces make debugging easier by improving error messages.

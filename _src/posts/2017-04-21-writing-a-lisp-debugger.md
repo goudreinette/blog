@@ -1,6 +1,6 @@
     Title: Writing a Lisp: Debugger
     Date: 2017-04-21T20:49:03
-    Tags: Lisp, Haskell
+    Tags: Writing a Lisp, Haskell
 
 To make debugging easier, I added a simple `pry`-style debugger to my lisp.
 It immediately spawns a new repl in the current envirment, allowing you to poke around at will.

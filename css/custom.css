@@ -48,7 +48,7 @@ article.index h2 a:hover {
     padding-right: 5px;
     margin-left: auto;
     border: none;
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 .navbar .container {
@@ -122,7 +122,7 @@ ul.nav.navbar-nav {
 
 
 .nav li a {
-    padding: 0px;
+    padding: 1px 0px;
     margin: 0 10px;
     transition: all .3s;
     border-bottom: 2px solid transparent;
@@ -157,7 +157,8 @@ h2 {
 }
 
 h2.index {
-    font-size: 140%; 
+    font-size: 100%;
+    font-weight: normal;
 }
 
 h2:not(.index) {
@@ -220,6 +221,11 @@ pre {
 
 article {
     margin-bottom: 75px;
+    /* margin-top: 25px; */
+}
+
+article.index {
+    margin-bottom: 20px;
     /* margin-top: 25px; */
 }
 
@@ -417,4 +423,10 @@ nav .dropdown-menu li a {
 .nav .dropdown-menu a {
     padding: 5px;
     border-bottom: none !important;
+}
+
+.index p {}
+
+body>.container {
+    margin-top: 25px;
 }
