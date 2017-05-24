@@ -48,7 +48,7 @@ article.index h2 a:hover {
     padding-right: 5px;
     margin-left: auto;
     border: none;
-    margin-top: 25px;
+    margin-top: 20px;
 }
 
 .navbar .container {
@@ -428,5 +428,9 @@ nav .dropdown-menu li a {
 .index p {}
 
 body>.container {
+    margin-top: 25px;
+}
+
+header.navbar {
     margin-top: 25px;
 }
