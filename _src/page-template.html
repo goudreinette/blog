@@ -71,7 +71,7 @@
           @|contents|
         </div>
       </div>
-      <footer class='@(when (or (equal? uri-path "/index.html") (equal? uri-path "/About.html")) "index")'>
+      <footer class='@(when (not (string-contains? uri-path "/blog/")) "index")'>
         <hr />
         <p style="float: left">
           Contact me by 
