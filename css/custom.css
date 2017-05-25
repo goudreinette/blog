@@ -47,6 +47,7 @@ article.index h2 a:hover {
     border-bottom: none;
     padding-right: 5px;
     margin-left: auto;
+    /* margin-right: auto; */
     border: none;
     margin-top: 20px;
 }
@@ -74,14 +75,18 @@ article.index h2 a:hover {
         line-height: 24px;
     }
 
-    .navbar-toggle {
-        position: absolute;
-        right: 0;
+    .navbar-brand .full {
+        display: none !important;
+    }
+
+    .navbar-brand .short {
+        display: inline !important;
     }
 
 
-    .nav {
-        padding-top: 5px !important;
+    .navbar-toggle {
+        position: absolute;
+        right: 0;
     }
 
     pre {
@@ -92,6 +97,8 @@ article.index h2 a:hover {
     }
 }
 
+
+/* Nav */
 a.navbar-brand {
     font-weight: bold;
     background: none;
@@ -100,6 +107,14 @@ a.navbar-brand {
     font-weight: 600;
     color: rgba(0, 0, 0, 0.9) !important;
     font-family: 'Concourse' !important;
+}
+
+.navbar-brand .full {
+    display: inline;
+}
+
+.navbar-brand .short {
+    display: none;
 }
 
 ul.nav.navbar-nav {
