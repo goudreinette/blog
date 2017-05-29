@@ -3,7 +3,7 @@
     Tags: Gems, Singularity
 
 I'm currently reading [The Singularity is Near: When Humans Transcend Biology](https://en.wikipedia.org/wiki/The_Singularity_Is_Near) by Ray Kurzweil.
-It contains an optimistic perspective on the outcome of the ever-increasing rate of technological progress. 
+It contains an optimistic perspective on the outcome of the ever-increasing rate of technological progress.
 Here are some gems I discovered wile reading.
 
 <!-- more -->
