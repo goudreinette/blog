@@ -4,7 +4,6 @@
 ;; in frog/params.
 (define/contract (init)
   (-> any)
-  (displayln "hello")
   (current-scheme/host "http://www.reinvanderwoerd.nl")
   (current-uri-prefix "/")
   (current-title "Rein van der Woerd")
@@ -28,7 +27,6 @@
 (define/contract (enhance-body xs)
   (-> (listof xexpr/c) (listof xexpr/c))
   ;; Here we pass the xexprs through a series of functions.
-  (displayln xs)
   (~> xs
       (syntax-highlight #:python-executable "python"
                         #:line-numbers? #f
