@@ -1,5 +1,5 @@
     Title: Writing a Forth
-    Date: 2017-06-07T16:01:47
+    Date: 2017-06-08T16:01:47
     Tags: Writing a Forth, Haskell
 
 This week I started working on a new, stack-based language: a Forth.
@@ -66,7 +66,7 @@ dictionary =
    ("-", numBinOp (-)),
    ("*", numBinOp (*)),
    ("/", numBinOp quot),
-   -- more numeric operations ...
+   -- numeric operations ...
    (".", pop),
    ("dup", dup),
    ("swap", swap),
@@ -116,7 +116,7 @@ invoke f =
     User stack   -> evalMany stack
 ```
 
-When the interpreter encounters a ';', it creates a new word from the compile stack, adds it to the dictionary, and exits compile mode.
+When the interpreter encounters a `;`, it creates a new word from the compile stack, adds it to the dictionary, and exits compile mode.
 
 ```haskell
 compileMode :: Forth Val

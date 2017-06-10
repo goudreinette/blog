@@ -1,5 +1,4 @@
 http://www.reinvanderwoerd.nl/blog/2017/05/16/writing-a-lisp-continuations
-http://www.reinvanderwoerd.nl/blog/2017/06/07/writing-a-forth
 http://www.reinvanderwoerd.nl/blog/2017/04/29/stimulate-your-creativity
 http://www.reinvanderwoerd.nl/blog/2017/04/27/abstracting-the-clojure-def-macro-pattern
 http://www.reinvanderwoerd.nl/blog/2017/04/24/writing-a-lisp-help-me-decide-what-to-tackle-next
@@ -14,6 +13,7 @@ http://www.reinvanderwoerd.nl/blog/2017/04/01/dutch-clojure-days-2017
 http://www.reinvanderwoerd.nl/blog/2017/04/08/reducing-with-for-fold
 http://www.reinvanderwoerd.nl/blog/2017/04/26/writing-a-lisp-reader-macro-s
 http://www.reinvanderwoerd.nl/blog/2017/05/14/a-beautiful-latex-article-template
+http://www.reinvanderwoerd.nl/blog/2017/06/08/writing-a-forth
 http://www.reinvanderwoerd.nl/blog/2017/05/02/grokking-the-reader-monad-a-visual-explanation
 http://www.reinvanderwoerd.nl/blog/2017/05/03/writing-a-lisp-spit-and-slurp
 http://www.reinvanderwoerd.nl/blog/2017/04/22/implementing-pause-with-a-free-monad

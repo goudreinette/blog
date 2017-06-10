@@ -25,6 +25,8 @@
           href="@|rss-feed-uri|" title="RSS Feed">
     <!-- JS -->
     @google-universal-analytics["UA-94082535-1"]
+    <script src="@|uri-prefix|/js/smartquotes.js"></script>
+    <script>smartquotes()</script>
   </head>
   <body>
     <!-- A standard Twitter Bootstrap nav bar -->
@@ -75,12 +77,12 @@
       <footer class='@(when (not (string-contains? uri-path "/blog/")) "index")'>
         <hr />
         <p style="float: left">
-          Contact me by 
+          Contact me by
           <a href="mailto:reinvanderwoerd@"@"me.com">email</a>
-          </p>        
+          </p>
         <p style="float: right" class="feeds">
           <a href="/feeds/all.atom.xml">Atom</a>
-          <a href="/feeds/all.rss.xml">RSS</a>  
+          <a href="/feeds/all.rss.xml">RSS</a>
         </p>
       </footer>
     </div>
