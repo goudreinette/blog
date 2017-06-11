@@ -7,16 +7,16 @@ Factor, another [Forth](http://reinvanderwoerd.nl/blog/2017/06/08/writing-a-fort
 <!-- more -->
 
 ```forth
-[ 1 1 = ] .
-\ [ 1 1 = ]
+[1 1 =] .
+\ [1 1 =]
 
-[ 1 + ] [ 2 * ] compose
-\ [ 1 + 2 * ]
+[1 +] [2 *] compose
+\ [1 + 2 *]
 
-4 [ > ] curry .
-\ [ 4 > ]
+4 [>] curry .
+\ [4 >]
 
-5 [ 1 + 2 * ] call .
+5 [1 + 2 *] call .
 \ 12
 ```
 
