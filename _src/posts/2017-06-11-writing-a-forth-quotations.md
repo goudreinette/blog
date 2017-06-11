@@ -9,7 +9,7 @@ Factor, another Forth-like language, introduces 'quotations' to the concatenativ
 
 Quotations serve the same role as lambda's in other languages, but have a few key advantages:
 
-**Concatenation is composition**: All functions can be viewed as `stack -> stack`; A program is a concatenation of those functions.
+**Concatenation is composition**: All expressions (including numbers) can be viewed as functions from stack to stack. A program is a concatenation of these functions.
 
 **Transparent printing, equality and manipulation**: Quotations consist of a sequence of instructions. This sequence can be printed, compared and manipulated.
 
@@ -47,12 +47,8 @@ data WordType = Primitive (Forth Val)
 ```haskell
 instance Show Val where
   -- ...
-  show Word {wordType = User s} =
-      showQuotation s
-
-showQuotation :: Stack -> String
-showQuotation s =
-  "[" ++ unwords (map show s) ++ "]"
+  show Word {wordType = User stack} =
+    "[" ++ unwords (map show s) ++ "]"  
 ```
 
 ## Equality
@@ -63,14 +59,16 @@ instance Eq WordType where
   _ == _ = False
 ```
 
-## Parsing
+Brackets delimit a quotation.
+It's body is a sequence of expressions.
+
 ```haskell
 exprs :: Parser [Val]
 exprs = many expr
 
 expr :: Parser Val
-expr =
-  between spaces spaces $ bool <|> word <|> number <|> quotation
+expr = between spaces spaces $
+  bool <|> word <|> number <|> quotation
 
 quotation :: Parser Val
 quotation = do
@@ -80,9 +78,7 @@ quotation = do
   return $ makeWord es
 ```
 
-
-## Eval
-like other values: pushed, not invoked
+Quotations are evaluated like ordinary values: pushed on the stack, not invoked.
 
 ```haskell
 eval :: Val -> Forth ()
@@ -95,27 +91,18 @@ eval val = do
     -- ...
 ```
 
-## Call
+## Operations
+
 ```haskell
 call = do
   q <- pop
   evalBody (wordBody q)
-```
 
-
-## Compose
-```haskell
 compose = do
   y <- pop
   x <- pop
   push $ makeWord (wordBody x ++ wordBody y)
-```
 
-
-## Curry
-
-
-```haskell
 curry' = do
   q <- pop
   x <- pop
