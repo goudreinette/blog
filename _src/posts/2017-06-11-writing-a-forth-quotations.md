@@ -2,18 +2,9 @@
     Date: 2017-06-11T16:00:35
     Tags: Writing a Forth, Haskell
 
-Factor, another Forth-like language, introduces 'quotations' to the concatenative paradigm.
+Factor, another [Forth](http://reinvanderwoerd.nl/blog/2017/06/08/writing-a-forth/)-like language, introduces 'quotations' to the concatenative paradigm.
 
 <!-- more -->
-
-
-Quotations serve the same role as lambda's in other languages, but have a few key advantages:
-
-**Concatenation is composition**: All expressions (including numbers) can be viewed as functions from stack to stack. A program is a concatenation of these functions.
-
-**Transparent printing, equality and manipulation**: Quotations consist of a sequence of instructions. This sequence can be printed, compared and manipulated.
-
-**Effortless partial application**: To partially apply a function, write a quotation which pushes some of the parameters before calling a word.
 
 ```forth
 [ 1 1 = ] .
@@ -29,38 +20,35 @@ Quotations serve the same role as lambda's in other languages, but have a few ke
 \ 12
 ```
 
-## Types
-```haskell
-data Val = Number Int
-         | Bool Bool
-         | Symbol String
-         | Word { immediate :: Bool, wordType :: WordType }
-         | Nil
-         deriving (Eq)
+Quotations serve the same role as lambda's in other languages, but have a few key advantages:
 
+- **Concatenation is composition**:
+All expressions (including numbers) can be [viewed](http://evincarofautumn.blogspot.nl/2012/02/why-concatenative-programming-matters.html) as functions from stack to stack. A program is a concatenation of these functions. This means common patterns can be written concisely.
+
+- **Effortless partial application**:
+To partially apply a function, write a quotation which pushes some of the parameters before calling a word. No additional syntax needed.
+
+- **Transparent printing, equality and manipulation**:
+Quotations are first-class values. They contain a sequence of instructions. This sequence can be printed, compared and manipulated.
+
+
+```haskell
 data WordType = Primitive (Forth Val)
               | User [Val]
-```
 
-## Printing
 
-```haskell
 instance Show Val where
   -- ...
   show Word {wordType = User stack} =
     "[" ++ unwords (map show s) ++ "]"  
-```
 
-## Equality
 
-```haskell
 instance Eq WordType where
   User s == User z = s == z
   _ == _ = False
 ```
 
 Brackets delimit a quotation.
-It's body is a sequence of expressions.
 
 ```haskell
 exprs :: Parser [Val]
@@ -78,7 +66,7 @@ quotation = do
   return $ makeWord es
 ```
 
-Quotations are evaluated like ordinary values: pushed on the stack, not invoked.
+They are evaluated like ordinary values: pushed on the stack, not invoked.
 
 ```haskell
 eval :: Val -> Forth ()
@@ -91,18 +79,26 @@ eval val = do
     -- ...
 ```
 
-## Operations
+To call a quotation, evaluate it's body.
 
 ```haskell
 call = do
   q <- pop
   evalBody (wordBody q)
+```
 
+To compose two quotations, concatenate their bodies.
+
+```haskell
 compose = do
   y <- pop
   x <- pop
   push $ makeWord (wordBody x ++ wordBody y)
+```
 
+To partially apply a quotation, add the second stack item to the front of it's body.
+
+```haskell
 curry' = do
   q <- pop
   x <- pop
