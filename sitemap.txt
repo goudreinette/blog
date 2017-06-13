@@ -5,6 +5,7 @@ http://www.reinvanderwoerd.nl/blog/2017/04/24/writing-a-lisp-help-me-decide-what
 http://www.reinvanderwoerd.nl/blog/2017/04/15/categories-in-oo-functors
 http://www.reinvanderwoerd.nl/blog/2017/04/04/the-value-of-values-summarized
 http://www.reinvanderwoerd.nl/blog/2017/04/17/eve-everything-is-a-record
+http://www.reinvanderwoerd.nl/blog/2017/06/13/gems-from-steal-like-an-artist
 http://www.reinvanderwoerd.nl/blog/2017/05/11/writing-a-lisp-explicit-stack-and-stacktraces
 http://www.reinvanderwoerd.nl/blog/2017/03/18/writing-a-lisp
 http://www.reinvanderwoerd.nl/blog/2017/04/20/writing-a-lisp-string-interpolation
