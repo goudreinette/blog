@@ -2,7 +2,7 @@
     Date: 2017-06-13T14:28:00
     Tags: Gems
 
-I just finished ['Steal Like an Artist'](http://austinkleon.com/steal/) by Austin Kleon.
+I just finished [Steal Like an Artist](http://austinkleon.com/steal/) by Austin Kleon.
 It's a short little book, but it contains some valuable ideas.
 Here's what I took away from it.
 

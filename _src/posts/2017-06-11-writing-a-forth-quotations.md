@@ -10,7 +10,7 @@ Factor, another [Forth](http://reinvanderwoerd.nl/blog/2017/06/08/writing-a-fort
 [ 1 1 = ] .
 \ [ 1 1 = ]
 
-[ 1 + ] [ 2 * ] compose
+[ 1 + ] [ 2 * ] compose .
 \ [ 1 + 2 * ]
 
 4 [ > ] curry .
@@ -23,7 +23,7 @@ Factor, another [Forth](http://reinvanderwoerd.nl/blog/2017/06/08/writing-a-fort
 Quotations serve the same role as lambda's in other languages, but have a few key advantages:
 
 - **Concatenation is composition**:
-All expressions (including numbers) can be [viewed](http://evincarofautumn.blogspot.nl/2012/02/why-concatenative-programming-matters.html) as functions from stack to stack. A program is a concatenation of these functions. This means common patterns can be written concisely.
+All expressions (including numbers) can be viewed as [functions from stack to stack](http://evincarofautumn.blogspot.nl/2012/02/why-concatenative-programming-matters.html). A program is a concatenation of these functions. This means common patterns can be written concisely.
 
 - **Effortless partial application**:
 To partially apply a function, write a quotation which pushes some of the parameters before calling a word. No additional syntax needed.
@@ -33,6 +33,15 @@ Quotations are first-class values. They contain a sequence of instructions. This
 
 
 ```haskell
+data Val = Number Int
+         | Bool Bool
+         | Symbol String
+         | Word { immediate :: Bool,
+                  wordType  :: WordType }
+         | Nil
+         deriving (Eq)
+
+
 data WordType = Primitive (Forth Val)
               | User [Val]
 
@@ -40,7 +49,7 @@ data WordType = Primitive (Forth Val)
 instance Show Val where
   -- ...
   show Word {wordType = User stack} =
-    "[ " ++ unwords (map show s) ++ " ]"  
+    "[ " ++ unwords (map show stack) ++ " ]"  
 
 
 instance Eq WordType where
