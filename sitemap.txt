@@ -17,7 +17,7 @@ http://www.reinvanderwoerd.nl/blog/2017/05/14/a-beautiful-latex-article-template
 http://www.reinvanderwoerd.nl/blog/2017/06/08/writing-a-forth
 http://www.reinvanderwoerd.nl/blog/2017/05/02/grokking-the-reader-monad-a-visual-explanation
 http://www.reinvanderwoerd.nl/blog/2017/05/03/writing-a-lisp-spit-and-slurp
-http://www.reinvanderwoerd.nl/blog/2017/06/11/writing-a-forth-quotations
+http://www.reinvanderwoerd.nl/blog/2017/06/15/writing-a-forth-quotations
 http://www.reinvanderwoerd.nl/blog/2017/04/22/implementing-pause-with-a-free-monad
 http://www.reinvanderwoerd.nl/blog/2017/04/29/writing-a-tiny-frp-library
 http://www.reinvanderwoerd.nl/blog/2017/04/21/writing-a-lisp-debugger

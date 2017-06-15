@@ -1,5 +1,5 @@
     Title: Writing a Forth: Quotations
-    Date: 2017-06-11T16:00:35
+    Date: 2017-06-15T16:00:35
     Tags: Writing a Forth, Haskell
 
 Factor, another [Forth](http://reinvanderwoerd.nl/blog/2017/06/08/writing-a-forth/)-like language, introduces 'quotations' to the concatenative paradigm.
