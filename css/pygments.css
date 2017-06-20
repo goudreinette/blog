@@ -173,7 +173,7 @@
 }
 /* Literal String Symbol */
 .source .ss {
-  color: #880000;
+  /* color: #880000; */
   background-color: transparent;
 }
 /* Base Style */

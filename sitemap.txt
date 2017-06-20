@@ -12,7 +12,7 @@ http://www.reinvanderwoerd.nl/blog/2017/04/20/writing-a-lisp-string-interpolatio
 http://www.reinvanderwoerd.nl/blog/2017/04/19/categories-in-oo-monads
 http://www.reinvanderwoerd.nl/blog/2017/04/01/dutch-clojure-days-2017
 http://www.reinvanderwoerd.nl/blog/2017/04/08/reducing-with-for-fold
-http://www.reinvanderwoerd.nl/blog/2017/06/20/anaphoric-threading-macro-in-clojure
+http://www.reinvanderwoerd.nl/blog/2017/06/20/an-anaphoric-threading-macro
 http://www.reinvanderwoerd.nl/blog/2017/04/26/writing-a-lisp-reader-macro-s
 http://www.reinvanderwoerd.nl/blog/2017/05/14/a-beautiful-latex-article-template
 http://www.reinvanderwoerd.nl/blog/2017/06/08/writing-a-forth

@@ -1,35 +1,40 @@
-    Title: Anaphoric Threading Macro in Clojure
+    Title: An Anaphoric Threading Macro
     Date: 2017-06-20T10:50:02
     Tags: Clojure
 
-_Replace this with your post text. Add one or more comma-separated
-Tags above. The special tag `DRAFT` will prevent the post from being
-published._
+Clojure's threading macro's thread a value through either the first or last position.
+Often, you want to insert the value at various different positions.
+This macro, inspired by Alexis King's [threading](https://docs.racket-lang.org/threading/index.html) macro's in Racket, does just that.
+
 
 <!-- more -->
-
 
 ```clojure
 (--> [1 2 3]
  (map inc _)
  (apply + _)
- (dec))) ; 8
+ (/ _ 2))) ; 9/2
 ```
 
 
 ## Implementation
 
+The macro transforms all forms to lambda's and composes them in reverse, creating a pipeline.
+
 ```clojure
-(defn underscore? [x]
-  (= x '_))
+(defmacro --> [expr & forms]
+  ((->> forms
+    (map to-fn)
+    (reverse)
+    (reduce comp)) expr))
+```
 
+The transformation process works as follows:
+Forms containing an underscore are wrapped in a lambda whose single argument is named underscore (`_`).
+For list forms without an underscore, the value is inserted as the first argument.
+All non-list forms are left alone.
 
-(defn contains-underscore? [form]
-  (if (list? form)
-    (some contains-underscore? form)
-    (underscore? form)))
-
-
+```clojure
 (defn to-fn [form]
   (eval
     (cond
@@ -41,10 +46,12 @@ published._
         form)))
 
 
-(defmacro --> [expr & forms]
-  ((->> forms
-    (map to-fn)
-    (reverse)
-    (reduce comp)) expr))
+(defn contains-underscore? [form]
+  (if (list? form)
+    (some contains-underscore? form)
+    (underscore? form)))
 
+
+(defn underscore? [x]
+  (= x '_))
 ```
