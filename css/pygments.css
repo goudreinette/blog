@@ -5,7 +5,7 @@
 }
 
 /* Name Function */
-.source .nf {
+.source .nf, .source .nb {
   color: #880000;
   background-color: transparent;
   font-weight: bold;
