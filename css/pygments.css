@@ -5,7 +5,7 @@
 }
 
 /* Name Function */
-.source .nf, .source .nb {
+.source .nf {
   color: #880000;
   background-color: transparent;
   font-weight: bold;
@@ -196,4 +196,8 @@
 .forth .nf {
     color:  #2b2b2b !important;
     font-weight: normal;
+}
+
+.source .nb {
+    font-weight: bold;
 }
