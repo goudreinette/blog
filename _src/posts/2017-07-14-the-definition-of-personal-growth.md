@@ -3,7 +3,7 @@
     Tags: Personal Growth
 
 Why pursue personal growth at all?
-Why set goals, practice and your change habits?
+Why set goals, practice and change your habits?
 
 <!-- more -->
 
