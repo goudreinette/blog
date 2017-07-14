@@ -459,3 +459,18 @@ header.navbar {
 .feeds a:first-child {
     margin-right: 3px;
 }
+
+h3 {
+    font-size: 90%;
+}
+
+strong {
+    font-size: 90;
+}
+
+img#avatar {
+    float: left;
+    border-radius: 50%;
+    width: 125px;
+    margin-right: 22px;
+}

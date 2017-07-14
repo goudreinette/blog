@@ -1,9 +1,14 @@
+<img id="avatar" src="/img/avatar.png">
+
+
+
 Hi, i am Rein.
 
 I'm a functional programmer and pattern seeker.
 
 I believe the purpose of life is to grow.
 I have many different interests, and prefer to try new things.
+
 When a new activity conflicts with an existing one, I often choose the new.
 Creativity is more important to me than money.
 

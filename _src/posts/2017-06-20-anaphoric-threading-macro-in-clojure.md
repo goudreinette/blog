@@ -6,7 +6,6 @@ Clojure's threading macro's thread a value through either the first or last posi
 Often, you want to insert the value at various different positions.
 This macro, inspired by Alexis King's [threading](https://docs.racket-lang.org/threading/index.html) macro's in Racket, does just that.
 
-
 <!-- more -->
 
 ```clojure
