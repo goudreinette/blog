@@ -1,0 +1,12 @@
+@local-require{helpers.rkt}
+<article class="index">
+  <header>
+    <h2 class="index"><a href='@|uri-path|'>@|title|</a></h2>
+    @date-and-tags[date tags]
+  </header>
+  <!--@|content-only|-->
+  @(when more?
+    @list{<footer>
+            <a href='@|uri-path|'>&hellip; more &hellip;</a>
+          </footer>})
+</article>

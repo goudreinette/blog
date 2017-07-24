@@ -1,16 +1,60 @@
 <!doctype html>
-<html>
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Use the title from a page's frontmatter if it has one -->
-    <title><%= current_page.data.title || "Middleman" %></title>
+    <title><%= current_page.data.title || "Rein van der Woerd" %></title>
     <%= stylesheet_link_tag "site" %>
     <%= javascript_include_tag "site" %>
-  </head>
-  <body>
+</head>
+<body>
+  <header class="navbar navbar-default"
+          role="banner">
+    <div class="container">
+      <div class="navbar-header">
+        <a href="@|uri-prefix|/index.html" class="navbar-brand">
+          <span class="full">REIN VAN DER WOERD</span>
+          <span class="short">R.VDWOERD</span>
+          <!--λ.rein.vdwoerd-->
+        </a>
+      </div>
+      <div class="navbar"
+           role="navigation">
+        <ul class="nav navbar-nav">
+          <!-- @(define (ni uri label [a-attribs ""])
+            @list{
+              <li@(when (string-ci=? uri uri-path) " class=\"active\"")>
+                <a href="@|uri|"@|a-attribs|>@|label|</a>
+              </li> })
+          @ni[(string-append uri-prefix "/index.html") "Writing"] -->
+          <!--@ni[(string-append uri-prefix "/Topics.html") "Topics"]-->
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Topics <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              @tags-list-items
+            </ul>
+          </li>
+          <!-- @ni[(string-append uri-prefix "/About.html") "About"]
+          @ni[(string-append uri-prefix "/Portfolio.html") "Portfolio"] -->
+        </ul>
+      </div>
+    </div>
+  </header>
+  <div class="container">
     <%= yield %>
-  </body>
-</html>
+      <footer class='@(when (not (string-contains? uri-path "/blog/")) "index")'>
+        <hr />
+        <p style="float: left">
+          Contact me by
+          <a href="mailto:reinvanderwoerd@"@"me.com">email</a>
+          </p>
+        <p style="float: right" class="feeds">
+          <a href="/feeds/all.atom.xml">Atom</a>
+          <a href="/feeds/all.rss.xml">RSS</a>
+        </p>
+      </footer>
+  </div>
+</body>

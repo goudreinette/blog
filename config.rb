@@ -5,6 +5,12 @@ activate :autoprefixer do |prefix|
   prefix.browsers = "last 2 versions"
 end
 
+activate :blog do |blog|
+  # set options on blog
+   blog.sources = "posts/{year}-{month}-{day}-{title}"
+   blog.permalink = "blog/{year}/{month}/{day}/{title}.html"
+end
+
 # Layouts
 # https://middlemanapp.com/basics/layouts/
 
