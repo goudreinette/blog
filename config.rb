@@ -43,7 +43,7 @@ page '/*.txt', layout: false
 
 helpers do
   def link_active(label, link)
-    "<a href='#{label}' class='#{'active' if "/#{current_page.path}" == link}'>#{label}</a>"
+    "<a href='#{link}' class='#{'active' if "/#{current_page.path}" == link}'>#{label}</a>"
   end
 end
 

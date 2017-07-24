@@ -174,7 +174,7 @@ ul.nav.navbar-nav {
     font-family: 'Concourse' !important;
 }
 
-.nav .active a, .nav > li a:hover {
+.nav a.active , .nav > li a:hover {
     background: none !important;
     border-bottom: 2px solid black;
     color: black !important;
