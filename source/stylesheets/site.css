@@ -2,6 +2,7 @@
 @import url("./fonts.css");
 @import url("./bootstrap-theme.min.css");
 @import url("./bootstrap.min.css");
+@import url("./pygments.css");
 
 
 
@@ -459,6 +460,8 @@ cite a:not(:hover) {
 
 blockquote p {
     font-size: 90%;
+    padding: 10px 20px !important;
+    margin: 0 0 20px !important;
 }
 
 nav .dropdown-menu li a {

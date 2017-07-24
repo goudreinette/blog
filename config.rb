@@ -6,7 +6,17 @@ require 'stamp'
 #   prefix.browsers = "last 2 versions"
 # end
 #
+
+###
+# Markdown
+###
+###
+# Code highlighting
+###
+
 activate :syntax
+set :markdown_engine, :redcarpet
+set :markdown, :fenced_code_blocks => true, :smartypants => true
 
 activate :blog do |blog|
   # set options on blog
@@ -14,6 +24,7 @@ activate :blog do |blog|
    blog.permalink = "blog/{year}/{month}/{day}/{title}.html"
    blog.layout = 'post'
 end
+
 
 # Layouts
 # https://middlemanapp.com/basics/layouts/
