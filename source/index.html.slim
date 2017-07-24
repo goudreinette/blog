@@ -1,0 +1,12 @@
+---
+title: 'Blog'
+---
+
+ul.post-list
+  - blog.articles.group_by {|a| a.date.stamp('july 2017') }.each do |month_year, articles|
+    li
+      .month-year= month_year
+      ul
+        - articles.each do |article|
+          li.post
+            a href="#{article.url}" = article.title
