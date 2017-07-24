@@ -21,6 +21,14 @@
     src: url('../fonts/Concourse T3 Regular.otf');
 }
 
+@font-face {
+    font-family: 'Concourse C3';
+    font-style: normal;
+    font-weight: normal;
+    font-stretch: normal;
+    src: url('../fonts/Concourse C3 Regular.otf');
+}
+
 
 @font-face {
     font-family: Concourse;
