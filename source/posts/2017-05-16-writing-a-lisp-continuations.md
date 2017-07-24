@@ -1,9 +1,12 @@
-    Title: Writing a Lisp: Continuations
-    Date: 2017-05-16T14:07:54
-    Tags: Writing a Lisp, Haskell
+---
+title:  'Writing a Lisp: Continuations'
+tags:
+    - Writing a Lisp
+    - Haskell
+---
 
 This week I added continuations to my Lisp.
-They're a fascinating feature, and a popular demand in the [survey](http://reinvanderwoerd.nl/blog/2017/04/24/writing-a-lisp-help-me-decide-what-to-tackle-next/). 
+They're a fascinating feature, and a popular demand in the [survey](http://reinvanderwoerd.nl/blog/2017/04/24/writing-a-lisp-help-me-decide-what-to-tackle-next/).
 It has been the most challenging feature so far, both to implement and explain, but the result has been worth it.
 
 <!-- more -->
@@ -22,7 +25,7 @@ The last expression is returned as usual, and the evaluation continues.
 (define cont nil)
 
 (+ 1 (+ 2 (+ 3 (+ (let/cc here
-                    (set! cont here) 4) 
+                    (set! cont here) 4)
                   5)))) ; 15
 ```
 
@@ -47,7 +50,7 @@ In this case control immediately jumps back to the top of the function scope, re
 ```scheme
 (define (return-test)
   (let/cc return
-    1 (return 2) 3))) 
+    1 (return 2) 3)))
 
 (return-test) ; 2
 ```
@@ -70,7 +73,7 @@ To account for the possibility of early exit, I added EitherT to the monad stack
 Left represents an early exit, and Right the usual order of evaluation.
 
 ```haskell
-newtype LispM a = LispM 
+newtype LispM a = LispM
   { unLispM :: EitherT LispVal (StateT Callstack IO) a }
   deriving ( Monad
            , Functor
@@ -99,7 +102,7 @@ shortCircuit = LispM . left
 
 `call/cc` and `shortCircuit` are also reified special forms.
 `call/cc` is predefined in the enviroment.
-When it is invoked, it captures the surrounding computation, wraps it inside of a function, 
+When it is invoked, it captures the surrounding computation, wraps it inside of a function,
 and passes it to it's argument.
 
 When the continuation is invoked, it calls `shortCircuit'` on it's body, and the evaluation continues from there.
@@ -121,7 +124,7 @@ callCC env [l] = do
                      [List [shortCircuit', contFnBody]]
                      env
 
-shortCircuit' = 
+shortCircuit' =
   wrapPrimitive False Impure sc
   where sc env [val] = do
           r <- eval env val

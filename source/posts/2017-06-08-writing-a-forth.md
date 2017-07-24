@@ -1,6 +1,7 @@
-    Title: Writing a Forth
-    Date: 2017-06-08T16:01:47
-    Tags: Writing a Forth, Haskell
+---
+title: Writing a Forth
+tags: Writing a Forth, Haskell
+---
 
 This week I started working on a new, stack-based language: a Forth.
 

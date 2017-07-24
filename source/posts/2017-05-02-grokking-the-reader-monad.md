@@ -1,6 +1,8 @@
-    Title: Grokking the Reader Monad: a Visual Explanation
-    Date: 2017-05-02T14:43:32
-    Tags: Haskell
+---
+title: 'Grokking the Reader Monad: a Visual Explanation'
+tags:
+    - Haskell
+---
 
 _I'm still figuring out the best way to present images on my blog._
 
@@ -23,7 +25,7 @@ instance Monad (Reader config) where
   return x         = Reader $ \config -> x
   (Reader f) >>= g = Reader $ \config ->
       let x = f config
-          y = runReader (g x) config 
+          y = runReader (g x) config
       in  y
 
 ask :: Reader config config

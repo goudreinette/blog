@@ -1,6 +1,9 @@
-    Title: Writing a Lisp: String Interpolation
-    Date: 2017-04-20T11:03:12
-    Tags: Writing a Lisp, Haskell
+---
+title: 'Writing a Lisp: String Interpolation'
+tags:
+    - Writing a Lisp
+    - Haskell
+---
 
 String interpolation is one of my favorite language features.
 The resulting string is much easier to visualize than with manual concatenation. It's also straightforward to implement. I thought it would be a nice addition to [my Lisp](http://reinvanderwoerd.nl/blog/2017/03/18/writing-a-lisp/).

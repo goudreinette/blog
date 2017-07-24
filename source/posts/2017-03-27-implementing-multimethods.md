@@ -1,6 +1,7 @@
-    Title: Implementing Multimethods
-    Date: 2017-03-27T14:37:58
-    Tags: Clojure
+---
+title: Implementing Multimethods
+tags: Clojure
+---
 
 [Multimethods](https://clojure.org/reference/multimethods) are one of Clojure's primary polymorphism mechanisms. They allow dispatch on an arbitrary number of arguments, by combining a dispatching function with one or more methods. Here's a way to implement them.
 
@@ -27,7 +28,7 @@ Next up is multimethod defition.
  `(def ~name ~(multi-fn name (eval dispatch-fn))))
 ```
 
-When the multimethod is called, it first determines the dispatch value by calling it's dispatch function. It then looks up the method implementation for the dispatch value in the methods map. When a matching implementation is found, the multimethod applies it to it's arguments. Otherwise, it throws an error. 
+When the multimethod is called, it first determines the dispatch value by calling it's dispatch function. It then looks up the method implementation for the dispatch value in the methods map. When a matching implementation is found, the multimethod applies it to it's arguments. Otherwise, it throws an error.
 
 ```clojure
 (defn multi-fn [name dispatch-fn]
@@ -36,7 +37,7 @@ When the multimethod is called, it first determines the dispatch value by callin
           method-impl  (get-in @multimethods [name dispatch-val])]
      (if method-impl
        (apply method-impl args)
-       (throw (Error. (str "No implementation of " 
+       (throw (Error. (str "No implementation of "
                             name " for " dispatch-val)))))))
 ```
 
@@ -62,8 +63,8 @@ An example:
 (defmethod print-even? false [n]
   (println n "is odd"))
 
-; Look up the implementation by dispatch value, 
+; Look up the implementation by dispatch value,
 ; and apply it to the given arguments.
-(print-even? 0) 
+(print-even? 0)
 ; "0 is even"
 ```

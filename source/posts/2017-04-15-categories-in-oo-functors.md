@@ -1,6 +1,9 @@
-    Title: Categories in OO: Functors
-    Date: 2017-04-15T11:11:21
-    Tags: PHP, Category Theory
+---
+title: 'Categories in OO: Functors'
+tags:  
+    - PHP
+    - Category Theory
+---
 
 Today I'm starting my series on categories in OO.
 My goal is to explain these concepts to programmers who are already familiar with object-oriented programming, but new to functional programming.
@@ -12,20 +15,20 @@ I chose PHP for these examples because it's many students' first language in my 
 Let's start with Functors.
 
 Think of a simple value, perhaps the string `"apple"`.
-Now apply a function to it: 
+Now apply a function to it:
 
 ```php
 <?php
 ucfirst("apple"); //=> "Apple"
 ```
 
-Functors are contexts. They can contain any other value. Think of them like boxes. 
+Functors are contexts. They can contain any other value. Think of them like boxes.
 
 Functors allow you to apply a function to their value with the `fmap` method.
 `fmap` takes a function, and applies it to the value inside the box.
 Functors may also have an `of` method for construction. Functors with an `of` method are called 'pointed functors'.
 
-```php 
+```php
 <?php
 abstract class Functor {
     function __construct ($value) {
@@ -97,6 +100,6 @@ $maybe = Maybe::of("text");
 
 // To get the value back out again:
 if (!$maybe->isNothing()) {
-    doSomethingWith($just->value); 
+    doSomethingWith($just->value);
 }
 ```

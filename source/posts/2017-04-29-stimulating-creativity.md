@@ -1,6 +1,7 @@
-    Title: Stimulate your Creativity
-    Date: 2017-04-29T19:06:24
-    Tags: Creativity
+---
+title: Stimulate your Creativity
+tags: Creativity
+---
 
 Wikipedia defines creativity as _a phenomenon whereby something new and somehow valuable is formed._
 Because creativity is essential to me as a programmer, the question of how to improve my creativity has always fascinated me.
@@ -16,7 +17,7 @@ More input means better output.
 
 ## Optimize for flow
 
-Steve Pavlina [describes](https://www.stevepavlina.com/blog/2007/01/7-rules-for-maximizing-your-creative-output/) it best: 
+Steve Pavlina [describes](https://www.stevepavlina.com/blog/2007/01/7-rules-for-maximizing-your-creative-output/) it best:
 
 > If you can’t keep yourself from being disturbed by urgent phone calls, emails, or drop-in visitors, you won’t consistently achieve and maintain the flow state. You must do whatever it takes to prevent unnecessary interruptions during your creative periods. Make arrangements to ensure you won’t be disturbed except in an absolute emergency.
 
@@ -31,7 +32,7 @@ To awaken your full creative potential, the difficulty of your creative endeavor
 
 Make sure you have sufficient time on your hands, ideally 6+ hours.
 When you're in the flow state, you'll barely notice the passing of time.
-High level creative work is usually a top priority, and it’s a real downer to finally hit the flow state and have to stop after 30 minutes because you must attend to another commitment. 
+High level creative work is usually a top priority, and it’s a real downer to finally hit the flow state and have to stop after 30 minutes because you must attend to another commitment.
 
 You should also know your tools well enough to consistently enter the flow state.
 Learn your editor's keybindings, and follow a touch typing course if you can't do that yet.
@@ -62,7 +63,7 @@ To make something a priority for your background mind, state the problem and thi
 By explicitly defining the problem and all it's nuance, you make it easier to reason clearly about it, and let your background mind know what to crunch on.
 Write down everything you know about the problem, everything you don't know (nobody knows everything), details, constraints, tradeoffs, problems in solutions, and other solutions to similar problems.
 
-Enumerate the different possible solutions, and write down the attributes and deficits of each, so you can make more informed decisions. 
+Enumerate the different possible solutions, and write down the attributes and deficits of each, so you can make more informed decisions.
 
 Most problems have already been solved in some way by someone else.
 Take advantage of that, so you get up to speed quicker.

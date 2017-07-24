@@ -1,6 +1,7 @@
-    Title: The Value of Values - Summarized
-    Date: 2017-04-04T20:20:47
-    Tags: Values
+---
+title: The Value of Values - Summarized
+tags: Values
+---
 
 Rich Hickey's [The Value Of Values](https://www.infoq.com/presentations/Value-Values) is one of my favorite talks of all time. I highly recommend it, and it took me quite a while to understand all of it. Because I couldn't find a nice summary on the web, I decided to make my own.
 
@@ -78,5 +79,3 @@ Rich Hickey's [The Value Of Values](https://www.infoq.com/presentations/Value-Va
 ## Facts
 
 ## Decision making-->
-
-

@@ -1,6 +1,9 @@
-    Title: Writing a Lisp: Debugger
-    Date: 2017-04-21T20:49:03
-    Tags: Writing a Lisp, Haskell
+---
+title: 'Writing a Lisp: Debugger'
+tags:
+    - Writing a Lisp
+    - Haskell
+---
 
 To make debugging easier, I added a simple `pry`-style debugger to my lisp.
 It immediately spawns a new repl in the current envirment, allowing you to poke around at will.
@@ -43,7 +46,7 @@ A utility for printing text red is included as well.
 
 ```haskell
 repl prompt f =
-  runInputT defaultSettings loop where 
+  runInputT defaultSettings loop where
     loop = do
       line <- getInputLine prompt
       case line of
@@ -65,4 +68,3 @@ It was interesting to compare the ideas and implementation, so I'm sharing it he
 
 I'll be investigating reader macro's soon.
 If you have any suggestions for features or improvements, please don't hesitate to let me know.
-

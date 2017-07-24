@@ -2,4 +2,15 @@
 title: 'Blog'
 ---
 
-<%= blog.articles %>
+<ul>
+  <% blog.articles.group_by {|a| a.date.stamp('july 2017') }.each do |month_year, articles| %>
+    <li>
+      <h5><%= month_year %></h5>
+      <ul>
+        <% articles.each do |article| %>
+          <li><a href="<%= article.url %>"><%= article.title %></a></li>
+        <% end %>
+      </ul>
+    </li>
+  <% end %>
+</ul>

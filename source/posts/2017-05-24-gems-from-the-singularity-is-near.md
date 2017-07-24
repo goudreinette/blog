@@ -1,6 +1,7 @@
-    Title: Gems from "The Singularity is Near"
-    Date: 2017-05-24T11:43:13
-    Tags: Gems, Singularity
+---
+title:  Gems from "The Singularity is Near"
+tags: Gems, Singularity
+---
 
 I'm currently reading [The Singularity is Near: When Humans Transcend Biology](https://en.wikipedia.org/wiki/The_Singularity_Is_Near) by Ray Kurzweil.
 It contains an optimistic perspective on the outcome of the ever-increasing rate of technological progress.

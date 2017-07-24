@@ -1,9 +1,10 @@
-    Title: Abstracting the Clojure def-macro pattern
-    Date: 2017-04-27T14:29:12
-    Tags: Clojure
+---
+title: Abstracting the Clojure def-macro pattern
+tags: Clojure
+---
 
 Wrapping a function in a 'def-macro' is a common Clojure pattern.
-This practice serves two purposes: providing a nicer syntax for definitions, and controlling evaluation order. Although simple to understand, this pattern is somewhat repetitive. Introducing: a higher-order macro that relieves this pain. 
+This practice serves two purposes: providing a nicer syntax for definitions, and controlling evaluation order. Although simple to understand, this pattern is somewhat repetitive. Introducing: a higher-order macro that relieves this pain.
 
 <!-- more -->
 
@@ -12,13 +13,13 @@ This practice serves two purposes: providing a nicer syntax for definitions, and
  `(def ~name ~(apply run-server args)))
 ```
 
-The example above uses httpkit's `run-server` function to define a `defserver` macro. With `defmacro<-`, it can be written as follows. 
+The example above uses httpkit's `run-server` function to define a `defserver` macro. With `defmacro<-`, it can be written as follows.
 
 ```clojure
 (defmacro<- defserver run-server)
 
 ; Usage
-(defserver server routes {:port 8080}) 
+(defserver server routes {:port 8080})
 ```
 
 Implementation was a little tricky, because I had to keep track of two different compile-time execution contexts: defining a macro, and using that macro to define something.

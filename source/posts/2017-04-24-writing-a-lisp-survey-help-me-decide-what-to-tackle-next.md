@@ -1,6 +1,9 @@
-    Title: Writing a Lisp: help me decide what to tackle next
-    Date: 2017-04-24T18:33:33
-    Tags: Writing a Lisp, Survey
+---
+title: 'Writing a Lisp: help me decide what to tackle next'
+tags:
+    - Writing a Lisp
+    - Survey
+---
 
 Hi!
 My name is Rein van der Woerd. <br/>
@@ -16,7 +19,7 @@ Others may be able to simplify or replace existing features.
 String Interpolation can be derived from Reader Macro's, for example.
 
 
-Would you take a few minutes and answer the following questions? 
+Would you take a few minutes and answer the following questions?
 Once enough people respond, I'll review all of your answers and use your answers, feedback, and suggestions to develop the next few issues and make it as useful as possible for you.
 
 

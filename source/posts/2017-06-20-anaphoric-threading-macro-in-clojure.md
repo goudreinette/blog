@@ -1,6 +1,7 @@
-    Title: An Anaphoric Threading Macro
-    Date: 2017-06-20T10:50:02
-    Tags: Clojure
+---
+title: An Anaphoric Threading Macro
+tags: Clojure
+---
 
 Clojure's threading macro's thread a value through either the first or last position.
 Often, you want to insert the value at various different positions.

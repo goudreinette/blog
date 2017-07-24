@@ -1,6 +1,7 @@
-    Title: The Definition of Personal Growth
-    Date: 2017-07-14T17:13:39
-    Tags: Personal Growth
+---
+title: The Definition of Personal Growth
+tags: Personal Growth
+---
 
 Why pursue personal growth at all?
 Why set goals, practice and change your habits?

@@ -1,8 +1,9 @@
-    Title: Writing a Tiny FRP Library
-    Date: 2017-04-29T14:16:52
-    Tags: Clojure, FRP
+---
+title: Writing a Tiny FRP Library
+tags: Clojure, FRP
+---
 
-To gain a better understanding of how FRP might be implemented, I wrote a simple FRP library. 
+To gain a better understanding of how FRP might be implemented, I wrote a simple FRP library.
 
 <!-- more -->
 ```clojure
@@ -22,7 +23,7 @@ To gain a better understanding of how FRP might be implemented, I wrote a simple
 
 ## Implementation
 Implementation leans heavily on Clojure's atom watch functionality.
-To support multiple watches on a "stream", `sub*` serializes it's function and turns it into a keyword. 
+To support multiple watches on a "stream", `sub*` serializes it's function and turns it into a keyword.
 
 ```clojure
 (defn fn->keyword [f]

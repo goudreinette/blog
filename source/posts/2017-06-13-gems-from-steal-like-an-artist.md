@@ -1,6 +1,7 @@
-    Title: Gems from "Steal Like an Artist"
-    Date: 2017-06-13T14:28:00
-    Tags: Gems
+---
+title: Gems from "Steal Like an Artist"
+tags: Gems
+---
 
 I just finished [Steal Like an Artist](http://austinkleon.com/steal/) by Austin Kleon.
 It's a short little book, but it contains some valuable ideas.

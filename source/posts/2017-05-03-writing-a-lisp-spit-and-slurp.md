@@ -1,6 +1,9 @@
-    Title: Writing a Lisp: spit and slurp
-    Date: 2017-05-03T13:02:48
-    Tags: Writing a Lisp, Haskell
+---
+title: 'Writing a Lisp: spit and slurp'
+tags:
+    - Writing a Lisp
+    - Haskell
+---
 
 To make my Lisp a more useful language, and to pave the road for a module system and package manager, I added the capability of performing IO.
 
@@ -13,7 +16,7 @@ To make my Lisp a more useful language, and to pave the road for a module system
 (spit "todo.txt" "Remember the milk") ;=> nil
 (slurp "todo.txt") ;=> "Remember the milk"
 
-(slurp "https://httpbin.org/get") 
+(slurp "https://httpbin.org/get")
 ;=> "{"args": {}, "headers": { "Accept-Encoding": ..."
 ```
 
@@ -47,8 +50,8 @@ Finally, the functions are wrapped in a LispVal constructor, and defined in the 
 
 ```haskell
 impurePrimitives :: [(String, LispVal)]
-impurePrimitives = wrapPrimitives False Impure 
+impurePrimitives = wrapPrimitives False Impure
   [ --
-   ("slurp", slurp), 
+   ("slurp", slurp),
    ("spit", spit)]
 ```

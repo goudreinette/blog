@@ -1,6 +1,7 @@
-    Title: Dutch Clojure Days 2017
-    Date: 2017-04-01T10:59:06
-    Tags: Clojure
+--- 
+title: Dutch Clojure Days 2017
+tags: Clojure
+---
 
 Last saturday I attended DCD '17.
 Here's what I took away from it.

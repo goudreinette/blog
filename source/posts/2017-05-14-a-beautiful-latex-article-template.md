@@ -1,6 +1,7 @@
-    Title: A beautiful LaTeX article template
-    Date: 2017-05-14T21:01:17
-    Tags: LaTeX
+---
+title:  A beautiful LaTeX article template
+tags: LaTeX
+---
 
 I like messing with typography from time to time.
 As a programmer, I quickly fell in love with TeX.
@@ -15,15 +16,15 @@ Have fun with it :)
 
 ```latex
 \ProvidesClass{template}
- 
+
 % Packages
 \LoadClass[11pt]{article}
 \usepackage{fontspec}
 \usepackage[parfill]{parskip}
 \usepackage[
-    top=1.5in, 
-    bottom=1.5in, 
-    left=2in, 
+    top=1.5in,
+    bottom=1.5in,
+    left=2in,
     right=2in
 ]{geometry}
 \usepackage{fancyvrb}
@@ -82,9 +83,9 @@ Have fun with it :)
 {} % label
 {10pt} % sep
 {\vspace{-24pt}
- \rule{8pc}{1pt}\\ 
+ \rule{8pc}{1pt}\\
  \thesection.
 }[]
- 
+
 \titlespacing{\section}{8pc}{2mm}{1.5pc}
 ```

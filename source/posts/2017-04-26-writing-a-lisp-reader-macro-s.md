@@ -1,6 +1,9 @@
-    Title: Writing a Lisp: Reader Macro's
-    Date: 2017-04-26T15:07:02
-    Tags: Writing a Lisp, Haskell
+---
+title: "Writing a Lisp: Reader Macro's"
+tags:
+    - Writing a Lisp
+    - Haskell
+---
 
 Monday's [survey](http://reinvanderwoerd.nl/blog/2017/04/24/writing-a-lisp-help-me-decide-what-to-tackle-next/) revealed that Reader Macro's are your most requested feature. They replace built-in syntax, and enable users to extend the syntax from within the language. Implementing them right is difficult, however. Let's try.
 
@@ -30,7 +33,7 @@ data Purity  = Pure ([LispVal] -> LispVal)
              | Impure (Env -> [LispVal] -> IO LispVal)
 
 data LispVal = -- ...
-             | PrimitiveFunc { isMacro :: Bool, 
+             | PrimitiveFunc { isMacro :: Bool,
                                purity :: Purity }
 ```
 
@@ -131,7 +134,7 @@ read' env [String s] = do
   readOne readtable s
 ```
 
-Quote and unquote are included by default. 
+Quote and unquote are included by default.
 A beautiful side effect of this approach is that we can get rid of string interpolation almost entirely. An interpolation is in fact just `unquote`.
 
 ```haskell
@@ -143,16 +146,16 @@ readtable =
 Let's prove it:
 
 ```scheme
-''1 
+''1
 ;=> (quote 1)
 
-'"10 / 2 is '~(/ 10 20)" 
+'"10 / 2 is '~(/ 10 20)"
 ;=> (string-append "10 / 2 is " (/ 10 20))
 ```
 
 ## Parametized parsing
 To support this highly dynamic type of parsing, I moved some of the parsing functions inside the lexical scope of the main parser.
-Strings automatically interpolate any defined reader macro. 
+Strings automatically interpolate any defined reader macro.
 
 ```haskell
 readTableParser :: ReadTable -> Parser LispVal
@@ -193,4 +196,4 @@ expr readtable =
 ## Conclusion
 While still limited, these reader macro facilities simplify the language and enable easy extensibility.
 I may add more advanced non-prefix reader macro's in the future.
-If you enjoyed this post, or not, please give me some feedback in the [survey](http://reinvanderwoerd.nl/blog/2017/04/24/writing-a-lisp-help-me-decide-what-to-tackle-next/) so I can help you better. Have a nice day. 
+If you enjoyed this post, or not, please give me some feedback in the [survey](http://reinvanderwoerd.nl/blog/2017/04/24/writing-a-lisp-help-me-decide-what-to-tackle-next/) so I can help you better. Have a nice day.

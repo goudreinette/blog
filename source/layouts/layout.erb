@@ -14,7 +14,7 @@
           role="banner">
     <div class="container">
       <div class="navbar-header">
-        <a href="@|uri-prefix|/index.html" class="navbar-brand">
+        <a href="/" class="navbar-brand">
           <span class="full">REIN VAN DER WOERD</span>
           <span class="short">R.VDWOERD</span>
           <!--λ.rein.vdwoerd-->
@@ -23,22 +23,9 @@
       <div class="navbar"
            role="navigation">
         <ul class="nav navbar-nav">
-          <!-- @(define (ni uri label [a-attribs ""])
-            @list{
-              <li@(when (string-ci=? uri uri-path) " class=\"active\"")>
-                <a href="@|uri|"@|a-attribs|>@|label|</a>
-              </li> })
-          @ni[(string-append uri-prefix "/index.html") "Writing"] -->
-          <!--@ni[(string-append uri-prefix "/Topics.html") "Topics"]-->
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              Topics <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              @tags-list-items
-            </ul>
-          </li>
-          <!-- @ni[(string-append uri-prefix "/About.html") "About"]
-          @ni[(string-append uri-prefix "/Portfolio.html") "Portfolio"] -->
+          <li><%= link_to 'Writing', '/' %></li>
+          <li><%= link_to 'Portfolio', '/portfolio' %></li>
+          <li><%= link_to 'About', '/about' %></li>
         </ul>
       </div>
     </div>

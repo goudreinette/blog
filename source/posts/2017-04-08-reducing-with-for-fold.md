@@ -1,6 +1,7 @@
-    Title: Reducing with for-fold
-    Date: 2017-04-08T15:42:31
-    Tags: Clojure
+---
+title: Reducing with for-fold
+tags: Clojure
+---
 
 Complicated _reduce_ algorithms are still tricky for me sometimes.
 Clojure's _for_ makes _map_ more visual, which makes it easier for me to [engage my imagination](http://www.lispcast.com/use-your-imagination). Racket extends this idea to reduce with _for/fold_, and also supports reducing multiple collections. Let's port it over to Clojure.
@@ -18,18 +19,18 @@ It works exactly like reduce:
 
 1. The accumulator `sum` is initialized to the value `0`,
 and `n` is initialized to the first element of `(range 5 10)`, which is `5`.
-Similarly, `m` is initialized to `10`. 
+Similarly, `m` is initialized to `10`.
 
 2. The body `(+ sum n m)` is evaluated. In this case, it evaluates to `(+ 5 10)`, <br/> which is `15`.
 
-3. `sum` is bound to the result of evaluating the body. `n` and `m` are bound to the next element in their collections. The body is evaluated again with these new bindings. 
+3. `sum` is bound to the result of evaluating the body. `n` and `m` are bound to the next element in their collections. The body is evaluated again with these new bindings.
 
 4. This continues until the collections are empty, and the last accumulator value (`95`) is returned.
 
 
 Because the functionality is so similar, I'm using reduce to implement the macro. The biggest differences are the availability of the accumulator and element bindings within the body, and the support for multiple collections.
 
-Luckily, an anonymous function is all we need. By naming the `fn`'s parameters to the accumulator and element bindings, the bindings become available in the body. 
+Luckily, an anonymous function is all we need. By naming the `fn`'s parameters to the accumulator and element bindings, the bindings become available in the body.
 
 The initial accumulator and collection expressions are injected into the template, but are not evaluated yet. The collections are then zipped, to be destructured again within the anonymous function on each iteration.  
 
@@ -56,10 +57,10 @@ Let's verify that the resulting code is correct:
 
 ; Expands to
 (reduce
- (fn [frequencies [char]] 
+ (fn [frequencies [char]]
     (update frequencies char (fnil inc 0)))
  {}
- (map vector "hello world")) 
+ (map vector "hello world"))
 
 ;=> {\h 1, \e 1, ...}
 ```
