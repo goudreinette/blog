@@ -401,6 +401,8 @@ blockquote {
     border: none !important;
     background: none !important;
     padding-left: 0px;
+    margin: 0;
+    padding: 0;
 }
 
 
@@ -502,7 +504,7 @@ h3 {
 }
 
 strong {
-    font-size: 90;
+    font-size: 90%;
 }
 
 img#avatar {
