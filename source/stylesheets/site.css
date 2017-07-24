@@ -121,7 +121,7 @@ a:not(.navbar-brand):hover, .pager li:hover a {
     pre {
         padding-left: 20px !important;
         width: inherit !important;
-        overflow-x: scroll;
+        overflow-x: scroll !important;
         -webkit-overflow-scrolling: touch;
     }
 }
@@ -129,6 +129,7 @@ a:not(.navbar-brand):hover, .pager li:hover a {
 @media (max-width: 465px) {
     .portfolio-item {
         width: 100% !important;
+        margin-right: 0 !important;
     }
 
     .portfolio-item img {
@@ -256,6 +257,10 @@ code {
 code, pre {
     font-family: Fira Code;
     font-size: 75%;
+}
+
+pre code {
+    white-space: pre !important;
 }
 
 pre {
@@ -550,8 +555,10 @@ img#avatar {
     color: #333;
     padding: 10px 20px;
     min-width: 200px;
+    /* margin-left: 0; */
     /* text-align: center; */
-    margin: 20px 10px;
+    margin: 10px 20px;
+    margin-left: 0;
 }
 
 .portfolio-item:hover {
@@ -587,4 +594,9 @@ a.portfolio-item:hover .name {
     color: #880000 !important;
     /* display: block; */
     /* border-top: 1px solid #eee; */
+}
+
+
+a.portfolio-item:nth-child(even) {
+    margin-right: 0 !important;
 }

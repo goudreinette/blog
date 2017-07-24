@@ -1,3 +1,5 @@
+- name: 'Filosofie Agenda'
+  link: 'http://filosofie-agenda.herokuapp.com'
 - name: 'Doge Chat'
   link: 'http://dogeifier.herokuapp.com'
 - name: 'Calculator'
