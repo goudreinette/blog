@@ -553,11 +553,11 @@ img#avatar {
     margin: 0;
     flex-direction: column;
     color: #333;
-    padding: 10px 20px;
+    padding: 7px 20px 7px 15px;
     min-width: 200px;
     /* margin-left: 0; */
     /* text-align: center; */
-    margin: 10px 20px;
+    margin: 15px 35px;
     margin-left: 0;
 }
 
@@ -574,8 +574,10 @@ img#avatar {
      /* font-weight: bold; */
      color: #333;
      display: block;
-     padding-top: 6px;
+     padding-top: 7px;
+     font-weight: bold;
      border-top: 1px solid #eee;
+     font-size: 75%;
 }
 
 .portfolio-item img {
