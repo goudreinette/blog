@@ -476,6 +476,10 @@ header.navbar {
     margin-top: 25px;
 }
 
+.navbar {
+    box-shadow: none;
+}
+
 .bullet {
     font-size: 10px;
     /* margin-bottom: 10px; */
