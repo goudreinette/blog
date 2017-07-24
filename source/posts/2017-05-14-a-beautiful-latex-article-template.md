@@ -1,6 +1,6 @@
 ---
 title:  A beautiful LaTeX article template
-tags: LaTeX
+tags: [LaTeX]
 ---
 
 I like messing with typography from time to time.

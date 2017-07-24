@@ -1,6 +1,8 @@
 ---
 title: Writing a Tiny FRP Library
-tags: Clojure, FRP
+tags:
+    - Clojure
+    - FRP
 ---
 
 To gain a better understanding of how FRP might be implemented, I wrote a simple FRP library.

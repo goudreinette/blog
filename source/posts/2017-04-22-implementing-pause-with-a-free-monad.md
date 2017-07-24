@@ -1,6 +1,6 @@
 ---
 title: Implementing Pause with a Free Monad
-tags: Haskell
+tags: [Haskell]
 ---
 
 Adapted from FPComplete's [article](https://www.schoolofhaskell.com/school/to-infinity-and-beyond/pick-of-the-week/coroutines-for-streaming/part-1-pause-and-resume) on coroutines for streaming.

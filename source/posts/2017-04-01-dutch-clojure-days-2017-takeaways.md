@@ -1,6 +1,6 @@
---- 
+---
 title: Dutch Clojure Days 2017
-tags: Clojure
+tags: [Clojure]
 ---
 
 Last saturday I attended DCD '17.

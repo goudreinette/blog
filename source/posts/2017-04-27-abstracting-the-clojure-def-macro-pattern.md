@@ -1,6 +1,6 @@
 ---
 title: Abstracting the Clojure def-macro pattern
-tags: Clojure
+tags: [Clojure]
 ---
 
 Wrapping a function in a 'def-macro' is a common Clojure pattern.

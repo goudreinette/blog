@@ -1,6 +1,6 @@
 ---
 title: Implementing Multimethods
-tags: Clojure
+tags: [Clojure]
 ---
 
 [Multimethods](https://clojure.org/reference/multimethods) are one of Clojure's primary polymorphism mechanisms. They allow dispatch on an arbitrary number of arguments, by combining a dispatching function with one or more methods. Here's a way to implement them.

@@ -1,6 +1,6 @@
 ---
 title: Reducing with for-fold
-tags: Clojure
+tags: [Clojure]
 ---
 
 Complicated _reduce_ algorithms are still tricky for me sometimes.

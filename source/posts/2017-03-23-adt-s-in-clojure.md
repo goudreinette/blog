@@ -1,6 +1,6 @@
 ---
 title:  ADT's in Clojure
-tags: Clojure
+tags: [Clojure]
 ---
 
 After reading [Alexis King's post](https://lexi-lambda.github.io/blog/2015/12/21/adts-in-typed-racket-with-macros/) about ADT's in Typed Racket, I felt inspired to try the same thing in Clojure.

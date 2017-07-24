@@ -1,6 +1,6 @@
 ---
 title: Stimulate your Creativity
-tags: Creativity
+tags: [Creativity]
 ---
 
 Wikipedia defines creativity as _a phenomenon whereby something new and somehow valuable is formed._

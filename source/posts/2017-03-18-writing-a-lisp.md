@@ -1,6 +1,8 @@
 ---
 title: Writing a Lisp
-tags: Writing a Lisp, Haskell
+tags:
+    - Writing a Lisp
+    - Haskell
 ---
 
 I've been working on my first general purpose programming language last week, guided by the books SICP and Write Yourself a Scheme in 48 Hours.

@@ -19,6 +19,33 @@ body {
     padding: 0 30px;
 }
 
+/* Post List */
+.post-list {
+    padding-top: 50px !important;
+    padding-bottom: 50px !important;
+}
+
+.post-list, .post-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.post-list .month-year {
+    font-family: 'Concourse C3' !important;
+    color: #999;
+    font-size: 70%;
+    padding-bottom: 5px;
+}
+
+.post-list > li {
+    margin-bottom: 50px;
+}
+
+.post-list .post {
+    padding: 8px 0;
+}
+
+
 /* Links */
 
 a {
@@ -32,7 +59,7 @@ a:not(.navbar-brand):hover, .pager li:hover a {
     background-color: rgba(136, 0, 0, 0.09) !important;
 }
 
-article.index h2 a:hover {
+.post-list li a:hover {
     background-color: rgba(238, 238, 238, 0.72) !important;
 }
 
@@ -184,7 +211,7 @@ h2:not(.index) {
     font-size: 100%;
 }
 
-h2 a {
+.post-list a {
     color: #333 !important;
     /* padding: 2px 7px; */
     /* display: inline-block; */
