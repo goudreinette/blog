@@ -1,3 +1,7 @@
+---
+title: 'About'
+---
+
 Hi, i'm Rein.
 
 I design and develop creative web applications with an emphasis on design.
