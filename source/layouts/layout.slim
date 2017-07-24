@@ -1,4 +1,3 @@
-doctype html
 html
   head
     meta charset="utf-8"
@@ -17,9 +16,9 @@ html
             /! λ.rein.vdwoerd
         .navbar role="navigation"
           ul.nav.navbar-nav
-            li= link_to 'Writing', '/'
-            li= link_to 'Portfolio', '/portfolio'
-            li= link_to 'About', '/about'
+            li= link_active 'Writing', '/'
+            li= link_active 'Portfolio', '/portfolio.html'
+            li= link_active 'About', '/about.html'
     .container
       = yield
       footer class='index'

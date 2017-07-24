@@ -5,6 +5,8 @@ require 'stamp'
 # activate :autoprefixer do |prefix|
 #   prefix.browsers = "last 2 versions"
 # end
+#
+activate :syntax
 
 activate :blog do |blog|
   # set options on blog
@@ -39,11 +41,11 @@ page '/*.txt', layout: false
 # Methods defined in the helpers block are available in templates
 # https://middlemanapp.com/basics/helper-methods/
 
-# helpers do
-#   def some_helper
-#     'Helping'
-#   end
-# end
+helpers do
+  def link_active(label, link)
+    "<a href='#{label}' class='#{'active' if "/#{current_page.path}" == link}'>#{label}</a>"
+  end
+end
 
 # Build-specific configuration
 # https://middlemanapp.com/advanced/configuration/#environment-specific-settings
