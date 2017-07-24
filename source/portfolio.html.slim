@@ -1,1 +1,6 @@
-= current_page.path
+.portfolio
+  - data.portfolio.each do |item|
+    a.portfolio-item href=item.link
+      img src="/images/portfolio/#{item.name.underscore}.png"
+      .name = item.name
+  

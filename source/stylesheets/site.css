@@ -59,7 +59,7 @@ a:not(.navbar-brand):hover, .pager li:hover a {
     background-color: rgba(136, 0, 0, 0.09) !important;
 }
 
-.post-list li a:hover {
+.post-list li a:hover, a.portfolio-item:hover {
     background-color: rgba(238, 238, 238, 0.72) !important;
 }
 
@@ -505,21 +505,48 @@ img#avatar {
     margin-right: 22px;
 }
 
+/* Portfolio */
 .portfolio {
     display: flex;
     flex-wrap: wrap;
-    /* padding: 0px; */
+    padding: 0px;
+    /* justify-content: center; */
+    background: #eee;
+    flex-wrap: wrap;
+    padding: 5px;
+    justify-content: space-between;
+}
+
+.portfolio-item {
+    width: 50%;
+    /* border: 1px solid grey; */
+    height: 200px;
     justify-content: space-around;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    background: white;
+    /* margin: 0 auto 50px auto; */
+    flex-direction: column;
+    padding: 20px 0;
+    min-width: 200px;
+    text-align: center;
 }
 
-.portfolio>div {
-    width: 250px;
-    height: 300px;
-    margin-bottom: 20px;
+.portfolio-item:hover {
+    background: grey !important;
 }
 
-.portfolio .name {
-    /* text-transform: uppercase; */
-    /* font-weight: bold; */
-    /* color: #777; */
+.portfolio-item:last-child {
+    margin: 0;
+}
+
+.portfolio-item .name {
+     /* text-transform: uppercase; */
+     /* font-weight: bold; */
+     color: #333;
+}
+
+.portfolio-item img {
+    width: 40%;
 }
