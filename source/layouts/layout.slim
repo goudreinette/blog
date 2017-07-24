@@ -1,10 +1,10 @@
 doctype html
 html
   head
-    meta charset="utf-8" /
-    meta content="ie=edge" http-equiv="x-ua-compatible" /
-    meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" /
-    title= current_page.data.title || "Rein van der Woerd"
+    meta charset="utf-8"
+    meta content="ie=edge" http-equiv="x-ua-compatible"
+    meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"
+    title= "#{current_page.data.title} | Rein van der Woerd"
     = stylesheet_link_tag "site"
     = javascript_include_tag "site"
   body
@@ -22,11 +22,11 @@ html
             li= link_to 'About', '/about'
     .container
       = yield
-      footer class=("@(when (not (string-contains? uri-path "/blog/")) "index")")
-        hr/
-        p style=("float: left")
+      footer class='index'
+        hr
+        p style="float: left"
           | Contact me by
           a href="mailto:reinvanderwoerd@"  email
-        p.feeds style=("float: right")
+        p.feeds style="float: right"
           a href="/feeds/all.atom.xml"  Atom
           a href="/feeds/all.rss.xml"  RSS
