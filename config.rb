@@ -7,16 +7,12 @@ require 'stamp'
 # end
 #
 
-###
 # Markdown
-###
-###
-# Code highlighting
-###
-
-activate :syntax
 set :markdown_engine, :redcarpet
 set :markdown, :fenced_code_blocks => true, :smartypants => true
+
+# Code highlighting
+activate :syntax
 
 activate :blog do |blog|
   # set options on blog

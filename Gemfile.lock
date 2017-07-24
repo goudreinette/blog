@@ -121,8 +121,6 @@ DEPENDENCIES
   redcarpet
   slim
   stamp
-  tzinfo-data
-  wdm (~> 0.1)
 
 BUNDLED WITH
    1.15.1
