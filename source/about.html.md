@@ -3,7 +3,7 @@ Hi, i'm Rein.
 I design and develop creative web applications with an emphasis on design.
 
 
-<!-- 
+<!--
 I love to work on projects I believe in, and will actively help improve your concept to make an incredible product.
 
 I value friendly and personal connections with my clients.

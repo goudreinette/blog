@@ -22,7 +22,6 @@ body {
 /* Post List */
 .post-list {
     padding-top: 50px !important;
-    padding-bottom: 50px !important;
 }
 
 .post-list, .post-list ul {
@@ -320,6 +319,7 @@ span.icon-bar {
 /* Footer */
 .container > footer {
     font-size: 75% !important;
+    margin-top: 75px;
 }
 
 .container > footer > p {
