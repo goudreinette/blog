@@ -124,6 +124,10 @@ a:not(.navbar-brand):hover, .pager li:hover a {
         overflow-x: scroll;
         -webkit-overflow-scrolling: touch;
     }
+
+    .portfolio {
+        justify-content: center;
+    }
 }
 
 
@@ -511,23 +515,24 @@ img#avatar {
     flex-wrap: wrap;
     padding: 0px;
     /* justify-content: center; */
-    /* background: #eee; */
+    background: #eee;
     flex-wrap: wrap;
-    /* padding: 5px; */
+    padding: 2px;
     /* justify-content: space-between; */
 }
 
 .portfolio-item {
-    width: 50%;
+    width: calc(50% - 2px);
     height: 200px;
     justify-content: space-between;
     /* margin-bottom: 5px; */
     display: flex;
     /* align-items: center; */
-    border: 1px solid white;
+    /* border: 1px solid white; */
     background: white;
     transition: all 0.3s;
-    margin: 0;
+    border: 1px solid #eee;
+    margin: 1px;
     flex-direction: column;
     color: #333;
     padding: 10px 20px;
