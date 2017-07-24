@@ -517,12 +517,12 @@ img#avatar {
     /* justify-content: center; */
     background: #eee;
     flex-wrap: wrap;
-    padding: 2px;
-    /* justify-content: space-between; */
+    padding: 1px;
+    0: space-between
 }
 
 .portfolio-item {
-    width: calc(50% - 2px);
+    width: 50%;
     height: 200px;
     justify-content: space-between;
     /* margin-bottom: 5px; */
@@ -532,7 +532,7 @@ img#avatar {
     background: white;
     transition: all 0.3s;
     border: 1px solid #eee;
-    margin: 1px;
+    margin: 0;
     flex-direction: column;
     color: #333;
     padding: 10px 20px;
@@ -552,6 +552,9 @@ img#avatar {
      /* text-transform: uppercase; */
      /* font-weight: bold; */
      color: #333;
+     display: block;
+     padding-top: 6px;
+     border-top: 1px solid #eee;
 }
 
 .portfolio-item img {
@@ -568,4 +571,6 @@ a.portfolio-item:hover {
 
 a.portfolio-item:hover .name {
     color: #880000 !important;
+    /* display: block; */
+    /* border-top: 1px solid #eee; */
 }
