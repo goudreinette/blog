@@ -52,6 +52,14 @@ helpers do
   def link_active(label, link)
     "<a href='#{link}' class='#{'active' if "/#{current_page.path}" == link}'>#{label}</a>"
   end
+
+  def next_article
+    blog.articles.find { |a| a.date > current_article.date }
+  end
+
+  def prev_article
+    blog.articles.find { |a| a.date < current_article.date }
+  end
 end
 
 # Build-specific configuration

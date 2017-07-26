@@ -433,7 +433,8 @@ ul.pager li.next {
 }
 
 .pager a {
-    /* display: inline !important; */
+    display: inline !important;
+    max-width: 50%;
 }
 
 .pagination>li a {
@@ -604,4 +605,19 @@ a.portfolio-item:hover .name {
 
 a.portfolio-item:nth-child(even) {
     margin-right: 0 !important;
+}
+
+
+.pager {
+    display: flex;
+}
+
+.pager a.prev {
+    margin-left: auto;
+    text-align: right;
+}
+
+.pager a.next {
+    margin-right: auto;
+    text-align: left;
 }
