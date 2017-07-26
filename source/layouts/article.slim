@@ -7,7 +7,7 @@
     .pager
       - if next_article
         a.next href=next_article.url
-          = '← ' + next_article.title
+          = "← #{next_article.title}"
           
       a.prev href=prev_article.url
-        = prev_article.title + ' →'
+        = "#{prev_article.title} →"
