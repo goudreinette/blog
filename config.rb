@@ -54,7 +54,7 @@ helpers do
   end
 
   def next_article
-    blog.articles.find { |a| a.date > current_article.date }
+    blog.articles.reverse.find { |a| a.date > current_article.date }
   end
 
   def prev_article
