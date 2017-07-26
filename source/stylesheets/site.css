@@ -133,7 +133,7 @@ a:not(.navbar-brand):hover, .pager li:hover a {
     }
 
     .portfolio-item img {
-        width: 20% !important;
+        /* width: 20% !important; */
     }
 }
 
@@ -581,7 +581,8 @@ img#avatar {
 }
 
 .portfolio-item img {
-    width: 30%;
+    width: 32px;
+    image-rendering: pixelated;
     margin: auto;
 }
 
