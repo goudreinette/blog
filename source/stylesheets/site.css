@@ -22,7 +22,7 @@ body {
 
 /* Post List */
 .post-list {
-    padding-top: 50px !important;
+    /* padding-top: 50px !important; */
 }
 
 .post-list, .post-list ul {
@@ -205,7 +205,8 @@ h1 {
     display: inline-block;
     font-size: 150%;
     padding-top: 5px;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
+    margin-top: 0;
 }
 
 
@@ -491,7 +492,8 @@ nav .dropdown-menu li a {
 .index p {}
 
 body>.container {
-    margin-top: 25px;
+    margin-top: 50px;
+    padding-bottom: 50px;
 }
 
 header.navbar {

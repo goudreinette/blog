@@ -5,7 +5,7 @@ title: 'About'
 Hi, i'm Rein.
 
 I design and develop creative web applications with an emphasis on design.
-
+Feel free to contact me by <a href="mailto:reinvanderwoerd@me.com">email</a>.
 
 <!--
 I love to work on projects I believe in, and will actively help improve your concept to make an incredible product.
