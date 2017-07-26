@@ -9,5 +9,6 @@
         a.next href=next_article.url
           = "← #{next_article.title}"
           
-      a.prev href=prev_article.url
-        = "#{prev_article.title} →"
+      - if prev_article
+        a.prev href=prev_article.url
+          = "#{prev_article.title} →"
