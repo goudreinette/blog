@@ -8,3 +8,4 @@ gem 'middleman-syntax'
 gem 'stamp'
 gem 'slim'
 gem "redcarpet"
+gem 'builder'
