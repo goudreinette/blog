@@ -194,3 +194,4 @@ runWithCatch f env x = do
 ## Further reading
 Beautiful Racket has a great [chapter](http://beautifulracket.com/explainer/continuations.html) on continuations. <br/>
 The Wikipedia [page](https://en.wikipedia.org/wiki/Continuation) also gives a decent overview of the topic.
+A Russian translation of this article by Vlad Brown can be found [here](http://softdroid.net/pishem-na-lisp-prodolzheniya).
