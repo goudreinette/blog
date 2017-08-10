@@ -74,7 +74,7 @@ a:not(.navbar-brand):hover, .pager li:hover a {
     background: none;
     height: 70px;
     border-bottom: none;
-    padding-right: 5px;
+    padding-right: 1px;
     margin-left: auto;
     /* margin-right: auto; */
     border: none;
@@ -142,15 +142,18 @@ a:not(.navbar-brand):hover, .pager li:hover a {
         flex-direction: column;
         align-items: center;
         text-align: center;
+        border: none !important;
     }
 
     #about .image-frame {
         margin-right: 0 !important;
+        border: 3px solid rgb(220, 220, 220) !important;
     }
 
     #about .text {
         max-width: 300px;
         margin-top: 30px;
+        padding: 0 !important;
     }
 }
 
@@ -577,7 +580,7 @@ img#avatar {
     min-width: 200px;
     /* margin-left: 0; */
     /* text-align: center; */
-    margin: 15px 35px;
+    margin: 15px 40px;
     margin-left: 0;
 }
 
@@ -654,15 +657,21 @@ a.portfolio-item:nth-child(even) {
 #about {
     display: flex;
     align-items: center;
-    border: 3px solid rgb(220, 220, 220);
+    border: 1px solid rgb(220, 220, 220);
 }
 
 #about .image-frame {
-    border-right: 3px solid rgb(220, 220, 220);
+    border-right: 1px solid rgb(220, 220, 220);
 }
 
 #about .text {
     vertical-align: middle;
     /* border: 3px solid rgb(220, 220, 220); */
     padding-right: 20px;
+}
+
+
+.nav li:last-child a {
+    margin-right: 0;
+    /* padding-right: 0; */
 }
