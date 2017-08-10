@@ -144,7 +144,7 @@ a:not(.navbar-brand):hover, .pager li:hover a {
         text-align: center;
     }
 
-    #about img {
+    #about .image-frame {
         margin-right: 0 !important;
     }
 
@@ -639,11 +639,30 @@ a.portfolio-item:nth-child(even) {
     text-align: left;
 }
 
-#about img {
-    width: 150px;
-    margin-right: 25px;
+
+/**
+ * About
+ */
+#about .image-frame {
+    margin-right: 40px;
 }
 
-div#about {
+#about img {
+    height: 200px;
+}
+
+#about {
     display: flex;
+    align-items: center;
+    border: 3px solid rgb(220, 220, 220);
+}
+
+#about .image-frame {
+    border-right: 3px solid rgb(220, 220, 220);
+}
+
+#about .text {
+    vertical-align: middle;
+    /* border: 3px solid rgb(220, 220, 220); */
+    padding-right: 20px;
 }
