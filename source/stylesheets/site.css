@@ -96,7 +96,7 @@ a:not(.navbar-brand):hover, .pager li:hover a {
     }
 
     .navbar {
-        padding: 5px 5px 0 3px;
+        padding: 5px 7px 0 3px !important;
         margin-top: 0 !important;
     }
 
