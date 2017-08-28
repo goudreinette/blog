@@ -55,3 +55,8 @@
     font-stretch: normal;
     src: url('../fonts/Concourse T3 Bold Italic.otf');
 }
+
+
+.portfolio-item:hover img {
+    opacity: 1;
+}

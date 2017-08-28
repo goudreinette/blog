@@ -1,12 +1,24 @@
 - name: 'Filosofie Agenda'
   link: 'http://filosofie-agenda.herokuapp.com'
+
+- name: 'Buitenkunst'
+  link: ''
+  category: 'Visual Art'
+
 - name: 'Doge Chat'
   link: 'http://dogeifier.herokuapp.com'
+
+- name: 'Veni Vidi Midi'
+  link: '//soundcloud.com/stephan-van-der-woerd'
+  category: 'Music'
+
 - name: 'Calculator'
   link: 'https://calculator-reinvdwoerd.herokuapp.com/'
 - name: 'Work Tracker'
   link: 'https://work-reinvdwoerd.herokuapp.com/'
 - name: 'Pixel Paint'
   link: 'https://sprite-editor-reinvdwoerd.herokuapp.com/'
-- name: 'Space Shooter'
+
+- name: "Gun ‘n Bass"
   link: ''
+  category: 'Game'

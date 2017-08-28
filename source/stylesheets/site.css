@@ -514,7 +514,7 @@ nav .dropdown-menu li a {
 
 body>.container {
     margin-top: 50px;
-    padding-bottom: 50px;
+    margin-bottom: 75px;
 }
 
 header.navbar {
@@ -576,7 +576,7 @@ img#avatar {
     margin: 0;
     flex-direction: column;
     color: #333;
-    padding: 7px 20px 7px 15px;
+    padding: 7px 15px 7px 15px;
     min-width: 200px;
     /* margin-left: 0; */
     /* text-align: center; */
@@ -604,9 +604,10 @@ img#avatar {
 }
 
 .portfolio-item img {
-    width: 32px;
+    width: 30px;
     image-rendering: pixelated;
     margin: auto;
+    opacity: 0.75;
 }
 
 
@@ -674,4 +675,30 @@ a.portfolio-item:nth-child(even) {
 .nav li:last-child a {
     margin-right: 0;
     /* padding-right: 0; */
+}
+
+
+.portfolio-heading {
+    /* font-family: Concourse C3; */
+    text-align: right;
+    font-size: 75%;
+    color: #999;
+}
+
+.portfolio-heading:not(:first-of-type) {
+    margin-top: 75px;
+}
+
+.portfolio-item span.category {
+    /* color: #999; */
+    font-weight: normal;
+    display: inline-block;
+    opacity: 0.5;
+    margin-left: auto;
+    float: right;
+}
+
+.portfolio-item:hover span.category {
+    /* color: rgba(136, 0, 0, 0.48); */
+    opacity: 0.6;
 }
