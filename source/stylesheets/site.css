@@ -49,14 +49,14 @@ body {
 /* Links */
 
 a {
-    color: #880000 !important;
+    color: #004f99 !important;
     padding: 2px;
     margin: -2px;
     text-decoration: none !important;
 }
 
 a:not(.navbar-brand):hover, .pager li:hover a {
-    background-color: rgba(136, 0, 0, 0.09) !important;
+    background-color: rgba(0, 79, 153, 0.09) !important;
 }
 
 .post-list li a:hover {
@@ -614,11 +614,11 @@ img#avatar {
 a.portfolio-item:hover {
     background-color: #ffffff !important;
     border: 1px solid;
-    color: #880000 !important;
+    color: #004f99 !important;
 }
 
 a.portfolio-item:hover .name {
-    color: #880000 !important;
+    color: #004f99 !important;
     /* display: block; */
     /* border-top: 1px solid #eee; */
 }
