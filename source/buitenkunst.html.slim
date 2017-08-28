@@ -4,5 +4,4 @@ title: 'Buitenkunst'
 
 article
   h1 Buitenkunst
-  - Dir.glob('./source/images/buitenkunst/*.jpg').sort.each do |path|
-    img src="/images/buitenkunst/#{File.basename(path)}"
+  = img_glob('buitenkunst')
