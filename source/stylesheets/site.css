@@ -619,7 +619,7 @@ a.portfolio-item:hover {
 }
 
 a.portfolio-item:hover .name {
-    color: #004f99 !important;
+    color: #880000 !important;
     /* display: block; */
     /* border-top: 1px solid #eee; */
 }
