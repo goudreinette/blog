@@ -673,6 +673,11 @@ a.portfolio-item:nth-child(even) {
 }
 
 
+#about p {
+    margin-bottom: 20px;
+}
+
+
 .nav li:last-child a {
     margin-right: 0;
     /* padding-right: 0; */

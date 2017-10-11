@@ -1,9 +1,9 @@
 - name: 'Filosofie Agenda'
   link: 'http://filosofie-agenda.herokuapp.com'
 
-- name: 'Buitenkunst'
-  link: '/buitenkunst.html'
-  category: 'Visual Art'
+- name: 'Paintings and Drawings'
+  link: 'https://www.icloud.com/sharedalbum/#B0x5oqs3qP5Caf'
+  category: 'Art'
 
 - name: 'Doge Chat'
   link: 'http://dogeifier.herokuapp.com'
