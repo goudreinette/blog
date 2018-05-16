@@ -1,5 +1,9 @@
-- name: 'Filosofie Agenda'
-  link: 'http://filosofie-agenda.herokuapp.com'
+# - name: 'Filosofie Agenda'
+#   link: 'http://filosofie-agenda.herokuapp.com'
+
+
+- name: 'Remembrance Poem Generator'
+  link: 'http://remembrancepoemgen.herokuapp.com/'
 
 - name: 'Art on Instagram'
   link: 'https://www.instagram.com/reinvanderwoerd/'
