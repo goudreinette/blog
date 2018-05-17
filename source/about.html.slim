@@ -9,10 +9,21 @@ title: 'About'
     p Hi, i'm Rein.
 
     p I design and develop creative web applications with an emphasis on design.
-    | Feel free to contact me by 
+    | Feel free to contact me by
 
     a href="mailto:reinvanderwoerd@me.com" email
     | .
+
+ul#timeline
+  - data.timeline.each do |item|
+    li
+      .from-to
+        = item.from
+        = " "
+        = item.to
+      .name = item.name
+
+
 
 /
 / .row
