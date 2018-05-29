@@ -63,8 +63,17 @@ helpers do
 
   def img_glob(folder)
     Dir.glob("./source/articles/**-#{folder}/*.jpg").sort.map do |path|
-        "<img src='./#{folder}/#{File.basename(path)}'/>"
+        article_img(folder, path)
     end.join
+  end
+
+  def article_img(folder, path)
+    link = "#{folder}/#{File.basename(path)}"
+    %"
+        <a href='#{link}'>
+          <img src='#{link}'/>
+        </a>
+    "
   end
 end
 
