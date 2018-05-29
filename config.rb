@@ -63,7 +63,7 @@ helpers do
 
   def img_glob(folder)
     Dir.glob("./source/articles/**-#{folder}/*.jpg").sort.map do |path|
-        linked_img("#{folder}/#{File.basename(path)}")
+        linked_img(File.basename(path))
     end.join
   end
 
