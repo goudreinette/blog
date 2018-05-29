@@ -62,8 +62,8 @@ helpers do
   end
 
   def img_glob(folder)
-    Dir.glob("./source/images/#{folder}/*.jpg").sort.map do |path|
-        "<img src='/images/#{folder}/#{File.basename(path)}'/>"
+    Dir.glob("./source/articles/**-#{folder}/*.jpg").sort.map do |path|
+        "<img src='./#{folder}/#{File.basename(path)}'/>"
     end.join
   end
 end
