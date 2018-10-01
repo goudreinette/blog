@@ -3,7 +3,6 @@
     h1 = current_article.title
     = yield
   footer class='index'
-    hr
     .pager
       - if next_article
         a.next href=next_article.url

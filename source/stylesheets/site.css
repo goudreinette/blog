@@ -1,23 +1,34 @@
 /* Fonts */
 @import url("./fonts.css");
-@import url("./bootstrap-theme.min.css");
-@import url("./bootstrap.min.css");
 @import url("./pygments.css");
 
-
-
+:root {
+    --accent: rgb(136, 0, 0) !important;
+    --text-font: 'Century Supra T3';
+    --secondary-font: 'NeuzeitGroTOT';
+    --code-font: 'Fira Code';
+}
 
 /* Global */
 body {
-    font-family: Concourse T3, Concourse;
+    /* font-family: Valkyrie T3; */
+    font-family: var(--text-font);
     color: #333;
-    font-size: 20px;
+    display: flex;
+    max-width: 500px;
+    margin-top: 20px;
+    width: max-content;
+    font-size: 18px;
+    padding-top: 25px;
+    margin: 0;
+    line-height: 1.5;
+    flex-direction: column;
 }
 
 .container {
     position: relative;
     max-width: 600px;
-    padding: 0 30px;
+    padding: 0 15px;
 }
 
 /* Post List */
@@ -31,7 +42,7 @@ body {
 }
 
 .post-list .month-year {
-    font-family: 'Concourse C3' !important;
+    font-family: var(--secondary-font);
     color: #999;
     font-size: 70%;
     padding-bottom: 5px;
@@ -45,25 +56,22 @@ body {
     padding: 8px 0;
 }
 
-
 /* Links */
 
 a {
-    color: rgb(136, 0, 0) !important;
+    color: var(--accent) !important;
     padding: 2px;
     margin: -2px;
     text-decoration: none !important;
 }
 
 a:not(.navbar-brand):hover, .pager li:hover a {
-    background-color: rgba(136, 0, 0,  0.09) !important;
+    background-color: rgba(136, 0, 0, 0.09) !important;
 }
 
 .post-list li a:hover {
     background-color: rgba(238, 238, 238, 0.72) !important;
 }
-
-
 
 /* Nav */
 .nav {
@@ -91,8 +99,10 @@ a:not(.navbar-brand):hover, .pager li:hover a {
 
 @media (max-width: 768px) {
     body {
-        padding-top: 0px;
-        font-size: 18px ;
+        /* padding-top: 0px; */
+        padding: 50px;
+        padding-top: 20px;
+        font-size: 18px;
     }
 
     .navbar {
@@ -111,7 +121,6 @@ a:not(.navbar-brand):hover, .pager li:hover a {
     .navbar-brand .short {
         display: inline !important;
     }
-
 
     .navbar-toggle {
         position: absolute;
@@ -137,7 +146,6 @@ a:not(.navbar-brand):hover, .pager li:hover a {
         /* width: 20% !important; */
     }
 
-
     #about {
         flex-direction: column;
         align-items: center;
@@ -157,18 +165,16 @@ a:not(.navbar-brand):hover, .pager li:hover a {
     }
 }
 
-
-
-
 /* Nav */
 a.navbar-brand {
     font-weight: bold;
     background: none;
+    text-transform: lowercase;
     letter-spacing: 0.04em;
     /* font-family: Fira Code !important; */
     font-weight: 600;
     color: rgba(0, 0, 0, 0.9) !important;
-    font-family: 'Concourse' !important;
+    font-family: var(--secondary-font);
 }
 
 .navbar-brand .full {
@@ -184,7 +190,7 @@ ul.nav.navbar-nav {
     font-size: 75%;
 }
 
-.nav>li {
+.nav > li {
     display: inline-block;
 }
 
@@ -196,39 +202,38 @@ ul.nav.navbar-nav {
     height: 100%;
 }
 
-
-
 .nav li a {
     padding: 1px 0px;
+    text-transform: lowercase;
     margin: 0 10px;
     transition: all .3s;
     border-bottom: 2px solid transparent;
     color: #444 !important;
-    font-family: 'Concourse' !important;
+    font-family: var(--secondary-font);
 }
 
-.nav a.active , .nav > li a:hover {
+.nav a.active, .nav > li a:hover {
     background: none !important;
-    border-bottom: 2px solid black;
+    /* border-bottom: 2px solid black; */
     color: black !important;
+    font-weight: bold;
 }
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
-    font-family: Concourse T3, Concourse !important;
+    /* font-family: Advocate C63; */
 }
 
 h1 {
     /* border-top: 2px solid black; */
     border-bottom: none;
     display: inline-block;
-    font-size: 150%;
+    font-size: 120%;
     padding-top: 5px;
     margin-bottom: 30px;
     margin-top: 0;
 }
-
 
 h2 {
     margin: 30px 0 5px 0;
@@ -276,8 +281,8 @@ code {
 }
 
 code, pre {
-    font-family: Fira Code;
-    font-size: 75%;
+    font-family: var(--code-font);
+    font-size: 90%;
 }
 
 pre code {
@@ -287,9 +292,10 @@ pre code {
 pre {
     white-space: pre;
     margin: 0;
-    background-color: rgba(139, 121, 121, 0.05);
+    background-color: rgb(105, 105, 105);
     border-radius: 0;
     margin: 20px 0;
+    max-width: 500px;
     border-width: 0;
     padding: 20px;
     padding-left: 50px;
@@ -300,10 +306,9 @@ pre {
     width: 700px;
 }
 
-
 article {
     margin-bottom: 75px;
-    /* margin-top: 25px; */
+    /* margin-top: 50px; */
 }
 
 article.index {
@@ -316,27 +321,24 @@ article.index {
 }
 
 article img {
-  /* Make sure that images within blog articles never take more width
-     than the article width; `height: auto` ensures the height is also
-     resized proportionally.
-
-     This is useful given that Markdown itself gives you little
-     control over image resizing, and in particular no way to achieve
-     this "best fit" behavior.
- */
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 20px;
-  margin-top: 20px;
-  border: 1px solid #ddd;
+    /* Make sure that images within blog articles never take more width
+       than the article width; `height: auto` ensures the height is also
+       resized proportionally.
+  
+       This is useful given that Markdown itself gives you little
+       control over image resizing, and in particular no way to achieve
+       this "best fit" behavior.
+   */
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border: 1px solid #ddd;
 }
 
 .caption {
     display: none;
 }
-
-
-
 
 button.navbar-toggle {
     border: none;
@@ -350,7 +352,6 @@ span.icon-bar {
 .navbar-collapse {
     margin-left: auto !important;
 }
-
 
 /* Footer */
 .container > footer {
@@ -378,16 +379,11 @@ article footer.post-footer > div {
     align-items: center;
 }
 
-
-
-
-@media(min-width: 768px) {
+@media (min-width: 768px) {
     footer {
         position: relative;
     }
 }
-
-
 
 footer:not(.index) hr {
     display: none;
@@ -397,15 +393,12 @@ footer:not(.index) {
     margin-top: -30px;
 }
 
-
 /* Lists */
-
 
 /* Date and Tags */
 p.date-and-tags {
     display: none;
 }
-
 
 .date-and-tags {
     font-style: italic;
@@ -419,16 +412,13 @@ p.date-and-tags {
     padding: 2px;
 }
 
-
 .pager li a em {
     font-style: normal;
 }
 
-
 article footer:not(.post-footer) {
     display: none;
 }
-
 
 blockquote {
     color: #707070;
@@ -439,7 +429,6 @@ blockquote {
     margin: 0;
     padding: 0;
 }
-
 
 ul.pager {
     display: flex;
@@ -458,23 +447,23 @@ ul.pager li.next {
     max-width: 50%;
 }
 
-.pagination>li a {
+.pagination > li a {
     background: none;
     border: none;
     border-radius: 0 !important;
 }
 
-.pagination>li {
+.pagination > li {
     border-radius: 0;
 }
 
-.pagination>li.active a {
+.pagination > li.active a {
     /* font-weight: bold; */
     background: none !important;
     opacity: 0.2;
 }
 
-.pagination>li.disabled a {
+.pagination > li.disabled a {
     display: none;
 }
 
@@ -511,9 +500,10 @@ nav .dropdown-menu li a {
     border-bottom: none !important;
 }
 
-.index p {}
+.index p {
+}
 
-body>.container {
+body > .container {
     margin-top: 50px;
     margin-bottom: 75px;
 }
@@ -529,7 +519,7 @@ header.navbar {
 .bullet {
     font-size: 10px;
     /* margin-bottom: 10px; */
-    margin: 2pz;
+    margin: 2 pz;
 }
 
 .feeds a:first-child {
@@ -559,12 +549,13 @@ img#avatar {
     /* justify-content: center; */
     /* background: #eee; */
     flex-wrap: wrap;
+    flex-direction: row;
     padding: 1px;
-    0: space-between
+    align-items: space-between;
 }
 
 .portfolio-item {
-    width: calc(50% - 20px);
+    width: calc(50% - 30px);
     height: 200px;
     justify-content: space-between;
     /* margin-bottom: 5px; */
@@ -573,7 +564,7 @@ img#avatar {
     /* border: 1px solid white; */
     background: white;
     transition: all 0.3s;
-    border: 1px solid #ddd;
+    border: 1px solid white;
     margin: 0;
     flex-direction: column;
     color: #333;
@@ -594,14 +585,14 @@ img#avatar {
 }
 
 .portfolio-item .name {
-     /* text-transform: uppercase; */
-     /* font-weight: bold; */
-     color: #333;
-     display: block;
-     padding-top: 7px;
-     font-weight: bold;
-     border-top: 1px solid #eee;
-     font-size: 75%;
+    /* text-transform: uppercase; */
+    /* font-weight: bold; */
+    color: #333;
+    display: block;
+    padding-top: 7px;
+    font-weight: bold;
+    border-top: 1px solid #eee;
+    font-size: 75%;
 }
 
 .portfolio-item img {
@@ -611,11 +602,10 @@ img#avatar {
     opacity: 0.75;
 }
 
-
 a.portfolio-item:hover {
     background-color: #ffffff !important;
     border: 1px solid;
-    color: rgb(136, 0, 0) !important;
+    color: var(--accent) !important;
 }
 
 a.portfolio-item:hover .name {
@@ -624,11 +614,9 @@ a.portfolio-item:hover .name {
     /* border-top: 1px solid #eee; */
 }
 
-
 a.portfolio-item:nth-child(even) {
     margin-right: 0 !important;
 }
-
 
 .pager {
     display: flex;
@@ -643,7 +631,6 @@ a.portfolio-item:nth-child(even) {
     margin-right: auto;
     text-align: left;
 }
-
 
 /**
  * About
@@ -672,17 +659,14 @@ a.portfolio-item:nth-child(even) {
     padding-right: 20px;
 }
 
-
 #about p {
     margin-bottom: 20px;
 }
-
 
 .nav li:last-child a {
     margin-right: 0;
     /* padding-right: 0; */
 }
-
 
 .portfolio-heading {
     /* font-family: Concourse C3; */
@@ -707,4 +691,48 @@ a.portfolio-item:nth-child(even) {
 .portfolio-item:hover span.category {
     /* color: rgba(136, 0, 0, 0.48); */
     opacity: 0.6;
+}
+
+header {
+    display: flex;
+    height: 50px;
+    /* padding-top: 25px; */
+    justify-content: center;
+    margin-bottom: 50px;
+    /* width: max-content; */
+    align-items: center;
+}
+
+html {
+    justify-content: center;
+    /* align-items: center; */
+    display: flex;
+    /* overflow: hidden; */
+}
+
+footer.index {
+    font-family: var(--secondary-font);
+    font-size: 80%;
+    margin-bottom: 50px;
+}
+
+article > .highlight {
+    background: #c4755608;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-bottom: 40px;
+    display: flex;
+    margin-right: -50vw;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+ul.post-list {
+    /* padding-top: 50px; */
+    max-width: 500px;
+    width: max-content;
 }

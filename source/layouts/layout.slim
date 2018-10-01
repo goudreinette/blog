@@ -8,17 +8,11 @@ html
     = stylesheet_link_tag "site"
     = javascript_include_tag "site"
   body
-    header.navbar.navbar-default role="banner"
-      .container
-        .navbar-header
+    header
           a.navbar-brand href="/"
-            span.full REIN VAN DER WOERD
-            span.short R.VDWOERD
-            /! λ.rein.vdwoerd
-        .navbar role="navigation"
+            | R.VDWOERD
           ul.nav.navbar-nav
             li= link_active 'Writing', '/index.html'
             li= link_active 'Portfolio', '/portfolio.html'
             li= link_active 'About', '/about.html'
-    .container
-      = yield
+  = yield
