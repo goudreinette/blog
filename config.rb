@@ -17,7 +17,7 @@ activate :syntax
 activate :blog do |blog|
   # set options on blog
    blog.sources = "articles/{year}-{month}-{day}-{title}.html"
-   blog.permalink = "blog/{year}/{month}/{day}/{title}"
+   blog.permalink = "thoughts/{year}/{month}/{day}/{title}"
    blog.layout = 'article'
 end
 

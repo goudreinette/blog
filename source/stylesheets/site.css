@@ -1,28 +1,33 @@
 /* Fonts */
 @import url("./fonts.css");
 @import url("./pygments.css");
+@import url("./alt.css");
+@import url("./century-supra-light.css");
 
 :root {
     --accent: rgb(136, 0, 0) !important;
-    --text-font: 'Century Supra T3';
-    --secondary-font: 'NeuzeitGroTOT';
+    --text-font: 'Equity Text A';
+    --secondary-font: var(--text-font);
     --code-font: 'Fira Code';
 }
 
 /* Global */
 body {
-    /* font-family: Valkyrie T3; */
+    /*font-family: Valkyrie T3;*/
     font-family: var(--text-font);
-    color: #333;
+    color: #0e0e0e;
     display: flex;
     max-width: 500px;
     margin-top: 20px;
-    width: max-content;
+    /* width: max-content; */
     font-size: 18px;
     padding-top: 25px;
     margin: 0;
     line-height: 1.5;
     flex-direction: column;
+    margin: auto;
+    position: relative;
+    /* left: 10%; */
 }
 
 .container {
@@ -44,8 +49,11 @@ body {
 .post-list .month-year {
     font-family: var(--secondary-font);
     color: #999;
+    /* font-family: Century Supra C3; */
     font-size: 70%;
-    padding-bottom: 5px;
+    /*padding-bottom: 5px;*/
+    font-style: italic;
+    /* text-transform: uppercase; */
 }
 
 .post-list > li {
@@ -100,7 +108,7 @@ a:not(.navbar-brand):hover, .pager li:hover a {
 @media (max-width: 768px) {
     body {
         /* padding-top: 0px; */
-        padding: 50px;
+        padding: 40px;
         padding-top: 20px;
         font-size: 18px;
     }
@@ -128,7 +136,7 @@ a:not(.navbar-brand):hover, .pager li:hover a {
     }
 
     pre {
-        padding-left: 20px !important;
+        /* padding-left: 20px !important; */
         width: inherit !important;
         overflow-x: scroll !important;
         -webkit-overflow-scrolling: touch;
@@ -199,6 +207,7 @@ ul.nav.navbar-nav {
     padding-top: 0px;
     align-items: center;
     justify-content: center;
+    padding: 0;
     height: 100%;
 }
 
@@ -216,12 +225,12 @@ ul.nav.navbar-nav {
     background: none !important;
     /* border-bottom: 2px solid black; */
     color: black !important;
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
-    font-weight: 600;
+    font-weight: 800;
     /* font-family: Advocate C63; */
 }
 
@@ -247,7 +256,9 @@ h2.index {
 h2:not(.index) {
     margin-top: 60px;
     font-weight: bold;
-    font-size: 100%;
+    font-size: 90%;
+    font-family: Century Supra C3;
+    text-transform: lowercase;
 }
 
 .post-list a {
@@ -299,6 +310,7 @@ pre {
     border-width: 0;
     padding: 20px;
     padding-left: 50px;
+    padding-right: 50px;
     overflow: auto;
     background: none;
     word-wrap: normal;
@@ -307,7 +319,7 @@ pre {
 }
 
 article {
-    margin-bottom: 75px;
+    margin-bottom: 50px;
     /* margin-top: 50px; */
 }
 
@@ -324,16 +336,19 @@ article img {
     /* Make sure that images within blog articles never take more width
        than the article width; `height: auto` ensures the height is also
        resized proportionally.
-  
+
        This is useful given that Markdown itself gives you little
        control over image resizing, and in particular no way to achieve
        this "best fit" behavior.
    */
-    max-width: 100%;
+    max-width: 350px;
+    opacity: 0.8;
+    margin: auto;
+    display: flex;
     height: auto;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    border: 1px solid #ddd;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    /* border: 1px solid #ddd; */
 }
 
 .caption {
@@ -697,17 +712,17 @@ header {
     display: flex;
     height: 50px;
     /* padding-top: 25px; */
-    justify-content: center;
+    justify-content: space-between;
     margin-bottom: 50px;
-    /* width: max-content; */
+    width: 100%;
     align-items: center;
 }
 
 html {
-    justify-content: center;
+    /* justify-content: center; */
     /* align-items: center; */
-    display: flex;
-    /* overflow: hidden; */
+    /* display: flex; */
+    overflow-x: hidden;
 }
 
 footer.index {
@@ -733,6 +748,24 @@ article > .highlight {
 
 ul.post-list {
     /* padding-top: 50px; */
-    max-width: 500px;
-    width: max-content;
+    /* max-width: 500px; */
+    /* width: max-content; */
 }
+
+.nav li a.active {
+    font-weight: bold;
+}
+
+.nav li:hover a {
+    border-bottom: 2px solid #f0dccf;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+footer a {
+    color: #333 !important;
+}
+
+footer.index a:hover {background: rgba(0,0,0,0.03) !important;}

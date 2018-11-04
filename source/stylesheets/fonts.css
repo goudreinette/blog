@@ -1,3 +1,4 @@
+
 @font-face {
     font-family: Fira Code;
     font-weight: normal;
@@ -54,6 +55,26 @@
     font-weight: bold;
     font-stretch: normal;
     src: url('../fonts/Concourse T3 Bold Italic.otf');
+}
+
+@font-face {
+    font-family: 'Valkyrie C3';
+    src: url("../fonts/valkyrie_c3.otf");
+}
+
+@font-face {
+    font-family: 'Valkyrie T3';
+    src: url("../fonts/valkyrie_t3.otf");
+}
+
+@font-face {
+    font-family: 'Century Supra C3';
+    src: url("../fonts/century_c3.otf");
+}
+
+@font-face {
+    font-family: 'Valkyrie T3';
+    src: url("../fonts/century_t3.otf");
 }
 
 
