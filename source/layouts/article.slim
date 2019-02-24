@@ -1,13 +1,11 @@
 = wrap_layout :layout do
+  h1 = current_article.title
   article
-    h1 = current_article.title
-    = yield
+    .wrapper 
+      = yield
   footer class='index'
     .pager
-      - if next_article
-        a.next href=next_article.url
-          = "← #{next_article.title}"
-          
       - if prev_article
+        div class='next' = 'next'
         a.prev href=prev_article.url
-          = "#{prev_article.title} →"
+          = "#{prev_article.title}"

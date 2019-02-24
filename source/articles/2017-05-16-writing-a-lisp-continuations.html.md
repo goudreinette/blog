@@ -118,11 +118,12 @@ callCC env [l] = do
   cont <- makeCont
   eval env $ List [lambda, cont]
 
-  where makeCont = do
-          contFnBody <- topFrame >>= walk replaceContForm
-          return $ makeFn False Anonymous [Symbol "x"]
-                     [List [shortCircuit', contFnBody]]
-                     env
+  where 
+    makeCont = do
+      contFnBody <- topFrame >>= walk replaceContForm
+      return $ makeFn False Anonymous [Symbol "x"]
+                  [List [shortCircuit', contFnBody]]
+                  env
 
 shortCircuit' =
   wrapPrimitive False Impure sc
@@ -185,7 +186,8 @@ evalString =
           liftIO $ run r >>= either printVal printVal
 
 
-runWithCatch :: (Env -> String -> LispM ()) -> Env -> String -> IO ()
+runWithCatch :: 
+(Env -> String -> LispM ()) -> Env -> String -> IO ()
 runWithCatch f env x = do
   let action = fromRight' <$> run (f env x)
   catch action (printError :: LispError -> IO ())
