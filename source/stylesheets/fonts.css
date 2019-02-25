@@ -1,5 +1,4 @@
-@import "./Brandon Grotesque.css";
-@import "./Brandon Text.css";
+@import "../fonts/Brandon Text/stylesheet.css";
 
 @font-face {
     font-family: Fira Code;
@@ -14,72 +13,3 @@
 }
 
 
-
-
-@font-face {
-    font-family: Concourse;
-    font-style: normal;
-    font-weight: normal;
-    font-stretch: normal;
-    src: url('../fonts/Concourse T3 Regular.otf');
-}
-
-@font-face {
-    font-family: 'Concourse C3';
-    font-style: normal;
-    font-weight: normal;
-    font-stretch: normal;
-    src: url('../fonts/Concourse C3 Regular.otf');
-}
-
-
-@font-face {
-    font-family: Concourse;
-    font-style: italic;
-    font-weight: normal;
-    font-stretch: normal;
-    src: url('../fonts/Concourse T3 Italic.otf');
-}
-
-
-@font-face {
-    font-family: Concourse;
-    font-style: normal;
-    font-weight: bold;
-    font-stretch: normal;
-    src: url('../fonts/Concourse T3 Bold.otf');
-}
-
-
-@font-face {
-    font-family: Concourse;
-    font-style: italic;
-    font-weight: bold;
-    font-stretch: normal;
-    src: url('../fonts/Concourse T3 Bold Italic.otf');
-}
-
-@font-face {
-    font-family: 'Valkyrie C3';
-    src: url("../fonts/valkyrie_c3.otf");
-}
-
-@font-face {
-    font-family: 'Valkyrie T3';
-    src: url("../fonts/valkyrie_t3.otf");
-}
-
-@font-face {
-    font-family: 'Century Supra C3';
-    src: url("../fonts/century_c3.otf");
-}
-
-@font-face {
-    font-family: 'Valkyrie T3';
-    src: url("../fonts/century_t3.otf");
-}
-
-
-.portfolio-item:hover img {
-    opacity: 1;
-}
