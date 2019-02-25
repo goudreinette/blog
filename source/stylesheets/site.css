@@ -53,10 +53,14 @@ a {
     font-size: 110%;opacity: 0.4;
 }
 
-ul {
+ul.post-list ul {
     list-style: none;
     padding-left: 0;padding-top: 10;
 }
+
+ul {
+}
+
 a.navbar-brand {
     font-weight: bold;
     text-decoration: none;
@@ -113,7 +117,7 @@ article p {
 
 footer {
     font-style: italic;
-    font-size: 80%;
+    font-size: 80%;margin-top: 50px;
 }
 footer span {
     opacity: 0.5;   
@@ -161,7 +165,7 @@ pre.highlight {
 
 pre.highlight code {
     font-family: Fira Code;
-    font-size: 80%;
+    font-size: 80%;line-height: 1.5;
 }
 
 
@@ -214,4 +218,8 @@ margin-bottom: 70px;
     .spotlight .item {
         width: 100% !important;
     }
+}
+
+.highlight {
+    overflow: scroll;
 }
