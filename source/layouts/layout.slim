@@ -13,8 +13,12 @@ html
         | Rein 
         span.light
           | van der Woerd
-        section.items
-          = link_active 'Thoughts', '/index.html'
-          = link_active 'Portfolio', '/portfolio.html'
-          = link_active 'About', '/about.html'
+        / section.items
+        /   = link_active 'Thoughts', '/index.html'
+        /   = link_active 'Portfolio', '/portfolio.html'
+        /   = link_active 'About', '/about.html'
   = yield
+  
+  footer
+    span Contact me by 
+    a email
