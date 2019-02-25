@@ -60,7 +60,7 @@
 }
 /* Keyword Namespace */
 .highlight .kn {
-  color: rgba(250, 0, 0, 0.66);
+  color: var(--accent);
   background-color: transparent;
   font-weight: bold;
 }

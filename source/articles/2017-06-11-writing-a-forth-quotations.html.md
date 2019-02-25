@@ -12,16 +12,16 @@ Factor, another [Forth](http://reinvanderwoerd.nl/blog/2017/06/08/writing-a-fort
 
 ```forth
 [ 1 1 = ] .
-\ [ 1 1 = ]
+-> [ 1 1 = ]
 
 [ 1 + ] [ 2 * ] compose .
-\ [ 1 + 2 * ]
+-> [ 1 + 2 * ]
 
 4 [ > ] curry .
-\ [ 4 > ]
+-> [ 4 > ]
 
 5 [ 1 + 2 * ] call .
-\ 12
+-> 12
 ```
 
 Quotations serve the same role as lambda's in other languages, but have a few key advantages:
