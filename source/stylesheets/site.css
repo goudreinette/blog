@@ -8,7 +8,7 @@
 
 :root {
     --accent: rgb(136, 0, 0) !important;background: rgb(49, 44, 48);
-    --text-font: Avenir Next;
+    --text-font: "Brandon Text";
     --secondary-font: var(--text-font);
     --code-font: 'Fira Code';
     color: white !important;
@@ -50,7 +50,7 @@ a {
 .month-year {
     /* text-transform: uppercase; */
     font-weight: lighter;
-    font-size: 110%;
+    font-size: 110%;opacity: 0.4;
 }
 
 ul {
