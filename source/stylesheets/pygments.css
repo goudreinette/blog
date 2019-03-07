@@ -4,7 +4,7 @@
   color: rgba(255, 255, 255, 0.93) !important;
   /* --accent: rgba(250, 0, 0, 0.66); */
   --accent:rgba(255, 99, 113, 0.74);
-  --accent2: rgba(255, 231, 186, 0.87);
+  --accent2: rgb(255, 240, 213);
 }
 
 /* Name Function */
@@ -21,7 +21,7 @@
   background-color: transparent;
 }
 /* Comment Multiline */
-.highlight .cm {
+.highlight .cm, .highlight .c {
   color: rgba(139, 121, 121, 0.71);
   background-color: transparent;
 }
