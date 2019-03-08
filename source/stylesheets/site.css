@@ -305,6 +305,9 @@ article h2 {
 .spotlight .item#spatial {
     background-image: url('/images/portfolio-icons/spatial-icon.png');background-size: contain;background-position: center;
 }
+.spotlight .item#ludwig {
+    background-image: url('/images/portfolio-icons/ludwig.png');background-size: contain;background-position: center;
+}
 
 @media (hover: hover) {
     .spotlight .item:hover {

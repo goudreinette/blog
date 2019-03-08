@@ -1,11 +1,12 @@
-body {
-    margin-top: 50vh;
+/* body {
+    margin-top: 20vh;
 }
 
 body.transparent > *:not(header) {
     opacity: 0.3;
 }
 
-*:not(header) {
+body > *:not(header) {
     transition: opacity 0.3s;
-}
+} */
+
