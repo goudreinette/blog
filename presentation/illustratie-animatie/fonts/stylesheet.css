@@ -1,0 +1,16 @@
+@font-face {
+    font-family: 'Advocate C63';
+    src: url('AdvocateC63.woff2') format('woff2'),
+        url('AdvocateC63.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Advocate C65';
+    src: url('AdvocateC65.woff2') format('woff2'),
+        url('AdvocateC65.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+

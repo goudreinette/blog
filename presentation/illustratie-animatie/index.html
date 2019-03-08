@@ -1,0 +1,156 @@
+<!-- Deps -->
+<script src="vue.js"></script>
+<script src="jquery.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<link rel="stylesheet" href="./illustratie-animatie.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+<body>
+
+    <div class="background-overlay">
+
+    </div>
+    <div class="wrapper">
+        <video src="./animation.mov" autoplay loop playsinline></video>
+    
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 390 300">
+                <symbol id="s-text">
+                <text text-anchor="start" x="0%" y="18%" dy=".35em">illustration</text>
+                <text text-anchor="start" x="0%" y="44%" dy=".35em">animation</text>
+                <text text-anchor="start" x="79%" y="44%" dy=".35em" class="smaller">S1'18</text>
+                <!-- <text text-anchor="start" x="0%" y="35%" dy=".35em">The Year in </text>
+                <text text-anchor="start" x="0%" y="62%" dy=".35em">Illustration</text> -->
+                </symbol>
+                <use class="text" xlink:href="#s-text"></use>
+                <use class="text" xlink:href="#s-text"></use>
+                <use class="text" xlink:href="#s-text"></use>
+                <use class="text" xlink:href="#s-text"></use>
+            </svg>
+            
+        <div class="column">
+       
+    
+            <h1>
+                Extremely Loud & Incredibly Close
+            </h1>                
+        </div>
+
+        <div class="wide">
+            <div class="grid">
+                <img src="./img/extremely-loud/yes.jpg">
+                 <img src="./img/extremely-loud/hands.jpg">
+            </div>
+            <div class="grid">
+                <iframe scrolling="no" src="./img/fine/index.html" frameborder="0" "></iframe>
+
+            </div>
+        </div>
+
+        <div class="wide">
+            <div class="grid">
+                <img src="./img/zwolle-white.svg" style="grid-column: 1 / span 2">    
+
+            </div>
+        </div>
+
+        <div class="column">
+                <h1>
+                    Web
+                </h1>
+            </div>
+    
+            <div class="wide">
+                <div class="grid">
+                    <a href="https://reinvdwoerd.github.io/reinvdwoerd/aandacht">
+                        <img src="img/web/aandacht.png" >    
+                    </a>
+                    <a href="http://mindthegap.kseniaanohina.reinvanderwoerd.nl">
+                        <img src="img/web/mindthegap.png" >    
+                    </a>
+                    <a href="http://biekabox.reinvanderwoerd.nl/">
+                        <img src="img/web/biekabox.png" >                        
+                    </a>
+                    <a href="http://ludwiglive.nl">
+                        <img src="img/web/ppp.png" >                        
+                    </a>
+                    <a href="http://145.37.122.156:8181">
+                        <img src="img/web/audiencein.png" >                        
+                    </a>
+
+                   
+                </div>
+            </div>
+           
+
+        <div class="column">
+<!-- 
+                <h1>
+                    Daily Illustration Challenge
+                </h1>
+
+                <h1>
+                    Patterns
+                </h1>
+
+                <h1>
+                    Web side-projects
+                </h1> -->
+        </div>
+
+        <div class="wide">
+            <iframe  scrolling="no" style="height:50vw" src="https://reinvdwoerd.github.io/reinvdwoerd/sweater/sweater.html" frameborder="0"></iframe>
+                <!-- <img src="img/web/aandacht.png" >    
+                <img src="img/web/aandacht.png" >    
+                <img src="img/web/aandacht.png" >     -->
+        </div>
+
+        <div class="column">
+            <h1>
+                Daily Illustration
+            </h1>
+        </div>
+
+        <div class="wide" id="daily-illustration">
+                <img src="./img/daily-illu/1.png">
+                <img src="./img/daily-illu/3.jpg">
+                <img src="./img/daily-illu/4.jpg">
+                <img src="./img/daily-illu/5.jpg">
+                <img src="./img/daily-illu/6.jpg">
+                <img src="./img/daily-illu/7.jpg">
+                <img src="./img/daily-illu/8.jpg">
+                <img src="./img/daily-illu/9.jpg">
+                <img src="./img/daily-illu/10.png">
+                <img src="./img/daily-illu/11.jpg">
+                <img src="./img/daily-illu/12.png">
+                <img src="./img/daily-illu/13.jpg">
+                <img src="./img/daily-illu/15.png">
+                <img src="./img/daily-illu/16.jpg">
+                <img src="./img/daily-illu/17.jpg">
+                <img src="./img/daily-illu/19-1.jpg">
+                <img src="./img/daily-illu/19-2.jpg">
+                <img src="./img/daily-illu/20.jpg">
+                <img src="./img/daily-illu/22.png">
+                <img src="./img/daily-illu/23.jpg">
+        </div>
+
+
+
+       
+    </div>
+ 
+</body>
+
+
+
+<script>
+  $(document).scroll(function () {
+        $(".background-overlay, body")
+            .toggleClass('overlay-visible', window.scrollY > 100)
+    })
+
+
+</script>

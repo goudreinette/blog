@@ -279,7 +279,7 @@ article h2 {
 
 
 .spotlight .item {
-    background: white;
+    /* background: white; */
     color: black;
     /* padding: 20px; */
     display: flex;
@@ -287,7 +287,7 @@ article h2 {
     width: 100%;
     padding-bottom: 100%;
     /* height: 10; */
-    border-bottom: 3px solid hsla(0, 0%, 0%, 0.87);
+    border-bottom: 3px solid rgba(36, 36, 36, 0.86);
     /* width: 50px; */
     background-size: cover;
     background-position: center;
