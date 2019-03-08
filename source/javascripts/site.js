@@ -8,3 +8,14 @@
 
 ga('create', 'UA-94082535-1', 'auto');
 ga('send', 'pageview');
+
+
+/**
+ * Overlay
+ */
+document.onscroll = function () {
+    document.body.className = 
+        window.scrollY < 100 
+            ? 'transparent' 
+            : ''
+}
