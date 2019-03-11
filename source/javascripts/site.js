@@ -11,11 +11,29 @@ ga('send', 'pageview');
 
 
 /**
- * Overlay
+ * Mode select
  */
-document.onscroll = function () {
-    document.body.className = 
-        window.scrollY < 100 
-            ? 'transparent' 
-            : ''
+let mode = localStorage.getItem('mode') || 'dark'
+let otherMode = mode == 'dark' ? 'light' : 'dark'
+$html = document.body.parentNode
+$html.className = mode
+
+
+window.onload = function () {
+    $switchLink = document.querySelector('a#switch-mode')
+    $switchLink.innerText = otherMode
+    $switchLink.onclick = switchMode
+    $switchLink.ontouch = switchMode
+
+    function switchMode() {
+        // Swap 
+        var temp = otherMode
+        otherMode = mode
+        mode = temp
+
+        // Set
+        localStorage.setItem('mode', mode)
+        $html.className = mode
+        $switchLink.innerText = otherMode
+    }
 }

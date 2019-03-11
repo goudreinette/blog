@@ -8,7 +8,9 @@
 
 :root {
     --accent: rgb(136, 0, 0) !important;
-    background: hsla(178, 0%, 5%, 0.83);
+    background: hsla(217, 97%, 12%, 0.83) ;
+    
+    /* hsla(178, 0%, 5%, 0.83); */
     /*r
    rgb(49, 44, 48); 
    rgb(16, 39, 54)
@@ -17,8 +19,11 @@
     --secondary-font: var(--text-font);
     /* --secondary-font: 'Brandon Grotesque'; */
     --code-font: 'Fira Code';
-    color: white !important;
+    --color: white;
+    color: var(--color) !important;
+    /* transition: background 1s; */
 }
+
 
 body {
     font-family: var(--text-font);
@@ -26,7 +31,8 @@ body {
     margin: 100px auto;
     /* margin-bottom: 100px; */
     /* grid-template-columns: 1fr 5fr; */
-    display: flex;flex-direction: column;
+    display: flex;
+    flex-direction: column;
     max-width: 630px;
     /* grid-gap: 50px; */
     padding: 0 40px;
@@ -42,6 +48,7 @@ body {
     grid-row: 2;
     padding-top: 4px;
 }
+
 .post-list a {
     margin-bottom: 10px;
     display: inline-flex;
@@ -63,7 +70,8 @@ a {
 
 ul.post-list ul {
     list-style: none;
-    padding-left: 0;padding-top: 10;
+    padding-left: 0;
+    padding-top: 10;
 }
 
 ul {
@@ -71,15 +79,15 @@ ul {
 
 article li {
     list-style-type: none;
-    position: relative;    /* It is required for setting position to absolute in the next rule. */
+    position: relative; /* It is required for setting position to absolute in the next rule. */
 }
 
 article li::before {
-    content: '\2022';      /* Unicode for • character */
+    content: '\2022'; /* Unicode for • character */
     position: absolute;
-    left: -1em;          /* Adjust this value so that it appears where you want. */
+    left: -1em; /* Adjust this value so that it appears where you want. */
     top: -1px;
-    font-size: 1.1em;      /* Adjust this value so that it appears what size you want. */
+    font-size: 1.1em; /* Adjust this value so that it appears what size you want. */
 }
 
 
@@ -97,13 +105,18 @@ a.navbar-brand {
 header {
     display: flex;
     /* grid-column: 1; */
-    /* grid-row: 2; */; margin-bottom: 100px;5;; /* height: max-content; */; flex-direction: row;
-/* flex-direction: row; */flex-direction: roe;/* flex-direction: row; */}
+    /* grid-row: 2; */;
+    margin-bottom: 100px;
+    flex-direction: row;
+    /* flex-direction: row; */
+}
 
 .nav {
     /* text-transform: lowercase; */
     grid-column: 1;
-    margin: 0;padding-top: 0;display: flex;
+    margin: 0;
+    padding-top: 0;
+    display: flex;
 }
 
 .nav li {
@@ -126,7 +139,10 @@ strong {
     font-size: 90%;
 }
 
-article {grid-column: 2;font-size: 16px;/* column-count: 2; */}
+article {
+    grid-column: 2;
+    font-size: 16px; /* column-count: 2; */
+}
 
 article .wrapper {
     column-count: 1;
@@ -140,23 +156,33 @@ article h2 {
     margin-bottom: 0px;
     font-size: 130%;
     font-style: italic;
-    }
+}
 
 article p {
     /* word-break: break-all; */
-    margin-top: 0;line-height: 1.5;font-size: 100%;/* filter: invert(1); *//* opacity: 0.9; */
+    margin-top: 0;
+    line-height: 1.5;
+    font-size: 100%; /* filter: invert(1); *//* opacity: 0.9; */
 }
 
 footer {
     font-style: italic;
-    font-size: 80%;margin-top: 50px;
+    font-size: 80%;
+    margin-top: 50px;
 }
+
 footer span {
-    opacity: 0.5;   
+    opacity: 0.5;
 }
+
 footer a {
-    opacity: 0.7;   
+    opacity: 0.7;
 }
+
+footer div {
+    margin-top:10px;
+}
+
 
 .next {
     content: 'next';
@@ -187,7 +213,7 @@ blockquote {
     margin-inline-end: 0;
     padding: 20px 30px;
     background: hsla(4, 10%, 80%, 0.07);
-    margin: 25 0;
+    margin: 25px 0;
 }
 
 pre.highlight {
@@ -209,21 +235,23 @@ pre.highlight code {
 }
 
 
+header .items {
+    justify-self: flex-end;
+    margin-left: auto;
+}
 
-
-
-
-
-header .items {justify-self: flex-end;margin-left: auto; }
-
-header .items a {margin-left: 20px;font-size: 80%;}
+header .items a {
+    margin-left: 20px;
+    font-size: 80%;
+}
 
 .navbar-brand .light {
     font-weight: normal !important;
 }
- a:hover {
+
+a:hover {
     border-bottom: 2px solid hsla(4, 10%, 100%, 0.4);
- }
+}
 
 *::selection {
     background: hsla(4, 10%, 0%, 0.3);
@@ -251,7 +279,6 @@ header .items a {margin-left: 20px;font-size: 80%;}
 article img {
     margin: 30px;
 }
-
 
 
 :not(pre) > code {
@@ -293,20 +320,34 @@ article h2 {
     background-position: center;
 }
 
-.spotlight {display: grid;grid-template-columns: 1fr 1fr 1fr;grid-gap: 15px;margin-bottom: 70px;}
+.spotlight {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 15px;
+    margin-bottom: 70px;
+}
 
 
 .spotlight .item#illu-anim {
     background-image: url('/images/portfolio-icons/illu-anim.png');
 }
+
 .spotlight .item#timebased {
-    background-image: url('/images/portfolio-icons/timebased.png');background-size: contain;background-position: center;
+    background-image: url('/images/portfolio-icons/timebased.png');
+    background-size: cover;
+    background-position: center;
 }
+
 .spotlight .item#spatial {
-    background-image: url('/images/portfolio-icons/spatial-icon.png');background-size: contain;background-position: center;
+    background-image: url('/images/portfolio-icons/spatial-icon.png');
+    background-size: cover;
+    background-position: center;
 }
+
 .spotlight .item#ludwig {
-    background-image: url('/images/portfolio-icons/ludwig.png');background-size: contain;background-position: center;
+    background-image: url('/images/portfolio-icons/ludwig.png');
+    background-size: contain;
+    background-position: center;
 }
 
 @media (hover: hover) {
@@ -321,3 +362,48 @@ article h2 {
         grid-template-columns: 1fr 1fr;
     }
 }
+
+a {
+    cursor: pointer;
+}
+/* */
+/**
+ * Light mode
+ */
+html.light {
+    background: white;
+    --color: #333 !important;
+}
+
+html.light a {
+    color: var(--color);
+}
+
+html.light .month-year {
+    opacity: 0.8;
+}
+
+html.light .spotlight .item {
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+    border-top: 1px solid #eee;
+    border-bottom: 3px solid rgba(212, 212, 212, 0.86);
+}
+
+html.light a {
+    border-bottom: 2px solid hsla(4, 10%, 0%, 0.1);
+}
+
+html.light a:hover {
+    border-bottom: 2px solid hsla(4, 10%, 0%, 0.4);
+}
+
+html.light a:hover {
+    border-bottom: 2px solid hsla(4, 10%, 0%, 0.4);
+}
+
+html.light #switch-mode {
+    content: 'dark';
+}
+
+

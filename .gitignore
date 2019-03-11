@@ -3,3 +3,7 @@
 .DS_Store
 .sass-cache
 build/
+.idea/
+.idea/blog.iml
+.idea/blog.iml
+.idea/vcs.xml

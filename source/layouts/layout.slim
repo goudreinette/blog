@@ -7,6 +7,7 @@ html
     title= "#{current_page.data.title} | Rein van der Woerd"
     = stylesheet_link_tag "site"
   body.transparent
+    = javascript_include_tag "site"
     header
       a.navbar-brand href="/"
         | Rein 
@@ -20,4 +21,7 @@ html
   
   footer
     span Contact me by 
-    a href="mailto:reinvanderwoerd@me.com" email
+    a href="mailto:reinvanderwoerd@me.com" email 
+    div 
+      span Switch mode to 
+      a id="switch-mode" light 
