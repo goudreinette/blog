@@ -6,12 +6,22 @@ body, html, a {
     color: #333;
 }
 
+body {
+    max-width: 800px;
+}
+
 
 object {
     width: 50vw;
     max-width: 600px;
+    margin: auto;
+    display: flex;
 }
 
-object.cover {
+main img {
+    width: 100%;
+}
 
+#max {
+    margin-top: 100px;
 }
