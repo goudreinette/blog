@@ -1,0 +1,17 @@
+@import "./stylesheets/site.css";
+
+body, html, a {
+    background: white !important;
+    --color: #333 !important;
+    color: #333;
+}
+
+
+object {
+    width: 50vw;
+    max-width: 600px;
+}
+
+object.cover {
+
+}

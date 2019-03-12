@@ -366,7 +366,9 @@ article h2 {
 a {
     cursor: pointer;
 }
-/* */
+
+
+
 /**
  * Light mode
  */
@@ -407,3 +409,14 @@ html.light #switch-mode {
 }
 
 
+/**
+ * Fadeout
+ */
+html.fadeout body {
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.month-year:nth-child(2) {
+    margin-top: 2px;
+}
