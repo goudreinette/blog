@@ -5,7 +5,14 @@
       = yield
   footer class='index'
     .pager
-      - if prev_article
-        div class='next' = 'next'
-        a.prev href=prev_article.url
-          = "#{prev_article.title}"
+        div class='prev'
+          - if next_article
+            span = 'prev'
+            a.prev href=next_article.url
+              = "#{next_article.title}"
+        div class='next'
+          - if prev_article
+            span = 'next'
+            a.next href=prev_article.url
+              = "#{prev_article.title}"
+

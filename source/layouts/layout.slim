@@ -6,17 +6,17 @@ html
     link rel="icon" type="image/png" sizes="144x144" href="/images/favicon.png"
     title= "#{current_page.data.title} | Rein van der Woerd"
     = stylesheet_link_tag "site"
-  body.transparent
+    script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+    script src="https://cdnjs.cloudflare.com/ajax/libs/animsition/4.0.2/js/animsition.min.js"
+    link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animsition/4.0.2/css/animsition.min.css"
+  body.animsition
     = javascript_include_tag "site"
     header
-      a.navbar-brand href="/"
-        | Rein 
-        span.light
-          | van der Woerd
-        / section.items
-        /   = link_active 'Thoughts', '/index.html'
-        /   = link_active 'Portfolio', '/portfolio.html'
-        /   = link_active 'About', '/about.html'
+      section.items
+          = link_active 'Blog', '/index.html'
+          = link_active 'Projects', '/projects.html'
+          / = link_active 'About', '/about.html'
+
     .container
       = yield
   
@@ -25,4 +25,4 @@ html
     a href="mailto:reinvanderwoerd@me.com" email 
     div 
       span Switch mode to 
-      a id="switch-mode" light 
+      a id="switch-mode" light

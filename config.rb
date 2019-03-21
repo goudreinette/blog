@@ -2,10 +2,11 @@
 # https://middlemanapp.com/advanced/configuration/#configuring-extensions
 require 'stamp'
 
-# activate :autoprefixer do |prefix|
-#   prefix.browsers = "last 2 versions"
-# end
-#
+#activate :livereload
+#activate :autoprefixer do |prefix|
+ # prefix.browsers = "last 2 versions"
+#end
+
 
 # Markdown
 set :markdown_engine, :redcarpet
@@ -31,7 +32,7 @@ page '/*.json', layout: false
 page '/*.txt', layout: false
 
 # With alternative layout
-# page '/path/to/file.html', layout: 'other_layout'
+page 'bio/*.html', layout: 'bio'
 
 # Proxy pages
 # https://middlemanapp.com/advanced/dynamic-pages/
@@ -62,13 +63,13 @@ helpers do
   end
 
   def img_glob(folder)
-    Dir.glob("./source/articles/**-#{folder}/*.jpg").sort.map do |path|
-        linked_img(File.basename(path))
+    Dir.glob("./source/images/#{folder}/*.jpg").sort.map do |path|
+        linked_img("/images/#{folder}/#{File.basename(path)}")
     end.join
   end
 
   def linked_img(path)
-    "<a href='#{path}'><img src='#{path}'/></a>"
+    "<img src='#{path}'/>"
   end
 end
 

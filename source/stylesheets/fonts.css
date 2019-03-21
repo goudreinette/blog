@@ -1,4 +1,6 @@
-@import "../fonts/Brandon Text/stylesheet.css";
+/*@import "../fonts/Brandon Text/stylesheet.css";*/
+@import url("https://use.typekit.net/nop4ihw.css");
+
 
 @font-face {
     font-family: Fira Code;
@@ -13,3 +15,6 @@
 }
 
 
+
+
+code {}

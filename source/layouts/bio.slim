@@ -1,0 +1,29 @@
+html id='#{current_page.data.title&.downcase}'
+  head
+    meta charset="utf-8"
+    meta content="ie=edge" http-equiv="x-ua-compatible"
+    meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"
+    link rel="icon" type="image/png" sizes="144x144" href="/images/favicon.png"
+    title= "#{current_page.data.title} | Rein van der Woerd"
+    = stylesheet_link_tag "site"
+    = stylesheet_link_tag "bio"
+    script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+    script src="https://cdnjs.cloudflare.com/ajax/libs/animsition/4.0.2/js/animsition.min.js"
+    link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animsition/4.0.2/css/animsition.min.css"
+  body.animsition
+    / video autoplay="" playsinline="" muted="" loop="" src="../bio/images/artifact-covers-bg.mp4"
+    = javascript_include_tag "site"
+    = javascript_include_tag "particles.min"
+    = javascript_include_tag "bio"
+    / #particles
+    header
+      img#nav-trigger src="/images/glasses.svg"
+    nav#nav
+      a href="/bio/interaction.html" Interaction
+      a href="/bio/hacking-programming.html" Hacking - programming
+      a href="/bio/music.html" Music
+      a href="/bio/graphic-illustration.html" Graphic - illustration
+      a href="/bio/writing.html" Writing
+      a href="/bio/family-tree.html" Family tree
+    .container
+      = yield

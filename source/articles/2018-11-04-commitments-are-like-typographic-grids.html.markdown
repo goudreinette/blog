@@ -10,8 +10,8 @@ tags:
 I’ve been doing an [illustration challenge](http://presentation.reinvanderwoerd.nl) with a [friend](https://www.instagram.com/l__utka__l/) for about a month now. The commitment: to both make an illustration every day, based on a website-generated topic. After a while, we loosened the rules a bit, to keep it interesting and to try to steer the illustrations towards writing.
 
 
-![](../images/illustrations/week-grid.svg)
 
+<object type="image/svg+xml" data="/images/illustrations/week-grid.svg"></object>
 
 
 Thinking with Type says the following about grids:  
@@ -31,7 +31,7 @@ Too loose, and I find myself either split between the many ideas I could be exec
 
 Too strict, and making becomes painful and boring, and grinding rarely works as well as enthusiasm in design. It could also mean opportunity cost, when inspiration strikes elsewhere. I might just abandon it.
 
-![](../images/illustrations/bars.svg)
+<object type="image/svg+xml" data="/images/illustrations/bars.svg"></object>
 
 
 So, that’s a nuance I’m still seeking.

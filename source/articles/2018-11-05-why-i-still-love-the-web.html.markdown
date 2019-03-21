@@ -25,7 +25,7 @@ While pencils and diodes are scattered throughout these institutions (try-before
 
 > **Tip with stock vectors**: if the watermark hurts your eyes, Illustrator’s Image Trace is amazing
 
-![](../images/illustrations/crates.svg)
+<object type="image/svg+xml" data="/images/illustrations/crates.svg"></object>
 
 ## Experimentation is low-risk
 *Undo* and *duplicate* are features of all digital media, but software in particular benefits from a tradition of version control. Git is the norm, and it even works with SVG’s. Back in the real world, though it might just be my OCD, when I draw on paper, I prefer separate sheets. Throw away my mistakes, nothing is permanent. A neat sketchbook feels like a streak, which makes me anxious to put pencil to paper.
