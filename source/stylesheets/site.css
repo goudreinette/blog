@@ -15,7 +15,7 @@
    rgb(49, 44, 48); 
    rgb(16, 39, 54)
     */
-    --text-font: "brandon-grotesque";
+    --text-font: "Brandon Grotesque", "brandon-grotesque";
     --secondary-font: var(--text-font);
     /* --secondary-font: 'Brandon Grotesque'; */
     --code-font: 'Fira Code';
@@ -86,7 +86,7 @@ article li {
 }
 
 article li::before {
-    content: '\2022'; /* Unicode for ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ character */
+    content: '\2022'; /* Unicode for ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¢ character */
     position: absolute;
     left: -1em; /* Adjust this value so that it appears where you want. */
     top: -1px;
@@ -109,6 +109,7 @@ a.navbar-brand {
 header {
     display: flex;
     z-index: 3;
+    /* justify-content: center; */
     /* grid-column: 1; */
     /* grid-row: 2; */
     margin-bottom: 100px;
@@ -227,7 +228,7 @@ blockquote {
 }
 
 pre.highlight {
-    background: linear-gradient(transparent 100px, hsla(4, 0%, 80%, 0.05) calc(100vw - 200px), transparent 100px);
+    background: #ffffff05;
     padding: 20px;
     /* padding-left: calc(50vw - 600px / 2); */
 }
@@ -556,9 +557,10 @@ article object {
 /**
  * Spotlight
  */
-.item.spotlight-in {
+.spotlight-in {
     opacity: 0 !important;
     transform: translateY(50px);
+    transition: all .3s;
 }
 .spotlight .item {
     transition: all .3s;
@@ -614,7 +616,9 @@ html:not(.light) #bio-intro img {
 article img {
     position: relative;
     transition: all .3s !important;
+    width: 110%;
     border: 3px solid transparent;
+    left: -5%;
 }
 
 article img:hover {
@@ -627,6 +631,10 @@ article img.active {
     z-index: 3;
     position: relative;
 }
+
+ article.has-active img:not(.active) {
+     opacity: 0.1 !important;
+ }
 
 nav div {
     padding-left: 40;

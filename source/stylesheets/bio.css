@@ -1,6 +1,6 @@
 :root {
     background: var(--background) !important;
-    --background: #0e0e0e;
+    --background: #0a0a0a;
 }
 *, a {
     color: white !important;
@@ -23,7 +23,7 @@ body {
     /* display: grid; */
     max-width: 1000px;
     display: flex;
-    padding-bottom: 150px;
+    /* padding-bottom: 150px; */
     perspective: 1px;
     transition: all .3s;
     width: 100%;
@@ -62,10 +62,12 @@ html:not(.menu-open) nav {
 }
 
 nav {
+    
     transition: all 0.2s;
     position: fixed;
     width: 100vw;
-    font-size: 48px;
+    font-size: calc(28px + 1.1vw);
+
     /* overflow: scroll; */
     /* background: url(https://media.giphy.com/media/Yqn9tE2E00k4U/giphy.gif); */
     /* display: flex; */
@@ -87,6 +89,7 @@ nav {
 
 nav a {
     margin: 0 auto;
+    background: #000000bf;
     max-width: 1000px;
     /* font-family: NeuzeitGroTOT; */
     height: min-content;
@@ -99,6 +102,11 @@ nav a {
     margin-left: 15px;
     padding-right: 30px;
     border: none !important;
+    transition: all .1s;
+}
+
+nav a:first-child {
+    font-weight: bold;
 }
 
 nav a:hover {
@@ -107,6 +115,7 @@ nav a:hover {
     /* background-size: contain; */
     /* background: white; */
     color: black !important;
+    opacity: 1 !important;
     /* background-size: 10%; */
     /* background: url(/images/balls.gif); */
 }
@@ -154,7 +163,7 @@ body::before {
 @media(max-width: 600px) {
     .container {
             grid-template-columns:  1fr !important;
-
+            margin-top: 0;
     }
 }
 
@@ -176,7 +185,7 @@ section:first-of-type {
 
 img {
     width: 50%;
-    margin: a;
+    transition: opacity 0.1s;
 }
 
 pre.highlight code {
@@ -205,8 +214,11 @@ audio {
 section {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 100px;
-    margin-bottom: 75px;
+    grid-gap: 10vw;
+    margin-bottom: 10vh;
+    /* position: relative; */
+    /* left: 50%; */
+    /* margin-left: calc(-50vw); */
     /* background: black; */
 }
 
@@ -225,6 +237,7 @@ h2 {
     margin-bottom: 0;
     color: #72748c !important;
     padding-bottom: 5px;
+    padding-top: 0;
     padding-left: 0;
     /* width: 50%; */
     text-stroke: white;
@@ -238,7 +251,7 @@ section:nth-of-type(odd) aside {
 
 @media (max-width: 600px) {
     nav {
-        font-size: 36px;
+/*         font-size: 28px; */
         padding-left: 10px;
     }
 }
@@ -249,8 +262,7 @@ section:nth-of-type(odd) aside {
     background-color: black;
 }
 
-header {
-}
+header {/* align-items: center; *//* justify-content: space-between; */}
 
 #header-sketch h1 {
     font-size: 700%;
@@ -278,6 +290,9 @@ div#header-sketch {
      .container section * {
         order: unset !important;
     }
+    #header-sketch h1 {
+        font-size: 300%;
+    }
 
 }
 @media (max-width: 600px) {
@@ -286,14 +301,13 @@ div#header-sketch {
         padding-right: 50px;
     }
 
-    #header-sketch h1 {
-        font-size: 600%;
-    }
+  
 
 }
 
 p {
     margin-top: 0.5px;
+    margin-bottom: calc(5px + 3vh);
 }
 
 html.menu-open {
@@ -320,11 +334,17 @@ html#music:not(.menu-open) {
 }
 
 
-html#music h1 {
+html h1 {
    text-shadow:
 -1px -1px 0 var(--h1-stroke), 1px -1px 0 var(--h1-stroke), -1px 1px 0 var(--h1-stroke), 1px 1px 0 var(--h1-stroke)
  !important;
 }
+
+html#music h1 {
+   --h1-stroke: #9F5B69;
+}
+
+
 
 html#music h2 {
    color: #91ADA8 !important;
@@ -333,13 +353,47 @@ html#music h2 {
 
 html#music strong {
     color: #BC7864;
-    color: #6c93ab!important;
+    color: #6c93ab !important;
+}
+
+#header-sketch h1 {
+    --h1-stroke: white;
+
+}
+
+html#hacking-programming #header-sketch h1 {
+    --h1-stroke: #f1e2c0 ;
 }
 
 html#hacking-programming {
     --background: #282828 !important;
 }
+html#hacking-programming .container  {
+    color: #f1e2c0 !important;
+}
 
+
+
+html#graphic-illustration   {
+    --background: #0C2B35 !important;
+}
+
+
+
+html#writing   {
+    --background: #272821 !important;
+}
+
+html#writing #header-sketch h1 {
+    /* --h1-stroke: #92C916 !important; */
+    --h1-stroke: #956DD8;
+}
+
+
+
+html#interaction #header-sketch h1 {
+    --h1-stroke: white !important;
+}
 
 
 
@@ -365,4 +419,38 @@ audio::-webkit-media-controls-enclosure {
 
 
 
+}
+
+
+#graphic-illustration h1 {
+    /* --h1-stroke: #DC322F; */
+    --h1-stroke: #258BD2;
+}
+
+main {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+aside:hover img {
+    opacity: 1 !important;
+}
+
+nav a[href="/"] {
+    font-size: 50%;
+    opacity: 0.5;
+    margin-top: 2vh;
+}
+
+section.fullwidth {
+    position: relative;
+    left: 50%;
+    margin-left: calc(-50vw);
+}
+
+section.fullwidth .inner {
+    max-width: 1000px;
+    margin: auto;
+    width: 100vw;
 }

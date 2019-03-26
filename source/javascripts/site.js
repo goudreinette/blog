@@ -19,6 +19,7 @@ $(document).ready(function() {
         inDuration: 400,
         outDuration: 200,
         linkElement: 'a:not(#switch-mode)'
+
     });
 });
 
@@ -53,24 +54,35 @@ window.onload = function () {
 
     staggerFrom(".spotlight .item", 100, "spotlight-in")
 
+
+
+
     /**
      * Image gallery
      */
     $('article img').click(e => {
         var $activeImg = $('article img.active')
-
         if ($activeImg[0] == e.target) {
             $activeImg.removeClass('active')
+            $('article').removeClass('has-active')
         } else if (!$activeImg) {
             $(e.target).addClass('active')
+            $('article').addClass('has-active')
         } else if ($activeImg != $(e.target)) {
             $activeImg.removeClass('active')
             $(e.target).addClass('active')
+            $('article').addClass('has-active')
+        }
+    })
+
+
+    $('article').click(e => {
+        if (e.target == $('.cont')[0]) {
+            $('article img').removeClass('active')
+            $('article').removeClass('has-active')
         }
     })
 }
-
-
 
 
 
@@ -90,12 +102,43 @@ function staggerFrom(selector, duration, c) {
 }
 
 
-customElements.define('layout', class extends HTMLElement {
-    constructor () {
-        super()
-        const shadowRoot = this.attachShadow({ mode: "open" })
-        shadowRoot.innerHTML = `
+
+
+
+/**
+ * TESTEST
+
+ <img-gallery>
+ <p>Hello World</p>
+ </img-gallery>
+
+ */
+
+
+class MyInfoBox extends HTMLElement {
+    constructor() {
+        super();
+        const template = document.createElement('template');
+        template.innerHTML = `
+            <style>
+              :host {
+                display: block;
+                contain: content;
+                text-align: center;
+                background: papayawhip;
+                max-width: 500px;
+                margin: 0 auto;
+                box-shadow: 0 0 10px rgba(128, 100, 38, 0.34);
+                border-radius: 8px;
+                border: 2px dashed #ccc049;
+              }
+            </style>
             
-        `
+            <slot></slot>
+        `;
+        this.attachShadow({ mode: 'open' });
+        this.shadowRoot.appendChild(template.content.cloneNode(true));
     }
-})
+}
+
+window.customElements.define('img-gallery', MyInfoBox);
