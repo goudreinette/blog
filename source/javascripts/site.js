@@ -31,7 +31,10 @@ $(document).ready(function() {
 let mode = localStorage.getItem('mode') || 'dark'
 let otherMode = mode == 'dark' ? 'light' : 'dark'
 $html = document.body.parentNode
-$html.className = mode
+
+if (!location.pathname.includes('/bio')) {
+    $html.className = mode
+}
 
 
 window.onload = function () {
@@ -100,45 +103,3 @@ function staggerFrom(selector, duration, c) {
         }, (i + 1) * duration)
     }
 }
-
-
-
-
-
-/**
- * TESTEST
-
- <img-gallery>
- <p>Hello World</p>
- </img-gallery>
-
- */
-
-
-class MyInfoBox extends HTMLElement {
-    constructor() {
-        super();
-        const template = document.createElement('template');
-        template.innerHTML = `
-            <style>
-              :host {
-                display: block;
-                contain: content;
-                text-align: center;
-                background: papayawhip;
-                max-width: 500px;
-                margin: 0 auto;
-                box-shadow: 0 0 10px rgba(128, 100, 38, 0.34);
-                border-radius: 8px;
-                border: 2px dashed #ccc049;
-              }
-            </style>
-            
-            <slot></slot>
-        `;
-        this.attachShadow({ mode: 'open' });
-        this.shadowRoot.appendChild(template.content.cloneNode(true));
-    }
-}
-
-window.customElements.define('img-gallery', MyInfoBox);

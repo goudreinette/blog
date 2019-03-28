@@ -10,25 +10,25 @@ html id='#{current_page.data.title&.downcase}'
     = stylesheet_link_tag "bio"
     = stylesheet_link_tag "animsition.min"
     = javascript_include_tag "animsition.min"
-  body.animsition.animsition-bio
+  body.animsition.body
+    iframe id="subsite" src="" frameborder="0"
     = javascript_include_tag "site"
     = javascript_include_tag "bio"
     header
-      img#nav-trigger src="/images/glasses.svg"
-    nav#nav
-      .bio-story
-        - for l in data.menu.select {|m| m.story } do
-          a href=l.link class="story"
-              | #{l.name}
-              div.description=l.description
+      a href="/bio/"
+        img#nav-trigger src="/images/glasses.svg"
+    / nav#nav
+    /   .bio-story
+    /     - for l in data.menu.select {|m| m.story } do
 
-      .other
-        - for l in data.menu.select {|m| !m.story } do
-          a href=l.link #{l.name}
+    /
+    /   .other
+    /     - for l in data.menu.select {|m| !m.story } do
+    /       a href=l.link #{l.name}
     .container
       = yield
-      footer
-        - nextpage = data.menu[(data.menu.find_index{ |m| m.link == "/" + current_page.path } || 0 ) + 1]
-        a#next href="#{nextpage&.link}"
-          strong Next
-          span=nextpage&.name
+      / footer
+      /   - nextpage = data.menu[(data.menu.find_index{ |m| m.link == "/" + current_page.path } || 0 ) + 1]
+      /   a#next href="#{nextpage&.link}"
+      /     strong Next
+      /     span=nextpage&.name

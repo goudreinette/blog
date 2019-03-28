@@ -1,27 +1,46 @@
-<section id="start">
-</section>
 
 
-<section id="primaryschool"></section>
-<section id="secondaryschool" class="fullwidth" style="background: #33333359; min-height: 200px">
-    <div class="inner">
-        <h1 style="font-weight: bold">Secondary school</h1>
-    </div>
 
-</section>
-<section id="deltion"></section>
-<section id="landstede"></section>
-<section id="appademic"></section>
-<section id="hbo-ict"></section>
-<section id="minerva-ksenia"></section>
-<section id="interaction"></section>
+<link href="/bio/creative-engineer.css" rel="stylesheet" type="text/css"></link>
+
+<div class="container w-container"><h1 class="heading">a visual story of being: creative engineer
+     <a href="/bio/menu.html" id="glasses-link">
+        <img id="glasses" src="/bio/glasses/glasses.svg" width="150px">
+     </a>
+</h1>
+
+<!--    <img id="map" src="../../../Creative%20engineer/map.png">-->
+
+    <p class="paragraph">rein van der woerd<br>1997.359 — <a onmouseover="showMap"onmousemove="showMap" onmouseleave="hideMap()" href="">51.924730, 4.510490</a><br>
+        <a href="tel:0624175977">0624175977</a> </p></div>
 
 
-<style>
-    body {
-        overflow-x: hidden;
+    <style>
+        #map {
+            position: fixed;
+            width: 300px;
+            border-radius: 20px;
+            pointer-events: none
+        }
+        #glasses {
+            padding: 0 15;
+            display: inline-flex;
+            width: 160px;
+        }
+
+        #glasses-link {
+            border-bottom: none;
+        }
+
+        @media (max-width: 600px) {
+            #glasses {
+                padding-left: 0;
+                padding-top: 25px;
+                width: 130;
+            }
+        }
+
+    header {
+        display: none;
     }
-    section {
-        display: flex;
-    }
-</style>
+    </style>
