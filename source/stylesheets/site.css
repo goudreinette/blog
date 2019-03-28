@@ -360,6 +360,8 @@ article h2 {
     background-image: url('/images/portfolio-icons/ludwig.png');
     background-size: contain;
     background-position: center;
+    grid-column: 1 / span 2;
+    padding-bottom: 50%;
 }
 
 .spotlight .item#cap {

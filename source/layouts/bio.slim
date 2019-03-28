@@ -10,19 +10,25 @@ html id='#{current_page.data.title&.downcase}'
     = stylesheet_link_tag "bio"
     = stylesheet_link_tag "animsition.min"
     = javascript_include_tag "animsition.min"
-  body.animsition
+  body.animsition.animsition-bio
     = javascript_include_tag "site"
     = javascript_include_tag "bio"
     header
       img#nav-trigger src="/images/glasses.svg"
     nav#nav
-      a href="/bio/" Biography
-      a href="/bio/interaction.html" Interaction
-      / a href="/bio/hacking-programming.html" Hacking - programming
-      a href="/bio/music.html" Music
-      / a href="/bio/graphic-illustration.html" Graphic - illustration
-      / a href="/bio/writing.html" Writing
-      a href="/bio/family-tree.html" Family tree
-      a href="/" back to blog
+      .bio-story
+        - for l in data.menu.select {|m| m.story } do
+          a href=l.link class="story"
+              | #{l.name}
+              div.description=l.description
+
+      .other
+        - for l in data.menu.select {|m| !m.story } do
+          a href=l.link #{l.name}
     .container
       = yield
+      footer
+        - nextpage = data.menu[(data.menu.find_index{ |m| m.link == "/" + current_page.path } || 0 ) + 1]
+        a#next href="#{nextpage&.link}"
+          strong Next
+          span=nextpage&.name

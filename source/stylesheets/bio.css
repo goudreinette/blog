@@ -38,6 +38,7 @@ body {
 header #nav-trigger {
     z-index: 3;
     width: 75px;
+    /* padding-top: 25px; */
 }
 
 .menu-open .container {
@@ -62,12 +63,12 @@ html:not(.menu-open) nav {
 }
 
 nav {
-    
     transition: all 0.2s;
     position: fixed;
+    overflow: scroll;
+    display: flex;
     width: 100vw;
-    font-size: calc(28px + 1.1vw);
-
+    font-size: calc(26px + 0.5vw);
     /* overflow: scroll; */
     /* background: url(https://media.giphy.com/media/Yqn9tE2E00k4U/giphy.gif); */
     /* display: flex; */
@@ -81,9 +82,11 @@ nav {
     max-width: 1000px;
     display: flex;
     margin: auto;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
     opacity: 0;
+    padding-top: 21vh;
+    padding-bottom: 20vh;
     /* transform: translateZ(0.5px) scale(0.5); */
 }
 
@@ -92,11 +95,14 @@ nav a {
     background: #000000bf;
     max-width: 1000px;
     /* font-family: NeuzeitGroTOT; */
+    margin-left: 0 !important;
     height: min-content;
+    padding-left: 25px;
+    padding-bottom: 5px;
     width: max-content;
     text-transform: lowercase;
     background-size: 50%;
-    padding-left: 25px;
+    /* padding-left: 25px; */
     mix-blend-mode: difference;
     /* padding-top: 15px; */
     margin-left: 15px;
@@ -105,8 +111,13 @@ nav a {
     transition: all .1s;
 }
 
-nav a:first-child {
+nav a.story:first-child {
     font-weight: bold;
+    text-transform: uppercase;
+    padding-top: 6px;
+    font-size: 70%;
+    font-weight: bolder;
+    margin-bottom: 2vh !important;
 }
 
 nav a:hover {
@@ -164,6 +175,12 @@ body::before {
     .container {
             grid-template-columns:  1fr !important;
             margin-top: 0;
+    }
+}
+
+@media(max-width: 750px) {
+    nav {
+        flex-direction: column;   
     }
 }
 
@@ -262,7 +279,7 @@ section:nth-of-type(odd) aside {
     background-color: black;
 }
 
-header {/* align-items: center; *//* justify-content: space-between; */}
+header {/* align-items: center; *//* justify-content: space-between; *//* padding-top: 25px; */}
 
 #header-sketch h1 {
     font-size: 700%;
@@ -312,6 +329,7 @@ p {
 
 html.menu-open {
     --background: black !important;
+    overflow: hidden;
 }
 
 html {
@@ -446,11 +464,90 @@ nav a[href="/"] {
 section.fullwidth {
     position: relative;
     left: 50%;
+    display: flex;
     margin-left: calc(-50vw);
+    width: 100vw;
 }
 
 section.fullwidth .inner {
     max-width: 1000px;
     margin: auto;
     width: 100vw;
+}
+
+footer {
+    justify-content: center;
+    display: flex;
+    margin-top: 150px;
+    /* filter: invert(1); */
+    margin-bottom: 100px;
+}
+
+footer strong {
+    font-size: 250%;
+    color: white;
+    opacity: 1;
+    transition: all .3s;
+    font-style: normal;
+}
+
+footer a:hover {
+    opacity: 1;
+}
+
+footer a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 0;
+}
+
+footer a:hover {
+    border-bottom: 0;
+}
+
+nav a.story {display: flex;padding-left: 25px;/* padding-right: 0; */flex-direction: column;padding-bottom: 10px;}
+
+a.story .description {
+    font-size: 60%;
+    /* padding-left: 25px; */
+    opacity: 0.5;
+    font-weight: 00;
+    font-style: italic;
+    margin-top: -10;
+    padding-top: 0;
+    padding-bottom: 5px;
+}
+
+nav a .description {
+    padding: 0;
+}
+
+nav a:hover .description {
+    color: black !important;
+}
+
+#nav .other {
+    display: flex;
+    flex-direction: column;
+    padding-right: 50px;
+    padding-left: 15px;
+}
+
+nav .bio-story {
+    padding-left: 15;
+}
+
+a#next:hover span {
+    /* transform: translateY(-55px); */
+    /* font-size: 150%; */
+    /* opacity: 1; */
+}
+
+footer a#next:hover strong {
+    /* opacity: 0.2; */
+}
+
+a#next span {
+    transition: all .3s;
 }

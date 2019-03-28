@@ -36,7 +36,7 @@ function draw() {
         }
     }
 
-    if (!currentlyDrawing && rects.length == 0) {
+    if (rects.length == 0) {
         document.querySelector('#hint').classList.add('visible')
     } else {
         document.querySelector('#hint').classList.remove('visible')
@@ -77,9 +77,9 @@ function drawButton(x1,y1,x2,y2) {
     let w = x2 - x1
     let h = y2 - y1
 
-    rect(x1, y1, w, h, 20)
+    rect(x1, y1, w, h)
     textAlign(CENTER, CENTER)
-    textSize((w / 25)*(h / 25));
+    textSize((w / 50)*(h / 50) + 10);
     fill('white')
     noStroke()
     text("OK", (x1 + x2) / 2, (y1 + y2) / 2)
@@ -127,10 +127,24 @@ function windowResized() {
         font-size: 32px;
         pointer-events: none;
         transition: all .2s;
+        animation: pulse 1s infinite alternate;
     }
 
     #hint:not(.visible) {
-        opacity: 0;
+        opacity: 0 !important;
+        animation: none;
+
+    }
+
+    @keyframes pulse {
+        from {
+            opacity: 0.3;
+            transform: scale(1.2);
+        }
+        to {
+            opacity: 0.5;
+            transform: scale(1);
+        }
     }
 </style>
 

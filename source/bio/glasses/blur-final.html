@@ -1,8 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 249.44 76.84">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<body>
+<div class="blur"></div>
+<div class="sharp"></div>
+
+<!-- Generator: Adobe Illustrator 23.0.1, SVG Export Plug-In  -->
+<svg id="glasses" version="1.1" viewBox="0 0 249.44 76.84" xml:space="preserve">
+
     <defs>
-        <style>.cls-1{fill:#fff;}</style>
     </defs>
-    <title>glasses</title>
+   <clipPath id="myClip">
+            <ellipse cx="200" cy="200" rx="90" ry="71"></ellipse>
+           <ellipse cx="200" cy="200" rx="90" ry="71"></ellipse>
+    </clipPath>
     <g id="Layer_2" data-name="Layer 2">
         <g id="Layer_1-2" data-name="Layer 1">
             <path class="cls-1"
@@ -10,3 +21,67 @@
         </g>
     </g>
 </svg>
+
+<svg width="0" height="0">
+    <defs>
+
+    </defs>
+</svg>
+
+</body>
+
+<style>
+    * {
+        cursor: none;
+    }
+    
+    body {
+        margin: 0;
+    }
+
+    .blur, .sharp {
+        margin: 0;
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        background: url("./vintage-poster-oogmeting.png") no-repeat center;
+        background-size: contain;
+    }
+
+    .sharp {
+        z-index: 2;
+        clip-path: circle(100px at center);
+        transform: scale(1.02);
+    }
+
+    .blur {
+        filter: blur(10px);
+    }
+
+    #clippy, canvas {
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+    }
+
+    #glasses {
+        position: absolute;
+        width: 500px !important;
+        z-index: 2;
+    }
+
+    .st0 {
+        visibility: hidden;
+    }
+</style>
+
+
+<script>
+    function draw() {
+        $('.sharp')[0].style.clipPath = `url(#myClip)`
+        $('#myClip ellipse').attr('cy', mouseY)
+        $('#myClip ellipse:first-child').attr('cx', mouseX - 242)
+        $('#myClip ellipse:nth-child(2)').attr('cx', mouseX + 1)
+        $("#glasses").css({left: mouseX - 370, top: mouseY - 75})
+    }
+</script>
