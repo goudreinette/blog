@@ -11,12 +11,13 @@ html id='#{current_page.data.title&.downcase}'
     = stylesheet_link_tag "animsition.min"
     = javascript_include_tag "animsition.min"
   body.animsition.body
-    iframe id="subsite" src="" frameborder="0"
+    / iframe id="subsite" src="" frameborder="0"
     = javascript_include_tag "site"
     = javascript_include_tag "bio"
     header
       a href="/bio/"
-        img#nav-trigger src="/images/glasses.svg"
+      / div.breadcrumb
+        / | #{current_page.path}
     / nav#nav
     /   .bio-story
     /     - for l in data.menu.select {|m| m.story } do
@@ -25,7 +26,11 @@ html id='#{current_page.data.title&.downcase}'
     /   .other
     /     - for l in data.menu.select {|m| !m.story } do
     /       a href=l.link #{l.name}
+
+    - if current_page.path == "bio/index.html"
+      img id="next-arrow" src="/images/next.svg"
     .container
+      img#nav-trigger src="/bio/glasses/glasses.svg"
       = yield
       / footer
       /   - nextpage = data.menu[(data.menu.find_index{ |m| m.link == "/" + current_page.path } || 0 ) + 1]

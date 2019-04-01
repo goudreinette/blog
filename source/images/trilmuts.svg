@@ -5,14 +5,18 @@
         svg * {
             transition: all 0.15s !important;
         }
-        svg:not(:hover) * {
+        svg:hover * {
             animation: unset !important;
         }
-        svg:hover #Trilmuts {
+        svg:not(hover) #Trilmuts {
             opacity: 0;
         }
 
-        svg:not(:hover) #line-drawing,  svg:not(:hover) #line-drawing-2 {
+        svg:hover #Trilmuts {
+            opacity: 1;
+        }
+
+        svg:hover #line-drawing,  svg:hover #line-drawing-2 {
             opacity: 0;
         }
 

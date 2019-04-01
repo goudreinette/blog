@@ -18,7 +18,7 @@ $(document).ready(function() {
         outClass: 'out',
         inDuration: 400,
         outDuration: 200,
-        linkElement: 'a:not(#switch-mode)'
+        linkElement: 'a:not(#switch-mode):not(#expand):not(.tab)'
 
     });
 });
@@ -28,7 +28,7 @@ $(document).ready(function() {
 /**
  * Mode select
  */
-let mode = localStorage.getItem('mode') || 'dark'
+let mode = localStorage.getItem('mode') || 'light'
 let otherMode = mode == 'dark' ? 'light' : 'dark'
 $html = document.body.parentNode
 

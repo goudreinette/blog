@@ -1,0 +1,154 @@
+<div id="iframe-slider">
+    <a id="glasses" href="/bio">
+        <img src="/bio/glasses/glasses.svg">
+    </a>
+
+    <transition  v-for="l in links" name="list" mode="out-in" appear>
+        <iframe 
+            @focus="blur"
+            :key="l"
+            v-if="l == links[0]" 
+            :src="l" 
+            frameborder="0"
+        ></iframe>
+    </transition>
+
+    <img id="next-arrow" src="/images/next.svg" @click="next">
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+
+
+<script>
+    window.$vm = new Vue({
+        el: '#iframe-slider',
+        data: {
+            links: [
+                'http://reinvanderwoerd.nl/vibration-cap.html',
+                'http://experiments.reinvanderwoerd.nl/pico/climatesplit/game.html',
+                './pico-vid.html',
+                'http://test.hansvanderwoerd.eu/pastpresentfuture/',
+                'http://test.hansvanderwoerd.eu/',
+                'http://presentation.reinvanderwoerd.nl/',
+                'http://experiments.reinvanderwoerd.nl/wiki-crawl/',
+                'http://ludwiglive.nl/flood-animated/',
+                'http://experiments.reinvanderwoerd.nl/flagblender/',
+                'http://violino.reinvanderwoerd.nl/',
+                './dissolveintothecity.html',
+                'http://bithappy.reinvanderwoerd.nl/',
+                'http://experiments.reinvanderwoerd.nl/wind/wind.html',
+                'http://voetafdruk.reinvanderwoerd.nl',
+                'https://codepen.io/reinvdwoerd/full/RqywMN',
+                'http://biekabox.reinvanderwoerd.nl/',
+
+            ]
+        },
+
+        methods: {
+            blur(e) {
+                debugger
+                e.target.blur()
+            },
+
+            next() {
+                this.links.push(this.links.shift())
+            },
+            prev() {
+                this.links.unshift(this.links.pop())
+            }
+        }
+    })
+
+    window.onblur = function (e) {
+        console.log('blur')
+        document.body.focus()
+    }
+
+    // window.onkeydown = function (e) {
+    //     if (e.key == "ArrowRight") {
+    //         $vm.next()
+    //     }
+    //     if (e.key == "ArrowLeft") {
+    //         $vm.prev()
+    //     }
+    // }
+</script>
+
+
+
+<style>
+    body {
+        margin: 0;
+        background: black;
+    }
+
+    iframe, #iframe-slider {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    iframe {
+        background: white;
+    }
+
+    #glasses {
+        width: 130px;
+    }
+
+    #glasses img {
+        width: 130px;
+        mix-blend-mode: exclusion;
+        position: fixed;
+        left: 50px;
+        top: 50px;
+    }
+
+
+    .list-enter-active, .list-leave-active {
+        transition: all 0.8s;
+    }
+
+    .list-enter
+        /* .slide-fade-leave-active below version 2.1.8 */ {
+        transform: translateX(100vw) scale(0.6);
+        opacity: 0;
+    }
+
+
+    .list-leave-to {
+        transform: translateX(-100vw) scale(0.8);
+        opacity: 0;
+    }
+
+    #next-arrow {
+        position: fixed;
+        width: 100px;
+        top: 0;
+        bottom: 50px;
+        right: 50px;
+        margin: auto;
+        mix-blend-mode: exclusion;
+        filter: invert(1);
+        transition: all .2s;
+        cursor: pointer;
+        /*animation: rock 0.5s infinite alternate;*/
+    }
+
+
+    #prev-arrow {
+        position: fixed;
+        width: 100px;
+        top: 0;
+        bottom: 50px;
+        left: 25px;
+        margin: auto;
+        mix-blend-mode: exclusion;
+        transition: all .2s;
+        cursor: pointer;
+        transform: rotateZ(180deg);
+    }
+</style>
+
+
+
+
