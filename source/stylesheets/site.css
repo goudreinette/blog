@@ -8,14 +8,14 @@
 
 :root {
     --accent: rgb(136, 0, 0) !important;
-    background: hsla(217, 97%, 12%, 0.83);
+    background: hsla(217, 97%, 16%, 0.86);
 
     /* hsla(178, 0%, 5%, 0.83); */
     /*r
    rgb(49, 44, 48); 
    rgb(16, 39, 54)
     */
-    --text-font: "Brandon Grotesque", "brandon-grotesque";
+    --text-font: Brandon Grotesque;
     --secondary-font: var(--text-font);
     /* --secondary-font: 'Brandon Grotesque'; */
     --code-font: 'Fira Code';
@@ -86,7 +86,7 @@ article li {
 }
 
 article li::before {
-    content: '\2022'; /* Unicode for ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¢ character */
+    content: '\2022'; /* Unicode for ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ character */
     position: absolute;
     left: -1em; /* Adjust this value so that it appears where you want. */
     top: -1px;
@@ -146,6 +146,7 @@ h1 {}
 
 strong {
     /* font-size: 90%; */
+    font-weight: 500;
 }
 
 article {
@@ -159,22 +160,26 @@ article .wrapper {
 
 article h2 {
     /* text-transform: uppercase; */
-    font-weight: 900;
+    font-weight: 550;
     /* font-weight: 100; */
     margin-bottom: 0px;
-    font-size: 110%;
+    font-size: 100%;
     /* font-style: italic; */
 }
 
-article p {
+article p, article ul li {
     /* word-break: break-all; */
     margin-top: 0;
+    font-family: Brandon Text !important;
     line-height: 1.5;
-    font-size: 100%; /* filter: invert(1); *//* opacity: 0.9; */
+    font-size: 95%;
+    /* filter: invert(1); */
+    /* opacity: 0.9; */
 }
 
 footer {
-    font-style: italic;
+    opacity: 0.8;
+    /* font-style: italic; */
     font-size: 90%;
     margin-top: 50px;
 }
@@ -184,7 +189,7 @@ footer span {
 }
 
 footer a {
-    opacity: 0.7;
+    opacity: 0.8;
 }
 
 footer div {
@@ -258,8 +263,8 @@ header .items {
 
 header .items a {
     /* margin-left: 20px; */
-    /* font-size: 80%; */
-    font-weight: bold;
+    font-size: 100%;
+    font-weight: 500;
 }
 
 .navbar-brand .light {
@@ -452,7 +457,7 @@ html.light *::selection {
  */
 html.fadeout body {
     opacity: 0;
-    transition: opacity 0.5s;
+    /*transition: opacity 0.5s;*/
 }
 
 .month-year:nth-child(2) {
@@ -470,15 +475,6 @@ header .items a:not(.active) {
 li.post {
     /* display: flex; */
     margin-bottom: 10px;
-}
-
-/* after */
-html::after {
-    /* height: 100px; */
-    display: block;
-    margin-top: -50px;
-    content: " ";
-    /*     background: linear-gradient(transparent, #00000057); */
 }
 
 
@@ -665,3 +661,16 @@ a#view-bio {
 a#view-bio:hover {}
 
 img {}
+
+footer a:hover {
+    opacity: 1;
+}
+
+h3 {
+    font-size: 90%;
+}
+
+html.dark #bio-intro {
+    border: 1px solid hsla(0, 0%, 100%, 0.2);
+    border-width: 1px 0;
+}

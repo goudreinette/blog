@@ -22,34 +22,30 @@
 
 <div class="other" :class="activeTab">
 <template v-if="activeTab == 'biography'">
-    <p>
-        From an early age I've been obsessed with user interfaces. I remember sketching a drag & drop idea on a napkin
-        on a vacation to La Gomera, and rewatching the releases of the iPhone and iPad from my bed.
-    </p>
-    <p><strong>I am fascinated by the interaction between people’s minds and bodies and technology.</strong> Steve Jobs
-        once made the comment that a computer is like a bicycle for the mind: it can make you think further with less
+
+    <p><strong>I am fundamentally interested in the interaction between people’s minds and bodies and technology.</strong> Steve Jobs
+        once made the comment that a computer is like a <a style="display:inline;" href="https://www.youtube.com/watch?v=npqD602G90o">bicycle for the mind</a>: it can make you think further with less
         effort.
     </p>
 
     <img src="/images/working.jpg" alt="" style="margin-bottom: 30px;"/>
 
+    <p><strong>A computer can act as a dialogue partner for your brain. </strong>
+
+    </p>
 
     <p>
-        <strong>I am a perfectionist.</strong> I like to perfect small, neat, intuitive things, and that sometimes means
-        they turn out comically small. For the animation block at Minerva, some classmates made whole animated scenes. I
-        made a ‘scroll down’ arrow gif of a few frames. I question every addition, and when a minor effect makes a
-        website slow or too complicated, for example, I drop it.
-    </p>
-    <p><strong>A small creation reduced to essentials both inside and out is more satisfying to me than a larger but
-        messier one</strong>, though I admire the latter and try to steal what I can. Writing explanations/tutorials
+        <strong>I like to create small, neat, intuitive things</strong>, and that sometimes means
+        they turn out comically small. A small creation reduced to essentials both inside and out is more satisfying to me than a larger but
+        messier one, though I admire the latter and try to borrow what I can. Writing explanations/tutorials
         helps me with this, as every unnecessary line of code/design element removed is one that I don’t have to
         explain. With code, I aim for snippets that are immediately grokkable (and, ideally, copy-pasteable).</p>
-
 
     <p><strong>I am impatient.</strong> Speed is very important to me, both in final products and in the development
         process. I <em>love</em> interactive development, where I can immediately see the results of changing something.
         That’s not that different from artists and musicians, who can also step back from their canvas or replay a track
         at will. </p>
+
     <p>As a result, <strong>I care a lot about the ‘interaction design’ of creating digital products itself too</strong>.
         I try to resist the pull of improving design and development tools however, because they take more work than I
         can put in and I’d rather focus on making more human-centric products and combinations with other disciplines.
@@ -57,6 +53,8 @@
     <p><strong>Sometimes my love for speed of development and polishing conflict</strong>, as in the case of native vs
         web development. I desperately want smooth animation and a familiar feeling, but by the time I’ve sat through a
         day of compile-test cycles I’m already bored and ready to move onto the next idea.</p>
+
+    <img src="/images/cello-robot.jpg" alt=""/>
 </template>
 
 <template v-if="activeTab == 'data'">
@@ -87,11 +85,12 @@
             <a href="tel:0624175977" style="margin-bottom: 5px;">0624175977 </a> <a href="mailto:reinvanderwoerd@me.com">reinvanderwoerd@me.com</a>
         </p>
     </div>
+
 </template>
 
 <template v-if="activeTab == 'experiments'">
     <a href="//bitmeggle.herokuapp.com/text">
-        <video src="/images/bitmeggle.mp4" autoplay muted loop></video>
+        <video src="/images/bitmeggle.mp4" autoplay muted loop playsinline></video>
     </a>
 
     <a href="//remembrancepoemgen.herokuapp.com/">
@@ -99,10 +98,43 @@
     </a>
 
     <a href="/bio/glasses/blur-final.html">
-        <video src="/images/glasses.mp4" autoplay muted loop></video>
+        <video src="/images/glasses.mp4" autoplay muted loop playsinline></video>
     </a>
 
-    <video src="/images/Liechess.mp4" controls="controls"></video>
+<!--    <video src="/images/Liechess.mp4" controls="controls"></video>-->
+</template>
+
+<template v-if="activeTab == 'pico'">
+    <div class="grid" style="display: grid; grid-template-columns: 1fr 1fr; grid-gap: 10px;">
+        <div class="cart">
+            <video src="/images/pico/trumpland.mp4" muted autoplay playsinline loop></video>
+            <div class="name">Trumpland</div>
+        </div>
+        <div class="cart">
+            <video src="/images/pico/plines.mp4" muted autoplay playsinline loop></video>
+            <div class="name">Perspective lines</div>
+        </div>
+        <div class="cart">
+            <video src="/images/pico/cartphysics.mp4" muted autoplay playsinline loop></video>
+            <div class="name">Cart Physics</div>
+        </div>
+        <div class="cart">
+            <video src="/images/pico/knight.mp4" muted autoplay playsinline loop></video>
+            <div class="name">Knight</div>
+        </div>
+        <div class="cart">
+            <video src="/images/pico/peps.mp4" muted autoplay  playsinline loop></video>
+            <div class="name">Peps</div>
+        </div>
+        <div class="cart">
+            <video src="/images/pico/chromepants.mp4" muted autoplay playsinline loop></video>
+            <div class="name">Chrome Pants</div>
+        </div>
+        <div class="cart" style="grid-column: 1 / span 2">
+            <img src="/images/peps.jpeg" />
+            <div class="name">Communist Retrospective</div>
+        </div>
+    </div>
 </template>
 
 <template v-if="activeTab == 'music'">
@@ -114,7 +146,7 @@
 <!--        <aside style="order: 2;">-->
 <!--            <img id="boy" src="/images/boy.svg"/>-->
 <!--        </aside>-->
-        <p><strong>I’m not good with music, but that doesn’t stop me from playing with it. </strong></p>
+        <p><strong>I’m not good  a musician, but that doesn’t stop me from playing with it. </strong></p>
         <p>
             I burned my early Garageband
             songs
@@ -138,15 +170,28 @@
         </div>
 
 
-    <pre class="highlight">
-    <code>
+
+        <video src="/images/Liechess.mp4" controls="controls"></video>
+
+
+        <h2>LIECHJESS</h2>
+        <p>
+            Experiment: what would happen if you translated chess moves into melodies?
+        </p>
+
+
+        <img src="/images/pico_music.png" alt="" style="width: 50% !important; margin: auto; display: flex;"/>
+
+        <pre class="highlight" style="width: 80% !important; margin: auto;">
+            <code>
 for i=1,5 do
     poke(rnd(0x8000),rnd(0x100))
 end
-    </code>
-</pre>
+            </code>
+        </pre>
 
-            <audio src="/audio/Chipjazz.m4a" controls=""></audio>
+
+            <audio src="/audio/Chipjazz.m4a" controls="" style="width: 80%; margin: auto; display: flex;"></audio>
 
             <h2>CORRUPT MODE</h2>
             <p>
@@ -159,18 +204,18 @@ end
                 Pico allows arbitrary access to memory, and a fun trick is to flip a few random bits every frame. One
                 experiment
                 I
-                did was to use a jazz saxophone ‘cartridge’, Saxophight, together with this memory corruption technique,
+                did was to use a jazz saxophone ‘cartridge’, <a href="" style="display: inline">Saxophight</a>, together with this memory corruption technique,
                 reloading
                 as many times as I needed to recorded something that approaches interesting music.
             </p>
 
-            <a href="http://biekabox.reinvanderwoerd.nl/" style="border: none !important;">
-                <img src="/images/biekabox.png" style="width: 100%"/>
+            <a href="http://biekabox.reinvanderwoerd.nl/" style="border: none !important; width: 50%; margin: auto">
+                <img src="/images/biekabox.png" style="width: 100%%"/>
             </a>
 
 
             <h2>
-                <a href="http://biekabox.reinvanderwoerd.nl/" style="color: #D8A96B !important">
+                <a href="http://biekabox.reinvanderwoerd.nl/" >
                     BIEKABOX
                 </a>
             </h2>
@@ -178,23 +223,13 @@ end
                 My brother <i>is</i> good with music, however, and I like working together with him or helping him out
                 with software.
 
-                I helped make <a href="http://stephan.vdwoerd.com/">his website</a>, and even made a fake record player
+                I helped make <a href="http://stephan.vdwoerd.com/" style="display: inline !important;">his website</a>, and even made a fake record player
                 with moveable arm that gets it’s music from Soundcloud.
             </p>
 
 
-            <video src="/images/Liechess.mp4" controls="controls"></video>
-
-
-            <h2>LIECHJESS</h2>
-            <p>
-                Experiment: what would happen if you translated chess moves into melodies?
-            </p>
-        </main>
-    </section>
 </template>
-</div>
-        </div>
+</div></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
 
@@ -205,7 +240,11 @@ new Vue({
     el: '.menu',
     data: {
         tabs: [
-            'biography', 'data', 'experiments', 'music'
+            'biography',
+            'data',
+            'experiments',
+            'pico',
+            'music'
         ],
         activeTab: 'biography'
     }
@@ -243,6 +282,34 @@ a {
 
 .container {
     margin-top: 157px;
+}
+
+.p a {
+
+}
+
+
+/**
+ * Pico
+ */
+.cart {
+    position: relative;
+}
+
+.cart:not(:hover) .name {
+    opacity: 0;
+}
+
+.cart .name {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 120%;
 }
 </style>
 

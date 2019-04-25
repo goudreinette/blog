@@ -8,32 +8,14 @@ html id='#{current_page.data.title&.downcase}'
     = javascript_include_tag "jquery.min"
     = stylesheet_link_tag "site"
     = stylesheet_link_tag "bio"
-    = stylesheet_link_tag "animsition.min"
-    = javascript_include_tag "animsition.min"
-  body.animsition.body
-    / iframe id="subsite" src="" frameborder="0"
+    script src="https://cdnjs.cloudflare.com/ajax/libs/animsition/4.0.2/js/animsition.min.js"
+    link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animsition/4.0.2/css/animsition.min.css"
+  body
     = javascript_include_tag "site"
     = javascript_include_tag "bio"
-    header
-      a href="/bio/"
-      / div.breadcrumb
-        / | #{current_page.path}
-    / nav#nav
-    /   .bio-story
-    /     - for l in data.menu.select {|m| m.story } do
-
-    /
-    /   .other
-    /     - for l in data.menu.select {|m| !m.story } do
-    /       a href=l.link #{l.name}
 
     - if current_page.path == "bio/index.html"
       img id="next-arrow" src="/images/next.svg"
     .container
       img#nav-trigger src="/bio/glasses/glasses.svg"
       = yield
-      / footer
-      /   - nextpage = data.menu[(data.menu.find_index{ |m| m.link == "/" + current_page.path } || 0 ) + 1]
-      /   a#next href="#{nextpage&.link}"
-      /     strong Next
-      /     span=nextpage&.name

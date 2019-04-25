@@ -1,4 +1,4 @@
-html
+html.light
   head
     meta charset="utf-8"
     meta content="ie=edge" http-equiv="x-ua-compatible"
@@ -7,22 +7,17 @@ html
     title= "#{current_page.data.title} | Rein van der Woerd"
     = stylesheet_link_tag "site"
     script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
-    script src="https://cdnjs.cloudflare.com/ajax/libs/animsition/4.0.2/js/animsition.min.js"
-    link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animsition/4.0.2/css/animsition.min.css"
-  body.animsition
+  body
     = javascript_include_tag "site"
     header
       section.items
           = link_active 'Blog', '/index.html'
           = link_active 'Projects', '/projects.html'
-          / = link_active 'About', '/about.html'
-
+          = link_active 'Bio', '/bio.html'
     .container
       = yield
   
   footer
-    span Contact me by 
-    a href="mailto:reinvanderwoerd@me.com" email 
-    div 
-      span Switch mode to 
-      a id="switch-mode" light
+    a href="mailto:reinvanderwoerd@me.com" reinvanderwoerd@me.com
+    div
+      a href="tel:0624175977" 0624175977

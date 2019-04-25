@@ -1,19 +1,27 @@
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+
+
 <div id="iframe-slider">
     <a id="glasses" href="/bio">
         <img src="/bio/glasses/glasses.svg">
     </a>
 
-    <transition  v-for="l in links" name="list" mode="out-in" appear>
+    <transition v-for="(l, i) in links" name="list" mode="out-in" appear>
         <iframe 
             @focus="blur"
             :key="l"
-            v-if="l == links[0]" 
-            :src="l" 
+            v-if="l == links[current]"
+            :src="l"
             frameborder="0"
         ></iframe>
     </transition>
 
-    <img id="next-arrow" src="/images/next.svg" @click="next">
+    <div id="next-arrow" @click="next">
+        <img src="/images/next.svg">
+        <div id="index">
+            {{current + 1}} of {{links.length}}
+        </div>
+    </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
@@ -23,60 +31,53 @@
     window.$vm = new Vue({
         el: '#iframe-slider',
         data: {
+            current: 0,
             links: [
                 'http://reinvanderwoerd.nl/vibration-cap.html',
-                'http://experiments.reinvanderwoerd.nl/pico/climatesplit/game.html',
                 './pico-vid.html',
-                'http://test.hansvanderwoerd.eu/pastpresentfuture/',
+                'http://experiments.reinvanderwoerd.nl/pico/climatesplit/game.html',
                 'http://test.hansvanderwoerd.eu/',
-                'http://presentation.reinvanderwoerd.nl/',
-                'http://experiments.reinvanderwoerd.nl/wiki-crawl/',
+                'http://test.hansvanderwoerd.eu/pastpresentfuture/',
                 'http://ludwiglive.nl/flood-animated/',
+                './maangezicht-vid.html',
                 'http://experiments.reinvanderwoerd.nl/flagblender/',
-                'http://violino.reinvanderwoerd.nl/',
-                './dissolveintothecity.html',
-                'http://bithappy.reinvanderwoerd.nl/',
                 'http://experiments.reinvanderwoerd.nl/wind/wind.html',
-                'http://voetafdruk.reinvanderwoerd.nl',
+                'http://bithappy.reinvanderwoerd.nl/',
+                'http://presentation.reinvanderwoerd.nl/',
+                './dissolveintothecity.html',
+                'http://violino.reinvanderwoerd.nl/',
+                'http://experiments.reinvanderwoerd.nl/wiki-crawl/',
                 'https://codepen.io/reinvdwoerd/full/RqywMN',
-                'http://biekabox.reinvanderwoerd.nl/',
-
+                'http://voetafdruk.reinvanderwoerd.nl',
+                'http://biekabox.reinvanderwoerd.nl/'
             ]
         },
 
-        methods: {
-            blur(e) {
-                debugger
-                e.target.blur()
-            },
+        mounted() {
+            if (location.hash.length > 1) {
+                this.current = Number(location.hash.slice(1))
+            }
+        },
 
+        methods: {
             next() {
-                this.links.push(this.links.shift())
-            },
-            prev() {
-                this.links.unshift(this.links.pop())
+                if (this.current == this.links.length - 1) {
+                    this.current = 0
+                } else {
+                    this.current += 1
+                }
+
+                location.hash = this.current
             }
         }
     })
-
-    window.onblur = function (e) {
-        console.log('blur')
-        document.body.focus()
-    }
-
-    // window.onkeydown = function (e) {
-    //     if (e.key == "ArrowRight") {
-    //         $vm.next()
-    //     }
-    //     if (e.key == "ArrowLeft") {
-    //         $vm.prev()
-    //     }
-    // }
 </script>
 
 
 
 <style>
+    @import "/fonts/mabry/stylesheet.css";
+
     body {
         margin: 0;
         background: black;
@@ -108,8 +109,7 @@
         transition: all 0.8s;
     }
 
-    .list-enter
-        /* .slide-fade-leave-active below version 2.1.8 */ {
+    .list-enter {
         transform: translateX(100vw) scale(0.6);
         opacity: 0;
     }
@@ -131,21 +131,27 @@
         filter: invert(1);
         transition: all .2s;
         cursor: pointer;
-        /*animation: rock 0.5s infinite alternate;*/
+        height: min-content;
+        z-index: 999;
     }
 
 
-    #prev-arrow {
-        position: fixed;
-        width: 100px;
-        top: 0;
-        bottom: 50px;
-        left: 25px;
-        margin: auto;
-        mix-blend-mode: exclusion;
-        transition: all .2s;
-        cursor: pointer;
-        transform: rotateZ(180deg);
+    @media(max-width: 600px) {
+        #next-arrow {
+            position: fixed;
+            width: 100px;
+            bottom: 33px !important;
+            top: unset !important
+
+        }
+    }
+
+    #next-arrow #index {
+        text-align: right;
+        padding-right: 12px;
+        position: relative;
+        bottom: 10px;
+        font-family: Mabry Pro;
     }
 </style>
 

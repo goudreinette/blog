@@ -13,52 +13,42 @@ ga('send', 'pageview');
  * Animsition
  */
 $(document).ready(function() {
-    $(".animsition").animsition({
-        inClass: 'in',
-        outClass: 'out',
-        inDuration: 400,
-        outDuration: 200,
-        linkElement: 'a:not(#switch-mode):not(#expand):not(.tab)'
-
-    });
+    // $(".animsition").animsition({
+    //     inClass: 'in',
+    //     outClass: 'out',
+    //     inDuration: 400,
+    //     outDuration: 200,
+    //     linkElement: 'a:not(#switch-mode):not(#expand):not(.tab)'
+    //
+    // });
 });
 
 
 
-/**
- * Mode select
- */
-let mode = localStorage.getItem('mode') || 'light'
-let otherMode = mode == 'dark' ? 'light' : 'dark'
-$html = document.body.parentNode
+$(() => {
+    /**
+     * Mode select
+     */
+    let $html = document.body.parentNode
+    let today = new Date()
+    let mode = 'dark'
 
-if (!location.pathname.includes('/bio')) {
-    $html.className = mode
-}
+    if (today.getHours() > 8 && today.getHours() < 20) {
+        mode = 'light'
+    }
+
+    console.log(today.getHours())
+
+    if (!location.pathname.includes('/bio')) {
+        $html.className = mode
+    }
+})
+
 
 
 window.onload = function () {
-    $switchLink = document.querySelector('a#switch-mode')
-    $switchLink.innerText = otherMode
-    $switchLink.onclick = switchMode
-    $switchLink.ontouch = switchMode
-
-    function switchMode() {
-        // Swap 
-        var temp = otherMode
-        otherMode = mode
-        mode = temp
-
-        // Set
-        localStorage.setItem('mode', mode)
-        $html.className = mode
-        $switchLink.innerText = otherMode
-    }
 
     staggerFrom(".spotlight .item", 100, "spotlight-in")
-
-
-
 
     /**
      * Image gallery
