@@ -1,20 +1,46 @@
 ---
-title: 'Blog'
 ---
 
 = stylesheet_link_tag "index"
 
 #bio-intro
   img src="/images/portrait-small.png"
-  .text
-      h1 Interactive Biography
-      i Work in progress
-      a#view-bio href="/bio" View
-ul.post-list
-  - blog.articles.group_by {|a| a.date.stamp('july 2017') }.each do |month_year, articles|
-    li
-      .month-year = month_year
-      ul
-        - articles.each do |article|
-          li.post
-            a href="#{article.url}" = article.title
+  h1 Rein van der Woerd
+  .quote
+    |  “Fundamentally interested in the interaction between human minds and bodies and technology. ”
+  a href="/bio.html" read more
+
+.right
+  section
+    .heading
+      h3 Projects
+      a href="/bio/highlights.html" view highlights
+
+    section.spotlight
+      a.item#highlights href="/bio/highlights.html"
+      a.item#ludwig href="/ludwig.html"
+      / a.item#cap href="/vibration-cap.html"
+      a.item#climatesplit href="/pico.html"
+      a.item#illu-anim href="http://presentation.reinvanderwoerd.nl/"
+      a.item#timebased href="http://presentation.reinvanderwoerd.nl/timebased/"
+    / section.spotlight
+
+      / a.item#spatial href="http://presentation.reinvanderwoerd.nl/spatial/keynote.html"
+
+    / h2.month-year Commissions
+
+
+  section
+    .heading
+      h3 Blog
+      a full archive
+
+
+  ul.post-list
+    - blog.articles.group_by {|a| a.date.stamp('2017') }.each do |month_year, articles|
+      li
+        .month-year = month_year
+        ul
+          - articles.each do |article|
+            li.post
+              a href="#{article.url}" = article.title
