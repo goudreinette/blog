@@ -1,0 +1,68 @@
+# Projects ---
+projects:
+  Maangezicht:
+    year: 2018
+    tech: SceneKit
+    client: Ludwig
+
+  Past Present Future:
+    year: 2018
+    tech: Web
+    client: Ludwig
+
+  Typose:
+    year: 2019
+    tech: Web
+
+  Recercare:
+    client: Hans van der Woerd
+    tech: Wordpress
+
+  Communist Retrospective:
+    client: Antonia Oana
+    tech: Pico-8
+
+  Trumpland:
+    tech: Pico-8
+
+  The Peaceful Atom:
+    tech: ARKit
+    client: Academie Minerva
+
+  Flagblender:
+    tech: Web
+
+  Trilmuts:
+    tech: Arduino
+
+  Climate Split:
+    tech: Pico-8
+
+  Codehanger:
+    tech: Arduino
+    client: Academie Minerva
+
+
+
+# Taxonomies ---
+clients:
+  - Ludwig
+  - Side-project
+  - Hans van der Woerd
+  - Antonia Oana
+  - Academie Minerva
+
+technologies:
+  - Pico-8
+  - Wordpress
+  - SceneKit
+  - ARKit
+  - Web
+  - Node-RED
+  - Arduino
+
+
+years:
+  - 2019
+  - 2018
+
