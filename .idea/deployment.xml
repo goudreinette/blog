@@ -5,7 +5,7 @@
       <paths name="blog">
         <serverdata>
           <mappings>
-            <mapping deploy="/" local="$PROJECT_DIR$/source" web="" />
+            <mapping deploy="/" local="$PROJECT_DIR$/build" web="" />
           </mappings>
         </serverdata>
       </paths>

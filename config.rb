@@ -35,6 +35,8 @@ page '/*.txt', layout: false
 page 'bio/*.html', layout: 'bio'
 
 page "/catalog-index.html", :layout => nil
+page "/catalog-index-calafate.html", :layout => nil
+page "/catalog-index-blur.html", :layout => nil
 
 # Proxy pages
 # https://middlemanapp.com/advanced/dynamic-pages/

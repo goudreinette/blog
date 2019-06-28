@@ -1,5 +1,4 @@
 
-@import url("https://use.typekit.net/dui6dqy.css");
 
 * {
     box-sizing: border-box;
@@ -34,12 +33,15 @@
  */
 #index {
     width: 100%;
-    grid-column: 2;
+    /* grid-column: 2; */
 }
 
 #index .content {
-    column-count: 4;
-    column-gap: 30px;
+    /*column-count: 4;*/
+    /*column-gap: 30px;*/
+    grid-gap: 10px 0;
+    display: grid;
+    grid-template-columns: 2.5fr 1fr 1fr 0.5fr;
 }
 
 
@@ -61,8 +63,8 @@
     color: var(--page-txt-color, var(--txt-color));
 }
 
-#index a.hidden, #index a.hidden + br {
-    display: none;
+#index a.hidden, #index a.hidden + br, #blog a.hidden {
+    opacity: 0.1;
 }
 
 
@@ -72,17 +74,30 @@
 }
 
 
-/* Light */
-#index a:hover {
-    background: rgba(0, 0, 0, 0.1);
+a:hover {
+    background: black;
+    color: white !important;
 }
 
-#index a.project.highlight {
-    background: rgba(255, 0, 0, 0.2);
+/*
+|--------------------------------------------------------------------------
+| link hover/references
+|--------------------------------------------------------------------------
+|
+*/
+#index a.highlight {
+    background: rgba(255, 63, 67, 0.3);
+    opacity: 1 !important;
 }
 
-#index a.highlight-term {
-    background: rgba(0, 0, 255, 0.2);
+#blog a.highlight {
+    background: rgba(255, 63, 67, 0.15);
+}
+
+
+a.highlight-term {
+    background: rgba(90, 178, 255, 0.4);
+    opacity: 1 !important;
 }
 
 #index a:hover {
@@ -114,14 +129,26 @@
     }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 750px) {
     #index .content{
-        column-count: 1;
+        grid-template-columns: 1fr 1fr !important;
+    }
+
+    ul.content {
+        column-count: 3 !important;
     }
 }
 
-@media (max-width: 780px) {
+@media (max-width: 550px) {
+
+    #index a.hidden, #index a.hidden + br {
+        display: none;
+    }
+
     .container {
+        grid-template-columns: 1fr !important;
+    }
+    #index .content {
         grid-template-columns: 1fr !important;
     }
 
@@ -132,6 +159,31 @@
     #index .content{
         column-count: 1;
     }
+
+    header #preview {
+        display: none;
+    }
+
+    ul.content {
+        column-count: 2 !important;
+    }
+}
+
+@media (max-width: 400px) {
+    nav span {
+        display: flex;
+        position: absolute;
+    }
+
+    ul.content {
+        column-count: 1 !important;
+    }
+}
+
+@media (hover: none) {
+    header #preview {
+        display: none;
+    }
 }
 
 body {
@@ -140,24 +192,24 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 150px;
+    /* padding-bottom: 150px; */
 }
 
 /**
  * Direct children have max-width
  */
-nav, .container, footer {
-    max-width: 1500px;
+nav, .container, .inner {
+    max-width: 1300px;
     padding: calc(20px + 2vh) calc(20px + 5vw);
     width: 100vw;
     margin: auto;
 }
 
 .container {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
+    /* display: grid; */
+    /* grid-template-columns: 1fr; */
     grid-gap: 0 20px;
-    margin-top: 60vh;
+    margin-top: 85vh;
 }
 
 header {
@@ -166,20 +218,25 @@ header {
     animation: gradient 30s ease infinite;
     height: 100vh;
     width: 100vw;
-    z-index: -1;
-    position: fixed;
+    /* height: 75vh; */
+    display: flex;
+    /* z-index: -1; */
+    justify-content: center;
+    position: absolute;
     transition: opacity .5s;
+    /* align-items: center; */
+    /*flex-direction: column;*/
 }
 
 body:not(.header-fade-away) {
-    color: white;
+    /* color: white; */
 }
 body:not(.header-fade-away) .container {
-    opacity: .2;
+    /* opacity: .2; */
 }
 
 .header-fade-away header{
-    opacity: 0;
+    opacity: 0.035;
 }
 
 @keyframes gradient {
@@ -192,7 +249,7 @@ nav {
     font-size: 20px;
     color: white;
     font-weight: 300;
-
+    z-index: 1;
 }
 
 a {
@@ -212,11 +269,15 @@ a {
 */
 footer  {
     margin-top: 50px;
+    width: 100vw;
+    padding-bottom: 150px;
+    background: #eeeeee59;
 }
 
 footer h2{
     margin-bottom: 5px;
     margin-top: 50px;
+    font-size: 1.2em;
 }
 
 footer a  {
@@ -230,4 +291,134 @@ footer a  {
 
 #index h2:first-child {
     margin-top: 0;
+}
+
+
+#index h1 {
+    font-size: 1.5em;
+    position: relative;
+    color: white;
+    top: -80px;
+    margin-bottom: -30px;
+    mix-blend-mode: hard-light;
+    /* mix-blend-mode: exclusion; */
+}
+
+
+.header-fade-away h1 {
+    color: black;
+}
+
+
+#recent a {
+    font-weight: 100 !important;
+    color: white;
+    font-size: 130%;
+    opacity: 0.2;
+    display: flex;
+    margin-bottom: 10px;
+    width: max-content;
+}
+
+#recent a:hover, #recent a.active  {
+    opacity: 1;
+    background: none;
+}
+
+
+#preview {
+    width: 400px;
+}
+
+
+header .inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+header iframe {
+    width: 100vw;
+    height: 100%;
+    transition: opacity 2s;
+}
+
+header iframe.hidden {
+    opacity: 0;
+}
+
+
+h1 #count {
+    font-weight: 100;
+    border: 1px solid currentColor;
+    font-size: 12px;
+    border-radius: 5px 5px 5px 5px;
+    padding: 0 6px 1px 7px;
+    position: relative;
+    bottom: 3px;
+    left: 15px;
+    /*     opacity: 0.7; */
+}
+
+.header-fade-away h1 {
+    color: black !important;
+}
+
+h1 {
+    font-size: 1.5em;
+    /* margin-top: 50px; */
+}
+
+ul.content {
+    column-count: 4;
+    list-style: none;
+    padding: 0;
+    column-gap: 0;
+}
+}
+
+li.post {
+    padding-right: 10px !important;
+    display: flex;
+}
+
+li.post {
+    padding-right: 20px;
+    /* display: inline-flex; */
+    /* flex-direction: column; */
+    /* margin-bottom: 10px; */
+}
+
+
+#blog span.date {
+    opacity: .3;
+    font-size: 80%;
+    /* margin-bottom: -5px; */
+}
+
+.post a:hover  span {
+    opacity: .6;
+}
+
+#index .column:not(:first-child) {
+    /* text-align: right; */
+}
+
+.column:first-child {
+    /* column-count: 2; */
+}
+
+.post a {
+    /* display: grid; */
+    line-height: 1.15;
+    display: inline !important;
+}
+
+#index .column:first-child div {
+    column-count: 2;
+}
+
+h1:not(:first-child) {
+    margin-top: calc(20px + 6vh);
 }

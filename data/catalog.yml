@@ -9,21 +9,36 @@ projects:
     year: 2018
     tech: Web
     client: Ludwig
+    href: 'https://ludwiglive.nl/pastpresentfuture/'
+
+  Verdronken Land:
+    tech: Web
+    client: Ludwig
+
+  Summon Coegi:
+    tech: Arduino
+    client: Academie Minerva
+
+  Gun n' Bass:
+    tech: Unity
+    year: 2015
+
 
   Typose:
-    year: 2019
     tech: Web
+    href: 'https://reinvdwoerd.github.io/reinvdwoerd/typose/index.html'
 
   Recercare:
     client: Hans van der Woerd
     tech: Wordpress
 
-  Communist Retrospective:
+  The Golden Era:
     client: Antonia Oana
     tech: Pico-8
 
   Trumpland:
     tech: Pico-8
+    year: 2018
 
   The Peaceful Atom:
     tech: ARKit
@@ -31,6 +46,7 @@ projects:
 
   Flagblender:
     tech: Web
+    href: 'http://experiments.reinvanderwoerd.nl/flagblender/'
 
   Trilmuts:
     tech: Arduino
@@ -42,15 +58,98 @@ projects:
     tech: Arduino
     client: Academie Minerva
 
+  Buku:
+    tech: Laravel
+    client: Appademic
+    year: 2016
+
+  Pico-8 handheld:
+    tech: Pico-8
+    href: '/thoughts/2019/02/25/pico-8-mini-console-with-raspberry-pi-zero'
+
+  Alfred CDN.js:
+    tech: Alfred
+    href: 'https://github.com/reinvdwoerd/alfred-cdnjs'
+
+  Fontpack: {}
+
+  Biekabox:
+    tech: Web
+    client: Stephan van der Woerd
+    year: 2018
+    href: 'http://stephan.vdwoerd.com/biekabox/'
+
+  ABC:
+    client: Academie Minerva
+    tech: Web
+
+  Violino printer:
+    client: Michiel Teeuw
+    href: 'http://experiments.reinvanderwoerd.nl/violino/printer.html'
+    tech: Web
+
+  Parkeergarage:
+    client: HBO-ICT
+    tech: Java
+
+  Napkin:
+    href: ''
+    tech: Web
+
+  Caltrack:
+    href: ''
+    year: 2018
+    tech: Web
+
+  Aandacht!:
+    href: ''
+    year: 2018
+    tech: iOS
+
+  Audience-In:
+    year: 2018
+
+  Voetafdruk:
+    year: 2018
+    client: ikcirculeer
+    tech: Web
+
+  Doge Chat:
+    year: 2017
+    href: ''
+    tech: Web
+
+  Remembrance Poem Gen:
+    year: 2017
+    href: ''
+    tech: Web
+
+  Morse Vibrator:
+    year: 2019
+    tech: Arduino
+
+  Bitmeggle:
+    year: 2018
+    tech: Web
+
+  Boomkast:
+    year: 2017
+    tech: Raspberry Pi
 
 
 # Taxonomies ---
 clients:
-  - Ludwig
-  - Side-project
-  - Hans van der Woerd
-  - Antonia Oana
-  - Academie Minerva
+  Ludwig: '/ludwig.html'
+  Side-project: ''
+  Hans van der Woerd: ''
+  Antonia Oana: ''
+  Academie Minerva: ''
+  HBO-ICT: ''
+  Appademic: ''
+  Stephan van der Woerd: ''
+  Michiel Teeuw: ''
+  ikcirculeer: ''
+
 
 technologies:
   - Pico-8
@@ -60,9 +159,23 @@ technologies:
   - Web
   - Node-RED
   - Arduino
+  - Laravel
+  - iOS
+  - Java
+  - Unity
+  - Raspberry Pi
 
 
 years:
   - 2019
   - 2018
+  - 2017
+  - 2016
+  - 2015
+  - 2014
+  - 2013
+  - 2012
+  - 2011
+  - 2010
+
 
