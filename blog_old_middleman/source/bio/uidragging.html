@@ -1,0 +1,153 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.min.js"></script>
+
+<script>
+let rects = []
+let currentlyDrawing
+let startX, startY
+let currentType
+
+function setup() {
+    createCanvas(innerWidth, 500)
+}
+
+function draw() {
+    clear()
+
+    drawGrid()
+
+
+    if (currentlyDrawing) {
+        noFill()
+        stroke('white')
+        if (currentType == 'window') {
+            drawWindow(startX, startY, mouseX, mouseY)
+        } else if (currentType == "button") {
+            drawButton(startX, startY, mouseX, mouseY)
+        }
+    }
+
+    for (const r of rects) {
+        stroke('white')
+        fill('hsla(0,0%,100%, 0.1)')
+        if (r.type == 'window') {
+            drawWindow(r.startX, r.startY, r.endX, r.endY)
+        } else if (r.type == "button") {
+            drawButton(r.startX, r.startY, r.endX, r.endY)
+        }
+    }
+
+    if (rects.length == 0) {
+        document.querySelector('#hint').classList.add('visible')
+    } else {
+        document.querySelector('#hint').classList.remove('visible')
+    }
+}
+
+function mousePressed() {
+    currentlyDrawing = true
+    currentType = random(["window", "button"])
+    startX = mouseX
+    startY = mouseY
+}
+
+function mouseReleased() {
+    rects.push({
+        startX, startY,
+        endX: mouseX, endY: mouseY,
+        type: currentType
+    })
+
+    currentlyDrawing = false
+    currentType = null
+    startX = null
+    startY = null
+}
+
+
+function drawWindow(x1, y1, x2, y2) {
+    let w = x2 - x1
+    let h = y2 - y1
+
+    rect(x1, y1, w, h)
+    rect(x1, y1, w, constrain(h, 0, 35))
+}
+
+
+function drawButton(x1,y1,x2,y2) {
+    let w = x2 - x1
+    let h = y2 - y1
+
+    rect(x1, y1, w, h)
+    textAlign(CENTER, CENTER)
+    textSize((w / 50)*(h / 50) + 10);
+    fill('white')
+    noStroke()
+    text("OK", (x1 + x2) / 2, (y1 + y2) / 2)
+    // rect(x1, y1, w, constrain(h, 0, 35))
+}
+
+function drawGrid() {
+    for (let x = 0; x < innerWidth; x+= 100) {
+        for (let y = 0; y < innerHeight; y+= 100) {
+            fill('#ffffff26')
+            noStroke()
+            ellipse(x, y, 5, 5)
+        }
+    }
+}
+
+function windowResized() {
+    resizeCanvas(innerWidth, innerHeight)
+}
+</script>
+
+
+<style>
+    body {
+        background: #2A2A2A;
+        margin: 0;
+        overflow: hidden;
+        cursor: crosshair;
+    }
+
+    #hint {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: max-content;
+        height: max-content;
+        margin: auto;
+        top: 0;
+        vertical-align: middle;
+        right: 0;
+        color: white;
+        opacity: 0.3;
+        font-family: "Brandon Grotesque","brandon-grotesque";
+        font-style: italic;
+        font-size: 32px;
+        pointer-events: none;
+        transition: all .2s;
+        animation: pulse 1s infinite alternate;
+    }
+
+    #hint:not(.visible) {
+        opacity: 0 !important;
+        animation: none;
+
+    }
+
+    @keyframes pulse {
+        from {
+            opacity: 0.3;
+            transform: scale(1.2);
+        }
+        to {
+            opacity: 0.5;
+            transform: scale(1);
+        }
+    }
+</style>
+
+<div id="hint">
+    Click and drag to draw
+</div>

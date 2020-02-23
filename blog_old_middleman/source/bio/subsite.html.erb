@@ -1,0 +1,25 @@
+<nav>
+
+</nav>
+
+
+<script>
+    window.onload = function () {
+        document.querySelector('#subsite').setAttribute('src', location.hash.slice(1))
+        document.querySelector('#nav-trigger').setAttribute('src', '')
+    }
+
+
+</script>
+
+<style>
+    #subsite {
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        display: flex;
+    }
+body{
+    overflow: hidden;
+}
+</style>

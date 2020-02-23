@@ -1,0 +1,135 @@
+<link rel="stylesheet" href="/stylesheets/noise.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.min.js"></script>
+
+
+<link href="/bio/creative-engineer.css" rel="stylesheet" type="text/css"></link>
+
+
+<div id="left">
+    <h1 class="heading">
+        fundamentally <br/>
+        interested in <br/>
+        the interaction <br/>
+        between people's <br/>
+<!--        huuuman ? pep? -->
+        minds, bodies and <br/>
+        technology
+    </h1>
+
+    <p class="paragraph">rein van der woerd<br>1997.359  |  <a href="">51.924730, 4.510490
+    </a>  |  <a href="tel:0624175977">0624175977 </a></p>
+
+
+    <a href="/bio/menu.html" id="glasses-link">
+        <img id="glasses" src="/bio/glasses/glasses.svg" width="150px">
+    </a>
+</div>
+
+<video src="/images/worry.mp4" autoplay loop muted="muted" style="width: 700px"></video>
+
+
+<style>
+#formstructuredata {
+    width: calc(140px + 15vw);
+}
+
+video {
+    width: 60vw !important;
+    max-width: 500px !important;
+}
+
+
+*, a {
+    color: black !important;
+}
+
+body {
+    background-color: white !important;
+}
+
+h1.heading {
+    font-weight: 300 !important;
+    line-height: 0.9 !important;
+    font-size: calc(40px + 1.0vw) !important;
+    line-height: 1.1 !important;
+}
+
+canvas {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+}
+
+#map {
+    position: fixed;
+    width: 300px;
+    border-radius: 20px;
+    pointer-events: none
+}
+
+#glasses {
+    padding: 0;
+    display: inline-flex;
+    width: 130px;
+    filter: invert(1);
+    margin-top: 20px;
+}
+#glasses-link {
+    border-bottom: none;
+}
+
+.container {
+    display: grid;
+    grid-template-rows: 1fr;
+}
+
+#left, #right {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#left * {
+    grid-column: 1;
+    font-family: "Mabry Pro";
+    color: black !important;
+}
+
+#right {
+    grid-column: 2;
+}
+
+
+@media (max-width: 600px) {
+    #glasses {
+        padding-left: 0;
+        padding-top: 25px;
+        width: 130;
+    }
+
+    .container {
+        grid-template-columns: 1fr;
+        grid-gap: 0;
+    }
+
+    #left {
+        order: 2;
+    }
+
+    video {
+        order: 1;
+        margin: auto;
+    }
+
+
+}
+
+#nav-trigger {
+    display: none;
+}
+</style>
+
+
+
+

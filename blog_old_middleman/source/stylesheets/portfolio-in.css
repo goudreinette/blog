@@ -1,0 +1,481 @@
+
+.spotlight .item:nth-child(1) {
+    animation: in-1 0.5s;
+    animation-delay: 0.125s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes in-1 {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.spotlight .item:nth-child(2) {
+    animation: in-2 0.5s;
+    animation-delay: 0.25s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes in-2 {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.spotlight .item:nth-child(3) {
+    animation: in-3 0.5s;
+    animation-delay: 0.375s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes in-3 {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.spotlight .item:nth-child(4) {
+    animation: in-4 0.5s;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes in-4 {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.spotlight .item:nth-child(5) {
+    animation: in-5 0.5s;
+    animation-delay: 0.625s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes in-5 {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.spotlight .item:nth-child(6) {
+    animation: in-6 0.5s;
+    animation-delay: 0.75s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes in-6 {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.spotlight .item:nth-child(7) {
+    animation: in-7 0.5s;
+    animation-delay: 0.875s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes in-7 {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.spotlight .item:nth-child(8) {
+    animation: in-8 0.5s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes in-8 {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.spotlight .item:nth-child(9) {
+    animation: in-9 0.5s;
+    animation-delay: 1.125s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes in-9 {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.spotlight .item:nth-child(10) {
+    animation: in-10 0.5s;
+    animation-delay: 1.25s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes in-10 {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.spotlight .item:nth-child(11) {
+    animation: in-11 0.5s;
+    animation-delay: 1.375s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes in-11 {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.spotlight .item:nth-child(12) {
+    animation: in-12 0.5s;
+    animation-delay: 1.5s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes in-12 {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.spotlight .item:nth-child(13) {
+    animation: in-13 0.5s;
+    animation-delay: 1.625s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes in-13 {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.spotlight .item:nth-child(14) {
+    animation: in-14 0.5s;
+    animation-delay: 1.75s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes in-14 {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.spotlight .item:nth-child(15) {
+    animation: in-15 0.5s;
+    animation-delay: 1.875s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes in-15 {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.spotlight .item:nth-child(16) {
+    animation: in-16 0.5s;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes in-16 {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.spotlight .item:nth-child(17) {
+    animation: in-17 0.5s;
+    animation-delay: 2.125s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes in-17 {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.spotlight .item:nth-child(18) {
+    animation: in-18 0.5s;
+    animation-delay: 2.25s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes in-18 {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.spotlight .item:nth-child(19) {
+    animation: in-19 0.5s;
+    animation-delay: 2.375s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes in-19 {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.spotlight .item:nth-child(20) {
+    animation: in-20 0.5s;
+    animation-delay: 2.5s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes in-20 {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.spotlight .item:nth-child(21) {
+    animation: in-21 0.5s;
+    animation-delay: 2.625s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes in-21 {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.spotlight .item:nth-child(22) {
+    animation: in-22 0.5s;
+    animation-delay: 2.75s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes in-22 {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.spotlight .item:nth-child(23) {
+    animation: in-23 0.5s;
+    animation-delay: 2.875s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes in-23 {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.spotlight .item:nth-child(24) {
+    animation: in-24 0.5s;
+    animation-delay: 3s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes in-24 {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.spotlight .item:nth-child(25) {
+    animation: in-25 0.5s;
+    animation-delay: 3.125s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes in-25 {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.spotlight .item:nth-child(26) {
+    animation: in-26 0.5s;
+    animation-delay: 3.25s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes in-26 {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.spotlight .item:nth-child(27) {
+    animation: in-27 0.5s;
+    animation-delay: 3.375s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes in-27 {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.spotlight .item:nth-child(28) {
+    animation: in-28 0.5s;
+    animation-delay: 3.5s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes in-28 {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.spotlight .item:nth-child(29) {
+    animation: in-29 0.5s;
+    animation-delay: 3.625s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes in-29 {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.spotlight .item:nth-child(30) {
+    animation: in-30 0.5s;
+    animation-delay: 3.75s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes in-30 {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

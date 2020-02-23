@@ -1,0 +1,19 @@
+/*@import "../fonts/Brandon Text/stylesheet.css";*/
+@import url("https://use.typekit.net/nop4ihw.css");
+
+
+@font-face {
+    font-family: Fira Code;
+    font-weight: normal;
+    src: url('../fonts/FiraCode-Regular.woff');
+}
+
+@font-face {
+    font-family: Fira Code;
+    font-weight: bold;
+    src: url('../fonts/FiraCode-Medium.woff');
+}
+
+
+
+

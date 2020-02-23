@@ -1,0 +1,32 @@
+html.light
+  head
+    meta charset="utf-8"
+    meta content="ie=edge" http-equiv="x-ua-compatible"
+    meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"
+    link rel="icon" type="image/png" sizes="144x144" href="/images/favicon.png"
+    title=  current_page.data.title  ? "#{current_page.data.title} | Rein van der Woerd" : "Rein van der Woerd"
+    = stylesheet_link_tag "site"
+    script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+  body
+    = javascript_include_tag "site"
+    header
+      - if current_page.path != 'index.html'
+        a href="/"
+          img width="100px" src="/images/glasses-black.svg"
+    / header
+    /   section.items
+    /       = link_active 'Blog', '/index.html'
+    /       = link_active 'Projects', '/projects.html'
+    /       = link_active 'Bio', '/bio.html'
+    .container
+      = yield
+  
+  footer
+    div
+      / a href="tel:0624175977" 0624175977
+      / span.sep
+      a href="mailto:reinvanderwoerd@me.com" reinvanderwoerd@me.com
+    div
+      a href="https://www.instagram.com/reinvanderwoerd/" Instagram
+      span.sep
+      a href="https://github.com/reinvdwoerd" Github

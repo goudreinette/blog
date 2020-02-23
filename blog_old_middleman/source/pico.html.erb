@@ -1,0 +1,95 @@
+<h1>
+    Pico-8
+</h1>
+
+
+<p></p>
+
+<div class="grid" style="display: grid; grid-template-columns: 1fr 1fr; grid-gap: 10px;">
+<div class="cart">
+    <video src="/images/pico/trumpland.mp4" muted autoplay playsinline loop></video>
+    <div class="name">Trumpland</div>
+</div>
+<div class="cart">
+    <video src="/images/pico/plines.mp4" muted autoplay playsinline loop></video>
+    <div class="name">Perspective lines</div>
+</div>
+<div class="cart">
+    <video src="/images/pico/cartphysics.mp4" muted autoplay playsinline loop></video>
+    <div class="name">Cart Physics</div>
+</div>
+<div class="cart">
+    <video src="/images/pico/knight.mp4" muted autoplay playsinline loop></video>
+    <div class="name">Knight</div>
+</div>
+<div class="cart">
+    <video src="/images/pico/peps.mp4" muted autoplay  playsinline loop></video>
+    <div class="name">Peps</div>
+</div>
+<div class="cart">
+    <video src="/images/pico/chromepants.mp4" muted autoplay playsinline loop></video>
+    <div class="name">Chrome Pants</div>
+</div>
+<div class="cart" style="grid-column: 1 / span 2">
+    <img src="/images/peps.jpeg" />
+    <div class="name">Communist Retrospective</div>
+</div>
+
+<style>
+html.light, html {
+    background-color:  black !important;
+    --color: white !important;
+    color: white !important;
+}
+
+.container img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 50px;
+}
+video {
+    width: 100%;
+    /*margin-top: 50px;*/
+}
+a {
+    border-bottom: 0px !important;
+}
+
+h2 {
+    margin-top: 100px;
+}
+
+p {
+    opacity: 0.8;
+}
+
+header a img {
+    filter: invert(1);
+}
+
+
+/**
+ * Pico
+ */
+.cart {
+    position: relative;
+}
+
+.cart:not(:hover) .name {
+    opacity: 0;
+}
+
+.cart .name {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 120%;
+}
+
+</style>

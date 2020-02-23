@@ -1,0 +1,160 @@
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+
+
+<div id="iframe-slider">
+    <a id="glasses" href="/bio">
+        <img src="/bio/glasses/glasses.svg">
+    </a>
+
+    <transition v-for="(l, i) in links" name="list" mode="out-in" appear>
+        <iframe 
+            @focus="blur"
+            :key="l"
+            v-if="l == links[current]"
+            :src="l"
+            frameborder="0"
+        ></iframe>
+    </transition>
+
+    <div id="next-arrow" @click="next">
+        <img src="/images/next.svg">
+        <div id="index">
+            {{current + 1}} of {{links.length}}
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+
+
+<script>
+    window.$vm = new Vue({
+        el: '#iframe-slider',
+        data: {
+            current: 0,
+            links: [
+                'http://reinvanderwoerd.nl/vibration-cap.html',
+                './pico-vid.html',
+                'http://experiments.reinvanderwoerd.nl/pico/climatesplit/game.html',
+                'http://test.hansvanderwoerd.eu/',
+                'http://test.hansvanderwoerd.eu/pastpresentfuture/',
+                'http://ludwiglive.nl/flood-animated/',
+                './maangezicht-vid.html',
+                'http://experiments.reinvanderwoerd.nl/flagblender/',
+                'http://experiments.reinvanderwoerd.nl/wind/wind.html',
+                'http://bithappy.reinvanderwoerd.nl/',
+                'http://presentation.reinvanderwoerd.nl/',
+                './dissolveintothecity.html',
+                'http://violino.reinvanderwoerd.nl/',
+                'http://experiments.reinvanderwoerd.nl/wiki-crawl/',
+                'https://codepen.io/reinvdwoerd/full/RqywMN',
+                'http://voetafdruk.reinvanderwoerd.nl',
+                'http://biekabox.reinvanderwoerd.nl/'
+            ]
+        },
+
+        mounted() {
+            if (location.hash.length > 1) {
+                this.current = Number(location.hash.slice(1))
+            }
+        },
+
+        methods: {
+            next() {
+                if (this.current == this.links.length - 1) {
+                    this.current = 0
+                } else {
+                    this.current += 1
+                }
+
+                location.hash = this.current
+            }
+        }
+    })
+</script>
+
+
+
+<style>
+    @import "/fonts/mabry/stylesheet.css";
+
+    body {
+        margin: 0;
+        background: black;
+    }
+
+    iframe, #iframe-slider {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    iframe {
+        background: white;
+    }
+
+    #glasses {
+        width: 130px;
+    }
+
+    #glasses img {
+        width: 130px;
+        mix-blend-mode: exclusion;
+        position: fixed;
+        left: 50px;
+        top: 50px;
+    }
+
+
+    .list-enter-active, .list-leave-active {
+        transition: all 0.8s;
+    }
+
+    .list-enter {
+        transform: translateX(100vw) scale(0.6);
+        opacity: 0;
+    }
+
+
+    .list-leave-to {
+        transform: translateX(-100vw) scale(0.8);
+        opacity: 0;
+    }
+
+    #next-arrow {
+        position: fixed;
+        width: 100px;
+        top: 0;
+        bottom: 50px;
+        right: 50px;
+        margin: auto;
+        mix-blend-mode: exclusion;
+        filter: invert(1);
+        transition: all .2s;
+        cursor: pointer;
+        height: min-content;
+        z-index: 999;
+    }
+
+
+    @media(max-width: 600px) {
+        #next-arrow {
+            position: fixed;
+            width: 100px;
+            bottom: 33px !important;
+            top: unset !important
+
+        }
+    }
+
+    #next-arrow #index {
+        text-align: right;
+        padding-right: 12px;
+        position: relative;
+        bottom: 10px;
+        font-family: Mabry Pro;
+    }
+</style>
+
+
+
+
