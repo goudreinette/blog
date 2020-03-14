@@ -2,13 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f971f3c0-123c-423a-a67d-9cca3baa25be" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Neue Plak Regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shader.frag" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shader.vert" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/new/UntitledSansTest-Bold.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/new/shaders/helix.frag" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/new/shaders/squares-in-circle.frag" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/new/shaders/stars.frag" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Neue Plak Regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/new/Neue Plak Regular.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog_old_middleman/data/catalog.yml" beforeDir="false" afterPath="$PROJECT_DIR$/blog_old_middleman/data/catalog.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/new/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/new/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shader.frag" beforeDir="false" afterPath="$PROJECT_DIR$/new/shaders/shader.frag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shader.vert" beforeDir="false" afterPath="$PROJECT_DIR$/new/shaders/shader.vert" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/new/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,8 +47,13 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/new" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -53,12 +63,15 @@
     <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.web.browsers" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/new" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/source" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/new" />
+      <recent name="$PROJECT_DIR$/shaders" />
+      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="ServiceViewManager">
@@ -85,8 +98,18 @@
       <updated>1572121690805</updated>
       <workItem from="1572121695753" duration="29000" />
       <workItem from="1572121911513" duration="446000" />
-      <workItem from="1582475357107" duration="5930000" />
+      <workItem from="1582475357107" duration="9567000" />
+      <workItem from="1582489906026" duration="1130000" />
+      <workItem from="1582491483495" duration="4647000" />
     </task>
+    <task id="LOCAL-00001" summary="Shader homepage">
+      <created>1582481893746</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1582481893746</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -105,15 +128,31 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Shader homepage" />
+    <option name="LAST_COMMIT_MESSAGE" value="Shader homepage" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="31" y="27" width="1306" height="798" key="#Deployment" timestamp="1582487452801">
+      <screen x="0" y="23" width="1680" height="979" />
+    </state>
+    <state x="31" y="27" width="1306" height="798" key="#Deployment/0.23.1680.979@0.23.1680.979" timestamp="1582487452801" />
     <state x="158" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1582478163239">
       <screen x="0" y="23" width="1680" height="979" />
     </state>
     <state x="158" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1680.979@0.23.1680.979" timestamp="1582478163239" />
+    <state x="3" y="112" key="CommitChangelistDialog2" timestamp="1582481893516">
+      <screen x="0" y="23" width="1680" height="979" />
+    </state>
+    <state x="3" y="112" key="CommitChangelistDialog2/0.23.1680.979@0.23.1680.979" timestamp="1582481893516" />
     <state x="0" y="151" key="SettingsEditor" timestamp="1582475395232">
       <screen x="0" y="23" width="1680" height="979" />
     </state>
     <state x="0" y="151" key="SettingsEditor/0.23.1680.979@0.23.1680.979" timestamp="1582475395232" />
+    <state x="590" y="163" width="448" height="645" key="ftp.server.browser" timestamp="1582487451419">
+      <screen x="0" y="23" width="1680" height="979" />
+    </state>
+    <state x="590" y="163" width="448" height="645" key="ftp.server.browser/0.23.1680.979@0.23.1680.979" timestamp="1582487451419" />
     <state x="257" y="238" width="670" height="676" key="search.everywhere.popup" timestamp="1582478427183">
       <screen x="0" y="23" width="1680" height="979" />
     </state>
